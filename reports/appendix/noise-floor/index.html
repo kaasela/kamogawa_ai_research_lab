@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>付録：ノイズフロアの測定方法と分類基準｜Kääselä</title>
+<meta name="description" content="同一クエリを20回反復した場合の引用元のばらつき（ノイズフロア）の測定方法、事前登記した判定閾値、引用元6分類の定義。Kääselä Monthly Report 全号から共通参照する固定付録。">
+<link rel="canonical" href="https://kaasela.com/reports/appendix/noise-floor/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="付録：ノイズフロアの測定方法と分類基準">
+<meta property="og:url" content="https://kaasela.com/reports/appendix/noise-floor/">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "付録：ノイズフロアの測定方法と分類基準",
+  "description": "同一クエリを20回反復した場合の引用元のばらつき（ノイズフロア）の測定方法、事前登記した判定閾値、引用元6分類の定義。",
+  "datePublished": "2026-08-02",
+  "dateModified": "2026-08-02",
+  "inLanguage": "ja",
+  "url": "https://kaasela.com/reports/appendix/noise-floor/",
+  "mainEntityOfPage": "https://kaasela.com/reports/appendix/noise-floor/",
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
+  "author": { "@id": "https://kaasela.com/#organization" },
+  "publisher": { "@id": "https://kaasela.com/#organization" }
+}
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/">
+      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
+      <span>Kamogawa AI Search Lab</span>
+    </a>
+    <nav><a href="/reports/">調査レポート</a><a href="/#contact">ご連絡</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <h1>付録：ノイズフロアの測定方法と分類基準</h1>
+    <p class="lede">Kääselä Monthly Report 全号から共通参照する固定付録。個別号の本文では方法論を再掲せず、このページにリンクする。</p>
+    <p class="meta">初出：2026年8月2日（Monthly Report #000）｜ 恒久掲載・改訂時はこのページ内に履歴を残す</p>
+
+    <h2>1. なぜノイズフロアを測るのか</h2>
+    <p>生成AIは、同じ質問をしても毎回同じ答えを返すとは限らない。ある月の観測で「AIの引用が変わった」ように見えても、それが実際の変化なのか、単なる生成のゆらぎなのかは、ゆらぎの大きさを知らなければ判断できない。</p>
+    <p>本調査では、この「ゆらぎの大きさ」を先に実測し、月次の差分を読む際の基準線として使う。1回の観測（n=1）で「AIはこう言う」と断定する商用ツールとの違いは、この基準線を自分たちで測り、公開している点にある。</p>
+
+    <h2>2. 測定方法</h2>
+    <p>各クエリを同一条件（ChatGPT・GPT-5.5・Web版・一時チャット／ログアウト状態・キーワード型・京都市で実行）で20回（n=20）連続実行し、回ごとに引用された情報源ドメインの集合を記録した。</p>
+    <p>2回の実行間で引用元集合がどれだけ重なるかを、Jaccard係数（重なる集合 ÷ 合わせた集合の大きさ）で表した。1.0に近いほど毎回同じ情報源が引用され、0に近いほど毎回入れ替わる。</p>
+
+    <h2>3. 12セルのノイズフロア（Jaccard係数）</h2>
+    <table>
+      <thead><tr><th></th><th class="c">日本語</th><th class="c">英語</th><th class="c">簡体中文</th><th class="c">繁体中文</th></tr></thead>
+      <tbody>
+        <tr><td>茶道</td><td class="c">0.25</td><td class="c">0.20</td><td class="c">0.31</td><td class="c">0.25</td></tr>
+        <tr><td>着物</td><td class="c">0.41</td><td class="c">0.16</td><td class="c">0.15</td><td class="c">0.11</td></tr>
+        <tr><td>座禅</td><td class="c">0.35</td><td class="c">0.40</td><td class="c">0.22</td><td class="c">0.23</td></tr>
+      </tbody>
+    </table>
+    <p>最も分散が大きいのは着物・繁体中文（0.11）で、自社サイトが多数の店に分散しているため。最も安定しているのは座禅・英語（0.40）で、少数の寺院サイトに引用が集中しているためである。</p>
+    <p>日本語・英語の茶道（0.247／0.204）は、外部研究（Green et al.）が報告した値（0.265）と近い水準となった。これは独立に行った本調査のノイズフロアが、他の観測とも整合することを示す一つの傍証である。</p>
+    <p>ノイズフロアはカテゴリ・言語によって異なる。単一の閾値をすべてのセルに当てはめることはできない。</p>
+
+    <h2>4. 判定閾値の事前登記</h2>
+    <p>bootstrap法により、引用元の種別構成比（本指標）は n=20 の観測で95%区間 ±約10ポイントとなることを確認した。2時点間の比較では、約14ポイント以上の変動があった場合に「信号」として扱う。</p>
+    <p>この閾値は、第1号（2026年9月）の観測を開始する前に確定・登記したものであり、以後変更しない。観測結果を見てから閾値を調整することは、事前登記の意味を損なうため行わない。</p>
+    <p>個々の事業者の出現率は、種別構成比よりもばらつきが大きく（±約18〜22ポイント）、月次では頭部グループの集中度のみを評価対象とする。</p>
+
+    <h2>5. 引用元6分類の定義</h2>
+    <table>
+      <thead><tr><th>種別</th><th>定義</th></tr></thead>
+      <tbody>
+        <tr><td>公共</td><td>自治体・観光協会・公的団体・公立文化施設</td></tr>
+        <tr><td>自社</td><td>事業者・寺院・個人ガイド本人が運営し、自サイトで予約が完了する</td></tr>
+        <tr><td>OTA</td><td>他者の在庫を束ね、自サイトで予約が完了する第三者プラットフォーム</td></tr>
+        <tr><td>メディア</td><td>自サイトでは予約できず、外部へ誘導する編集コンテンツ（アフィリエイトを含む）</td></tr>
+        <tr><td>ディレクトリ</td><td>横断集約型・無手数料の目録</td></tr>
+        <tr><td>UGC</td><td>利用者投稿</td></tr>
+      </tbody>
+    </table>
+    <p>判定基準は、ドメイン自身の主要機能で定める。回答内での使われ方では定めない。アフィリエイトの有無は種別を決めず、別フラグとして記録する。</p>
+
+    <h2>6. 方法論の限界</h2>
+    <p><strong>限界一：候補プール非開示。</strong>本調査は ChatGPT の通常UIでの手動観測に基づく。AIが検索・参照した候補ページ群（グラウンディング・プール）と、最終的に回答へ引用されたページ（citation）は別の層であり、UIでの観測は後者のみを捉える。候補プールに対する各事業者の選択率・棄却率は測定不能であり、観測できるのは n 回の試行における出現頻度のみである。この区別を欠いた「選択率」という語の使用は避け、本調査では一貫して「出現率」と表記する。</p>
+    <p><strong>限界二：再現性の定義。</strong>本調査における再現性は、逐語的な一致ではなく、統計的な分布の一致を意味する。生成的なランダム性（n=20で対応）、エンジンのバージョン変化、アカウント・地域・パーソナライゼーションの差異により、同一手順でも個別試行の結果は一致しない可能性がある。再現性の主張は「同一時間窓・同一エンジンバージョン・個人化を排除した条件下で、統計的に一致する分布が得られること」に限定される。</p>
+
+    <hr>
+    <p><em>本ページは Kääselä（Kamogawa AI Search Lab）の個人研究プロジェクトの一部です。データはCC BY 4.0で無償公開しており、販売は行いません。</em></p>
+
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
+    <p>Kamogawa AI Search Lab</p>
+    <p>京都市 ｜ kamogawa.ai.lab@gmail.com</p>
+  </div>
+</footer>
+
+<script src="/assets/site.js" defer></script>
+
+</body>
+</html>
