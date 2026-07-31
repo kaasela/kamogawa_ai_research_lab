@@ -138,6 +138,10 @@ a.L1-name:hover{color:var(--ink);}
 .L1-h1{font-size:clamp(27px,3.8vw,40px);line-height:1.4;margin:0 0 var(--s3);
   letter-spacing:.01em;max-width:19em;}
 .L1-lede{font-size:16px;color:var(--sub);margin:0;max-width:32em;line-height:1.8;}
+.L1-lede + .L1-lede{margin-top:var(--s3);}
+/* 継続観測そのものが差別化要因。第一屏で言い切る一句 */
+.L1-creed{font-size:17px;line-height:1.75;color:var(--ink);margin:var(--s4) 0 0;
+  padding-left:var(--s3);border-left:2px solid var(--river);max-width:28em;}
 
 /* Current Focus — 毎月書き換える。状態語は4つだけ */
 .L1-focus{margin:var(--s6) 0 0;padding-top:var(--s3);
@@ -205,8 +209,17 @@ a.L1-name:hover{color:var(--ink);}
 .L1-pct{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
   font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;
   margin-top:3px;padding-left:14px;letter-spacing:-.02em;}
-.L1-cap{font-size:12px;color:var(--faint);line-height:1.75;margin-top:var(--s3);
+/* 注釈は3つに分けて置く。一続きの長文は読まれない */
+.L1-cap{font-size:12px;color:var(--faint);line-height:1.7;margin-top:var(--s3);
   padding-top:9px;border-top:1px solid var(--rule-1);max-width:46em;}
+.L1-cap dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:var(--s1) var(--s3);align-items:baseline;}
+.L1-cap dt{color:var(--sub);white-space:nowrap;}
+.L1-cap dd{margin:0;}
+.L1-caveat{margin:var(--s2) 0 0;}
+/* 2位との差。首位を確定として扱えないセルにだけ出る */
+.L1-gap{display:block;font-size:11px;color:var(--faint);
+  padding-left:14px;line-height:1.5;margin-top:1px;}
 
 /* 書庫 — reports/index.html 用。首頁には置かない。
    首頁の仕事は「ここは何をしている場所か」であって文書の取り出しではない。

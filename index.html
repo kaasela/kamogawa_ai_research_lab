@@ -116,10 +116,17 @@
     <div>
       <h1 class="L1-h1 jp">あなたの店は、顧客の言語でどう伝わっているか。</h1>
       <p class="L1-lede">
-        何かを探すときの入口が、GoogleからAIへ移りつつあります。
-        AIが挙げる数件の中で、選ばれる事業者と選ばれない事業者は何が違うのか。
-        日本語・英語・繁体字中国語・簡体字中国語で、毎月同じ問いを立てて観測しています。
+        人は、GoogleではなくAIに尋ね始めています。<br>
+        AIは、どの事業者を紹介し、どの事業者を紹介しないのか。
       </p>
+      <p class="L1-lede">
+        日本語・英語・繁体字中国語・簡体字中国語で、毎月同じ問いを立て、
+        その変化を観測しています。
+      </p>
+
+      <!-- 継続観測そのものが差別化要因。第一屏で言い切る -->
+      <p class="L1-creed jp">毎月、同じ条件で、同じ問いを観測する。<br>
+        変化を語る前に、まず測る。</p>
 
       <!-- Current Focus — 毎月書き換える。
            状態語は 観測中／集計中／発行済／未実行 の4つだけ。
@@ -136,7 +143,7 @@
          発行のたびに dot--open を dot に変えるだけ。
          号番号は #000〜#003 のみ確定のため、帯は月で並べている。 -->
     <div class="L1-spine">
-      <p class="L1-spine-h">第1期 — 12ヶ月連続観測</p>
+      <p class="L1-spine-h">第1期（<span class="num">2026.08–2027.07</span>）<br>12ヶ月連続観測</p>
       <ol class="L1-track">
         <li><span class="dot dot--open" title="2026年8月 — 第0号 発行予定"></span></li>
         <li><span class="dot dot--open" title="2026年9月 — 未刊"></span></li>
@@ -162,13 +169,12 @@
     <h2 class="L1-h2 jp">観測</h2>
 
     <p class="L1-deck jp">
-      引用の権威は、言語とカテゴリの商業性の組み合わせと対応している。
-      実体自身の言葉は、その2つが成立しないときに現れる。
+      AIがどこを引用するかは、言語市場とカテゴリの商業性によって大きく違います。<br>
+      その二つが成立しないとき、AIは事業者自身が発信した情報へ戻ります。
     </p>
 
-    <p class="L1-p">比較サイトや代理店が生まれる経済的な動機がそのカテゴリにあるか、
-    その動機がその言語市場で実際に形になっているか。この2つで引用元の顔ぶれは
-    おおむね説明できます。どちらも成立しない場合に、AIは事業者自身が書いた言葉に戻ります。</p>
+    <p class="L1-p">比較サイトや代理店が成立する市場なのか。その市場が、その言語圏にも
+    存在するのか。この二つによって、AIが引用する情報源の傾向はおおむね説明できます。</p>
 
     <!-- 実測値。出典 reports/2026-08/data/summary_by_cell.csv
          拮抗＝次点との差が10pt以内（ノイズフロア）
@@ -183,29 +189,34 @@
         </thead>
         <tbody>
           <tr><th scope="row" class="jp">茶道</th>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">52.2</span></td>
-            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>メディア</span><span class="L1-pct">46.0 ／差 6</span></td>
-            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自社</span><span class="L1-pct">40.6 ／差 3</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">56.8</span></td></tr>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">52.2%</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>メディア</span><span class="L1-pct">46.0%</span><span class="L1-gap">2位との差 6pt</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自社</span><span class="L1-pct">40.6%</span><span class="L1-gap">2位との差 3pt</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">56.8%</span></td></tr>
           <tr><th scope="row" class="jp">着物</th>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>メディア</span><span class="L1-pct">53.7</span></td>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>メディア</span><span class="L1-pct">49.1</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">54.8</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">66.7</span></td></tr>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>メディア</span><span class="L1-pct">53.7%</span></td>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>メディア</span><span class="L1-pct">49.1%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">54.8%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">66.7%</span></td></tr>
           <tr><th scope="row" class="jp">座禅</th>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">50.0</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">80.2</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">49.5</span></td>
-            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自社</span><span class="L1-pct">43.4 ／差 3</span></td></tr>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">50.0%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">80.2%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">49.5%</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自社</span><span class="L1-pct">43.4%</span><span class="L1-gap">2位との差 3pt</span></td></tr>
         </tbody>
       </table>
       <figcaption class="L1-cap">
-        3カテゴリ × 4言語 ＝ 12セル、各セル <span class="num">n=20</span>（計 <span class="num">240</span> 実行）。
-        数値は引用元構成比における首位種別の占比。集計指標のノイズフロアは
-        <span class="num">n=20</span> で <span class="num">±約10pt</span>——次点との差がそれ以内のセル（○）は
-        首位を確定として扱いません。単一時点・単一エンジン（ChatGPT 網頁版）の横断観測であり、
-        因果は未証明です。観測は一時チャット・ログアウト状態、実行地は京都。
-        出典：Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span>。
+        <dl>
+          <dt>観測条件</dt>
+          <dd>3カテゴリ × 4言語 ＝ 12セル ／ 各セル <span class="num">n=20</span> ／ 合計 <span class="num">240</span> 実行</dd>
+          <dt>判定基準</dt>
+          <dd>集計指標のノイズフロアは <span class="num">±約10pt</span>。2位との差がそれ以内のセル（○）は、首位を確定として扱いません</dd>
+          <dt>実行条件</dt>
+          <dd>ChatGPT 網頁版 ／ ログアウト・一時チャット ／ 実行地 京都</dd>
+          <dt>出典</dt>
+          <dd>Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span></dd>
+        </dl>
+        <p class="L1-caveat">単一時点・単一エンジンの横断観測であり、因果は未証明です。</p>
       </figcaption>
     </figure>
 
@@ -225,18 +236,18 @@
     <h2 class="L1-h2 jp">読み物</h2>
 
     <ul class="L1-taxo">
-      <li><span class="n">Research Reports<span class="q">What changed?</span></span>
+      <li><span class="n">Research Reports</span>
         <span class="c"><span class="dot"></span>1件</span>
-        <span class="d">月次の定点観測。方法・n数・実行条件を明記し、再現可能な形で残す。物語らない。</span></li>
-      <li><span class="n">Features<span class="q">Why does it matter?</span></span>
+        <span class="d">毎月の定点観測。方法・n数・実行条件を公開する、再現可能な記録。</span></li>
+      <li><span class="n">Features</span>
         <span class="c"><span class="dot"></span>1件</span>
-        <span class="d">個別の事例を掘り下げる長文。Reportsのデータを引用しながら書く。</span></li>
-      <li><span class="n">Field Notes<span class="q">What did we notice?</span></span>
+        <span class="d">データを起点に、一つの事例を深く掘り下げる。</span></li>
+      <li><span class="n">Field Notes</span>
         <span class="c"><span class="dot dot--open"></span>準備中</span>
-        <span class="d">短い観察記録。1〜2枚の図のみ、結論は出さない。</span></li>
-      <li><span class="n">Explainers<span class="q">How does it work?</span></span>
+        <span class="d">短い観察記録。結論より、気づきを残す。</span></li>
+      <li><span class="n">Explainers</span>
         <span class="c"><span class="dot dot--open"></span>準備中</span>
-        <span class="d">用語や仕組みの解説。Reportで3回説明を要した概念から書き起こす。</span></li>
+        <span class="d">Reportを書く中で何度も説明した概念を整理する。</span></li>
     </ul>
 
     <p class="L1-p"><a href="/reports/">書庫 — 発行した号の一覧</a></p>
@@ -250,10 +261,10 @@
 
     <p class="L1-p">Kääselä（カセラ）は、生成AIが事業者のことをどのように認識し、
     紹介しているかを、実際に測って記録している個人の研究プロジェクトです。</p>
-    <p class="L1-p">この分野はGEO・LLMO・AIOなどと呼ばれていますが、呼び名が定まらないほど
-    新しい領域です。それらの用語を追いかけることも、実体の伴わない言葉を増やすことも、
-    このラボの目的ではありません。事業者が、AIの時代にも顧客からきちんと認知されるには
-    何が必要なのか。その問いを、データで確かめていくことを軸としています。</p>
+    <p class="L1-p">GEO、LLMO、AIO。この分野には、まだ呼び名がいくつもあります。</p>
+    <p class="L1-p">関心があるのは、呼び名ではありません。
+    事業者が、AIの時代にも顧客からきちんと認知されるには何が必要なのか。
+    その問いを、データで確かめていくことを軸としています。</p>
 
     <div class="L1-note">
       <dl>
@@ -288,8 +299,8 @@
 
     <div class="L1-note">
       <dl>
-        <dt>在職中</dt><dd>個人での受託は行っておりません。調査結果の共有や、調べ方のご説明は、研究の趣旨に沿うものであれば無償で対応しています</dd>
-        <dt>所属</dt><dd>個人による研究・情報発信プロジェクトです。特定の団体・大学等とは関係ありません</dd>
+        <dt>受託について</dt><dd>現在、個人での受託業務は行っておりません。調査方法や観測結果については、研究の趣旨に沿う内容であれば、無償でお話ししています</dd>
+        <dt>所属について</dt><dd>個人による研究・情報発信プロジェクトです。特定の団体・大学等とは関係ありません</dd>
       </dl>
     </div>
   </section>
