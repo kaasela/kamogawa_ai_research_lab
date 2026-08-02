@@ -3,20 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Kääselä — How does generative AI describe businesses in their customers' language?</title>
-<meta name="description" content="An independent research project measuring how generative AI recognizes and describes businesses in their customers' language. Tested in Japanese, English, Chinese, and other languages.">
+<meta name="description" content="How generative AI (ChatGPT, Claude, Gemini, etc.) describes businesses in their customers' language. An independent research project measuring this in Japanese, English, Chinese and other languages, with findings published openly. GEO, LLMO, AIO — tested with data.">
+
 <link rel="canonical" href="https://kaasela.com/en/">
 <link rel="alternate" hreflang="ja"      href="https://kaasela.com/">
 <link rel="alternate" hreflang="en"      href="https://kaasela.com/en/">
 <link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/">
 <link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/">
 <link rel="alternate" hreflang="x-default" href="https://kaasela.com/">
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kääselä — How does generative AI describe businesses in their customers' language?">
+<meta property="og:description" content="How generative AI describes businesses in their customers' language. Measured in Japanese, English, Chinese and other languages, with findings published openly.">
 <meta property="og:url" content="https://kaasela.com/en/">
+<meta property="og:site_name" content="Kääselä">
 <meta property="og:locale" content="en_US">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Shippori+Mincho+B1:wght@400;500&amp;display=swap">
+
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,116 +40,247 @@
       "alternateName": ["Kaasela", "Kamogawa AI Search Lab", "カセラ"],
       "url": "https://kaasela.com/",
       "brand": { "@type": "Brand", "name": "Kääselä", "alternateName": ["Kaasela", "カセラ"] },
-      "description": "Kääselä (also written Kaasela) is the common name of Kamogawa AI Search Lab, from the initials Ka(mogawa), A(I), Se(arch), La(b). An independent research project measuring how generative AI recognizes and describes businesses in their customers' language, tested in Japanese, English, Chinese and other languages.",
+      "description": "Kääselä (also written Kaasela) is the common name of Kamogawa AI Search Lab, from the initials Ka(mogawa), A(I), Se(arch), La(b). An independent research project that measures how generative AI recognizes and describes businesses in their customers' language, tested in Japanese, English, Chinese and other languages. Run independently by a Kyoto-based IT consultant.",
       "email": "kamogawa.ai.lab@gmail.com",
       "foundingDate": "2026-07",
-      "location": { "@type": "Place", "name": "Kyoto" },
+      "location": {
+        "@type": "Place",
+        "name": "Kyoto"
+      },
       "knowsLanguage": ["ja", "en", "zh-Hant", "zh-Hans"],
+      "knowsAbout": [
+        "Business visibility in generative AI search",
+        "AI search optimization (GEO / LLMO / AIO)",
+        "Entity design",
+        "Structured data",
+        "Multilingual information design"
+      ],
       "sameAs": [
         "https://note.com/kaasela",
         "https://github.com/kaasela/kamogawa_ai_research_lab"
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kaasela.com/en/#website",
+      "url": "https://kaasela.com/en/",
+      "name": "Kääselä",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://kaasela.com/#organization" }
     }
   ]
 }
 </script>
+
 </head>
+
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/en/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>English</summary>
-        <div class="lang-list">
-          <a href="/"        hreflang="ja">日本語</a>
-          <a href="/en/"     hreflang="en" aria-current="true">English</a>
-          <a href="/zh-tw/"  hreflang="zh-Hant">繁體中文</a>
-          <a href="/zh-cn/"  hreflang="zh-Hans">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
-<section class="hero">
-  <canvas class="hero-flow" aria-hidden="true"></canvas>
-  <div class="hero-veil"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <h1>How does your business come across<br>in your customers' language?</h1>
-      <p class="lede">
-        When a traveler asks "where can I do a tea ceremony in Kyoto?",
-        the answer increasingly comes from AI rather than Google —
-        usually as a list of three to five places.
-        What separates the businesses that get chosen from the ones that don't?
-        I test this myself — in Japanese, English, Chinese, and more — and analyze the results.
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="/en/reports/kyoto-experience-2026/">Read the report</a>
-      </div>
+
+<div class="L1-wrap">
+
+  <header class="L1-masthead">
+    <div class="L1-title">
+      <a class="L1-name" href="/en/">K<span class="u">ää</span>sel<span class="u">ä</span></a>
+      <p class="L1-tagline">Kamogawa AI Search Lab — Kyoto</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<main class="wrap">
+  <nav class="L1-nav" aria-label="Menu">
+    <a href="#findings">Findings</a>
+    <a href="#reading">Reading</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <span class="L1-lang">
+      <a href="/" hreflang="ja">JA</a>
+      <a href="/en/" aria-current="true" hreflang="en">EN</a>
+      <a href="/zh-tw/" hreflang="zh-Hant">繁中</a>
+      <a href="/zh-cn/" hreflang="zh-Hans">简中</a>
+    </span>
+  </nav>
 
-  <div class="callout">
-    <p><strong>From the July 2026 survey</strong></p>
-    <p>
-      I asked AI about ten cultural-experience businesses in Kyoto,
-      in Japanese, English, Traditional and Simplified Chinese.
-      A shop with over 500 positive reviews on Google Maps was said to
-      "not exist", and was then described as a different business entirely —
-      while the one business whose prices AI quoted accurately
-      was a small, unassuming tea room.
-    </p>
-    <p>
-      Where does that difference come from?
-    </p>
-    <p style="margin-top:16px">
-      → <a href="/en/reports/kyoto-experience-2026/"><strong>Read the full report</strong></a>
-    </p>
-  </div>
+  <section class="L1-cover">
+    <div>
+      <h1 class="L1-h1">Is your business talked about — in your customers' language?</h1>
+      <p class="L1-lede">
+        These days, when people want to know something, they ask AI instead of Google.<br>
+        So which businesses does AI choose to mention, and how does it describe them?
+      </p>
+      <p class="L1-lede">
+        Ask the same question in a different language, and both the sources AI draws on
+        and what it says can change.<br>
+        Kääselä tracks this every month, under the same conditions, in Japanese, English,
+        Traditional Chinese, and Simplified Chinese — and records and analyzes the differences.
+      </p>
 
-  <h2>About this lab</h2>
+      <p class="L1-creed">How does AI search cross the line between languages?</p>
 
-  <p>
-    Kääselä (Kamogawa AI Search Lab) is an independent research project that
-    measures how generative AI recognizes and describes businesses,
-    and publishes the records.
-  </p>
+      <!-- Current Focus — rewritten each month.
+           State words: observing / tallying / published / not run.
+           See _lab/ENGINEERING_GUIDE.md §8 for the update procedure. -->
+      <dl class="L1-focus">
+        <dt>Latest Monthly Report</dt>
+        <dd><a href="/en/reports/2026-08/">Monthly Report #000 — How Generative AI Answers About Kyoto Experiences</a>
+          <span class="state">Published <span class="num">2026.08.02</span></span>
+        </dd>
+      </dl>
+    </div>
 
-  <p>
-    This field goes by several names — GEO (Generative Engine Optimization),
-    LLMO, AIO — and is new enough that none of them has settled.
-    Chasing the latest name — or adding another word with no substance
-    behind it — is not the point.
-    The question I care about is what it takes for a business
-    to be properly recognized by its customers in the age of AI —
-    and the goal of this lab is to answer that with data.
-  </p>
+    <div class="L1-spine">
+      <p class="L1-spine-h">12 months of continuous observation<br>Starting <span class="num">2026.08</span></p>
+      <ol class="L1-track">
+        <li><span class="dot" title="August 2026 — Issue #000, published"></span></li>
+        <li><span class="dot dot--open" title="September 2026 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="October 2026 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="November 2026 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="December 2026 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="January 2027 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="February 2027 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="March 2027 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="April 2027 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="May 2027 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="June 2027 — not yet published"></span></li>
+        <li><span class="dot dot--open" title="July 2027 — not yet published"></span></li>
+      </ol>
+      <div class="L1-ends"><span class="num">2026.08</span><span class="num">2027.07</span></div>
+      <p class="L1-spine-n">Published the first Sunday of every month.</p>
+    </div>
+  </section>
 
-  <h2>Contact</h2>
-  <p><strong>kamogawa.ai.lab@gmail.com</strong></p>
-  <p style="font-size:15px;color:#666">
-    Currently employed full-time; not accepting paid engagements.
-    Happy to share findings and methodology at no cost,
-    where it aligns with the purpose of this research.
-  </p>
-</main>
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>An independent research project. Not affiliated with any university or organization.</p>
-  </div>
-</footer>
+  <section class="L1-sec" id="findings">
+    <p class="L1-no num">01</p>
+    <h2 class="L1-h2">Findings</h2>
 
-<script src="/assets/site.js" defer></script>
+    <p class="L1-deck">Three findings largely explain the pattern of sources AI cites.</p>
+
+    <ol class="L1-insights">
+      <li><span class="n">Insight <span class="num">1</span></span><p>A category's commercial incentive shapes whether comparison media forms around it.</p></li>
+      <li><span class="n">Insight <span class="num">2</span></span><p>The comparison media available differs by language.</p></li>
+      <li><span class="n">Insight <span class="num">3</span></span><p>Where comparison media doesn't exist, AI relies mainly on official, self-run sites.</p></li>
+    </ol>
+
+    <figure class="L1-fig">
+      <table class="L1-tbl">
+        <caption>Leading citation source type / July 2026 observation</caption>
+        <thead>
+          <tr><th scope="col"><span class="sr">Category</span></th>
+            <th scope="col">Japanese</th><th scope="col">English</th>
+            <th scope="col">Simplified</th><th scope="col">Traditional</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Tea Ceremony</th>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>Public</span><span class="L1-pct">52.2%</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>Media</span><span class="L1-pct">46.0%</span><span class="L1-gap">#2 gap: 6pt</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>Self-run</span><span class="L1-pct">40.6%</span><span class="L1-gap">#2 gap: 3pt</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>Self-run</span><span class="L1-pct">56.8%</span></td></tr>
+          <tr><th scope="row">Kimono</th>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>Media</span><span class="L1-pct">53.7%</span></td>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>Media</span><span class="L1-pct">49.1%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>Self-run</span><span class="L1-pct">54.8%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>Self-run</span><span class="L1-pct">66.7%</span></td></tr>
+          <tr><th scope="row">Zazen</th>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>Public</span><span class="L1-pct">50.0%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>Self-run</span><span class="L1-pct">80.2%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>Self-run</span><span class="L1-pct">49.5%</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>Self-run</span><span class="L1-pct">43.4%</span><span class="L1-gap">#2 gap: 3pt</span></td></tr>
+        </tbody>
+      </table>
+      <figcaption class="L1-cap">
+        <dl>
+          <dt>Conditions</dt>
+          <dd>3 categories × 4 languages = 12 cells / <span class="num">n=20</span> per cell / <span class="num">240</span> runs total</dd>
+          <dt>Threshold</dt>
+          <dd>Noise floor for aggregate metrics is <span class="num">±10pt</span>. Cells where the #2 gap falls within that (○) are not treated as a confirmed leader</dd>
+          <dt>Conditions of execution</dt>
+          <dd>ChatGPT Web / Temporary chat / Kyoto</dd>
+          <dt>Source</dt>
+          <dd>Monthly Report #000 / <span class="num">data/summary_by_cell.csv</span></dd>
+        </dl>
+        <p class="L1-caveat">A single-point, single-engine cross-sectional observation. Causation is not established.</p>
+      </figcaption>
+    </figure>
+
+    <p class="L1-p"><a href="/en/reports/">Read more</a></p>
+
+    <div class="L1-note">
+      <dl>
+        <dt>Scope</dt><dd>ChatGPT Web only. I measure the actual consumer product experience, so I don't use the API.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="L1-sec" id="reading">
+    <p class="L1-no num">02</p>
+    <h2 class="L1-h2">Reading</h2>
+
+    <ul class="L1-latest">
+      <li><span class="n">Research Report</span>
+        <a class="t" href="/en/reports/2026-08/">Monthly Report #000: How Generative AI Answers About Kyoto Experiences (July 2026)</a></li>
+      <li><span class="n">Feature</span>
+        <a class="t" href="/en/reports/kyoto-experience-2026/">It had great Google reviews. The AI said it didn't exist.</a></li>
+    </ul>
+
+    <ul class="L1-taxo">
+      <li><span class="n">Field Notes</span>
+        <span class="c"><span class="dot dot--open"></span>Coming soon</span></li>
+      <li><span class="n">Explainers</span>
+        <span class="c"><span class="dot dot--open"></span>Coming soon</span></li>
+    </ul>
+
+    <p class="L1-p"><a href="/en/reports/">Read more</a></p>
+  </section>
+
+  <section class="L1-sec" id="about">
+    <p class="L1-no num">03</p>
+    <h2 class="L1-h2">About</h2>
+
+    <p class="L1-deck">New data, not new names.</p>
+
+    <p class="L1-p">Kääselä (also written Kaasela) is an independent research project that continuously
+    records and analyzes — based on actual verification results — how generative AI recognizes
+    and describes businesses.</p>
+    <p class="L1-p">GEO, LLMO, AIO.</p>
+    <p class="L1-p">New names for this field keep appearing.
+    Kääselä isn't interested in the names.</p>
+    <p class="L1-p">What does AI draw on, and why does it mention a given business?
+    What does a business need, in the age of AI, to be properly recognized by its customers?</p>
+    <p class="L1-p">I keep testing that question through measurement.</p>
+  </section>
+
+  <section class="L1-sec is-last" id="contact">
+    <p class="L1-no num">04</p>
+    <h2 class="L1-h2">Contact</h2>
+
+    <p class="L1-p">If you'd like to know more about the methodology, want to try measuring your own
+    industry, or have thoughts on the findings, feel free to reach out.<br>
+    <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></p>
+
+    <div class="L1-meta">
+      <dl>
+        <dt>On paid work</dt><dd>I'm currently employed full-time, so I don't take on paid individual engagements. For anything in line with the spirit of this research — explaining the methodology and findings, discussing the AI search field, or advising on how to run a similar study — I'm happy to talk, at no cost</dd>
+        <dt>Affiliation</dt><dd>This is an independent research and publishing project. It isn't affiliated with any organization or university</dd>
+      </dl>
+    </div>
+
+    <div class="L1-sub L1-aside">
+      <p>I'll email you when the latest Monthly Report is published.</p>
+      <form name="newsletter" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field" class="L1-form">
+        <input type="hidden" name="form-name" value="newsletter">
+        <p class="sr"><label>Leave this blank: <input name="bot-field" tabindex="-1"></label></p>
+        <label class="sr" for="mail">Email address</label>
+        <input id="mail" type="email" name="email" placeholder="you@example.com"
+               autocomplete="email" required>
+        <button type="submit">Subscribe to the newsletter</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="L1-foot">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>Kamogawa AI Search Lab — Kyoto, Japan ／ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
 
 </body>
 </html>

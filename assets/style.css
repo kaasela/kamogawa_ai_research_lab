@@ -317,12 +317,28 @@ a.L1-name:hover{color:var(--ink);}
 .L2-meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;
   color:var(--faint);margin:0;padding-top:9px;border-top:1px solid var(--ink);
   display:flex;gap:var(--s4);flex-wrap:wrap;}
+/* 目次 — 「← Reports／タイトル／目次／本文」の一つ。Report 型のみ */
+.L2-toc{list-style:none;padding:var(--s3) 0;margin:var(--s4) 0 0;
+  border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2);
+  font-size:13px;}
+.L2-toc li{padding:3px 0;}
+.L2-toc a{color:var(--sub);border:0;}
+.L2-toc a:hover{color:var(--river);}
+.L2-toc .num{color:var(--faint);margin-right:var(--s2);}
+
 .L2-body{font-family:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",
   "Noto Serif JP",serif;font-weight:400;font-size:17px;line-height:32px;}
 .L2-body h2{font-family:'Libre Franklin',sans-serif;font-size:15px;
   font-weight:500;letter-spacing:.04em;margin:var(--s12) 0 var(--s3);
   padding-bottom:7px;border-bottom:1px solid var(--ink);}
 .L2-body p{margin:0 0 var(--s3);color:var(--sub);}
+/* Abstract — Report 型冒頭の要旨。本文と字重で区別する。装飾は使わない */
+.L2-abs{font-weight:500;color:var(--ink);}
+/* 正文内の † 参照。注は文末 .L2-notes に置く */
+.L2-notes .ref{font-family:'Libre Franklin',sans-serif;color:var(--faint);
+  text-decoration:none;border:0;}
+sup.L2-fn{font-size:.75em;color:var(--faint);margin-left:1px;}
+sup.L2-fn a{color:inherit;border:0;}
 .L2-body table{width:100%;border-collapse:collapse;
   font-family:'Libre Franklin',sans-serif;font-size:13px;margin:var(--s4) 0;}
 .L2-body th,.L2-body td{text-align:left;padding:8px 10px 8px 0;

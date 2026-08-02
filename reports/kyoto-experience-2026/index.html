@@ -17,7 +17,10 @@
 <meta property="og:url" content="https://kaasela.com/reports/kyoto-experience-2026/">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Shippori+Mincho+B1:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script type="application/ld+json">
 {
@@ -45,31 +48,19 @@
 </script>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>日本語</summary>
-        <div class="lang-list">
-          <a href="/reports/kyoto-experience-2026/"        hreflang="ja" aria-current="true">日本語</a>
-          <a href="/en/reports/kyoto-experience-2026/"     hreflang="en">English</a>
-          <a href="/zh-tw/reports/kyoto-experience-2026/"  hreflang="zh-Hant">繁體中文</a>
-          <a href="/zh-cn/reports/kyoto-experience-2026/"  hreflang="zh-Hans">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
+<div class="L2-wrap">
 
-<main class="wrap">
-  <article>
-    <h1>Googleでは★4.9。<br>それでもAIは、その店を見つけられなかった。</h1>
-    <p class="lede">――京都の体験店10店舗を4言語で調べて見えてきたこと</p>
-    <p class="meta">2026年7月14日 ｜ Kääselä AI Search Lab</p>
+  <header class="L2-head">
+    <a class="L2-back" href="/reports/">← Reports</a>
+    <h1 class="jp L2-title">Googleでは★4.9。<br>それでもAIは、その店を見つけられなかった。</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-07</span>
+    </p>
+  </header>
+
+  <article class="L2-body">
 
 <p>Googleマップでは★4.9。口コミは500件を超え、海外旅行者からの評価も高い。そんな京都の着物レンタル店について、ChatGPTに店名を入力して尋ねてみた。</p>
 <p>返ってきた答えは、意外なものだった。</p>
@@ -88,7 +79,6 @@
 <p>この違いは、口コミの数や店舗の規模では説明できない。むしろ重要だったのは、AIが引用できる形で、その店自身の情報が存在しているかどうかだった。</p>
 <p>本記事では、それぞれのパターンを実際の観察結果とともに紹介しながら、AIが店舗をどのように理解しているのかを整理していく。</p>
 
-<hr>
 <h2>AIは、あなたの店をどう理解しているのか</h2>
 
 <h3>パターン1｜正確に理解されている</h3>
@@ -124,7 +114,6 @@
 <p>これは、AIがC店を知っているというより、判断に必要な情報が足りないため、その都度もっともらしい答えを組み立てていることを示している。</p>
 <p>本当に重要なのはここである。500件を超える口コミがあっても、AIがその店を正しく認識できなければ、その評価は推薦にも説明にも十分に生かされない。店舗側はGoogleでは高く評価されていると感じていても、AIから見える世界では、まったく違う姿になっている可能性がある。</p>
 
-<hr>
 <h2>AIは、何を見ているのか</h2>
 <p>ここまで見てきた4つのパターンは、一見するとまったく別の現象に見える。しかし、引用元を一つひとつ確認していくと、共通する特徴が浮かび上がってきた。</p>
 <p>AIが見ていたのは、口コミの数ではなかった。Googleマップの評価でもない。独自ドメインがあるかどうかでもない。</p>
@@ -148,7 +137,6 @@
 <p>近年、このようなAIが認識する対象は「エンティティ（Entity）」と呼ばれることが多い。難しく聞こえるかもしれないが、考え方はとてもシンプルだ。AIはページではなく、「店」という存在を理解しようとしている。そして、その店について説明できる十分な情報があるとき、初めてAIはその店を一つの存在として認識できる。</p>
 <p>今回の調査で見えてきた4つのパターンは、その理解の深さの違いだったと言える。</p>
 
-<hr>
 <h2>質問が変わると、AIが見る情報も変わる</h2>
 <p>ここまで見てきたのは、「A店はどんな店ですか？」のように、店名を指定して尋ねるケースだった。しかし、質問の仕方を変えると、AIが参照する情報源も大きく変わる。</p>
 <p>たとえば、</p>
@@ -177,7 +165,6 @@
 <p>では、「おすすめ」はどのように決まるのだろうか。この疑問を確かめるため、同じ質問を日本語・英語・繁体字中国語・簡体字中国語の4言語で比較してみた。すると、業種によってまったく異なる結果が現れた。</p>
 <p>茶道体験では、4言語とも、ほぼ同じ店舗が推薦された。一方、着物レンタルでは、言語が変わるたびに推薦される店舗も大きく入れ替わった。なぜ、ここまで違いが生まれるのか。その理由は、AIが引用していた情報源を見ると見えてくる。</p>
 
-<hr>
 <h2>同じAIでも、言語が変わるとおすすめの店は変わる</h2>
 <p>ここまで見てきたのは、「店を知っているかどうか」の話だった。では、「京都でおすすめの着物レンタルは？」と尋ねたとき、AIはどの店を選ぶのだろうか。この問いを、日本語・英語・繁体字中国語・簡体字中国語の4言語で比較してみた。結果は、業種によって大きく異なっていた。</p>
 
@@ -188,23 +175,23 @@
 <p>一方、着物レンタルではまったく違う結果になった。4言語すべてで共通して推薦された店舗は、一つもなかった。</p>
 <table>
 <thead>
-<tr><th>店舗</th><th style="text-align:center;">日</th><th style="text-align:center;">英</th><th style="text-align:center;">繁</th><th style="text-align:center;">簡</th></tr>
+<tr><th>店舗</th><th>日</th><th>英</th><th>繁</th><th>簡</th></tr>
 </thead>
 <tbody>
-<tr><td>店①</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td>店②</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td>店③</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>店④（C店と混同された競合店）</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>店⑤</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>店⑥</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑦</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑧</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑨</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑩</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑪</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑫</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td><strong>店⑬（業界最大手）</strong></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"><strong>●</strong></td></tr>
-<tr><td>店⑭</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td></tr>
+<tr><td>店①</td><td class="num">●</td><td class="num">●</td><td class="num">●</td><td class="num"></td></tr>
+<tr><td>店②</td><td class="num">●</td><td class="num">●</td><td class="num">●</td><td class="num"></td></tr>
+<tr><td>店③</td><td class="num"></td><td class="num">●</td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>店④（C店と混同された競合店）</td><td class="num"></td><td class="num">●</td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>店⑤</td><td class="num"></td><td class="num"></td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>店⑥</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑦</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑧</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑨</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑩</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑪</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑫</td><td class="num"></td><td class="num"></td><td class="num">●</td><td class="num"></td></tr>
+<tr><td><strong>店⑬（業界最大手）</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"><strong>●</strong></td></tr>
+<tr><td>店⑭</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">●</td></tr>
 </tbody>
 </table>
 <p>日本語で上位だった店舗が、中国語では一度も登場しない。逆に、中国語では推薦される店舗が、日本語ではまったく出てこない。さらに、日本最大級の店舗であっても、ある言語では推薦され、別の言語では一度も推薦されない例も確認された。</p>
@@ -233,7 +220,6 @@
 <p>実際には、業種によってAIが参照する情報源が異なり、その結果として、推薦される店舗も変わっていた。つまり、「正解の言語」は存在しない。</p>
 <p>現時点で最も確実なのは、自分の業種と届けたい言語について、AIが実際にどの情報源を引用しているかを調べることである。</p>
 
-<hr>
 <h2>ここまでの観察から見えてきたこと</h2>
 <p>今回の調査から、少なくとも四つのことが分かった。</p>
 
@@ -253,13 +239,11 @@
 <p>今回の調査では、大手ではない店舗でも、AIが繰り返し引用する例が確認された。共通していたのは、店舗自身についての情報が整理され、その店ならではの特徴が分かる形で公開されていたことである。</p>
 <p>もちろん、これだけで推薦されるとは言えない。しかし、比較サイトだけに依存せず、自分自身の情報を積み重ねていくことは、小規模な店舗にとっても現実的な選択肢の一つになるだろう。</p>
 
-<hr>
 <h2>この調査で分かったこと、まだ分からないこと</h2>
 <p>本調査は、京都の体験型店舗10店を対象に実施した小規模な観察である。対象とした生成AIはChatGPTのみであり、すべての結果を他のAIへ一般化できるわけではない。</p>
 <p>また、生成AIの回答は一度ごとに変化する。実際、同じ店舗について同じ質問を繰り返しただけでも、異なる回答が返る場面が確認された。そのため、本来であれば、同じ質問を繰り返し実行し、その分布まで含めて評価する必要がある。</p>
 <p>本記事で紹介した結果は、その出発点となる観察記録として公開している。</p>
 
-<hr>
 <h2>おわりに</h2>
 <p>調査を始める前、私は「言語が変われば、おすすめされる店も変わるだろう」と考えていた。結果として、その予想は半分だけ当たり、半分は外れた。</p>
 <p>茶道体験では、4言語でほぼ同じ店舗が推薦された。一方、着物レンタルでは、言語が変わるたびに推薦される店舗も変わった。</p>
@@ -267,28 +251,23 @@
 <p>だからこそKääselä AI Search Labでは、当たった結果だけでなく、予想と違った結果も含めて記録し、毎月の観察として公開していきたいと考えている。</p>
 <p>AI検索は、まだ変化の途中にある。その変化を、できるだけ先入観を持たずに記録し続けること。それが、このプロジェクトの役割だと思っている。</p>
 
-<hr>
 <h2>参考・背景</h2>
 <p>本記事で「エンティティ（Entity）」と呼んでいる考え方は、英語圏では entity-based SEO として知られており、生成AIの文脈では GEO（Generative Engine Optimization） の中で議論されている。学術的な出発点の一つとしてよく引用されるのが、Aggarwalらによる『GEO: Generative Engine Optimization』（arXiv:2311.09735、KDD 2024）である。同論文では、生成AIに情報を認識・利用してもらうための条件として、retrievable（検索可能であること）、groundable（根拠として利用できること）、citable（引用できること）の3つが整理されている。また、エンティティの認識には、Schema.orgなどの構造化データ、第三者サイトでの一貫した言及、一貫した識別子などが重要なシグナルになるとされている。一方で、「特定のレビューサイトに掲載されているとAIに引用されやすい」といった具体的な数値やノウハウについては、業界内で広く語られているものの、現時点では査読付き研究によって十分に検証されたものではない。本記事でも、その点については参考情報として扱っている。</p>
 
-<hr>
-<p><em>本記事は、個人による調査・情報共有プロジェクトであり、特定の団体・大学・企業等とは関係ありません。</em></p>
-<p><em>調査方法の詳細や、自社の検証に興味のある方は、お気軽にご連絡ください。</em></p>
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本記事は、個人による調査・情報共有プロジェクトであり、特定の団体・大学・企業等とは関係ありません。調査方法の詳細や、自社の検証に興味のある方は、お気軽にご連絡ください。</p>
 
   </article>
-</main>
 
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>生成AIは、顧客の言葉で、店をどのように語っているのか。私たちは、日本語・英語・中国語など複数の言語で生成AIを調査し、その結果を記録・公開しています。</p>
-    <p style="margin-top:16px">京都市 ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>個人による調査・情報共有プロジェクトです。特定の団体・大学・企業等とは関係ありません。</p>
-  </div>
-</footer>
+  <nav class="L2-serial">
+    <span><span class="lbl">元になったレポート</span><a href="/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">書庫</span><a href="/reports/">Reports 一覧</a></span>
+  </nav>
 
-<script src="/assets/site.js" defer></script>
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
 
+</div>
 </body>
 </html>

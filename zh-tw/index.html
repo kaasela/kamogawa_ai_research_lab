@@ -3,20 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kääselä｜生成式AI如何以顧客的語言描述商家？</title>
-<meta name="description" content="測量生成式AI如何以顧客的語言認知、描述商家的獨立研究專案。以日、英、中文等多語言進行實測並公開紀錄。">
+
+<title>Kääselä｜生成式AI如何用顧客的語言介紹商家</title>
+<meta name="description" content="生成式AI（ChatGPT、Claude、Gemini等）如何用顧客的語言介紹商家。這是一個用日語、英語、中文等多語言實測並公開記錄的個人研究專案，用資料檢驗GEO、LLMO、AIO這些說法。">
+
 <link rel="canonical" href="https://kaasela.com/zh-tw/">
 <link rel="alternate" hreflang="ja"      href="https://kaasela.com/">
 <link rel="alternate" hreflang="en"      href="https://kaasela.com/en/">
 <link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/">
 <link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/">
 <link rel="alternate" hreflang="x-default" href="https://kaasela.com/">
+
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kääselä｜生成式AI如何以顧客的語言描述商家？">
+<meta property="og:title" content="Kääselä｜生成式AI如何用顧客的語言介紹商家">
+<meta property="og:description" content="生成式AI如何用顧客的語言介紹商家。用日語、英語、中文等多語言實測，並公開記錄。">
 <meta property="og:url" content="https://kaasela.com/zh-tw/">
+<meta property="og:site_name" content="Kääselä">
 <meta property="og:locale" content="zh_TW">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<meta name="twitter:card" content="summary">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Shippori+Mincho+B1:wght@400;500&amp;display=swap">
+
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,109 +40,245 @@
       "alternateName": ["Kaasela", "Kamogawa AI Search Lab", "カセラ"],
       "url": "https://kaasela.com/",
       "brand": { "@type": "Brand", "name": "Kääselä", "alternateName": ["Kaasela", "カセラ"] },
-      "description": "Kääselä（ASCII 寫作 Kaasela，日文假名 カセラ）是 Kamogawa AI Search Lab 的通稱，取自 Ka(mogawa)、A(I)、Se(arch)、La(b) 的首字母。這是一個測量生成式AI如何以顧客的語言認知、描述商家的獨立研究專案，以日、英、中文等多語言進行實測並公開紀錄。",
+      "description": "Kääselä（英文亦寫作 Kaasela）是 Kamogawa AI Search Lab（鴨川AI搜尋實驗室）的通稱，取自 Ka(mogawa)・A(I)・Se(arch)・La(b) 的首字母。這是一個實測並公開記錄生成式AI如何用顧客的語言介紹商家的個人研究專案，涵蓋日語、英語、中文等多種語言。由居住在京都的一名IT顧問獨立營運。",
       "email": "kamogawa.ai.lab@gmail.com",
       "foundingDate": "2026-07",
-      "location": { "@type": "Place", "name": "Kyoto" },
+      "location": {
+        "@type": "Place",
+        "name": "京都市"
+      },
       "knowsLanguage": ["ja", "en", "zh-Hant", "zh-Hans"],
+      "knowsAbout": [
+        "生成式AI搜尋中的商家能見度",
+        "AI搜尋優化（GEO / LLMO / AIO）",
+        "實體設計",
+        "結構化資料",
+        "多語言資訊設計"
+      ],
       "sameAs": [
         "https://note.com/kaasela",
         "https://github.com/kaasela/kamogawa_ai_research_lab"
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kaasela.com/zh-tw/#website",
+      "url": "https://kaasela.com/zh-tw/",
+      "name": "Kääselä",
+      "inLanguage": "zh-Hant",
+      "publisher": { "@id": "https://kaasela.com/#organization" }
     }
   ]
 }
 </script>
+
 </head>
+
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/zh-tw/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>繁體中文</summary>
-        <div class="lang-list">
-          <a href="/"        hreflang="ja">日本語</a>
-          <a href="/en/"     hreflang="en">English</a>
-          <a href="/zh-tw/"  hreflang="zh-Hant" aria-current="true">繁體中文</a>
-          <a href="/zh-cn/"  hreflang="zh-Hans">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
-<section class="hero">
-  <canvas class="hero-flow" aria-hidden="true"></canvas>
-  <div class="hero-veil"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <h1>在顧客的語言裡，<br>你的店是什麼樣子？</h1>
-      <p class="lede">
-        當旅客想「在京都體驗茶道」時，答案越來越常來自 AI，而不是 Google——
-        通常是三到五家店的清單。
-        被選中的店家，和沒被選中的店家，差別在哪裡？
-        我以日文、英文、中文等多種語言實際測試，並分析結果。
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="/zh-tw/reports/kyoto-experience-2026/">閱讀調查報告</a>
-      </div>
+
+<div class="L1-wrap">
+
+  <header class="L1-masthead">
+    <div class="L1-title">
+      <a class="L1-name" href="/zh-tw/">K<span class="u">ää</span>sel<span class="u">ä</span></a>
+      <p class="L1-tagline">Kamogawa AI Search Lab — Kyoto</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<main class="wrap">
+  <nav class="L1-nav" aria-label="選單">
+    <a href="#findings">Findings</a>
+    <a href="#reading">Reading</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <span class="L1-lang">
+      <a href="/" hreflang="ja">JA</a>
+      <a href="/en/" hreflang="en">EN</a>
+      <a href="/zh-tw/" aria-current="true" hreflang="zh-Hant">繁中</a>
+      <a href="/zh-cn/" hreflang="zh-Hans">简中</a>
+    </span>
+  </nav>
 
-  <div class="callout">
-    <p><strong>來自2026年7月的調查</strong></p>
-    <p>
-      我以日文、英文、繁體中文、簡體中文，向AI詢問京都的十家體驗店家。
-      一家在 Google 地圖上擁有超過500則好評的店，被AI回答「查無此店」，
-      接著被當成另一家完全不同的店來介紹；
-      而唯一被AI正確報出價格的，是一間門面樸素的小茶室。
-    </p>
-    <p>
-      這樣的差別，是從哪裡來的？
-    </p>
-    <p style="margin-top:16px">
-      → <a href="/zh-tw/reports/kyoto-experience-2026/"><strong>閱讀調查報告</strong></a>
-    </p>
-  </div>
+  <section class="L1-cover">
+    <div>
+      <h1 class="L1-h1">你的店，是用顧客的語言被介紹的嗎？</h1>
+      <p class="L1-lede">
+        如今，人們想了解一件事的時候，問的不再是Google，而是AI。<br>
+        那麼，AI會選擇介紹哪些商家，又是怎麼介紹的呢？
+      </p>
+      <p class="L1-lede">
+        同一個問題，換一種語言問，AI參考的資訊來源和介紹的內容都會不一樣。<br>
+        Kääselä在日語、英語、繁體中文、簡體中文四種語言下，每月以相同條件持續觀測，
+        記錄並分析這些差異。
+      </p>
 
-  <h2>關於本研究室</h2>
+      <p class="L1-creed">AI搜尋，如何跨越語言的邊界？</p>
 
-  <p>
-    Kääselä（カセラ），是一個實際測量生成式AI如何認知與描述商家、
-    並公開紀錄的獨立研究專案。
-  </p>
+      <!-- Current Focus — 每月更新。
+           狀態詞只用：觀測中／彙整中／已發布／未執行。
+           更新步驟見 _lab/ENGINEERING_GUIDE.md §8 -->
+      <dl class="L1-focus">
+        <dt>Latest Monthly Report</dt>
+        <dd><a href="/zh-tw/reports/2026-08/">Monthly Report #000 — 京都體驗類別中生成式AI的回答傾向</a>
+          <span class="state">已發布 <span class="num">2026.08.02</span></span>
+        </dd>
+      </dl>
+    </div>
 
-  <p>
-    這個領域有幾種名稱——GEO（生成式引擎優化）、LLMO、AIO——
-    新到連名稱都還沒有定下來。
-    追逐這些名詞，或是再添一個空有其名的新詞，都不是本研究室的目的。
-    我想弄清楚的是：在AI的時代，店家要被顧客好好認知，
-    需要的是什麼。用數據來回答這個問題，是這裡的目標。
-  </p>
+    <div class="L1-spine">
+      <p class="L1-spine-h">12個月連續觀測<br>始於 <span class="num">2026.08</span></p>
+      <ol class="L1-track">
+        <li><span class="dot" title="2026年8月 — 第0號 已發布"></span></li>
+        <li><span class="dot dot--open" title="2026年9月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2026年10月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2026年11月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2026年12月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年1月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年2月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年3月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年4月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年5月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年6月 — 未發布"></span></li>
+        <li><span class="dot dot--open" title="2027年7月 — 未發布"></span></li>
+      </ol>
+      <div class="L1-ends"><span class="num">2026.08</span><span class="num">2027.07</span></div>
+      <p class="L1-spine-n">每月第一個週日發布。</p>
+    </div>
+  </section>
 
-  <h2>聯絡</h2>
-  <p><strong>kamogawa.ai.lab@gmail.com</strong></p>
-  <p style="font-size:15px;color:#666">
-    目前為在職狀態，不承接個人委託。
-    與研究宗旨相符的範圍內，調查結果的分享與方法說明皆無償提供。
-  </p>
-</main>
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>An independent research project. Not affiliated with any university or organization.</p>
-  </div>
-</footer>
+  <section class="L1-sec" id="findings">
+    <p class="L1-no num">01</p>
+    <h2 class="L1-h2">Findings</h2>
 
-<script src="/assets/site.js" defer></script>
+    <p class="L1-deck">AI引用資訊來源的模式，已呈現以下三個趨勢：</p>
+
+    <ol class="L1-insights">
+      <li><span class="n">Insight <span class="num">1</span></span><p>類別的商業性，決定了比較類媒體是否會形成。</p></li>
+      <li><span class="n">Insight <span class="num">2</span></span><p>語言不同，可用的比較類媒體也不同。</p></li>
+      <li><span class="n">Insight <span class="num">3</span></span><p>當比較類媒體不存在時，AI主要參考官方（自營）網站。</p></li>
+    </ol>
+
+    <figure class="L1-fig">
+      <table class="L1-tbl">
+        <caption>引用來源首位類型 ／ 2026年7月觀測</caption>
+        <thead>
+          <tr><th scope="col"><span class="sr">類別</span></th>
+            <th scope="col">日語</th><th scope="col">英語</th>
+            <th scope="col">簡體中文</th><th scope="col">繁體中文</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">茶道</th>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">52.2%</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>媒體</span><span class="L1-pct">46.0%</span><span class="L1-gap">次位差 6pt</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自營</span><span class="L1-pct">40.6%</span><span class="L1-gap">次位差 3pt</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自營</span><span class="L1-pct">56.8%</span></td></tr>
+          <tr><th scope="row">和服</th>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>媒體</span><span class="L1-pct">53.7%</span></td>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>媒體</span><span class="L1-pct">49.1%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自營</span><span class="L1-pct">54.8%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自營</span><span class="L1-pct">66.7%</span></td></tr>
+          <tr><th scope="row">坐禪</th>
+            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">50.0%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自營</span><span class="L1-pct">80.2%</span></td>
+            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自營</span><span class="L1-pct">49.5%</span></td>
+            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自營</span><span class="L1-pct">43.4%</span><span class="L1-gap">次位差 3pt</span></td></tr>
+        </tbody>
+      </table>
+      <figcaption class="L1-cap">
+        <dl>
+          <dt>觀測條件</dt>
+          <dd>3類別 × 4語言 ＝ 12格 ／ 每格 <span class="num">n=20</span> ／ 合計 <span class="num">240</span> 次執行</dd>
+          <dt>判定標準</dt>
+          <dd>彙總指標的雜訊底約為 <span class="num">±10pt</span>。與次位差距在此範圍內的格子（○）不視為已確定首位</dd>
+          <dt>執行條件</dt>
+          <dd>ChatGPT網頁版 ／ 暫存對話 ／ 執行地京都</dd>
+          <dt>出處</dt>
+          <dd>Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span></dd>
+        </dl>
+        <p class="L1-caveat">本次為單一時點、單一引擎的橫斷觀測，因果關係尚未證實。</p>
+      </figcaption>
+    </figure>
+
+    <p class="L1-p"><a href="/zh-tw/reports/">Read more</a></p>
+
+    <div class="L1-note">
+      <dl>
+        <dt>範圍</dt><dd>僅限ChatGPT網頁版。為了衡量消費者實際使用的產品體驗，不使用API</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="L1-sec" id="reading">
+    <p class="L1-no num">02</p>
+    <h2 class="L1-h2">Reading</h2>
+
+    <ul class="L1-latest">
+      <li><span class="n">Research Report<span class="gloss">月報</span></span>
+        <a class="t" href="/zh-tw/reports/2026-08/">Monthly Report #000　京都體驗類別中生成式AI的回答傾向（2026年7月）</a></li>
+      <li><span class="n">Feature<span class="gloss">專題</span></span>
+        <a class="t" href="/zh-tw/reports/kyoto-experience-2026/">Google 地圖高評價，AI 卻回答「查無此店」</a></li>
+    </ul>
+
+    <ul class="L1-taxo">
+      <li><span class="n">Field Notes<span class="gloss">田野筆記</span></span>
+        <span class="c"><span class="dot dot--open"></span>籌備中</span></li>
+      <li><span class="n">Explainers<span class="gloss">用語解釋</span></span>
+        <span class="c"><span class="dot dot--open"></span>籌備中</span></li>
+    </ul>
+
+    <p class="L1-p"><a href="/zh-tw/reports/">Read more</a></p>
+  </section>
+
+  <section class="L1-sec" id="about">
+    <p class="L1-no num">03</p>
+    <h2 class="L1-h2">About</h2>
+
+    <p class="L1-deck">不是新名字，是新資料。</p>
+
+    <p class="L1-p">Kääselä（卡瑟拉）是一個個人研究專案，基於實際的驗證結果，持續記錄並分析
+    生成式AI是如何認知、介紹商家的。</p>
+    <p class="L1-p">GEO、LLMO、AIO。</p>
+    <p class="L1-p">這個領域裡，新的說法層出不窮。
+    Kääselä關心的不是這些說法本身。</p>
+    <p class="L1-p">AI參考了什麼資訊，為什麼會介紹某個商家？
+    在AI時代，商家要被顧客正確認知，到底需要什麼？</p>
+    <p class="L1-p">這些問題，會一直用實測去檢驗。</p>
+  </section>
+
+  <section class="L1-sec is-last" id="contact">
+    <p class="L1-no num">04</p>
+    <h2 class="L1-h2">Contact</h2>
+
+    <p class="L1-p">如果你想深入了解調查方法、想試著調查自己所在的產業，或者對內容有任何想法，
+    歡迎隨時聯繫。<br>
+    <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></p>
+
+    <div class="L1-meta">
+      <dl>
+        <dt>關於委託業務</dt><dd>目前本人全職工作，不接受個人委託業務。如果內容符合本研究的宗旨（例如說明調查方法與觀測結果、交流對AI搜尋領域的看法、或是給想做類似調查的人一些建議），可以免費聊聊</dd>
+        <dt>關於所屬</dt><dd>這是一個個人研究與資訊發布專案，與任何機構、大學都沒有關係</dd>
+      </dl>
+    </div>
+
+    <div class="L1-sub L1-aside">
+      <p>最新一期Monthly Report發布時，會透過電子郵件通知你。</p>
+      <form name="newsletter" method="POST" data-netlify="true"
+            data-netlify-honeypot="bot-field" class="L1-form">
+        <input type="hidden" name="form-name" value="newsletter">
+        <p class="sr"><label>請勿填寫：<input name="bot-field" tabindex="-1"></label></p>
+        <label class="sr" for="mail">電子郵件地址</label>
+        <input id="mail" type="email" name="email" placeholder="you@example.com"
+               autocomplete="email" required>
+        <button type="submit">訂閱Newsletter</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="L1-foot">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>Kamogawa AI Search Lab — Kyoto, Japan ／ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
 
 </body>
 </html>
