@@ -92,18 +92,13 @@
       <a class="L1-name" href="/">K<span class="u">ää</span>sel<span class="u">ä</span></a>
       <p class="L1-tagline">Kamogawa AI Search Lab — Kyoto</p>
     </div>
-    <div class="L1-issueline">
-      <span class="num">Monthly Report #000</span>
-      <span class="num">2026.08.02 発行予定</span>
-      <span>日本語・英語・繁体字・簡体字の定点観測</span>
-    </div>
   </header>
 
   <nav class="L1-nav" aria-label="目次">
-    <a href="#findings">観測</a>
-    <a href="#reading">読み物</a>
-    <a href="#about">このラボについて</a>
-    <a href="#contact">ご連絡</a>
+    <a href="#findings">Findings</a>
+    <a href="#reading">Reading</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
     <span class="L1-lang">
       <a href="/" aria-current="true" hreflang="ja">JA</a>
       <a href="/en/" hreflang="en">EN</a>
@@ -114,27 +109,26 @@
 
   <section class="L1-cover">
     <div>
-      <h1 class="L1-h1 jp">あなたの店は、顧客の言語でどう伝わっているか。</h1>
+      <h1 class="L1-h1 jp">あなたのお店は、顧客の言葉で語られていますか。</h1>
       <p class="L1-lede">
-        人は、GoogleではなくAIに尋ね始めています。<br>
-        AIは、どの事業者を紹介し、どの事業者を紹介しないのか。
+        いま、人は何かを知りたいとき、GoogleではなくAIに尋ねるようになりました。<br>
+        では、AIはどのような事業者を選び、どのように紹介しているのでしょうか。
       </p>
       <p class="L1-lede">
-        日本語・英語・繁体字中国語・簡体字中国語で、毎月同じ問いを立て、
-        その変化を観測しています。
+        同じ問いでも、言語が変われば、AIが参照する情報も、紹介する内容も変わります。<br>
+        Kaaselaでは、日本語・英語・繁体字中国語・簡体字中国語で、毎月同じ条件のもと
+        定点観測を行い、その違いを記録・分析しています。
       </p>
 
-      <!-- 継続観測そのものが差別化要因。第一屏で言い切る -->
-      <p class="L1-creed jp">毎月、同じ条件で、同じ問いを観測する。<br>
-        変化を語る前に、まず測る。</p>
+      <p class="L1-creed jp">AI検索は、言語の境界線をどう越えるのか。</p>
 
       <!-- Current Focus — 毎月書き換える。
            状態語は 観測中／集計中／発行済／未実行 の4つだけ。
            書き換え手順は _lab/ENGINEERING_GUIDE.md §8 -->
       <dl class="L1-focus">
-        <dt>Current Observation</dt>
-        <dd class="jp">生成AI × 京都体験カテゴリー
-          <span class="state"><span class="num">2026年8月</span> — 集計中（第0号 発行準備）</span>
+        <dt>Latest Monthly Report</dt>
+        <dd class="jp"><a href="/reports/2026-08/">Monthly Report #000 — 京都体験カテゴリーにおける生成AIの回答傾向</a>
+          <span class="state"><span class="num">2026.08.02</span> 発行</span>
         </dd>
       </dl>
     </div>
@@ -143,9 +137,9 @@
          発行のたびに dot--open を dot に変えるだけ。
          号番号は #000〜#003 のみ確定のため、帯は月で並べている。 -->
     <div class="L1-spine">
-      <p class="L1-spine-h">第1期（<span class="num">2026.08–2027.07</span>）<br>12ヶ月連続観測</p>
+      <p class="L1-spine-h">12ヶ月連続観測<br><span class="num">2026.08</span> スタート</p>
       <ol class="L1-track">
-        <li><span class="dot dot--open" title="2026年8月 — 第0号 発行予定"></span></li>
+        <li><span class="dot" title="2026年8月 — 第0号 発行済"></span></li>
         <li><span class="dot dot--open" title="2026年9月 — 未刊"></span></li>
         <li><span class="dot dot--open" title="2026年10月 — 未刊"></span></li>
         <li><span class="dot dot--open" title="2026年11月 — 未刊"></span></li>
@@ -160,21 +154,21 @@
       </ol>
       <div class="L1-ends"><span class="num">2026.08</span><span class="num">2027.07</span></div>
       <!-- 点が 0/12 であることは図が示している。数で言い直さない -->
-      <p class="L1-spine-n">発行は毎月第一日曜。欠号なし。</p>
+      <p class="L1-spine-n">毎月第一日曜発行。</p>
     </div>
   </section>
 
   <section class="L1-sec" id="findings">
     <p class="L1-no num">01</p>
-    <h2 class="L1-h2 jp">観測</h2>
+    <h2 class="L1-h2">Findings</h2>
 
-    <p class="L1-deck jp">
-      AIがどこを引用するかは、言語市場とカテゴリの商業性によって大きく違います。<br>
-      その二つが成立しないとき、AIは事業者自身が発信した情報へ戻ります。
-    </p>
+    <p class="L1-deck jp">AIが引用する情報源のパターンは、下記のような3つの傾向が判明しています。</p>
 
-    <p class="L1-p">比較サイトや代理店が成立する市場なのか。その市場が、その言語圏にも
-    存在するのか。この二つによって、AIが引用する情報源の傾向はおおむね説明できます。</p>
+    <ol class="L1-insights">
+      <li><span class="n">Insight <span class="num">1</span></span><p class="jp">カテゴリの商業性は、比較メディアの形成を左右する。</p></li>
+      <li><span class="n">Insight <span class="num">2</span></span><p class="jp">言語によって、利用できる比較メディアは異なる。</p></li>
+      <li><span class="n">Insight <span class="num">3</span></span><p class="jp">比較メディアが存在しない場合、AIは公式サイトを主要な情報源として参照する。</p></li>
+    </ol>
 
     <!-- 実測値。出典 reports/2026-08/data/summary_by_cell.csv
          拮抗＝次点との差が10pt以内（ノイズフロア）
@@ -212,7 +206,7 @@
           <dt>判定基準</dt>
           <dd>集計指標のノイズフロアは <span class="num">±約10pt</span>。2位との差がそれ以内のセル（○）は、首位を確定として扱いません</dd>
           <dt>実行条件</dt>
-          <dd>ChatGPT 網頁版 ／ ログアウト・一時チャット ／ 実行地 京都</dd>
+          <dd>ChatGPT Web版 ／ 一時チャット ／ 実行地 京都</dd>
           <dt>出典</dt>
           <dd>Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span></dd>
         </dl>
@@ -220,68 +214,69 @@
       </figcaption>
     </figure>
 
-    <p class="L1-p"><a href="/reports/">観測条件と全データを、レポート本文で見る</a></p>
+    <p class="L1-p"><a href="/reports/">Read more</a></p>
 
     <div class="L1-note">
       <dl>
-        <dt>対象</dt><dd>第1期は ChatGPT 網頁版のみ（APIは引用元を返さない）</dd>
-        <dt>n</dt><dd>1セル 20</dd>
-        <dt>記載</dt><dd>未実行のセルは「未実行」と明記する</dd>
+        <dt>対象</dt><dd>ChatGPT Web版。消費者が実際に使う製品体験を測定するため、API は使用しない。</dd>
       </dl>
     </div>
   </section>
 
   <section class="L1-sec" id="reading">
     <p class="L1-no num">02</p>
-    <h2 class="L1-h2 jp">読み物</h2>
+    <h2 class="L1-h2">Reading</h2>
 
-    <ul class="L1-taxo">
-      <li><span class="n">Research Reports</span>
-        <span class="c"><span class="dot"></span>1件</span>
-        <span class="d">毎月の定点観測。方法・n数・実行条件を公開する、再現可能な記録。</span></li>
-      <li><span class="n">Features</span>
-        <span class="c"><span class="dot"></span>1件</span>
-        <span class="d">データを起点に、一つの事例を深く掘り下げる。</span></li>
-      <li><span class="n">Field Notes</span>
-        <span class="c"><span class="dot dot--open"></span>準備中</span>
-        <span class="d">短い観察記録。結論より、気づきを残す。</span></li>
-      <li><span class="n">Explainers</span>
-        <span class="c"><span class="dot dot--open"></span>準備中</span>
-        <span class="d">Reportを書く中で何度も説明した概念を整理する。</span></li>
+    <ul class="L1-latest">
+      <li><span class="n">Research Report<span class="gloss jp">月報</span></span>
+        <a class="t jp" href="/reports/2026-08/">Monthly Report #000　京都体験カテゴリーにおける生成AIの回答傾向（2026年7月）</a></li>
+      <li><span class="n">Feature<span class="gloss jp">特集</span></span>
+        <a class="t jp" href="/reports/kyoto-experience-2026/">Googleでは★4.9。それでもAIは、その店を見つけられなかった。</a></li>
     </ul>
 
-    <p class="L1-p"><a href="/reports/">書庫 — 発行した号の一覧</a></p>
+    <ul class="L1-taxo">
+      <li><span class="n">Field Notes<span class="gloss jp">フィールドノート</span></span>
+        <span class="c"><span class="dot dot--open"></span>準備中</span></li>
+      <li><span class="n">Explainers<span class="gloss jp">用語説明</span></span>
+        <span class="c"><span class="dot dot--open"></span>準備中</span></li>
+    </ul>
+
+    <p class="L1-p"><a href="/reports/">Read more</a></p>
   </section>
 
   <section class="L1-sec" id="about">
     <p class="L1-no num">03</p>
-    <h2 class="L1-h2 jp">このラボについて</h2>
+    <h2 class="L1-h2">About</h2>
 
-    <p class="L1-deck jp">呼び名ではなく、実測を積み重ねる。</p>
+    <p class="L1-deck jp">新しい名前より、新しいデータ。</p>
 
-    <p class="L1-p">Kääselä（カセラ）は、生成AIが事業者のことをどのように認識し、
-    紹介しているかを、実際に測って記録している個人の研究プロジェクトです。</p>
-    <p class="L1-p">GEO、LLMO、AIO。この分野には、まだ呼び名がいくつもあります。</p>
-    <p class="L1-p">関心があるのは、呼び名ではありません。
-    事業者が、AIの時代にも顧客からきちんと認知されるには何が必要なのか。
-    その問いを、データで確かめていくことを軸としています。</p>
-
-    <div class="L1-note">
-      <dl>
-        <dt>形態</dt><dd>個人研究。特定の団体・大学等とは無関係</dd>
-        <dt>公開</dt><dd>脱敏後の観測データを各号で全文公開</dd>
-        <dt>継続</dt><dd>12ヶ月連続の定点観測を優先。欠号なし</dd>
-      </dl>
-    </div>
+    <p class="L1-p">Kääselä（カセラ）は、生成AIが事業者をどのように認識し、どのように紹介しているのかを、
+    実際の検証結果にもとづいて継続的に記録・分析する個人研究プロジェクトです。</p>
+    <p class="L1-p">GEO、LLMO、AIO。</p>
+    <p class="L1-p">この分野では、新しい呼び名が次々と生まれています。
+    Kääseläが関心を持っているのは、その呼び名ではありません。</p>
+    <p class="L1-p">AIは何を参照し、なぜその事業者を紹介したのか。
+    事業者が、AIの時代に顧客から正しく認知されるには何が必要なのか。</p>
+    <p class="L1-p">その問いを、実測によって確かめ続けます。</p>
   </section>
 
   <section class="L1-sec is-last" id="contact">
     <p class="L1-no num">04</p>
-    <h2 class="L1-h2 jp">ご連絡</h2>
+    <h2 class="L1-h2">Contact</h2>
 
-    <div class="L1-sub">
-      <p>新しい号が出たら、メールで一報</p>
-      <p class="s">月1回、発行時のみ。それ以外は送りません。</p>
+    <p class="L1-p">調査の方法について詳しく知りたい方、ご自身の業種でも調べてみたい方、
+    内容へのご意見等、どうぞお気軽にご連絡ください。<br>
+    <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></p>
+
+    <div class="L1-meta">
+      <dl>
+        <dt>受託について</dt><dd>現在、会社に勤めているため、個人での受託業務は行っておりません。調査方法や検証結果などの詳細については、研究の趣旨に沿う内容（調査手法および観測結果の説明、AI検索分野についての意見交換、同様の調べ方に関するご相談など）であれば、無償でお話しできます</dd>
+        <dt>所属について</dt><dd>個人による研究・情報発信プロジェクトです。特定の団体・大学等とは関係ありません</dd>
+      </dl>
+    </div>
+
+    <div class="L1-sub L1-aside">
+      <p>最新のMonthly Reportを公開したら、メールでお知らせします。</p>
       <form name="newsletter" method="POST" data-netlify="true"
             data-netlify-honeypot="bot-field" class="L1-form">
         <input type="hidden" name="form-name" value="newsletter">
@@ -289,19 +284,8 @@
         <label class="sr" for="mail">メールアドレス</label>
         <input id="mail" type="email" name="email" placeholder="you@example.com"
                autocomplete="email" required>
-        <button type="submit">登録</button>
+        <button type="submit">ニュースレターに登録する</button>
       </form>
-    </div>
-
-    <p class="L1-p">調査の方法について詳しく知りたい方、ご自身の業種でも調べてみたい方、
-    内容へのご意見等、どうぞお気軽にご連絡ください。<br>
-    <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></p>
-
-    <div class="L1-note">
-      <dl>
-        <dt>受託について</dt><dd>現在、個人での受託業務は行っておりません。調査方法や観測結果については、研究の趣旨に沿う内容であれば、無償でお話ししています</dd>
-        <dt>所属について</dt><dd>個人による研究・情報発信プロジェクトです。特定の団体・大学等とは関係ありません</dd>
-      </dl>
     </div>
   </section>
 
