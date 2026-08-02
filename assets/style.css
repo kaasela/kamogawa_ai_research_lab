@@ -326,6 +326,20 @@ a.L1-name:hover{color:var(--ink);}
 .L2-toc a:hover{color:var(--river);}
 .L2-toc .num{color:var(--faint);margin-right:var(--s2);}
 
+/* 追従目次 — 広い画面の左余白に置く。組幅680pxはここでは変えない。
+   狭い画面では出さない（.L2-toc が同じ役割を持つため二重にしない） */
+.L2-rail{display:none;}
+@media(min-width:1280px){
+  .L2-rail{display:block;position:fixed;top:120px;
+    left:calc(50% - 340px - 200px);width:180px;
+    max-height:70vh;overflow-y:auto;}
+  .L2-rail ol{list-style:none;padding:0;margin:0;text-align:right;}
+  .L2-rail li{padding:3px 0;}
+  .L2-rail a{display:block;font-size:12px;line-height:1.5;color:var(--faint);
+    border:0;}
+  .L2-rail a:hover{color:var(--river);}
+}
+
 .L2-body{font-family:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",
   "Noto Serif JP",serif;font-weight:400;font-size:17px;line-height:32px;}
 .L2-body h2{font-family:'Libre Franklin',sans-serif;font-size:15px;
