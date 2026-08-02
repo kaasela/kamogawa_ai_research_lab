@@ -17,7 +17,10 @@
 <meta property="og:url" content="https://kaasela.com/en/reports/2026-08/">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Shippori+Mincho+B1:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script type="application/ld+json">
 {
@@ -47,54 +50,68 @@
 </script>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/en/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>English</summary>
-        <div class="lang-list">
-          <a href="/reports/2026-08/"        hreflang="ja">日本語</a>
-          <a href="/en/reports/2026-08/"     hreflang="en" aria-current="true">English</a>
-          <a href="/zh-tw/reports/2026-08/"  hreflang="zh-Hant">繁體中文</a>
-          <a href="/zh-cn/reports/2026-08/"  hreflang="zh-Hans">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
+<div class="L2-wrap">
 
-<main class="wrap">
-  <article>
-    <h1>Monthly Report #000<br>How Generative AI Answers About Kyoto Experiences (July 2026)</h1>
-    <p class="lede">A baseline across 3 categories × 4 languages, 240 observations</p>
-    <p class="meta">August 2, 2026 ｜ Kääselä (Kamogawa AI Search Lab)</p>
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="Language">
+        <a href="/reports/2026-08/">日本語</a>
+        <a href="/en/reports/2026-08/" aria-current="true">English</a>
+        <a href="/zh-cn/reports/2026-08/">简体中文</a>
+        <a href="/zh-tw/reports/2026-08/">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">Monthly Report #000<br>How Generative AI Answers About Kyoto Experiences (July 2026)</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Monthly Report #000</span>
+      <span class="num">2026-08-02</span>
+      <span>Approx. 9 min read</span>
+    </p>
+  </header>
 
-    <h2>1. Summary</h2>
-    <p>For this report, we asked ChatGPT for recommendations on Kyoto "tea ceremony," "kimono," and "zen meditation" experiences, 20 times each across four languages, and logged the sources cited in each answer (12 cells in total, 240 observations).</p>
+  <ol class="L2-toc">
+    <li><span class="num">1</span><a href="#abstract">Summary</a></li>
+    <li><span class="num">2</span><a href="#methodology">Method</a></li>
+    <li><span class="num">3</span><a href="#findings">Citation source distribution</a></li>
+    <li><span class="num">4</span><a href="#brands">Business appearance rate</a></li>
+    <li><span class="num">5</span><a href="#delta">Change from previous issue</a></li>
+    <li><span class="num">6</span><a href="#noise">Noise floor comparison</a></li>
+    <li><span class="num">7</span><a href="#limitations">Scope &amp; limitations</a></li>
+    <li><span class="num">8</span><a href="#appendix">Appendix &amp; data</a></li>
+  </ol>
+
+  <nav class="L2-rail" aria-label="Contents">
+    <ol>
+      <li><a href="#abstract">1. Summary</a></li>
+      <li><a href="#methodology">2. Method</a></li>
+      <li><a href="#findings">3. Citation sources</a></li>
+      <li><a href="#brands">4. Business appearance</a></li>
+      <li><a href="#delta">5. Change from prior issue</a></li>
+      <li><a href="#noise">6. Noise floor</a></li>
+      <li><a href="#limitations">7. Scope &amp; limitations</a></li>
+      <li><a href="#appendix">8. Appendix &amp; data</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+    <h2 id="abstract">1. Summary (Abstract)</h2>
+    <p class="L2-abs">For this report, we asked ChatGPT for recommendations on Kyoto "tea ceremony," "kimono," and "zen meditation" experiences, 20 times each across four languages, and logged the sources cited in each answer (12 cells in total, 240 observations).</p>
     <p>The analysis found a consistent pattern in which sources get cited. This pattern appears to track two main factors.</p>
     <p>One is whether the category has enough of a market to sustain comparison sites and affiliates. The other is whether such sources have actually been built out in that language, and are reachable by the AI.</p>
-    <p>In cells where both conditions hold, AI tended to cite comparison media. Where either was missing, the business's own official site tended to be cited instead. This report is a single-timepoint, single-engine cross-sectional observation, however, so this correspondence is a hypothesis consistent with the observed pattern, not a proven causal relationship.</p>
+    <p>In cells where both conditions hold, AI tended to cite comparison media. Where either was missing, the business's own official site tended to be cited instead. This report is a single-timepoint, single-engine cross-sectional observation, however, so this correspondence is a hypothesis consistent with the observed pattern, not a proven causal relationship<sup class="L2-fn"><a href="#limitations">†</a></sup>.</p>
     <p>Report #000 (this issue) establishes the observation method and evaluation metrics as a baseline. Starting from this issue as t=0, future monthly reports will track how this structure changes over time.</p>
 
-    <h2>2. Method</h2>
+    <h2 id="methodology">2. Method (Methodology)</h2>
     <p>We used ChatGPT (GPT-5.5, web version) in a temporary chat.</p>
     <p>Base queries followed a "Kyoto + category term + recommendation term" pattern, observed in four languages: Japanese, English, Simplified Chinese, and Traditional Chinese. The three target categories were tea ceremony, kimono rental, and zen meditation.</p>
     <p>Each query was run 20 times (n=20) consecutively, logging the business names and source domains cited in each answer, along with execution date/time, location (Kyoto City), network, and model name.</p>
     <p>Cited sources were classified into six types: Public, Owned, OTA, Media, Directory, and UGC. Records were kept at the individual-outlet level; aggregation was done at the brand level.</p>
     <p>We separately confirmed beforehand that keyword-style queries (e.g. "Kyoto tea ceremony recommended") and natural-language queries return no significant difference in the businesses returned. This study therefore used keyword-style queries throughout.</p>
-    <p>Raw data is published as <a href="/reports/2026-08/data/data.csv">data.csv</a> (CC BY 4.0, free, not for sale).</p>
 
-    <p><strong>Scope:</strong> This report covers only responses to recommendation-type queries. Comparison-type, transactional, and named-entity queries may draw on different sources.</p>
-    <p>This issue is also a single-timepoint observation (t=0); it does not discuss change or trends. Those will be analyzed using monthly data from Report #001 onward.</p>
-    <p>Further, this study is limited to ChatGPT (GPT-5.5), a single observer, and a single execution location. Results should not be generalized to other generative AI systems or different conditions without qualification.</p>
-    <p>The relationships described in Section 3 among category commerciality, language conditions, and self-description capability are a hypothesis-driven interpretation consistent with the observed pattern; they are not a proven causal claim.</p>
-    <p>We state this scope up front, consistent with the study's basic stance: draw conclusions from a meaningful number of observations, not from a single response (n=1).</p>
-
-    <h2>3. Citation source distribution</h2>
+    <h2 id="findings">3. Citation source distribution (Findings)</h2>
     <h3>3.1 Dominant source type across 12 cells (share, %)</h3>
     <table>
       <thead><tr><th></th><th>Japanese</th><th>English</th><th>Simplified Chinese</th><th>Traditional Chinese</th></tr></thead>
@@ -104,13 +121,13 @@
         <tr><td><strong>Zen</strong></td><td>Public 50.0 + Directory 23.5</td><td>Owned 80.2</td><td>Owned 49.5 (2nd: Public 35.2, gap 14pt)</td><td>Owned 43.4 (2nd: Public 40.4, gap 3pt)</td></tr>
       </tbody>
     </table>
-    <p style="font-size:14px;color:var(--sub)">(n=20 per cell. Classification criteria follow the methodology appendix. "2nd" shows the gap in points from the second-place type.)</p>
+    <ul class="L2-notes"><li>n=20 per cell. Classification criteria follow the methodology appendix. "2nd" shows the gap in points from the second-place type.</li></ul>
 
     <p>Three patterns are visible in the table above.</p>
     <p><strong>First,</strong> the more commercial a category, the more likely comparison media are cited. In kimono, where comparison sites and affiliates are viable, comparison media dominate citations. In zen meditation, centered on free sessions, such sources are almost absent — public sites and providers' own official sites dominate instead.</p>
     <p><strong>Second,</strong> the sources AI can draw on differ by language. In the Japanese and English kimono markets, comparison media already exist in numbers, so AI cites them. Tea ceremony has few comparison media in any language, so government tourism sites and travel media dominate instead.</p>
     <p><strong>Third,</strong> where comparison media are scarce, official sites tend to be cited instead. This is especially pronounced in the Chinese-language cells and in zen meditation.</p>
-    <p><strong>A pattern common to Chinese: </strong>across the six Simplified and Traditional Chinese cells, owned sites were cited most in every category. No Chinese-language cell had public sites or comparison media in first place.</p>
+    <p><strong>A pattern common to Chinese:</strong> across the six Simplified and Traditional Chinese cells, owned sites were cited most in every category. No Chinese-language cell had public sites or comparison media in first place.</p>
     <p>The size of that lead varies by category, though. In kimono, both Simplified Chinese (owned 54.8% / public 17.8%) and Traditional Chinese (owned 66.7% / public 10.4%) show owned sites well ahead. In tea ceremony and zen, the gap narrows: tea ceremony (Simplified) and zen (Traditional) are both close, at roughly a 3-point gap, while zen (Simplified) shows a 14-point gap and tea ceremony (Traditional) a 32-point gap. A simple split of "Simplified is close, Traditional dominates" does not hold.</p>
 
     <h3>3.2 Case 1: In Japanese, kimono citations concentrate on a single comparison site</h3>
@@ -130,7 +147,7 @@
     <p>In zen meditation, providers' own official sites (mostly temples) or public sites dominated citations in every language. OTAs and affiliates were nearly absent. In English in particular, owned sites reached an 80.2% share.</p>
     <p>This suggests that in categories where comparison media are scarce, information published by providers themselves tends to be cited by AI. We also confirmed that providers without an English-language page were rarely surfaced at all — publishing official information in multiple languages appears to be itself a visibility factor.</p>
 
-    <h2>4. Business appearance rate (brand level, top group only)</h2>
+    <h2 id="brands">4. Business appearance rate (brand level, top group only)</h2>
     <p>This section looks at businesses actually named in responses and how they appeared.</p>
     <p>What Report #000 can evaluate is limited to concentration within the top group; with no prior issue, we do not discuss month-over-month change here (see Section 5 for diffs). Note that citation source distribution (Section 3) and business appearance rate (this section) are different metrics: Section 3 looks at which sources were cited, while this section looks at which businesses were actually named in responses.</p>
     <p><strong>Kimono:</strong> Across all four languages, we found a top group of roughly 8 businesses that appeared in nearly every run, and this group overlaps substantially across Japanese, English, Simplified Chinese, and Traditional Chinese. The type of source cited differs by language, though — comparison media in Japanese, OTAs and travel media in English, official sites in Chinese (§3.1). In other words, what changes by language is which sources are the pathway, not which businesses ultimately get named.</p>
@@ -139,17 +156,17 @@
     <p><strong>A pattern common across languages:</strong> For kimono and tea ceremony, even though the type of source cited differs substantially by language, the businesses AI actually names are fairly consistent across all four. This suggests that what changes by language is which source AI references, not which business ultimately gets recommended.</p>
     <p>Report #000 records this overlap as a baseline. We will track how it changes month over month from Report #001 onward.</p>
 
-    <h2>5. Change from the previous issue</h2>
+    <h2 id="delta">5. Change from the previous issue</h2>
     <p>Report #000 is the baseline for this report series. There is no prior issue to compare against. We treat the results shown here as the baseline (t=0), and from Report #001 (September 2026) onward we will continuously track change from this baseline.</p>
 
-    <h2>6. Comparison against the noise floor</h2>
+    <h2 id="noise">6. Comparison against the noise floor</h2>
     <p>The overlap in cited source sets (Jaccard index) between runs, when the same query was repeated 20 times, is as follows.</p>
     <table>
-      <thead><tr><th></th><th class="c">JA</th><th class="c">EN</th><th class="c">zh-Hans</th><th class="c">zh-Hant</th></tr></thead>
+      <thead><tr><th></th><th>JA</th><th>EN</th><th>zh-Hans</th><th>zh-Hant</th></tr></thead>
       <tbody>
-        <tr><td>Tea ceremony</td><td class="c">0.25</td><td class="c">0.20</td><td class="c">0.31</td><td class="c">0.25</td></tr>
-        <tr><td>Kimono</td><td class="c">0.41</td><td class="c">0.16</td><td class="c">0.15</td><td class="c">0.11</td></tr>
-        <tr><td>Zen</td><td class="c">0.35</td><td class="c">0.40</td><td class="c">0.22</td><td class="c">0.23</td></tr>
+        <tr><td>Tea ceremony</td><td class="num">0.25</td><td class="num">0.20</td><td class="num">0.31</td><td class="num">0.25</td></tr>
+        <tr><td>Kimono</td><td class="num">0.41</td><td class="num">0.16</td><td class="num">0.15</td><td class="num">0.11</td></tr>
+        <tr><td>Zen</td><td class="num">0.35</td><td class="num">0.40</td><td class="num">0.22</td><td class="num">0.23</td></tr>
       </tbody>
     </table>
     <p>Even for the same query, more than half of the cited sources typically change between runs.</p>
@@ -157,31 +174,45 @@
     <p>We treat this variance as the "noise floor." When evaluating month-over-month change, we only treat movement beyond this baseline as a meaningful signal (see Appendix A for detail).</p>
     <p>A single response (n=1) is therefore not enough to conclude "this is what AI says." Source-type composition converges to roughly ±10 points with 20 observations, while individual business appearance rates remain noisier — Report #000 evaluates only the top group for that reason.</p>
 
-    <h2>7. Appendix</h2>
-    <ul>
+    <h2 id="limitations">7. Scope &amp; limitations (Limitations)</h2>
+    <p><strong>Scope:</strong> This report covers only responses to recommendation-type queries. Comparison-type, transactional, and named-entity queries may draw on different sources.</p>
+    <p>This issue is also a single-timepoint observation (t=0); it does not discuss change or trends. Those will be analyzed using monthly data from Report #001 onward.</p>
+    <p>Further, this study is limited to ChatGPT (GPT-5.5), a single observer, and a single execution location. Results should not be generalized to other generative AI systems or different conditions without qualification.</p>
+    <p>The relationships described in Section 3 among category commerciality, language conditions, and self-description capability are a hypothesis-driven interpretation consistent with the observed pattern; <strong>they are not a proven causal claim.</strong></p>
+    <p>We state this scope up front, consistent with the study's basic stance: draw conclusions from a meaningful number of observations, not from a single response (n=1).</p>
+
+    <h2 id="appendix">8. Appendix &amp; data</h2>
+    <ul class="L2-notes">
       <li>A. <a href="/reports/appendix/noise-floor/">Noise floor methodology and full data</a></li>
       <li>B. Definitions of the six source types (Public / Owned / OTA / Media / Directory / UGC) — see Section 2 of this article and Appendix A</li>
       <li>C. Raw data: <a href="/reports/2026-08/data/data.csv">data.csv</a> (CC BY 4.0. 240 runs, 12 cells × n=20, 1,023 rows at the citation-domain level)</li>
     </ul>
-    <p><strong>Next issue (September 2026):</strong> Report #001 will report the first change from this baseline, focusing on how the kimono category's comparison-media share moves, and continued verification of the unexplained observation noted in §3.4.</p>
 
-    <hr>
-    <p><em>This is an independent research and information-sharing project, unaffiliated with any organization, university, or company. Data is published for free under CC BY 4.0 and is not for sale.</em></p>
+    <p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">This is an independent research and information-sharing project, unaffiliated with any organization, university, or company. Data is published for free under CC BY 4.0 and is not for sale.</p>
 
   </article>
-</main>
 
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>How generative AI describes businesses in their customers' language. Tested and documented in Japanese, English, Chinese, and more.</p>
-    <p style="margin-top:16px">Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>An independent research project. Not affiliated with any university or organization.</p>
-  </div>
-</footer>
+  <nav class="L2-serial">
+    <span><span class="lbl">Previous issue</span>—</span>
+    <span style="text-align:right;"><span class="lbl">Next issue · Sept 2026 (planned)</span>Monthly Report #001</span>
+  </nav>
 
-<script src="/assets/site.js" defer></script>
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
 
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="Back to top"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

@@ -17,7 +17,10 @@
 <meta property="og:url" content="https://kaasela.com/zh-tw/reports/kyoto-experience-2026/">
 <meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Shippori+Mincho+B1:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script type="application/ld+json">
 {
@@ -45,38 +48,46 @@
 </script>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/zh-tw/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>繁體中文</summary>
-        <div class="lang-list">
-          <a href="/reports/kyoto-experience-2026/"        hreflang="ja">日本語</a>
-          <a href="/en/reports/kyoto-experience-2026/"     hreflang="en">English</a>
-          <a href="/zh-tw/reports/kyoto-experience-2026/"  hreflang="zh-Hant" aria-current="true">繁體中文</a>
-          <a href="/zh-cn/reports/kyoto-experience-2026/"  hreflang="zh-Hans">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
+<div class="L2-wrap">
 
-<main class="wrap">
-  <article>
-    <h1>Google 地圖高評價，<br>AI 卻回答「查無此店」</h1>
-    <p class="lede">——針對京都 10 家體驗店，以日文、英文、繁體中文、簡體中文四種語言實測</p>
-    <p class="meta">2026 年 7 月 14 日 ｜ Kääselä</p>
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="語言">
+        <a href="/reports/kyoto-experience-2026/">日本語</a>
+        <a href="/en/reports/kyoto-experience-2026/">English</a>
+        <a href="/zh-cn/reports/kyoto-experience-2026/">简体中文</a>
+        <a href="/zh-tw/reports/kyoto-experience-2026/" aria-current="true">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">Google 地圖高評價，<br>AI 卻回答「查無此店」</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-07</span>
+      <span>閱讀約10分鐘</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="目錄">
+    <ol>
+      <li><a href="#outcomes">指名搜尋的四種結果</a></li>
+      <li><a href="#source-directions">資訊來源的兩個方向</a></li>
+      <li><a href="#scope">適用範圍：語言與類別</a></li>
+      <li><a href="#action">因應策略</a></li>
+      <li><a href="#limitations">研究限制</a></li>
+      <li><a href="#closing">結語</a></li>
+      <li><a href="#references">參考與背景</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
 
 <p>有一家和服租借店，在 Google 地圖上擁有 4.9 分、超過 500 則評論。可是，當你把店名輸入 ChatGPT 詢問時，AI 卻回答：「找不到這家店。」接著還推薦了另一家名稱相近的店。</p>
 <p>另一方面，另一間只有 272 則評論的小型茶室，AI 卻能準確說出價格、體驗時間，甚至一字不差。</p>
 <p>AI 時代，店家究竟要如何被顧客找到？本篇整理了以日文、英文、繁體中文、簡體中文四種語言，詢問京都 10 家觀光體驗店後所得出的結果與分析。</p>
 
-<hr>
-<h2>【指名搜尋的四種結果】AI 是如何理解你的店家？</h2>
+<h2 id="outcomes">指名搜尋的四種結果：AI 是如何理解你的店家？</h2>
 <p>這次觀察中，AI 對店家的反應大致可以分成四種類型。</p>
 
 <h3>A｜正確理解</h3>
@@ -128,8 +139,7 @@
 </table>
 <p>評論更多的那一家，AI 反而看不見。</p>
 
-<hr>
-<h2>【資訊來源的兩個方向】指名搜尋需要自己的聲音，推薦搜尋需要別人的推薦</h2>
+<h2 id="source-directions">資訊來源的兩個方向：指名搜尋需要自己的聲音，推薦搜尋需要別人的推薦</h2>
 <p>真正的差異，在於店家把資訊放在哪裡。再加入另一家 E 店來比較。E 店沒有自己的官方網站，只有一個預約 SaaS 平台上的頁面，但 AI 依然能認出它。</p>
 <table>
 <thead>
@@ -171,8 +181,7 @@
 </table>
 <p>這其實是兩件完全不同的事情。官方網站解決的是——當對方已經知道你的名字時，如何讓 AI 正確理解你。而當有人只是問「京都有哪些茶道體驗？」，AI 真正會看的，是<strong>其他人有沒有提到你。</strong></p>
 
-<hr>
-<h2>【適用範圍】不同語言的贏家不同，但仍要看產業類別</h2>
+<h2 id="scope">適用範圍：不同語言的贏家不同，但仍要看產業類別</h2>
 <p>同樣都是問「請推薦京都的 XX 體驗」，用四種語言詢問後，不同產業竟然出現完全不同的結果。</p>
 
 <h3>茶道：四種語言，都是同樣三家店</h3>
@@ -181,23 +190,23 @@
 <h3>和服：四種語言沒有任何一家店全部入選</h3>
 <table>
 <thead>
-<tr><th>店家</th><th style="text-align:center;">日</th><th style="text-align:center;">英</th><th style="text-align:center;">繁</th><th style="text-align:center;">簡</th></tr>
+<tr><th>店家</th><th>日</th><th>英</th><th>繁</th><th>簡</th></tr>
 </thead>
 <tbody>
-<tr><td>店①</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td>店②</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td>店③</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>店④（誤認 C 店的競爭對手）</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>店⑤</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>店⑥</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑦</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑧</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑨</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑩</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑪</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>店⑫</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td><strong>店⑬（業界最大品牌）</strong></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"><strong>●</strong></td></tr>
-<tr><td>店⑭</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td></tr>
+<tr><td>店①</td><td class="num">●</td><td class="num">●</td><td class="num">●</td><td class="num"></td></tr>
+<tr><td>店②</td><td class="num">●</td><td class="num">●</td><td class="num">●</td><td class="num"></td></tr>
+<tr><td>店③</td><td class="num"></td><td class="num">●</td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>店④（誤認 C 店的競爭對手）</td><td class="num"></td><td class="num">●</td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>店⑤</td><td class="num"></td><td class="num"></td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>店⑥</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑦</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑧</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑨</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑩</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑪</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>店⑫</td><td class="num"></td><td class="num"></td><td class="num">●</td><td class="num"></td></tr>
+<tr><td><strong>店⑬（業界最大品牌）</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"><strong>●</strong></td></tr>
+<tr><td>店⑭</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">●</td></tr>
 </tbody>
 </table>
 <p>這裡可以看到三個重點。</p>
@@ -225,8 +234,7 @@
 <p>更值得注意的是——japan-atlas、MATCHA、Japan Cheapo、着物レンタル比較ナビ，其實都不是大型新聞媒體。它們多半只是專門整理「京都 ○○ 推薦 10 選」的聯盟行銷網站。截至 2026 年 7 月，目前的情況看來，真正左右 AI 推薦內容的，正是這些網站。</p>
 <p>因此，對店家而言，「是否需要經營多語言市場」目前恐怕沒有放諸四海皆準的答案。至少，它需要依照你的產業類別，透過實際測試來判斷。</p>
 
-<hr>
-<h2>【因應策略】兩種搜尋問題，需要兩種不同解法</h2>
+<h2 id="action">因應策略：兩種搜尋問題，需要兩種不同解法</h2>
 <p>這次調查，可以整理出四個方向。</p>
 
 <h3>① 想讓 AI 正確介紹你 → 自己提供可引用的事實</h3>
@@ -241,18 +249,15 @@
 <h3>④ 未來可能的方向 → 用自己的品牌，占據獨特定位</h3>
 <p>這次也觀察到另一種可能。有些擁有獨立網站，同時又具備鮮明特色（例如「歡迎親子同行」）的店家，即使沒有大量曝光，也有機會被 AI 額外提到。或許，如果不想走大量媒體曝光的路線，那麼透過自己的網站，把店家真正獨有的定位建立起來，也可能成為小型店家的另一條策略。</p>
 
-<hr>
-<h2>研究限制</h2>
+<h2 id="limitations">研究限制</h2>
 <p>本次調查僅屬於個人的小型實驗。樣本只有 10 家店、1 個 AI 模型（ChatGPT），以及有限次數的提問。因此，無法做出具有統計意義的結論，只能視為一次個人觀察。</p>
 <p>另外，AI 每次回答都可能改變。C 店第一次與第二次得到不同答案，就是最直接的例子。若要真正分析，理想上應該針對同一問題重複詢問數十次，再觀察整體分布。</p>
 <p>此外，目前不少生成式 AI 都會記住使用者過去的對話，並影響後續回答。因此，若店家用自己的帳號詢問「京都推薦的 ○○？」，即使自己的店出現在答案裡，也不能代表任何事情，因為 AI 很可能只是記得你。本次測試是在關閉記憶功能的情況下進行。測試的不是排名，而是：<strong>一個完全不知道你的 AI，有多大的機率主動提到你。</strong></p>
 
-<hr>
-<h2>結語</h2>
+<h2 id="closing">結語</h2>
 <p>AI 搜尋目前仍是一個缺乏成熟方法論的領域。其實，大多數人都還在摸索。包括我自己，一開始的許多假設，也有一半沒有成立。例如「同一家店，在日文找得到，在中文就會消失」——結果並不是固定成立，而是會依產業不同而改變。包括那些被證明錯誤的假設，我也會持續公開記錄。因為我希望在這個領域提供的，不是聽起來漂亮的理論，而是真正經過實測的資料。</p>
 
-<hr>
-<h2>參考與背景</h2>
+<h2 id="references">參考與背景</h2>
 <p>本文提到的「實體（Entity）」概念，在英文 SEO 領域通常稱為 <strong>Entity-based SEO</strong>；而在生成式 AI 的討論中，則多以 <strong>GEO（Generative Engine Optimization）</strong> 為名。目前較常被引用的學術起點，是 Aggarwal 等人的論文《GEO: Generative Engine Optimization》（arXiv:2311.09735，KDD 2024）。文中提出，要讓內容更容易出現在生成式搜尋中，至少需要具備三項條件：</p>
 <ul>
 <li><strong>Retrievable（可檢索）</strong></li>
@@ -267,24 +272,31 @@
 </ul>
 <p>此外，業界也流傳一些說法，例如「只要在特定評論網站建立資料，就更容易被 AI 引用」。不過，目前仍缺乏經過同儕審查的研究支持，因此本文僅作為背景資訊，不作定論。</p>
 
-<hr>
-<p><em>本文為個人研究與資訊分享，與任何特定組織、學校或研究機構無關。</em></p>
-<p><em>若對調查方法細節，或有興趣進行類似研究，歡迎交流。</em></p>
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本文為個人研究與資訊分享，與任何特定組織、學校或研究機構無關。若對調查方法細節，或有興趣進行類似研究，歡迎交流。</p>
 
   </article>
-</main>
 
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>生成式 AI，正用顧客的語言，重新描述一家又一家店。我們持續以日、英、繁、簡等不同語言進行實測，並公開記錄研究成果。</p>
-    <p style="margin-top:16px">京都市 ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>個人研究與資訊分享，與任何特定組織、學校或研究機構無關。</p>
-  </div>
-</footer>
+  <nav class="L2-serial">
+    <span><span class="lbl">依據</span><a href="/zh-tw/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">總覽</span><a href="/reports/">Reports</a></span>
+  </nav>
 
-<script src="/assets/site.js" defer></script>
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
 
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="回到頂端"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

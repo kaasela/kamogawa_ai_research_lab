@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* ============================================================
    Kääselä — Kamogawa AI Search Lab
-   デザインシステム v3.0（Editorial Transition）
+   デザインシステム v3.1（Editorial Transition）
 
    真本：
      _lab/DESIGN_PRINCIPLES.md   なぜそう設計するか
@@ -29,7 +29,7 @@
   --ink:#1A1A1A;
   --sub:#5C5C5C;
   --faint:#6E6E6E;
-  --paper:#FAFAF8;
+  --paper:#FFFFFF;
   --rule-1:#E6E4E0;
   --rule-2:#CFCCC7;
   --rule-3:#8C8880;
@@ -338,7 +338,27 @@ a.L1-name:hover{color:var(--ink);}
   .L2-rail a{display:block;font-size:12px;line-height:1.5;color:var(--faint);
     border:0;}
   .L2-rail a:hover{color:var(--river);}
+  /* 追従目次が出る画面幅では、冒頭の静的目次は二重になるため隠す */
+  .L2-toc{display:none;}
 }
+
+/* 題字欄の上段 — 戻るリンクと言語切替を横並びにする */
+.L2-headrow{display:flex;justify-content:space-between;align-items:baseline;
+  flex-wrap:wrap;gap:var(--s3);}
+.L2-lang{display:flex;gap:var(--s3);font-size:11.5px;}
+.L2-lang a{color:var(--faint);border:0;}
+.L2-lang a:hover{color:var(--river);}
+.L2-lang [aria-current]{color:var(--ink);}
+
+/* ページ上部へ戻る — 長い記事のみ。スクロール後に現れる */
+.L2-top{position:fixed;right:var(--s4);bottom:var(--s4);z-index:10;
+  font-family:'Libre Franklin',sans-serif;font-size:12px;color:var(--faint);
+  border:0;line-height:1;opacity:0;pointer-events:none;
+  transition:opacity .15s;}
+.L2-top.is-visible{opacity:1;pointer-events:auto;}
+.L2-top:hover{color:var(--river);}
+.L2-top .arrow{display:block;font-size:18px;text-align:center;margin-bottom:2px;}
+@media print{.L2-top{display:none;}}
 
 .L2-body{font-family:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",
   "Noto Serif JP",serif;font-weight:400;font-size:17px;line-height:32px;}

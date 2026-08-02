@@ -17,7 +17,10 @@
 <meta property="og:url" content="https://kaasela.com/en/reports/kyoto-experience-2026/">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Shippori+Mincho+B1:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script type="application/ld+json">
 {
@@ -45,38 +48,46 @@
 </script>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/en/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>English</summary>
-        <div class="lang-list">
-          <a href="/reports/kyoto-experience-2026/"        hreflang="ja">日本語</a>
-          <a href="/en/reports/kyoto-experience-2026/"     hreflang="en" aria-current="true">English</a>
-          <a href="/zh-tw/reports/kyoto-experience-2026/"  hreflang="zh-Hant">繁體中文</a>
-          <a href="/zh-cn/reports/kyoto-experience-2026/"  hreflang="zh-Hans">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
+<div class="L2-wrap">
 
-<main class="wrap">
-  <article>
-    <h1>It had great Google reviews.<br>The AI said it didn't exist.</h1>
-    <p class="lede">——Ten Kyoto experience businesses, queried in Japanese, English, Traditional and Simplified Chinese</p>
-    <p class="meta">July 14, 2026 ｜ Kääselä</p>
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="Language">
+        <a href="/reports/kyoto-experience-2026/">日本語</a>
+        <a href="/en/reports/kyoto-experience-2026/" aria-current="true">English</a>
+        <a href="/zh-cn/reports/kyoto-experience-2026/">简体中文</a>
+        <a href="/zh-tw/reports/kyoto-experience-2026/">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">It had great Google reviews.<br>The AI said it didn't exist.</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-07</span>
+      <span>Approx. 11 min read</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="Contents">
+    <ol>
+      <li><a href="#outcomes">Four outcomes</a></li>
+      <li><a href="#source-directions">Two directions of the source</a></li>
+      <li><a href="#scope">Scope: language vs. category</a></li>
+      <li><a href="#action">What to do</a></li>
+      <li><a href="#limitations">Limitations</a></li>
+      <li><a href="#closing">Closing</a></li>
+      <li><a href="#references">References &amp; background</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
 
 <p>A kimono-rental shop with 4.9 stars and over 500 reviews on Google Maps. When you type its name into ChatGPT and ask for details, the answer comes back: "I couldn't find that shop." It then recommends a different business with a similar name.</p>
 <p>Meanwhile, a small tea room with only half as many reviews (272) had its prices and durations quoted back word-for-word.</p>
 <p>In the age of AI, how does a business actually reach its customers? This report gathers what I found by asking AI about ten cultural-experience businesses in Kyoto, across four languages: Japanese, English, Traditional Chinese, and Simplified Chinese.</p>
 
-<hr>
-<h2>[Named queries: four outcomes] How AI understands your business</h2>
+<h2 id="outcomes">Named queries: four outcomes — how AI understands your business</h2>
 <p>Across this survey, AI's handling of a business fell into one of four types.</p>
 
 <h3>A｜Understood correctly</h3>
@@ -128,8 +139,7 @@
 </table>
 <p>The shop with more reviews was the one AI couldn't see.</p>
 
-<hr>
-<h2>[Two directions of the source] Named queries need your own voice; discovery queries need other people's</h2>
+<h2 id="source-directions">Two directions of the source: named queries need your own voice; discovery queries need other people's</h2>
 <p>The real difference lies in where each shop puts its information. Let me add one more shop, E, for comparison. Shop E has no official website of its own — only a page on a booking-SaaS platform — and yet AI still recognized it.</p>
 <table>
 <thead>
@@ -171,8 +181,7 @@
 </table>
 <p>These are two entirely different problems. Polishing your official site is about being understood correctly once someone already knows your name. But when someone simply asks "What tea-ceremony experiences are there in Kyoto?", what AI actually looks at is <strong>whether other people have mentioned you.</strong></p>
 
-<hr>
-<h2>[Scope] The winner differs by language — but it depends on the category</h2>
+<h2 id="scope">Scope: the winner differs by language — but it depends on the category</h2>
 <p>Asking the same "Please recommend a XX experience in Kyoto" in four languages produced opposite results across different categories.</p>
 
 <h3>Tea ceremony: the same three shops in all four languages</h3>
@@ -181,23 +190,23 @@
 <h3>Kimono: not a single shop appeared in all four languages</h3>
 <table>
 <thead>
-<tr><th>Shop</th><th style="text-align:center;">JA</th><th style="text-align:center;">EN</th><th style="text-align:center;">ZH-Hant</th><th style="text-align:center;">ZH-Hans</th></tr>
+<tr><th>Shop</th><th>JA</th><th>EN</th><th>ZH-Hant</th><th>ZH-Hans</th></tr>
 </thead>
 <tbody>
-<tr><td>Shop ①</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ②</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ③</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>Shop ④ (the competitor Shop C was confused with)</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>Shop ⑤</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;">●</td></tr>
-<tr><td>Shop ⑥</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ⑦</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ⑧</td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ⑨</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ⑩</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ⑪</td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td><td style="text-align:center;"></td></tr>
-<tr><td>Shop ⑫</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td><td style="text-align:center;"></td></tr>
-<tr><td><strong>Shop ⑬ (industry's largest)</strong></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"><strong>●</strong></td></tr>
-<tr><td>Shop ⑭</td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;"></td><td style="text-align:center;">●</td></tr>
+<tr><td>Shop ①</td><td class="num">●</td><td class="num">●</td><td class="num">●</td><td class="num"></td></tr>
+<tr><td>Shop ②</td><td class="num">●</td><td class="num">●</td><td class="num">●</td><td class="num"></td></tr>
+<tr><td>Shop ③</td><td class="num"></td><td class="num">●</td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>Shop ④ (the competitor Shop C was confused with)</td><td class="num"></td><td class="num">●</td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>Shop ⑤</td><td class="num"></td><td class="num"></td><td class="num">●</td><td class="num">●</td></tr>
+<tr><td>Shop ⑥</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>Shop ⑦</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>Shop ⑧</td><td class="num">●</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+<tr><td>Shop ⑨</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>Shop ⑩</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>Shop ⑪</td><td class="num"></td><td class="num">●</td><td class="num"></td><td class="num"></td></tr>
+<tr><td>Shop ⑫</td><td class="num"></td><td class="num"></td><td class="num">●</td><td class="num"></td></tr>
+<tr><td><strong>Shop ⑬ (industry's largest)</strong></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"><strong>●</strong></td></tr>
+<tr><td>Shop ⑭</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">●</td></tr>
 </tbody>
 </table>
 <p>Three points stand out.</p>
@@ -225,8 +234,7 @@
 <p>And look closely at these names: japan-atlas, MATCHA, Japan Cheapo, 着物レンタル比較ナビ. None of them are major news outlets. They are mostly affiliate-marketing sites that specialize in "Top 10 ○○ in Kyoto" round-ups. As of July 2026, it is these sites that, in effect, decide what AI recommends.</p>
 <p>So for a business, the question "should I invest in multiple languages?" has, for now, no one-size-fits-all answer. At the very least, it has to be judged by testing it for your own category.</p>
 
-<hr>
-<h2>[What to do] Two kinds of question, two kinds of solution</h2>
+<h2 id="action">What to do: two kinds of question, two kinds of solution</h2>
 <p>This survey points to four directions.</p>
 
 <h3>① To be described correctly when named → put citable facts out yourself</h3>
@@ -241,38 +249,42 @@
 <h3>④ A future possibility → own a distinctive niche with your own domain</h3>
 <p>We also observed another possibility: shops with their own domain and a clear distinguishing feature (for example, "families with children welcome") were sometimes mentioned by AI even without heavy exposure. Perhaps, if you don't want to take the media-exposure route, building up a niche that is truly your own, on your own site, can be another workable strategy for a small business.</p>
 
-<hr>
-<h2>Limitations</h2>
+<h2 id="limitations">Limitations</h2>
 <p>This was only a small, individual experiment. The sample is just ten shops, one AI model (ChatGPT), and a limited number of queries. It cannot support any statistically meaningful claim; treat it as one person's observation.</p>
 <p>Also, AI's answers can change every time. That Shop C gave different answers on the first and second try is the plainest example. To analyze this properly, one should ask the same question dozens of times and look at the distribution.</p>
 <p>Furthermore, many generative AIs today remember a user's past conversations and let that shape later answers. So if a shop owner asks from their own account, "What ○○ in Kyoto would you recommend?", their shop appearing in the answer proves nothing — AI may simply remember them. This survey was run with memory disabled. What it measures is not ranking, but <strong>how likely an AI that knows nothing about you is to mention you on its own.</strong></p>
 
-<hr>
-<h2>Closing</h2>
+<h2 id="closing">Closing</h2>
 <p>AI search is still a field without a settled methodology. Most people, myself included, are feeling their way. Half of the hypotheses I started with didn't hold. The prediction that "a shop found in Japanese would vanish in Chinese" turned out to be true or false depending on the category. I'll keep publishing the record here, including the hypotheses that were wrong — because what this field most lacks, I believe, is not clever theory but measured data.</p>
 
-<hr>
-<h2>References &amp; background</h2>
+<h2 id="references">References &amp; background</h2>
 <p>The idea I've been calling an "entity" here is discussed in English-language SEO as <strong>entity-based SEO</strong>, and for generative AI as <strong>GEO (Generative Engine Optimization)</strong>. The common academic starting point is Aggarwal et al., "GEO: Generative Engine Optimization" (arXiv:2311.09735, KDD 2024), which frames the conditions for being surfaced by a generative engine as being <strong>retrievable</strong>, <strong>groundable</strong>, and <strong>citable</strong>. Entity recognition is generally held to run on three signals: structured data (Schema.org), consistent mentions from third parties, and a consistent identifier. Industry also circulates figures like "having a profile on certain review sites makes you more likely to be cited by AI," but these are not peer-reviewed, so I treat them here only as background, not as settled fact.</p>
 
-<hr>
-<p><em>This is an independent research and information-sharing project, unaffiliated with any organization, university, or research institution.</em></p>
-<p><em>If you'd like details on the methodology, or are interested in running a similar study, please get in touch.</em></p>
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">This is an independent research and information-sharing project, unaffiliated with any organization, university, or research institution. If you'd like details on the methodology, or are interested in running a similar study, please get in touch.</p>
 
   </article>
-</main>
 
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>How generative AI describes businesses in their customers' language. Tested and documented in Japanese, English, Chinese, and more.</p>
-    <p style="margin-top:16px">Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>An independent research project. Not affiliated with any university or organization.</p>
-  </div>
-</footer>
+  <nav class="L2-serial">
+    <span><span class="lbl">Based on</span><a href="/en/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">Archive</span><a href="/reports/">Reports</a></span>
+  </nav>
 
-<script src="/assets/site.js" defer></script>
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
 
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="Back to top"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

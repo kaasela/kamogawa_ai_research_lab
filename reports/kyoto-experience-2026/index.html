@@ -51,7 +51,15 @@
 <div class="L2-wrap">
 
   <header class="L2-head">
-    <a class="L2-back" href="/reports/">← Reports</a>
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="言語">
+        <a href="/reports/kyoto-experience-2026/" aria-current="true">日本語</a>
+        <a href="/en/reports/kyoto-experience-2026/">English</a>
+        <a href="/zh-cn/reports/kyoto-experience-2026/">简体中文</a>
+        <a href="/zh-tw/reports/kyoto-experience-2026/">繁體中文</a>
+      </nav>
+    </div>
     <h1 class="jp L2-title">Googleでは★4.9。<br>それでもAIは、その店を見つけられなかった。</h1>
     <p class="L2-meta">
       <span>K<span style="color:var(--river)">ää</span>selä</span>
@@ -283,5 +291,16 @@
   </footer>
 
 </div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="ページ上部に戻る"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

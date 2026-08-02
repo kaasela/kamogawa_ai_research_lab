@@ -121,5 +121,16 @@
   </footer>
 
 </div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="ページ上部に戻る"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>

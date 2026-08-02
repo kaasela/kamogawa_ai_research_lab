@@ -17,7 +17,10 @@
 <meta property="og:url" content="https://kaasela.com/zh-cn/reports/2026-08/">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="/assets/style-legacy.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Shippori+Mincho+B1:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script type="application/ld+json">
 {
@@ -47,71 +50,85 @@
 </script>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <a class="brand" href="/zh-cn/">
-      <svg class="brand-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#7CB7B0" stroke-width="0.9" fill="none" opacity="0.6"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#222222" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#4A90A4"/><circle cx="112" cy="30" r="4" fill="#4A90A4"/><circle cx="138" cy="30" r="4" fill="#4A90A4"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#4A90A4"/><circle cx="286" cy="30" r="4" fill="#4A90A4"/></g></svg>
-      <span>Kamogawa AI Search Lab</span>
-    </a>
-    <nav>
-      <details class="lang-menu">
-        <summary>简体中文</summary>
-        <div class="lang-list">
-          <a href="/reports/2026-08/"        hreflang="ja">日本語</a>
-          <a href="/en/reports/2026-08/"     hreflang="en">English</a>
-          <a href="/zh-tw/reports/2026-08/"  hreflang="zh-Hant">繁體中文</a>
-          <a href="/zh-cn/reports/2026-08/"  hreflang="zh-Hans" aria-current="true">简体中文</a>
-        </div>
-      </details>
-    </nav>
-  </div>
-</header>
+<div class="L2-wrap">
 
-<main class="wrap">
-  <article>
-    <h1>Monthly Report #000<br>京都体验类目下生成式AI的回答倾向（2026年7月）</h1>
-    <p class="lede">——3类目×4语言・240次观测的基准线</p>
-    <p class="meta">2026年8月2日 ｜ Kääselä（Kamogawa AI Search Lab）</p>
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="语言">
+        <a href="/reports/2026-08/">日本語</a>
+        <a href="/en/reports/2026-08/">English</a>
+        <a href="/zh-cn/reports/2026-08/" aria-current="true">简体中文</a>
+        <a href="/zh-tw/reports/2026-08/">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">Monthly Report #000<br>京都体验类目下生成式AI的回答倾向（2026年7月）</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Monthly Report #000</span>
+      <span class="num">2026-08-02</span>
+      <span>阅读约8分钟</span>
+    </p>
+  </header>
 
-    <h2>1. 摘要</h2>
-    <p>本报告向ChatGPT用四种语言各问了20次京都"茶道""和服""坐禅"的推荐，并记录了回答中引用的信息源（共12格・240次观测）。</p>
+  <ol class="L2-toc">
+    <li><span class="num">1</span><a href="#abstract">摘要</a></li>
+    <li><span class="num">2</span><a href="#methodology">方法</a></li>
+    <li><span class="num">3</span><a href="#findings">引用源分布</a></li>
+    <li><span class="num">4</span><a href="#brands">商家出现率</a></li>
+    <li><span class="num">5</span><a href="#delta">与前号的差分</a></li>
+    <li><span class="num">6</span><a href="#noise">与噪声底的对照</a></li>
+    <li><span class="num">7</span><a href="#limitations">适用范围与限界</a></li>
+    <li><span class="num">8</span><a href="#appendix">附录与数据</a></li>
+  </ol>
+
+  <nav class="L2-rail" aria-label="目录">
+    <ol>
+      <li><a href="#abstract">1. 摘要</a></li>
+      <li><a href="#methodology">2. 方法</a></li>
+      <li><a href="#findings">3. 引用源分布</a></li>
+      <li><a href="#brands">4. 商家出现率</a></li>
+      <li><a href="#delta">5. 前号差分</a></li>
+      <li><a href="#noise">6. 噪声底</a></li>
+      <li><a href="#limitations">7. 适用范围与限界</a></li>
+      <li><a href="#appendix">8. 附录与数据</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+    <h2 id="abstract">1. 摘要（Abstract）</h2>
+    <p class="L2-abs">本报告向ChatGPT用四种语言各问了20次京都"茶道""和服""坐禅"的推荐，并记录了回答中引用的信息源（共12格・240次观测）。</p>
     <p>分析发现，AI引用哪个信息源存在一致的规律，这个规律主要和两个因素对应。</p>
     <p>一是该类目是否有足够的市场支撑比较网站或联盟营销站的存在；二是该语言里这类信息源是否已经建立起来、且AI能够触达。</p>
-    <p>这两个条件都成立的格子里，AI更倾向于引用比较类媒体；缺其中一个的格子里，则更倾向于引用商家自己的官网。不过本号是单一时点、单一引擎的横截面观测，这种对应关系只是与观测规律相符的假设性解释，并未证明因果关系。</p>
+    <p>这两个条件都成立的格子里，AI更倾向于引用比较类媒体；缺其中一个的格子里，则更倾向于引用商家自己的官网。不过本号是单一时点、单一引擎的横截面观测，这种对应关系只是与观测规律相符的假设性解释，并未证明因果关系<sup class="L2-fn"><a href="#limitations">†</a></sup>。</p>
     <p>第0号（本号）用于确立观测方法和评价指标，是基准线。此后的月刊会以本号为起点（t=0），持续追踪这一结构如何变化。</p>
 
-    <h2>2. 方法</h2>
+    <h2 id="methodology">2. 方法（Methodology）</h2>
     <p>本调查使用ChatGPT（GPT-5.5・网页版），在临时对话状态下执行。</p>
     <p>以"京都＋类目词＋推荐词"为基本查询语，用日语、英语、简体中文、繁体中文四种语言观测。目标类目为"茶道""和服租赁""坐禅"三类。</p>
     <p>每条查询连续执行20次（n=20），记录回答中出现的商家名称与引用域名，同时记录执行时间、执行地（京都市）、网络、模型名称。</p>
-    <p>引用源分为"公共""自社（商家自营）""OTA""媒体""目录""UGC"六类。记录以门店为单位，汇总以品牌为单位。</p>
+    <p>引用源分为"公共""自营（商家自营）""OTA""媒体""目录""UGC"六类。记录以门店为单位，汇总以品牌为单位。</p>
     <p>另外，我们事先确认过，关键词型提问（如"京都 茶道体验 推荐"）与自然语言型提问在返回商家上没有显著差异，因此本调查统一采用关键词型。</p>
-    <p>原始数据以 <a href="/reports/2026-08/data/data.csv">data.csv</a> 公开（CC BY 4.0・无偿公开・不出售）。</p>
 
-    <p><strong>适用范围：</strong>本报告仅针对推荐型查询的回答。比较型、交易型、指名型等不同的搜索意图下，引用源可能不同。</p>
-    <p>本号是单一时点的观测结果（t=0），不讨论变化或趋势，这些将在第1号起用月度数据分析。</p>
-    <p>此外，本调查的对象限定为ChatGPT（GPT-5.5）、单一观测者、单一执行地，结果不能直接推广到其他生成式AI或不同的执行条件。</p>
-    <p>第3章中关于"类目商业性""语言条件""自我描述能力"之间对应关系的解释，是与观测规律相符的假设性解读，并不能证明因果关系。</p>
-    <p>本报告会预先说明上述适用范围后再解读结果——这也是本调查的基本立场：不从单次回答（n=1）推出普遍结论，而是基于一定数量的观测结果评估倾向。</p>
-
-    <h2>3. 引用源分布</h2>
+    <h2 id="findings">3. 引用源分布（Findings）</h2>
     <h3>3.1 12格的引用源主导类型（占比 %）</h3>
     <table>
       <thead><tr><th></th><th>日语</th><th>英语</th><th>简体中文</th><th>繁体中文</th></tr></thead>
       <tbody>
-        <tr><td><strong>茶道</strong></td><td>公共 52.2</td><td>媒体 46.0（次位：自社40.0・差6pt）</td><td>自社 40.6（次位：公共37.5・差3pt）</td><td>自社 56.8</td></tr>
-        <tr><td><strong>和服</strong></td><td>媒体 53.7</td><td>媒体49.1＋OTA30.9≈80</td><td>自社 54.8</td><td>自社 66.7</td></tr>
-        <tr><td><strong>坐禅</strong></td><td>公共50.0＋目录23.5</td><td>自社80.2</td><td>自社49.5（次位：公共35.2・差14pt）</td><td>自社43.4（次位：公共40.4・差3pt）</td></tr>
+        <tr><td><strong>茶道</strong></td><td>公共 52.2</td><td>媒体 46.0（次位：自营40.0・差6pt）</td><td>自营 40.6（次位：公共37.5・差3pt）</td><td>自营 56.8</td></tr>
+        <tr><td><strong>和服</strong></td><td>媒体 53.7</td><td>媒体49.1＋OTA30.9≈80</td><td>自营 54.8</td><td>自营 66.7</td></tr>
+        <tr><td><strong>坐禅</strong></td><td>公共50.0＋目录23.5</td><td>自营80.2</td><td>自营49.5（次位：公共35.2・差14pt）</td><td>自营43.4（次位：公共40.4・差3pt）</td></tr>
       </tbody>
     </table>
-    <p style="font-size:14px;color:var(--sub)">（各格 n=20。分类标准见方法论附录。"次位"指与第二名类型的差值。）</p>
+    <ul class="L2-notes"><li>各格 n=20。分类标准见方法论附录。"次位"指与第二名类型的差值。</li></ul>
 
     <p>从表3.1可以读出三个共通的倾向。</p>
     <p><strong>第一，</strong>类目商业性越强，比较类媒体越容易被引用。像和服这样容易形成比较网站或联盟营销的类目，比较类媒体是引用的中心；而以免费坐禅会为主的坐禅类目，几乎看不到这类信息源，公共网站或提供者自己的官网才是中心。</p>
     <p><strong>第二，</strong>不同语言下AI能参考的信息源不同。日语、英语的和服市场已经存在一定数量的比较类媒体，AI也会引用它们；茶道类目在各语言里比较类媒体都很少，因此政府观光网站、旅游媒体成为引用中心。</p>
     <p><strong>第三，</strong>当比较类媒体不够充分时，官网更容易被引用。这个倾向在中文圈和坐禅类目里尤其明显。</p>
-    <p><strong>中文圈共通的特征：</strong>简体中文和繁体中文合计6格中，所有类目都是自社网站被引用最多，没有任何一格是公共网站或比较类媒体占首位。</p>
-    <p>不过这个优势的大小因类目而异。和服类目里，简体中文（自社54.8%・公共17.8%）和繁体中文（自社66.7%・公共10.4%）都是自社网站大幅领先；而茶道和坐禅的差距较小——茶道（简体）和坐禅（繁体）都是约3个百分点的势均力敌，坐禅（简体）差14个百分点，茶道（繁体）差32个百分点。"简体势均力敌、繁体占优"这种简单二分法解释不通。</p>
+    <p><strong>中文圈共通的特征：</strong>简体中文和繁体中文合计6格中，所有类目都是自营网站被引用最多，没有任何一格是公共网站或比较类媒体占首位。</p>
+    <p>不过这个优势的大小因类目而异。和服类目里，简体中文（自营54.8%・公共17.8%）和繁体中文（自营66.7%・公共10.4%）都是自营网站大幅领先；而茶道和坐禅的差距较小——茶道（简体）和坐禅（繁体）都是约3个百分点的势均力敌，坐禅（简体）差14个百分点，茶道（繁体）差32个百分点。"简体势均力敌、繁体占优"这种简单二分法解释不通。</p>
 
     <h3>3.2 案例1：日语的和服类目，引用集中在单一联盟营销站</h3>
     <p>"京都 着物レンタル おすすめ"的查询中，一个排名类网站（2025年开设，观测时约运营15个月）在20次执行中被引用了18次（90%）。仅这一个站点，就占了"媒体"类型（53.7%）的大半，政府观光网站的引用相对较少。</p>
@@ -123,14 +140,14 @@
 
     <h3>3.4 案例3：简体中文里还有一个暂时解释不了的观测</h3>
     <p>不过，仅凭上面的规律还解释不了一个观测。简体中文里，除了中国系平台以外，还存在AI理论上可以参考的比较文章、排名文章（比如一般媒体做的和服租赁专题）。</p>
-    <p>但实际上，简体中文的和服类目里，自社网站（54.8%）和公共网站（17.8%）是引用的中心，这类比较类媒体并没有成为引用主流。"因为中国系平台不被引用，所以比较类媒体也不被引用"这个说法解释不了这个现象。</p>
+    <p>但实际上，简体中文的和服类目里，自营网站（54.8%）和公共网站（17.8%）是引用的中心，这类比较类媒体并没有成为引用主流。"因为中国系平台不被引用，所以比较类媒体也不被引用"这个说法解释不了这个现象。</p>
     <p>目前无法确定原因，本报告在此保留结论，作为今后持续观测的课题。</p>
 
     <h3>3.5 案例4：坐禅类目里，提供者自身的信息最常被引用</h3>
-    <p>坐禅类目中，所有语言下，寺院等提供者自身的官网或公共网站都是引用的中心，OTA和联盟营销几乎不存在。尤其英语里，自社网站的占比达到80.2%。</p>
+    <p>坐禅类目中，所有语言下，寺院等提供者自身的官网或公共网站都是引用的中心，OTA和联盟营销几乎不存在。尤其英语里，自营网站的占比达到80.2%。</p>
     <p>这说明在比较类媒体不充分的类目里，提供者自己发布的信息更容易被AI引用；同时也确认了，没有英文页面的提供者很难进入候选名单——用多语言发布官方信息本身，就与可见度直接相关。</p>
 
-    <h2>4. 商家出现率（品牌单位・仅头部）</h2>
+    <h2 id="brands">4. 商家出现率（品牌单位・仅头部）</h2>
     <p>本章整理回答中实际被提及名字的商家，及其出现倾向。</p>
     <p>第0号能评价的仅限于头部群体的集中度。因为没有前一号可比，本号不涉及月度变化（差分见第5章）。另外，第3章分析的引用源分布，和本章的商家出现率是不同的指标——第3章看的是"哪个信息源被引用"，本章看的是"哪个商家在回答里被点名"。</p>
     <p><strong>和服：</strong>确认了四种语言的回答后，发现有一个头部群体（约8家商家）几乎每次都会被提及，这个头部群体在日语、英语、简体中文、繁体中文之间高度重合。而引用源的构成会因语言不同——日语以比较类媒体为主，英语以OTA和旅游媒体为主，中文以官网为主（见§3.1）。也就是说，随语言变化的是"经由哪个信息源"，最终被介绍的商家本身变化不大。</p>
@@ -139,17 +156,17 @@
     <p><strong>四种语言的共通特征：</strong>和服和茶道虽然引用源的种类因语言差异很大，但AI实际点名的商家在四种语言间相当一致。这暗示随语言变化的是"参考哪个信息源"，而不是"最终介绍哪个商家"。</p>
     <p>第0号把这个重叠现象作为基准记录下来，之后每月会发生怎样的变化，将从第1号起持续追踪。</p>
 
-    <h2>5. 与前号的差分</h2>
+    <h2 id="delta">5. 与前号的差分</h2>
     <p>第0号是本系列报告的基准线，因此没有可比较的前号。我们把本号展示的结果作为基准（t=0），从第1号（2026年9月）起，持续记录相对于这个基准的变化。</p>
 
-    <h2>6. 与噪声底的对照</h2>
+    <h2 id="noise">6. 与噪声底的对照</h2>
     <p>同一查询连续重复20次时，引用源集合的重合度（Jaccard系数）如下。</p>
     <table>
-      <thead><tr><th></th><th class="c">日</th><th class="c">英</th><th class="c">简中</th><th class="c">繁中</th></tr></thead>
+      <thead><tr><th></th><th>日</th><th>英</th><th>简中</th><th>繁中</th></tr></thead>
       <tbody>
-        <tr><td>茶道</td><td class="c">0.25</td><td class="c">0.20</td><td class="c">0.31</td><td class="c">0.25</td></tr>
-        <tr><td>和服</td><td class="c">0.41</td><td class="c">0.16</td><td class="c">0.15</td><td class="c">0.11</td></tr>
-        <tr><td>坐禅</td><td class="c">0.35</td><td class="c">0.40</td><td class="c">0.22</td><td class="c">0.23</td></tr>
+        <tr><td>茶道</td><td class="num">0.25</td><td class="num">0.20</td><td class="num">0.31</td><td class="num">0.25</td></tr>
+        <tr><td>和服</td><td class="num">0.41</td><td class="num">0.16</td><td class="num">0.15</td><td class="num">0.11</td></tr>
+        <tr><td>坐禅</td><td class="num">0.35</td><td class="num">0.40</td><td class="num">0.22</td><td class="num">0.23</td></tr>
       </tbody>
     </table>
     <p>即使是同一个问题，每次执行都会有半数以上的引用源发生变化。</p>
@@ -157,31 +174,45 @@
     <p>本报告把这种波动定位为"噪声底"。评估月度变化时，只有超过这个基准的变动才会被当作有意义的信号（详见附录A）。</p>
     <p>因此，仅凭一次回答（n=1）无法断言"AI就是这么说的"。引用源的构成比在20次观测后大致收敛到±10个百分点左右，而单个商家的出现率波动更大，所以第0号只评估头部群体。</p>
 
-    <h2>7. 附录</h2>
-    <ul>
+    <h2 id="limitations">7. 适用范围与限界（Limitations）</h2>
+    <p><strong>适用范围：</strong>本报告仅针对推荐型查询的回答。比较型、交易型、指名型等不同的搜索意图下，引用源可能不同。</p>
+    <p>本号是单一时点的观测结果（t=0），不讨论变化或趋势，这些将在第1号起用月度数据分析。</p>
+    <p>此外，本调查的对象限定为ChatGPT（GPT-5.5）、单一观测者、单一执行地，结果不能直接推广到其他生成式AI或不同的执行条件。</p>
+    <p>第3章中关于"类目商业性""语言条件""自我描述能力"之间对应关系的解释，是与观测规律相符的假设性解读，<strong>并不能证明因果关系。</strong></p>
+    <p>本报告会预先说明上述适用范围后再解读结果——这也是本调查的基本立场：不从单次回答（n=1）推出普遍结论，而是基于一定数量的观测结果评估倾向。</p>
+
+    <h2 id="appendix">8. 附录与数据</h2>
+    <ul class="L2-notes">
       <li>A. <a href="/reports/appendix/noise-floor/">噪声底的测量方法与全部数据</a></li>
-      <li>B. 引用源六分类的定义（公共／自社／OTA／媒体／目录／UGC），详见本文第2章与附录A</li>
+      <li>B. 引用源六分类的定义（公共／自营／OTA／媒体／目录／UGC），详见本文第2章与附录A</li>
       <li>C. 原始数据 <a href="/reports/2026-08/data/data.csv">data.csv</a>（CC BY 4.0・240次执行・12格 × n=20・按引用域名计1023行）</li>
     </ul>
-    <p><strong>下期预告（2026年9月）：</strong>第1号将报告以第0号为基准的首次差分，重点追踪和服类目比较类媒体份额的变化，以及§3.4中未解释观测的后续验证。</p>
 
-    <hr>
-    <p><em>本文为个人调查与信息分享项目，与特定团体、大学、企业等无关。数据以CC BY 4.0无偿公开，不出售。</em></p>
+    <p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本文为个人调查与信息分享项目，与特定团体、大学、企业等无关。数据以CC BY 4.0无偿公开，不出售。</p>
 
   </article>
-</main>
 
-<footer>
-  <div class="wrap">
-    <p class="foot-brand"><svg class="foot-wm" viewBox="10 4 336 116" role="img" aria-label="Kääselä"><title>Kääselä</title><g stroke="#9BD0CB" stroke-width="0.9" fill="none" opacity="0.8"><path d="M98 30 L112 30"/><path d="M112 30 L138 30"/><path d="M138 30 L152 30"/><path d="M152 30 L272 30"/><path d="M272 30 L286 30"/></g><text class="wm-t" x="26" y="104" font-size="86" font-weight="500" fill="#FFFFFF" letter-spacing="1">Kaasela</text><g><circle cx="98" cy="30" r="4" fill="#B7E0DB"/><circle cx="112" cy="30" r="4" fill="#B7E0DB"/><circle cx="138" cy="30" r="4" fill="#B7E0DB"/><circle cx="152" cy="30" r="4" fill="#EADFCC"/><circle cx="272" cy="30" r="4" fill="#B7E0DB"/><circle cx="286" cy="30" r="4" fill="#B7E0DB"/></g></svg></p>
-    <p>Kamogawa AI Search Lab</p>
-    <p>生成AI，正用顾客的语言，怎样讲述着一家家商家。我们用日、英、中等多种语言调查，并公开记录。</p>
-    <p style="margin-top:16px">京都市 ｜ kamogawa.ai.lab@gmail.com</p>
-    <p>个人的研究・信息分享项目，与特定团体、大学等无关。</p>
-  </div>
-</footer>
+  <nav class="L2-serial">
+    <span><span class="lbl">前号</span>—</span>
+    <span style="text-align:right;"><span class="lbl">下期预告・2026年9月</span>Monthly Report #001</span>
+  </nav>
 
-<script src="/assets/site.js" defer></script>
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
 
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="回到顶部"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
 </body>
 </html>
