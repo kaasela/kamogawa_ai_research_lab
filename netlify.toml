@@ -1,6 +1,13 @@
 [build]
   publish = "."
 
+# AIクローラーUAログ（ROADMAP_zh.md 検証A）。静的アセットは対象外にして
+# 記録件数をAI関連アクセスだけに絞る（人間の通常閲覧・画像/CSS/JS配信は素通り）
+[[edge_functions]]
+  path = "/*"
+  excludedPath = ["/assets/*", "/*.css", "/*.js", "/*.svg", "/*.ico", "/*.csv", "/*.jpg", "/*.png"]
+  function = "ua-log"
+
 [[headers]]
   for = "/*"
   [headers.values]
