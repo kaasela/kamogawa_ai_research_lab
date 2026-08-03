@@ -77,11 +77,11 @@ a:hover{color:var(--river-dark);border-bottom-color:var(--river);}
 
 /* ============================================================
    3. 書体の役割
-   和文明朝が「声」／欧文は機能／数値は等幅
+   和文ゴシックが「声」／欧文は機能／数値は等幅
    ============================================================ */
 .jp{
-  font-family:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",
-              "Noto Serif JP",serif;
+  font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN",
+              "Noto Sans JP",sans-serif;
   font-weight:500;
 }
 .num{
@@ -360,8 +360,8 @@ a.L1-name:hover{color:var(--ink);}
 .L2-top .arrow{display:block;font-size:18px;text-align:center;margin-bottom:2px;}
 @media print{.L2-top{display:none;}}
 
-.L2-body{font-family:'Shippori Mincho B1',"Hiragino Mincho ProN","Yu Mincho",
-  "Noto Serif JP",serif;font-weight:400;font-size:17px;line-height:32px;}
+.L2-body{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN",
+  "Noto Sans JP",sans-serif;font-weight:400;font-size:17px;line-height:32px;}
 .L2-body h2{font-family:'Libre Franklin',sans-serif;font-size:15px;
   font-weight:500;letter-spacing:.04em;margin:var(--s12) 0 var(--s3);
   padding-bottom:7px;border-bottom:1px solid var(--ink);}
