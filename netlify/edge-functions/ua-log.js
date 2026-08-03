@@ -9,7 +9,10 @@
 //     newsletterフォームのメールアドレスのみのまま変わらない。
 // - ログ失敗（Blobsが使えない等）があってもページ配信は止めない。
 
-import { getStore } from "@netlify/blobs";
+// Edge Functionsはesbuildによる静的バンドルのため、bare specifier "@netlify/blobs" は
+// 解決できない（2026-08-03 実デプロイで確認：Could not resolve "@netlify/blobs"）。
+// Deno互換のesm.sh経由でインポートする。
+import { getStore } from "https://esm.sh/@netlify/blobs@8";
 
 // 既知のAI関連UAの部分文字列（大小無視）。
 // 用途に応じて追加・削除してよい。ChatGPT-User と OAI-SearchBot の区別が本研究の主眼
