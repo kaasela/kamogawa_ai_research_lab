@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Kääselä">
   <title>Kääselä</title>
-  <!-- current three-node mark, scaled up -->
-  <g stroke="#7CB7B0" stroke-width="1.6" fill="none">
+  <!-- three-node mark, scaled up. 点は塗り＝実体が語っている＝--river 単色。
+       線は仲介の罫＝--rule-3。DESIGN_TOKENS.md v3.3 に準拠 -->
+  <g stroke="#8C8880" stroke-width="1.6" fill="none">
     <path d="M9.4 14.6 L23 9.2"/>
     <path d="M9.6 17.4 L21.6 22.6"/>
   </g>
-  <circle cx="6"  cy="16" r="4"   fill="#4A90A4"/>
-  <circle cx="26" cy="8"  r="3.2" fill="#4A90A4"/>
-  <circle cx="24" cy="24" r="3.2" fill="#EADFCC"/>
+  <circle cx="6"  cy="16" r="4"   fill="#0F7C95"/>
+  <circle cx="26" cy="8"  r="3.2" fill="#0F7C95"/>
+  <circle cx="24" cy="24" r="3.2" fill="#0F7C95"/>
 </svg>
