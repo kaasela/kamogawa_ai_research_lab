@@ -238,8 +238,7 @@ a.L1-name:hover{color:var(--ink);}
 /* 最新（Latest Articles） */
 .L1-latest{list-style:none;padding:0;margin:0 0 var(--s5);}
 .L1-latest li{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 var(--s3);
-  padding:var(--s2) 0;border-bottom:1px solid var(--rule-1);}
-.L1-latest li:last-child{border-bottom:0;}
+  padding:var(--s3) 0;}
 .L1-latest .n{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--faint);flex:0 0 auto;width:9em;}
 .L1-latest .t{font-size:15px;line-height:1.6;color:var(--ink);border-bottom:1px solid var(--rule-2);}
@@ -251,9 +250,8 @@ a.L1-name:hover{color:var(--ink);}
 /* 一覧 */
 .L1-taxo{list-style:none;padding:0;margin:0;}
 .L1-taxo li{display:grid;grid-template-columns:minmax(0,1fr) 96px;
-  gap:6px var(--s4);padding:var(--s3) 0;border-bottom:1px solid var(--rule-1);
+  gap:6px var(--s4);padding:var(--s4) 0;
   align-items:start;}
-.L1-taxo li:last-child{border-bottom:0;}
 .L1-taxo .n{font-size:14.5px;color:var(--ink);}
 
 .n .gloss{display:block;font-size:11px;letter-spacing:0;text-transform:none;
@@ -271,8 +269,7 @@ a.L1-name:hover{color:var(--ink);}
 /* 購読 — 塗りボタンを使わない */
 .L1-insights{list-style:none;padding:0;margin:var(--s3) 0 0;}
 .L1-insights li{display:flex;gap:var(--s3);align-items:baseline;
-  padding:8px 0;border-bottom:1px solid var(--rule-1);}
-.L1-insights li:last-child{border-bottom:0;}
+  padding:var(--s2) 0;}
 .L1-insights .n{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--faint);flex:0 0 auto;width:5.5em;}
 .L1-insights p{margin:0;font-size:15.5px;color:var(--ink);line-height:1.7;}
