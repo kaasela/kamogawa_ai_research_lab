@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>附錄：噪聲底測量方法與分類標準｜Kääselä</title>
+<meta name="description" content="同一查詢連續執行20次時引用來源的波動（噪聲底）測量方法、事先登記的判定閾值、引用來源6大分類的定義。Kääselä Monthly Report全系列共同參照的固定附錄。">
+<link rel="canonical" href="https://kaasela.com/zh-tw/reports/appendix/noise-floor/">
+<link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/appendix/noise-floor/">
+<link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/appendix/noise-floor/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/appendix/noise-floor/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/appendix/noise-floor/">
+<link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/appendix/noise-floor/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="附錄：噪聲底測量方法與分類標準">
+<meta property="og:url" content="https://kaasela.com/zh-tw/reports/appendix/noise-floor/">
+<meta property="og:locale" content="zh_TW">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "附錄：噪聲底測量方法與分類標準",
+  "description": "同一查詢連續執行20次時引用來源的波動（噪聲底）測量方法、事先登記的判定閾值、引用來源6大分類的定義。",
+  "datePublished": "2026-08-02",
+  "dateModified": "2026-08-02",
+  "inLanguage": "zh-Hant",
+  "url": "https://kaasela.com/zh-tw/reports/appendix/noise-floor/",
+  "mainEntityOfPage": "https://kaasela.com/zh-tw/reports/appendix/noise-floor/",
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
+  "author": { "@id": "https://kaasela.com/#organization" },
+  "publisher": { "@id": "https://kaasela.com/#organization" }
+}
+</script>
+</head>
+<body>
+<div class="L2-wrap">
+
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="語言">
+        <a href="/reports/appendix/noise-floor/">日本語</a>
+        <a href="/en/reports/appendix/noise-floor/">English</a>
+        <a href="/zh-cn/reports/appendix/noise-floor/">简体中文</a>
+        <a href="/zh-tw/reports/appendix/noise-floor/" aria-current="true">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">附錄：噪聲底測量方法與分類標準</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Appendix</span>
+      <span class="num">2026-08</span>
+      <span>永久刊載・全系列共用</span>
+      <span>預計閱讀約4分鐘</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="目錄">
+    <ol>
+      <li><a href="#why">1. 為什麼要測量</a></li>
+      <li><a href="#method">2. 測量方法</a></li>
+      <li><a href="#cells">3. 12格的數值</a></li>
+      <li><a href="#threshold">4. 判定閾值</a></li>
+      <li><a href="#taxonomy">5. 6分類的定義</a></li>
+      <li><a href="#limits">6. 方法論的侷限</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+    <p class="L2-abs">Kääselä Monthly Report全系列共同參照的固定附錄。各期正文不重複方法論，統一連結到這個頁面。</p>
+
+    <h2 id="why">1. 為什麼要測量噪聲底</h2>
+    <p>生成式AI即使被問同一個問題，也不一定每次給出相同的回答。某個月的觀測看起來「AI的引用變了」，但那到底是真實的變化，還是單純的生成波動，如果不先知道波動本身有多大，就沒辦法判斷。</p>
+    <p>本研究先實測這個「波動的大小」，作為解讀月度差異的基準線。這和那些用單次觀測（n=1）就斷言「AI是這麼說的」的商用工具的區別，就在於這條基準線是我們自己測出來並公開的。</p>
+
+    <h2 id="method">2. 測量方法</h2>
+    <p>每條查詢在相同條件下（ChatGPT・GPT-5.5・網頁版・臨時對話・關鍵字型查詢・在京都市執行）連續執行20次（n=20），每次記錄被引用的資訊來源網域集合。</p>
+    <p>兩次執行之間引用來源集合的重合程度，用Jaccard係數（重合部分 ÷ 合併後的總大小）表示。數值越接近1.0，代表每次引用的資訊來源越一致；越接近0，代表每次都在換。</p>
+
+    <h2 id="cells">3. 12格的噪聲底（Jaccard係數）</h2>
+    <table>
+      <thead><tr><th></th><th>日語</th><th>英語</th><th>簡體中文</th><th>繁體中文</th></tr></thead>
+      <tbody>
+        <tr><td>茶道</td><td class="num">0.25</td><td class="num">0.20</td><td class="num">0.31</td><td class="num">0.25</td></tr>
+        <tr><td>和服租賃</td><td class="num">0.41</td><td class="num">0.16</td><td class="num">0.15</td><td class="num">0.11</td></tr>
+        <tr><td>坐禪體驗</td><td class="num">0.35</td><td class="num">0.40</td><td class="num">0.22</td><td class="num">0.23</td></tr>
+      </tbody>
+    </table>
+    <p>波動最大的是和服租賃・繁體中文（0.11），因為引用分散在多家自營商家的網站上。最穩定的是坐禪體驗・英語（0.40），因為引用集中在少數幾家寺院的網站上。</p>
+    <p>日語和英語的茶道數值（0.247／0.204），與外部研究（Green等人）報告的數值（0.265）水準接近。這從側面說明本研究獨立測得的噪聲底，與其他觀測結果是吻合的。</p>
+    <p>噪聲底會因類別和語言而不同，不能用單一閾值套用到所有格子上。</p>
+
+    <h2 id="threshold">4. 判定閾值的事先登記</h2>
+    <p>用bootstrap法確認，引用來源的種類構成比（本研究的核心指標）在n=20的觀測下，95%區間約為±10個百分點。兩個時間點之間比較時，變動幅度達到約14個百分點以上才視為「訊號」。</p>
+    <p>這個閾值是在第1號（2026年9月）觀測開始之前就確定並登記好的，之後不再更改。看到觀測結果之後再調整閾值，會破壞事先登記的意義，所以不這麼做。</p>
+    <p>個別商家的出現率波動比種類構成比更大（約±18〜22個百分點），因此月度比較只評估頭部集團的集中度。</p>
+
+    <h2 id="taxonomy">5. 引用來源6大分類的定義</h2>
+    <table>
+      <thead><tr><th>種類</th><th>定義</th></tr></thead>
+      <tbody>
+        <tr><td>公共</td><td>地方政府・觀光協會・公共團體・公立文化設施</td></tr>
+        <tr><td>自營</td><td>由商家・寺院・個人導遊本人營運，預約在自己的網站上完成</td></tr>
+        <tr><td>OTA</td><td>整合其他商家庫存的第三方平台，預約在該平台自己的網站上完成</td></tr>
+        <tr><td>媒體</td><td>無法在自身網站完成預約、引導使用者前往外部的編輯內容（含聯盟行銷內容）</td></tr>
+        <tr><td>目錄</td><td>橫向彙整型・不收手續費的目錄網站</td></tr>
+        <tr><td>UGC</td><td>使用者生成內容</td></tr>
+      </tbody>
+    </table>
+    <p>判定標準以網域本身的主要功能為依據，不以回答中的用法為依據。有沒有聯盟行銷連結不決定分類，作為獨立的標記單獨記錄。</p>
+
+    <h2 id="limits">6. 方法論的侷限</h2>
+    <p><strong>侷限一：候選池不公開。</strong>本研究基於ChatGPT常規介面下的人工觀測。AI搜尋並參考過的候選頁面群（grounding pool）和最終被引用進回答裡的頁面（citation）是兩個不同的層面，透過介面觀測只能捕捉到後者。各商家在候選池中的選中率、淘汰率是無法測量的，能觀測到的只有n次試驗中的出現頻率。為了避免暗示一個實際測不到的「選中率」，本研究統一使用「出現率」這個說法。</p>
+    <p><strong>侷限二：可重現性的定義。</strong>本研究中的可重現性，指的是統計分布上的一致，而不是逐字逐句的一致。由於生成式AI本身的隨機性（用n=20來應對）、引擎版本的變化、帳號・地區・個人化設定的差異，即使是同一套操作流程，個別試驗的結果也可能對不上。可重現性的主張，僅限於「在相同時間視窗、相同引擎版本、排除個人化的條件下，能得到統計上一致的分布」這一範圍。</p>
+
+    <p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本頁面是 Kääselä（Kamogawa AI Search Lab）個人研究專案的一部分。資料以CC BY 4.0協議免費公開，不做出售。</p>
+
+  </article>
+
+  <nav class="L2-serial">
+    <span><span class="lbl">參照來源</span><a href="/zh-tw/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">一覽</span><a href="/reports/">Reports</a></span>
+  </nav>
+
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="回到頁面頂部"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

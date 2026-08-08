@@ -100,7 +100,39 @@
   </url>
   <url>
     <loc>https://kaasela.com/reports/appendix/noise-floor/</loc>
-    <lastmod>2026-08-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <lastmod>2026-08-08</lastmod>
+  </url>
+  <url>
+    <loc>https://kaasela.com/en/reports/appendix/noise-floor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <lastmod>2026-08-08</lastmod>
+  </url>
+  <url>
+    <loc>https://kaasela.com/zh-tw/reports/appendix/noise-floor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <lastmod>2026-08-08</lastmod>
+  </url>
+  <url>
+    <loc>https://kaasela.com/zh-cn/reports/appendix/noise-floor/</loc>
+    <xhtml:link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/appendix/noise-floor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/appendix/noise-floor/"/>
+    <lastmod>2026-08-08</lastmod>
   </url>
   <url>
     <loc>https://kaasela.com/privacy/</loc>
