@@ -111,7 +111,7 @@
   </nav>
 
   <section class="L1-cover">
-    <div>
+    <div class="L1-cover-intro">
       <h1 class="L1-h1 jp">あなたのお店は、顧客の言葉で語られていますか。</h1>
       <p class="L1-lede">
         いま、人は何かを知りたいとき、GoogleではなくAIに尋ねるようになりました。<br>
@@ -124,17 +124,18 @@
       </p>
 
       <p class="L1-creed jp">AI検索は、言語の境界線をどう越えるのか。</p>
-
-      <!-- Current Focus — 毎月書き換える。
-           状態語は 観測中／集計中／発行済／未実行 の4つだけ。
-           書き換え手順は _lab/ENGINEERING_GUIDE.md §8 -->
-      <dl class="L1-focus">
-        <dt>Latest Monthly Report</dt>
-        <dd class="jp"><a href="/reports/2026-08/">Monthly Report #000 — 京都体験カテゴリーにおける生成AIの回答傾向</a>
-          <span class="state"><span class="num">2026.08.02</span> 発行</span>
-        </dd>
-      </dl>
     </div>
+
+    <!-- Current Focus — 毎月書き換える。
+         状態語は 観測中／集計中／発行済／未実行 の4つだけ。
+         書き換え手順は _lab/ENGINEERING_GUIDE.md §8
+         L1-spineと行を共有するため、L1-cover直下に置く（intro divの外） -->
+    <dl class="L1-focus">
+      <dt>Latest Monthly Report</dt>
+      <dd class="jp"><a href="/reports/2026-08/">Monthly Report #000 — 京都体験カテゴリーにおける生成AIの回答傾向</a>
+        <span class="state"><span class="num">2026.08.02</span> 発行</span>
+      </dd>
+    </dl>
 
     <!-- 号数の帯。ROADMAP の成否指標「零欠号」を図にしたもの。
          発行のたびに dot--open を dot に変えるだけ。

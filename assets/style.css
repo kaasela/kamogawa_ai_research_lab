@@ -141,6 +141,14 @@ a.L1-name:hover{color:var(--ink);}
 .L1-cover{padding:var(--s9) 0 var(--s6);
   display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:var(--s9);}
 @media(max-width:900px){.L1-cover{grid-template-columns:1fr;gap:var(--s6);}}
+/* 号数帯（L1-spine）はLatest Monthly Report（L1-focus）と行を共有し、
+   上端をそろえる——「今月の号」と「最新号」が同じ帯であることを、
+   位置関係でも示す。デスクトップ幅でのみ適用。狭幅ではDOM順で自然に積む */
+@media(min-width:901px){
+  .L1-cover-intro{grid-column:1;grid-row:1;}
+  .L1-focus{grid-column:1;grid-row:2;}
+  .L1-spine{grid-column:2;grid-row:2;}
+}
 .L1-cover::after{content:"";grid-column:1/-1;justify-self:center;
   width:4px;height:4px;border-radius:50%;background:var(--river-bright);
   margin-top:var(--s6);
@@ -153,17 +161,18 @@ a.L1-name:hover{color:var(--ink);}
 .L1-creed{font-size:17px;line-height:1.75;color:var(--ink);margin:var(--s4) 0 0;
   padding-left:var(--s3);border-left:2px solid var(--river);max-width:28em;}
 
-/* Current Focus — 毎月書き換える。状態語は4つだけ */
-.L1-focus{margin:var(--s6) 0 0;padding-top:var(--s3);
-  border-top:1px solid var(--rule-1);}
+/* Current Focus — 毎月書き換える。状態語は4つだけ
+   上の余白はmarginではなく.L1-coverのgap（--s9=45px）に任せる。
+   以前のmargin-top(--s6=30)+padding-top(--s3=15)=45と同じ量なので見た目は変わらない */
+.L1-focus{padding-top:var(--s3);border-top:1px solid var(--rule-1);}
 .L1-focus dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--faint);margin:0 0 var(--s1);}
 .L1-focus dd{margin:0;font-size:17px;line-height:1.6;}
 .L1-focus .state{display:block;font-size:12px;color:var(--faint);
   margin-top:var(--s1);}
 
-/* 号数の帯 — 0/12 でも成立すること */
-.L1-spine{align-self:end;}
+/* 号数の帯 — 0/12 でも成立すること。L1-focusと行を共有するため上端で揃える */
+.L1-spine{align-self:start;}
 .L1-spine-h{font-size:11.5px;color:var(--faint);margin:0 0 var(--s2);}
 .L1-track{list-style:none;display:flex;padding:0;margin:0;position:relative;}
 .L1-track::before{content:"";position:absolute;top:3px;height:1px;
@@ -288,7 +297,11 @@ a.L1-name:hover{color:var(--ink);}
   color:var(--faint);flex:0 0 auto;width:5.5em;}
 .L1-insights p{margin:0;font-size:15.5px;color:var(--ink);line-height:1.7;}
 
-.L1-aside{grid-column:3;grid-row:2;max-width:none;}
+/* grid-row:2 固定だと、同じ行にある左カラムの短い段落に高さを合わせるため、
+   右カラムの長文がその1行に押し込まれ、行そのものが縦に伸びて左カラム側に
+   大きな空白ができる（Grid は同じ行番号の中で一番背の高いセルに行の高さを揃えるため）。
+   左カラムの項目数（本文＋Newsletter＝2つ）に合わせてspanし、伸びる分を分散する */
+.L1-aside{grid-column:3;grid-row:2 / span 2;max-width:none;}
 /* 狭幅ではgrid-rowの固定を解いて自然な流し込みに戻す。DOM順（=読了順）どおり最後に来る */
 @media(max-width:1000px){.L1-aside{grid-column:2;grid-row:auto;max-width:34em;}}
 
