@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APIでAIの可視性を測る──それは「まったくの誤り」｜Kääselä</title>
+<meta name="description" content="京都・着物レンタルの副研究：ChatGPTの引用元は、ウェブ版とAPIとでまったく別物だった。ウェブ版で引用の9割を占めたアフィリエイトサイトが、API側では20回中0回。Surfer・Luxeo Team・ハンブルク大学の独立検証もこれを裏づける。">
+<link rel="canonical" href="https://kaasela.com/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/api-vs-web-visibility/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APIでAIの可視性を測る──それは「まったくの誤り」">
+<meta property="og:description" content="2つの独立チームがそう語り、着物レンタルの副研究もそれを裏づけた。ウェブ版とAPI、ChatGPTが返すのはまったく別の情報源だった。">
+<meta property="og:url" content="https://kaasela.com/reports/api-vs-web-visibility/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "APIでAIの可視性を測る──それは「まったくの誤り」",
+  "alternativeHeadline": "2つの独立チームがそう語り、着物レンタルの副研究もそれを裏づけた",
+  "description": "京都・着物レンタルの副研究：ChatGPTの引用元は、ウェブ版とAPIとでまったく別物だった。ウェブ版で引用の9割を占めたアフィリエイトサイトが、API側では20回中0回。Surfer・Luxeo Team・ハンブルク大学の独立検証もこれを裏づける。",
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "inLanguage": "ja",
+  "url": "https://kaasela.com/reports/api-vs-web-visibility/",
+  "mainEntityOfPage": "https://kaasela.com/reports/api-vs-web-visibility/",
+  "author": { "@id": "https://kaasela.com/#organization" },
+  "publisher": { "@id": "https://kaasela.com/#organization" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
+  "about": [
+    "AI可視性 (AI Visibility)",
+    "GEO (Generative Engine Optimization)",
+    "ChatGPT API",
+    "引用元の測定手法",
+    "京都の着物レンタル"
+  ],
+  "keywords": "AI検索, 生成AI, ChatGPT, API, GEO, LLMO, AI可視性, 京都, 着物レンタル, 引用, 測定手法"
+}
+</script>
+</head>
+<body>
+<div class="L2-wrap">
+
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="言語">
+        <a href="/reports/api-vs-web-visibility/" aria-current="true">日本語</a>
+        <a href="/en/reports/api-vs-web-visibility/">English</a>
+        <a href="/zh-cn/reports/api-vs-web-visibility/">简体中文</a>
+        <a href="/zh-tw/reports/api-vs-web-visibility/">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="jp L2-title">APIでAIの可視性を測る<br>──それは「まったくの誤り」</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-08</span>
+      <span>読了目安 約8分</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="目次">
+    <ol>
+      <li><a href="#two-paths">同じ問いかけ、まったく異なる2つの経路</a></li>
+      <li><a href="#two-methods">サンプリングの誤差ではなく、2つの異なる「探し方」</a></li>
+      <li><a href="#not-alone">こう考えているのは、ここだけではない</a></li>
+      <li><a href="#business">これは事業者にとって何を意味するか</a></li>
+      <li><a href="#limitations">正直に言って、今回の調査の限界はどこにあるか</a></li>
+      <li><a href="#references">参考文献</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+<p>APIを使って一括呼び出しでAIの回答を収集する手法は、ここ数年、多くのGEO（Generative Engine Optimization）計測ツールや調査手法が選んできたやり方である。効率が良く、再現性が高く、スクリプト化しやすい——商業的な計測という観点からは、魅力的な手段に見える。しかし、相手が本質的にブラックボックスであるAIだとすれば、そのブラックボックスを測るための「ものさし」自体が正確かどうかを、まず問うべきではないだろうか。</p>
+
+<p>8月初に公開したMonthly Report #000では、こんな数字を記録した。「京都 着物レンタル おすすめ」という日本語の質問に対して、ChatGPTウェブ版が示した引用元のうち、9割が単一のアフィリエイト（成果報酬型広告）サイトからだった。少なくともその時点では、この数字はこう物語っていたと言えるだろう——AIがどの店を推薦するかを決めるのは、店そのものの良し悪しよりも、その店を紹介記事に載せてくれるアフィリエイトサイトがあるかどうか、と。</p>
+
+<p>では、ChatGPTの製品画面ではなく、その裏側にあるAPIに対してまったく同じ質問を投げたら、同じ結果が得られるのだろうか。</p>
+
+<p>答えはノーである。しかも、それはビジネス戦略上の違いにまで発展する。</p>
+
+<h2 id="two-paths">同じ問いかけ、まったく異なる2つの経路</h2>
+
+<p>設計はシンプルだ。Monthly Report #000で使った質問文をそのまま流用する。一方はウェブ版（Phase 0で取得済みのデータ、2026年7月21日実行、n=20）、もう一方はAPI（gpt-5.5、web_searchツールを有効化、システムプロンプトなし、2026年7月26日実行、n=20、2ラウンド実施）。</p>
+
+<p>ウェブ版の結果はすでに公開している。単一のアフィリエイトサイトが引用の9割を占め、「メディア／アフィリエイト」というカテゴリ全体でも53.7%を占めていた。</p>
+
+<p>API版の結果は、まったく別の顔ぶれとなった。</p>
+
+<table>
+<thead>
+<tr><th>順位</th><th>ドメイン</th><th>出現回数/20（v2）</th><th>性質</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>kyotokimonorental.com</td><td class="num">16</td><td>ある和服レンタルチェーンの自社サイト</td></tr>
+<tr><td>2</td><td>ewha-yifu.com</td><td class="num">13</td><td>未確認</td></tr>
+<tr><td>3</td><td>www.okamoto-kimono.com</td><td class="num">13</td><td>ある和服レンタル店の自社サイト</td></tr>
+<tr><td>4</td><td>ja.kyoto.travel</td><td class="num">12</td><td>京都市公式観光サイト</td></tr>
+<tr><td>5</td><td>www.kyoto.yumeyakata.com</td><td class="num">12</td><td>ある和服レンタル店の自社サイト</td></tr>
+<tr><td>6</td><td>kyoetsu-gion.com</td><td class="num">10</td><td>ある和服レンタル店の自社サイト</td></tr>
+<tr><td>7</td><td>tekutekukyoto.com</td><td class="num">6</td><td>未確認</td></tr>
+</tbody>
+</table>
+
+<p>ウェブ版で引用の9割を占めていたあのアフィリエイトサイトは、API側で実施した2ラウンド・合計20回のうち、出現回数がゼロだった。順位が低いのではない。API側の検索結果に、そもそも一度も引っかかっていない——2ラウンド分の生JSONをすべて検索して確認済みである。</p>
+
+<p>代わりに上位に来たのは、各店舗自身の公式サイトだった。</p>
+
+<h2 id="two-methods">サンプリングの誤差ではなく、2つの異なる「探し方」</h2>
+
+<p>順位の入れ替わりだけを見れば、ノイズではないかと疑いたくなるかもしれない。実際、API内部のv1とv2の2ラウンド間（同日・同一モデル・同一の質問）でも、上位ドメインの出現率には15〜25ポイントの振れがあることを自ら記録している。つまりAPI側にも独自のノイズフロアが存在し、1回実行しただけで結論を出せるものではない。</p>
+
+<p>しかし今回の違いは、単なる振れではなかった。カテゴリそのものが丸ごと入れ替わっていたのである——「アフィリエイト型の比較サイト」から「ブランド公式サイト」へ。この構造は、API側の2ラウンドいずれでも安定して再現されていた。</p>
+
+<p>本当に問題を説明しているのは、v2で記録したAPI内部の呼び出しの詳細である。ChatGPTのweb_searchツールは、1回の質問に答えるまでに平均5〜6回、多いときは8回もの連続動作（search→open_page→find_in_page……）を発生させていた。しかも最初のsearchは、ユーザーの原文をそのまま検索にかけるのではなく、より具体的な検索語へと自動的に展開する。たとえば「京都 着物レンタル おすすめ」という原文に対して、「公式」「料金」「口コミ」「2026」といった語を自動で付け加え、さらにはsite:構文を使って特定の店の公式ドメインに検索範囲を絞り込むことすらあった。</p>
+
+<p>つまりAPI側の検索挙動は、「足で稼ぐ」調査員に近い。まず候補となる店名を数件絞り込み、その一軒一軒の公式サイトを開いて料金やプランを確かめていく。この「一店ずつ公式サイトで裏を取る」という探索経路は、構造的にブランド公式ページを拾いやすく、何十店舗もの店を1本の記事にまとめたアフィリエイト型の比較サイトを拾いにくい。</p>
+
+<p>ウェブ版（ChatGPTの製品そのもの）が内部でどう検索を展開しているかは、見えない——この部分は非公開になっている。したがってここで確認できるのは、「少なくともAPI側で観測された挙動が、引用元の全面的な入れ替わりを説明できる」という点までであり、「ウェブ版が同様の展開を行っていない」ことの証明にはならない。この非対称性は、今回の調査では解消できず、また解消しようのない方法論上の限界である。</p>
+
+<h2 id="not-alone">こう考えているのは、ここだけではない</h2>
+
+<p>方向性の一致する独立した検証が、すでにいくつも存在する。しかも時系列がきれいにつながっている——2026年上半期に、それぞれ独立してほぼ相次いで現れたのだ。</p>
+
+<p><strong>2026年2月3日</strong>、SEOツールを手がけるSurfer社が、1000件規模の質問を対象にした比較実験を公開した。同じ質問に対してAPIと「ウェブ版で実際に表示される結果をスクレイピングしたもの」の両方でChatGPTの回答を収集し、推薦されるブランドの重なりはわずか24%、引用元の重なりに至ってはさらに低い4%という結果を得た。同社の結論は率直そのものである——「APIレスポンスをAI可視性（AI Visibility）の代替指標として監視するのは、まったくの誤りだ」。</p>
+
+<p>その3日後、<strong>2026年2月6日</strong>には、AI検索最適化サービスを手がける別のチーム、Luxeo Teamが独自に類似の実験を発表した。こちらもAPIとウェブ版・アプリ版の間で、回答の長さ・構成・引用元に至るまで構造的な差異があることを確認しており、「ChatGPTでの自社サイトの引用状況を確認したいなら、APIでの検証は推奨できない」という結論を出している。</p>
+
+<p>1か月あまり後の<strong>2026年3月20日</strong>には、ハンブルク大学ライプニッツ・メディア研究所の研究チームが、ドイツ広報・コミュニケーション学会（DGPuK）の年次大会で、方向性の一致する独立した発見を報告した。5週間・24,000件のドイツ語ニュース関連質問を対象に、ChatGPTのウェブ版とAPIの引用元を比較したところ、API版は非報道系の情報源（ウィキペディアなど）に偏り、ウェブ版は主流報道機関に偏っていたという。ロイター・デジタルニュースレポートの主要メディアリストとの一致率は、ウェブ版45.5%に対してAPIはわずか27.3%。この差は統計的に有意だったと報告されている。</p>
+
+<p>さらに4か月後、2026年<strong>7月21日</strong>（ウェブ版）と<strong>7月26日</strong>（API）に、和服レンタルをめぐるこの追加調査を実行し、8月11日にこの記事としてまとめた。半年あまりの間に、対象言語も対象領域もまったく異なる4つの独立した観察（英語圏のSEO検証、英語圏の複数プラットフォーム比較実験、ドイツ語のニュース質問、日本語の和服レンタル推薦）が、同じ方向を指し示している——同じ質問でも、ウェブ版とAPIとでは、AIの背後にある情報源そのものが別物である可能性が高い。これは今回の単発の観察がたまたま一致しただけとは考えにくい。</p>
+
+<p style="font-size:14px;color:var(--faint);">（SurferとLuxeo Teamの2件は業界内チームによる独自の検証報告であり、ハンブルク大学の研究は現時点では学会報告の段階にとどまり、正式な論文の公開はまだ確認できていない。3件とも査読を経た定説ではなく、それぞれの性質に応じて扱う必要がある。）</p>
+
+<h2 id="business">これは事業者にとって何を意味するか</h2>
+
+<p>「アフィリエイト型の比較サイトにお金を払って、自分の店を推薦リストに載せてもらうべきか」——この問いへの答えは、あなたの顧客がどの経路でAIにたどり着くかによって変わってくる。</p>
+
+<p>一般消費者向けのChatGPTウェブ版と、ChatGPT APIを組み込んだ増え続けるサードパーティ・アプリ（旅行アプリ、チャットボット、各種「AIアシスタント」）は、同じ人物の同じ質問に対して、まったく異なる2種類の情報源を提示している可能性が高い。アフィリエイト型の比較サイトとの関係を育てることは、ウェブ版での見え方を改善する。しかし顧客がAPIを利用するサードパーティのツール経由でたどり着く場合、効いてくるのはむしろ、自社サイトに料金やプランが明確に書かれているか、検索エンジンに拾われる形になっているかという点である——「一店ずつ公式サイトで裏を取る」というあの探索経路が、まさにそこを見ているのだ。</p>
+
+<p>「AI検索での露出を高める」ということは、単一の目標ではなく、少なくとも2本の異なる線として捉える必要があるのかもしれない。</p>
+
+<h2 id="limitations">正直に言って、今回の調査の限界はどこにあるか</h2>
+
+<p>これは今回のための補足調査であり、毎月実施している12か月分の定期観測には組み込まない。サンプル規模も結論を出せる水準には遠く及ばない。以下、限界を正直に列挙する。</p>
+
+<p>n=20は、API側で2ラウンドのみ完全に実行したものである。ウェブ版のデータは2026年7月21日のPhase 0観測に基づいており、両者は同日に実行されたものではない——5日間の時間差があり、この差自体を排除できていない。比較そのものも非対称である。API側では検索動作と生の返り値まで完全に見えるが、ウェブ版はブラックボックスであり、「双方の結果」同士は比較できても、「双方の過程」までは比較できない。質問とカテゴリも1本のみ（着物レンタルカテゴリ・日本語での質問：京都 着物レンタル おすすめ）に限られており、これはアフィリエイトサイトが極端に寡占している特殊なカテゴリである。引用元がもともと分散しているカテゴリ（茶道体験など）で同様の入れ替わりが起きるかどうかは、結果が異なる可能性がある。API側自体のノイズフロアもv1・v2の2ラウンドしか測定しておらず、判定閾値を定められる水準には達していない。</p>
+
+<p>これらが補われるまで、「API版では、アフィリエイトサイトによる引用の独占が観測できない」という主張は、実測に裏づけられてはいるものの、あくまでAPI側という片側の内部挙動しか見ていない強い仮説にとどまり、確定した結論ではない。</p>
+
+<h2 id="references">参考文献</h2>
+
+<p style="font-size:14px;">Sadowski, J.; Korczyński, W.（2026）. "Scraped AI Answers vs. API Results from LLMs. Is There a Difference? [AI Search Study]." Surfer、2026年2月3日更新。<a href="https://surferseo.com/blog/llm-scraped-ai-answers-vs-api-results">surferseo.com/blog/llm-scraped-ai-answers-vs-api-results</a></p>
+
+<p style="font-size:14px;">Kovshun, D.（2026）. "ChatGPT Output Differences in Web Version, API, and Mobile App: Independent Experiment #9 Results." Luxeo Team、2026年2月6日。<a href="https://luxeo.team/chatgpt-web-vs-api-experiment/">luxeo.team/chatgpt-web-vs-api-experiment</a></p>
+
+<p style="font-size:14px;">Schatto-Eckrodt, T. 他（2026）. "ChatGPT as a News Recommender System: Measuring Source Types and Diversity across Different Interfaces." ドイツ広報・コミュニケーション学会（DGPuK）2026年年次大会報告、ドルトムント工科大学、2026年3月20日。ライプニッツ・メディア研究所（ハンス・ブレドウ研究所）／ハンブルク大学。</p>
+
+<p style="font-size:12px;color:var(--faint);">以上のうちSurferとLuxeo Teamの2件は業界内チームが独自に発表した検証報告であり、査読を経た学術研究ではない。ハンブルク大学の研究は現時点で学会報告の段階にとどまり、正式な論文の公開発表は確認できていない。3件とも査読を経た定説ではなく、それぞれの性質に応じて扱う必要がある。</p>
+
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本稿は個人の研究・情報共有プロジェクトによるものであり、特定の団体・大学等とは無関係である。方法論の詳細はKääseläの月次レポートシリーズを参照のこと。</p>
+
+  </article>
+
+  <nav class="L2-serial">
+    <span><span class="lbl">関連レポート</span><a href="/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">一覧</span><a href="/reports/">Reports</a></span>
+  </nav>
+
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="ページ上部に戻る"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

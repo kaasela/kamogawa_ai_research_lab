@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>拿 API 測 AI 能見度，「是徹頭徹尾的錯誤」｜Kääselä</title>
+<meta name="description" content="京都和服租借副研究：ChatGPT 的引用來源，網頁版和 API 完全是兩回事。網頁版占引用九成的聯盟行銷網站，API 跑了 20 次一次都沒出現。Surfer、Luxeo Team、漢堡大學的獨立測試都指向同一個方向。">
+<link rel="canonical" href="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/api-vs-web-visibility/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拿 API 測 AI 能見度，「是徹頭徹尾的錯誤」">
+<meta property="og:description" content="兩個獨立團隊這麼說，這次的和服租借副研究也印證了這一點：網頁版和 API，ChatGPT 給的是兩批不同的資訊來源。">
+<meta property="og:url" content="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
+<meta property="og:locale" content="zh_TW">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "拿 API 測 AI 能見度，「是徹頭徹尾的錯誤」",
+  "alternativeHeadline": "兩個獨立團隊這麼說，這次的和服租借副研究也印證了這一點",
+  "description": "京都和服租借副研究：ChatGPT 的引用來源，網頁版和 API 完全是兩回事。網頁版占引用九成的聯盟行銷網站，API 跑了 20 次一次都沒出現。Surfer、Luxeo Team、漢堡大學的獨立測試都指向同一個方向。",
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "inLanguage": "zh-Hant",
+  "url": "https://kaasela.com/zh-tw/reports/api-vs-web-visibility/",
+  "mainEntityOfPage": "https://kaasela.com/zh-tw/reports/api-vs-web-visibility/",
+  "author": { "@id": "https://kaasela.com/#organization" },
+  "publisher": { "@id": "https://kaasela.com/#organization" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
+  "about": [
+    "AI 能見度",
+    "GEO (Generative Engine Optimization)",
+    "ChatGPT API",
+    "引用測量方法論",
+    "京都和服租借"
+  ],
+  "keywords": "AI 搜尋, 生成式 AI, ChatGPT, API, GEO, LLMO, AI 能見度, 京都, 和服租借, 引用, 測量方法"
+}
+</script>
+</head>
+<body>
+<div class="L2-wrap">
+
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="語言">
+        <a href="/reports/api-vs-web-visibility/">日本語</a>
+        <a href="/en/reports/api-vs-web-visibility/">English</a>
+        <a href="/zh-cn/reports/api-vs-web-visibility/">简体中文</a>
+        <a href="/zh-tw/reports/api-vs-web-visibility/" aria-current="true">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">拿 API 測 AI 能見度，<br>「是徹頭徹尾的錯誤」</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-08</span>
+      <span>閱讀約8分鐘</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="目錄">
+    <ol>
+      <li><a href="#two-paths">同一句提問，兩條完全不同的路徑</a></li>
+      <li><a href="#two-methods">這不是抽樣誤差，是兩種不同的「找法」</a></li>
+      <li><a href="#not-alone">這麼看的，不只一處</a></li>
+      <li><a href="#business">這對做生意的人意味著什麼</a></li>
+      <li><a href="#limitations">老實說這次調查的局限在哪</a></li>
+      <li><a href="#references">參考文獻</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+<p>用 API 批次呼叫、蒐集 AI 的回答，是這兩年不少 GEO（Generative Engine Optimization）監測工具和方法論會選的做法——效率高、好複現、方便寫成腳本，從商業測量的角度來看是很有吸引力的手段。但面對的是本質上是黑箱的 AI，這把用來測量黑箱的「尺」本身準不準，或許也該先問一遍。</p>
+
+<p>8月初發布的第0號報告裡記錄過一個數字：在「京都 着物レンタル おすすめ」（京都 和服租借 推薦）這句日語提問下，ChatGPT 網頁版給出的引用來源裡，有九成來自一家聯盟行銷網站。或許可以說，至少在那個時間點，這個數字說明了：決定 AI 推薦哪家店的，很多時候不是店本身做得好不好，而是有沒有一個聯盟行銷網站願意把它放進推薦名單。</p>
+
+<p>但如果不是透過 ChatGPT 的產品介面，而是透過底層的 API 去問一模一樣的問題，還能得出這個結果嗎？</p>
+
+<p>答案是否定的。而且會導致商業策略上的差異。</p>
+
+<h2 id="two-paths">同一句提問，兩條完全不同的路徑</h2>
+
+<p>設計很直接：拿第0號報告裡原樣的查詢語句，一字不改，一邊繼續用網頁版（Phase 0 已有資料，2026年7月21日執行，n=20），一邊改用 API（gpt-5.5，開啟 web_search 工具，不加任何系統提示詞，2026年7月26日執行，n=20，跑了兩輪）。</p>
+
+<p>網頁版的結果已經公開過：單一聯盟行銷網站占據引用的九成，「媒體／聯盟」這個分類整體占比53.7%。</p>
+
+<p>API 版跑出來的結果完全是另一張榜單：</p>
+
+<table>
+<thead>
+<tr><th>排名</th><th>網域</th><th>出現次數/20（v2）</th><th>性質</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>kyotokimonorental.com</td><td class="num">16</td><td>某連鎖和服租借店自營官方網站</td></tr>
+<tr><td>2</td><td>ewha-yifu.com</td><td class="num">13</td><td>未確認</td></tr>
+<tr><td>3</td><td>www.okamoto-kimono.com</td><td class="num">13</td><td>某和服租借店自營官方網站</td></tr>
+<tr><td>4</td><td>ja.kyoto.travel</td><td class="num">12</td><td>京都市官方觀光網站</td></tr>
+<tr><td>5</td><td>www.kyoto.yumeyakata.com</td><td class="num">12</td><td>某和服租借店自營官方網站</td></tr>
+<tr><td>6</td><td>kyoetsu-gion.com</td><td class="num">10</td><td>某和服租借店自營官方網站</td></tr>
+<tr><td>7</td><td>tekutekukyoto.com</td><td class="num">6</td><td>未確認</td></tr>
+</tbody>
+</table>
+
+<p>網頁版裡占引用九成的那個聯盟行銷網站，在 API 跑的兩輪、合計20次裡，出現次數是零。不是排名靠後，是根本沒被 API 的搜尋結果撈到過——把兩輪跑出來的全部原始 JSON 都搜過一遍，確認過這一點。</p>
+
+<p>排到前面的，換成了各家店鋪自己的官方網站。</p>
+
+<h2 id="two-methods">這不是抽樣誤差，是兩種不同的「找法」</h2>
+
+<p>如果只看排名變化，可能會懷疑這只是雜訊——畢竟自己也記錄過，API 內部 v1 和 v2 兩輪之間（同一天、同一模型、同一問題），前幾名網域的出現率也會有15到25個百分點的波動，說明 API 側本身也有自己的雜訊基準值，不是跑一次就能定論的。</p>
+
+<p>但這次的差異不是波動，是類別整體被替換——從「聯盟比價網站」換成「品牌自營網站」，兩輪 API 結果裡這個結構都穩定重現。</p>
+
+<p>真正能說明問題的，是 v2 裡記錄下來的 API 內部呼叫細節。ChatGPT 的 web_search 工具在回答一次提問時，平均會連續發起5到6次動作（search→open_page→find_in_page……最多見過8次），而且第一次 search 不是把使用者原話原封不動丟進去搜，而是自動展開成好幾條更具體的檢索詞，比如在「京都 着物レンタル おすすめ」這句原話基礎上，自動加上「公式」「料金」「口コミ」「2026」這些詞，甚至用 site: 語法直接把搜尋範圍限定在某家店的官方網站網域內。</p>
+
+<p>換句話說，API 背後的搜尋行為更像一個「按圖索驥」的調查助理——先圈出幾個候選店名，再逐一打開對方的官方網站核實價格和方案。這種「逐店核實官網」的搜尋路徑，結構性地更容易撈到品牌自營頁面，而不是一篇泛泛地把十幾家店塞進同一張榜單的聯盟比價文章。</p>
+
+<p>網頁版（ChatGPT 產品本身）內部具體怎麼展開搜尋，看不到——這部分對外不公開。所以這裡能確認的只是「至少在 API 這一側，觀察到的行為能夠解釋引用來源的整體切換」，而不能反推說「網頁版一定沒有做類似的展開」。這一層不對稱，是這次研究沒有解決、也解決不了的方法論限制。</p>
+
+<h2 id="not-alone">這麼看的，不只一處</h2>
+
+<p>已經有獨立測試指向類似的方向，而且時間線接得上——幾乎是前後腳在2026年上半年各自獨立冒出來的。</p>
+
+<p><strong>2026年2月3日</strong>，SEO 工具廠商 Surfer 更新了一份1000條提問規模的對照實驗，同時用 API 和「擷取網頁版實際顯示結果」兩種方式蒐集 ChatGPT 的回答，發現兩者推薦的品牌重疊率只有24%，引用來源的重疊率更低，只有4%。他們自己的結論說得很直接：「把 API 回應當作 AI 能見度的替代指標來監測，是徹頭徹尾的錯誤。」</p>
+
+<p>三天後，<strong>2026年2月6日</strong>，另一家做 AI 搜尋優化服務的團隊 Luxeo Team 獨立發布了類似的實驗，同樣測出 API 與網頁版、App 版在回答長度、結構、引用來源上都有系統性差異，給出的建議是：如果要核實網站在 ChatGPT 裡的實際引用情況，走 API 核對「不可取」。</p>
+
+<p>一個多月後，<strong>2026年3月20日</strong>，漢堡大學萊布尼茲媒體研究所的一組研究者在德國廣播與傳播學會年會上，報告了一個方向一致的獨立發現：他們用五週時間、24,000條德語新聞類提問，比較了 ChatGPT 網頁版和 API 的引用來源，發現 API 版明顯偏向非新聞類資訊來源（比如維基百科），網頁版則明顯偏向主流新聞媒體——與路透社年度報告裡的主流媒體名單重疊度，網頁版是45.5%，API 只有27.3%，差距具有統計顯著性。</p>
+
+<p>再往後四個月，<strong>2026年7月21日</strong>（網頁版）和<strong>7月26日</strong>（API）跑了這次的和服日副研究，8月11日整理成這篇文章。前後加起來半年多的時間裡，四組彼此獨立、對象語言和領域完全不同（英文 SEO 評測、英文多平台對比實驗、德語新聞問答、日語和服租借推薦）的觀察，結論方向卻是一致的：同一個問題，透過網頁版和透過 API 問，AI 背後拿到的很可能是兩批不同的資訊來源。這不是這一次單點觀察出來的巧合。</p>
+
+<p style="font-size:14px;color:var(--faint);">（Surfer 與 Luxeo Team 兩篇是業界內團隊自行發布的測試報告，漢堡大學這項研究截至目前還停留在學會報告階段，正式論文尚未確認公開發表——三篇均非同儕審查的定論，引用時按各自對應的性質處理。）</p>
+
+<h2 id="business">這對做生意的人意味著什麼</h2>
+
+<p>如果你正在考慮「要不要花錢找聯盟比價網站合作、把自己塞進他們的推薦名單」——這個問題的答案，現在要看你的客戶是透過什麼路徑找上 AI 的。</p>
+
+<p>面向消費者的 ChatGPT 網頁版，和越來越多接入了 ChatGPT API 的第三方應用程式（旅遊 App、聊天機器人、各種「AI 助理」），很可能會把同一個人的同一個問題，導向兩套完全不同的資訊來源。經營聯盟比價網站的關係，能改善你在網頁版裡的能見度；但如果客戶是透過某個呼叫 API 的第三方工具找到你，起作用的可能反而是你自己官方網站上有沒有寫清楚價格、方案、能不能被搜尋引擎抓取——那條「逐店核實官網」的路徑，看的恰恰是這些。</p>
+
+<p>或許可以說，「在 AI 搜尋裡做曝光」並不意味著單一目標，而是至少要分兩條線來看。</p>
+
+<h2 id="limitations">老實說這次調查的局限在哪</h2>
+
+<p>這是一次副研究，不併入主線12個月的月度觀測序列，樣本規模也遠遠夠不上能下結論的程度，這裡如實列出限制：</p>
+
+<p>n=20只在 API 這一側完整執行了兩輪，網頁版資料來自2026年7月21日的 Phase 0 觀測，兩邊不是同一天跑的，中間隔了5天，這段時間差本身無法排除。比較本身也不對稱——API 這一側能看到完整的搜尋動作和原始回傳，網頁版是黑箱，只能比較「兩邊各自的結果」，比不了「兩邊各自的過程」。查詢和類別都只測了一個（和服日：京都 着物レンタル おすすめ），這是一個聯盟行銷網站高度壟斷的極端類別，同樣的替換現象在引用來源本來就分散的類別（比如茶道體驗）裡或許會有不一樣的結果。API 側自己的雜訊基準值也只測過 v1、v2 兩輪，還沒有測到能定判定門檻的程度。</p>
+
+<p>在這些都補上之前，「API 版看不到 GEO 捕獲現象」只能算一個有實測證據支持、但仍然只看到單邊（API 側）內部行為的強假設，不是定論。</p>
+
+<h2 id="references">參考文獻</h2>
+
+<p style="font-size:14px;">Sadowski, J.; Korczyński, W.（2026）. "Scraped AI Answers vs. API Results from LLMs. Is There a Difference? [AI Search Study]." Surfer，2026年2月3日更新。<a href="https://surferseo.com/blog/llm-scraped-ai-answers-vs-api-results">surferseo.com/blog/llm-scraped-ai-answers-vs-api-results</a></p>
+
+<p style="font-size:14px;">Kovshun, D.（2026）. "ChatGPT Output Differences in Web Version, API, and Mobile App: Independent Experiment #9 Results." Luxeo Team，2026年2月6日。<a href="https://luxeo.team/chatgpt-web-vs-api-experiment/">luxeo.team/chatgpt-web-vs-api-experiment</a></p>
+
+<p style="font-size:14px;">Schatto-Eckrodt, T. 等（2026）. "ChatGPT as a News Recommender System: Measuring Source Types and Diversity across Different Interfaces." 德國廣播與傳播學會（DGPuK）2026年年會報告，多特蒙德工業大學，2026年3月20日。萊布尼茲媒體研究所（漢斯・布雷多研究所）／漢堡大學。</p>
+
+<p style="font-size:12px;color:var(--faint);">以上前兩篇為業界內團隊發布的獨立測試，非同儕審查的學術研究；漢堡大學一項截至目前仍停留在學會報告階段，正式論文尚未確認公開發表。三篇均非同儕審查的定論，引用時按各自對應的性質處理。</p>
+
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本文為個人的研究・資訊分享專案，與特定團體、大學等無關。方法論細節請參見 Kääselä 的月度報告系列。</p>
+
+  </article>
+
+  <nav class="L2-serial">
+    <span><span class="lbl">相關報告</span><a href="/zh-tw/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">一覽</span><a href="/reports/">Reports</a></span>
+  </nav>
+
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="回到頂部"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

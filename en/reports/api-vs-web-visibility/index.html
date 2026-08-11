@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measuring AI Visibility Through the API Is "a Completely Wrong Approach"｜Kääselä</title>
+<meta name="description" content="A Kyoto kimono-rental sub-study: ChatGPT's citation sources were completely different between the web version and the API. The affiliate site that took 90% of web-version citations appeared zero times out of 20 API runs. Independent tests from Surfer, Luxeo Team, and the University of Hamburg back this up.">
+<link rel="canonical" href="https://kaasela.com/en/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/api-vs-web-visibility/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Measuring AI Visibility Through the API Is &quot;a Completely Wrong Approach&quot;">
+<meta property="og:description" content="Two independent teams say so, and this kimono-rental sub-study backs it up: the web version and the API hand ChatGPT users two different sets of sources.">
+<meta property="og:url" content="https://kaasela.com/en/reports/api-vs-web-visibility/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Measuring AI Visibility Through the API Is \"a Completely Wrong Approach\"",
+  "alternativeHeadline": "Two independent teams say so, and this kimono-rental sub-study backs it up",
+  "description": "A Kyoto kimono-rental sub-study: ChatGPT's citation sources were completely different between the web version and the API. The affiliate site that took 90% of web-version citations appeared zero times out of 20 API runs. Independent tests from Surfer, Luxeo Team, and the University of Hamburg back this up.",
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "inLanguage": "en",
+  "url": "https://kaasela.com/en/reports/api-vs-web-visibility/",
+  "mainEntityOfPage": "https://kaasela.com/en/reports/api-vs-web-visibility/",
+  "author": { "@id": "https://kaasela.com/#organization" },
+  "publisher": { "@id": "https://kaasela.com/#organization" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
+  "about": [
+    "AI Visibility",
+    "GEO (Generative Engine Optimization)",
+    "ChatGPT API",
+    "Citation measurement methodology",
+    "Kyoto kimono rental"
+  ],
+  "keywords": "AI search, generative AI, ChatGPT, API, GEO, LLMO, AI visibility, Kyoto, kimono rental, citations, measurement methodology"
+}
+</script>
+</head>
+<body>
+<div class="L2-wrap">
+
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="Language">
+        <a href="/reports/api-vs-web-visibility/">日本語</a>
+        <a href="/en/reports/api-vs-web-visibility/" aria-current="true">English</a>
+        <a href="/zh-cn/reports/api-vs-web-visibility/">简体中文</a>
+        <a href="/zh-tw/reports/api-vs-web-visibility/">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">Measuring AI Visibility Through the API<br>Is "a Completely Wrong Approach"</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-08</span>
+      <span>Approx. 8 min read</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="Contents">
+    <ol>
+      <li><a href="#two-paths">Same question, two completely different paths</a></li>
+      <li><a href="#two-methods">Not sampling noise — two different ways of searching</a></li>
+      <li><a href="#not-alone">I'm not the only one saying this</a></li>
+      <li><a href="#business">What this means if you run a business</a></li>
+      <li><a href="#limitations">Where this study actually falls short</a></li>
+      <li><a href="#references">References</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+<p>Calling an API in bulk to collect AI answers has become a common approach for GEO (Generative Engine Optimization) monitoring tools and methodologies over the past couple of years. It's efficient, reproducible, easy to script — an appealing method from a commercial-measurement standpoint. But if what's being measured is, at bottom, a black box, it's worth first asking whether the ruler used on that black box is accurate.</p>
+
+<p>Monthly Report #000, published in early August, recorded a number: for the Japanese query "京都 着物レンタル おすすめ" (best kimono rental in Kyoto), 90% of the citation sources ChatGPT's web version gave came from a single affiliate-marketing site. At least at that point, the number suggested something: what decides which shop AI recommends often isn't how good the shop itself is, but whether an affiliate site is willing to put it on a list.</p>
+
+<p>But ask the exact same question through the underlying API instead of the ChatGPT product interface — do you still get the same result?</p>
+
+<p>No. And the difference translates into a difference in business strategy.</p>
+
+<h2 id="two-paths">Same question, two completely different paths</h2>
+
+<p>The design is straightforward. I reused the query text from Report #000 word for word — one arm continuing with the web version (Phase 0 data already collected, run on July 21, 2026, n=20), the other switching to the API (gpt-5.5, web_search tool enabled, no system prompt, run on July 26, 2026, n=20, two rounds).</p>
+
+<p>I've already published the web-version result: a single affiliate site captured 90% of citations, and the "media/affiliate" category as a whole accounted for 53.7%.</p>
+
+<p>The API produced a completely different leaderboard:</p>
+
+<table>
+<thead>
+<tr><th>Rank</th><th>Domain</th><th>Occurrences/20 (v2)</th><th>Nature</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>kyotokimonorental.com</td><td class="num">16</td><td>Official site of a kimono-rental chain</td></tr>
+<tr><td>2</td><td>ewha-yifu.com</td><td class="num">13</td><td>Unconfirmed</td></tr>
+<tr><td>3</td><td>www.okamoto-kimono.com</td><td class="num">13</td><td>Official site of a kimono-rental shop</td></tr>
+<tr><td>4</td><td>ja.kyoto.travel</td><td class="num">12</td><td>Kyoto City's official tourism site</td></tr>
+<tr><td>5</td><td>www.kyoto.yumeyakata.com</td><td class="num">12</td><td>Official site of a kimono-rental shop</td></tr>
+<tr><td>6</td><td>kyoetsu-gion.com</td><td class="num">10</td><td>Official site of a kimono-rental shop</td></tr>
+<tr><td>7</td><td>tekutekukyoto.com</td><td class="num">6</td><td>Unconfirmed</td></tr>
+</tbody>
+</table>
+
+<p>The affiliate site that took 90% of citations on the web version appeared exactly zero times across both API rounds — 20 runs combined. Not "ranked low." Never picked up by the API's search results at all — I searched the full raw JSON from both rounds to confirm this.</p>
+
+<p>What rose to the top instead: each shop's own official site.</p>
+
+<h2 id="two-methods">This isn't sampling noise. It's two different ways of searching.</h2>
+
+<p>Looking only at the ranking shift, you might suspect noise — and I've documented that even between the API's own v1 and v2 rounds (same day, same model, same question), the top domains' appearance rates swing by 15–25 percentage points. The API side has its own noise floor; a single run doesn't settle anything.</p>
+
+<p>But this difference isn't a swing. It's a wholesale category swap — from "affiliate comparison site" to "brand's own site" — and that structure held stable across both API rounds.</p>
+
+<p>What actually explains it is the detail logged from the API's internal tool calls in v2. ChatGPT's web_search tool, answering a single question, chained together an average of 5–6 actions (search → open_page → find_in_page... up to 8 in some cases). And the first search didn't just fire the user's original query verbatim — it automatically expanded into several more specific search terms. On top of "京都 着物レンタル おすすめ," it would auto-append words like "official," "pricing," "reviews," "2026," and in some cases even scope the search to a specific shop's own domain using site: syntax.</p>
+
+<p>In other words, the search behavior behind the API looks more like a legwork-driven investigator: shortlist a few candidate shops by name, then open each one's official site to verify prices and plans. That "verify each shop against its own official site" path is structurally more likely to surface brand-owned pages than a single affiliate roundup article that lumps a dozen-plus shops onto one list.</p>
+
+<p>There's no visibility into how the web version — the ChatGPT product itself — expands its search internally; that layer isn't public. So what can be confirmed here is limited to: "at least on the API side, the observed behavior can account for the wholesale shift in citation sources." It doesn't allow concluding that the web version isn't doing something similar. That asymmetry is a methodological limit this study didn't resolve and can't resolve.</p>
+
+<h2 id="not-alone">I'm not the only one saying this</h2>
+
+<p>Independent tests pointing in the same direction already exist — and the timeline lines up. They surfaced independently, one after another, across the first half of 2026.</p>
+
+<p><strong>On February 3, 2026</strong>, SEO tooling company Surfer published an updated comparison run across 1,000 prompts, collecting ChatGPT's answers both via API and by scraping what the web version actually displays. Brand overlap between the two came out to just 24%; source overlap was even lower, at 4%. Their own conclusion was blunt: "Monitoring API responses as a proxy for your AI visibility is totally wrong."</p>
+
+<p>Three days later, <strong>on February 6, 2026</strong>, Luxeo Team, an AI-search-optimization service, independently published a similar experiment. It also found systematic differences between the API and the web/app versions in response length, structure, and citation sources, and recommended: if you want to verify a site's actual citation status in ChatGPT, checking through the API "is not advisable."</p>
+
+<p>Over a month later, <strong>on March 20, 2026</strong>, researchers at the Leibniz Institute for Media Research at the University of Hamburg reported an independent, directionally consistent finding at the annual conference of the German Communication Association (DGPuK). Across five weeks and 24,000 German-language news queries, they compared ChatGPT's web-version and API citation sources and found the API skewed toward non-news sources (Wikipedia, for instance), while the web version skewed toward mainstream news outlets — overlap with Reuters Digital News Report's list of leading outlets was 45.5% for the web version versus 27.3% for the API, a statistically significant gap.</p>
+
+<p>Four more months later, this kimono-day sub-study ran on <strong>July 21, 2026</strong> (web) and <strong>July 26, 2026</strong> (API), and was written up on August 11. Over six-plus months, four independent observations — completely different in target language and domain (an English-language SEO test, an English-language multi-platform comparison, German-language news queries, Japanese-language kimono-rental recommendations) — point the same direction: ask the same question through the web version versus the API, and AI is likely pulling from two different sets of sources behind the scenes. This isn't a coincidence from a single observation.</p>
+
+<p style="font-size:14px;color:var(--faint);">(The Surfer and Luxeo Team pieces are independent test reports self-published by industry teams; the Hamburg study remains at the conference-presentation stage as of this writing, with no confirmed publication of a formal paper. None of the three is a peer-reviewed, settled conclusion — each should be weighed according to its own nature.)</p>
+
+<h2 id="business">What this means if you run a business</h2>
+
+<p>If you're weighing whether to pay an affiliate comparison site to get your shop onto its recommendation list — the answer now depends on which path your customers take to reach AI.</p>
+
+<p>The consumer-facing ChatGPT web version and the growing number of third-party apps built on the ChatGPT API (travel apps, chatbots, various "AI assistants") are likely routing the same person's same question to two entirely different sets of sources. Cultivating a relationship with an affiliate comparison site improves your visibility on the web version. But if a customer reaches you through some API-powered third-party tool, what matters instead may be whether your own official site clearly states pricing and plans, and whether it's built to be picked up by search — that "verify against the official site" path is looking precisely at that.</p>
+
+<p>Maybe "getting exposure in AI search" was never a single goal to begin with — it may need to be treated as at least two separate tracks.</p>
+
+<h2 id="limitations">Where this study actually falls short</h2>
+
+<p>This is a sub-study. It isn't folded into the main 12-month monthly observation series, and the sample is nowhere near large enough to support a conclusion. Here are the limits, stated plainly:</p>
+
+<p>n=20 was run completely for two rounds only on the API side. The web-version data comes from the Phase 0 observation on July 21, 2026 — the two sides weren't run on the same day; there's a 5-day gap that can't be ruled out as a factor. The comparison itself is asymmetric: on the API side, the full search actions and raw returns are visible, while the web version is a black box — "each side's results" can be compared, but not "each side's process." Only one query and one category were tested (kimono, Japanese: "京都 着物レンタル おすすめ"), an extreme category where a single affiliate site is heavily dominant; whether the same swap happens in a category where citation sources are already more spread out (tea-ceremony experiences, for instance) may turn out differently. The API's own noise floor has only been measured across v1 and v2 — not enough rounds to set a defensible threshold.</p>
+
+<p>Until those gaps are filled, "the API can't observe GEO capture" remains a strong hypothesis backed by real observations, but one that still only looks at one side's (the API's) internal behavior — not a settled conclusion.</p>
+
+<h2 id="references">References</h2>
+
+<p style="font-size:14px;">Sadowski, J.; Korczyński, W. (2026). "Scraped AI Answers vs. API Results from LLMs. Is There a Difference? [AI Search Study]." Surfer, updated February 3, 2026. <a href="https://surferseo.com/blog/llm-scraped-ai-answers-vs-api-results">surferseo.com/blog/llm-scraped-ai-answers-vs-api-results</a></p>
+
+<p style="font-size:14px;">Kovshun, D. (2026). "ChatGPT Output Differences in Web Version, API, and Mobile App: Independent Experiment #9 Results." Luxeo Team, February 6, 2026. <a href="https://luxeo.team/chatgpt-web-vs-api-experiment/">luxeo.team/chatgpt-web-vs-api-experiment</a></p>
+
+<p style="font-size:14px;">Schatto-Eckrodt, T. et al. (2026). "ChatGPT as a News Recommender System: Measuring Source Types and Diversity across Different Interfaces." Presented at the 2026 annual conference of the German Communication Association (DGPuK), TU Dortmund, March 20, 2026. Leibniz Institute for Media Research (Hans Bredow Institute) / University of Hamburg.</p>
+
+<p style="font-size:12px;color:var(--faint);">The first two are independent test reports self-published by industry teams, not peer-reviewed academic research. The Hamburg study remains at the conference-presentation stage as of this writing, with no confirmed publication of a formal paper. None of the three is a peer-reviewed, settled conclusion; each is cited according to its own nature.</p>
+
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">This is an independent research and information-sharing project, not affiliated with any organization or university. See Kääselä's monthly report series for methodology details.</p>
+
+  </article>
+
+  <nav class="L2-serial">
+    <span><span class="lbl">Related report</span><a href="/en/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">Index</span><a href="/reports/">Reports</a></span>
+  </nav>
+
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>Kyoto, Japan ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="Back to top"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

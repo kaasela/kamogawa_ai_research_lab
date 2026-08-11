@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>拿API测AI能见度，「是彻头彻尾的错误」｜Kääselä</title>
+<meta name="description" content="京都和服租赁副研究：ChatGPT的引用来源，网页版和API完全是两回事。网页版占引用九成的联盟站，API跑了20次一次都没出现。Surfer、Luxeo Team、汉堡大学的独立测试都指向同一个方向。">
+<link rel="canonical" href="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
+<link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/api-vs-web-visibility/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拿API测AI能见度，「是彻头彻尾的错误」">
+<meta property="og:description" content="两个独立团队这么说，这次的和服租赁副研究也印证了这一点：网页版和API，ChatGPT给的是两批不同的信息源。">
+<meta property="og:url" content="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "拿API测AI能见度，「是彻头彻尾的错误」",
+  "alternativeHeadline": "两个独立团队这么说，这次的和服租赁副研究也印证了这一点",
+  "description": "京都和服租赁副研究：ChatGPT的引用来源，网页版和API完全是两回事。网页版占引用九成的联盟站，API跑了20次一次都没出现。Surfer、Luxeo Team、汉堡大学的独立测试都指向同一个方向。",
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11",
+  "inLanguage": "zh-Hans",
+  "url": "https://kaasela.com/zh-cn/reports/api-vs-web-visibility/",
+  "mainEntityOfPage": "https://kaasela.com/zh-cn/reports/api-vs-web-visibility/",
+  "author": { "@id": "https://kaasela.com/#organization" },
+  "publisher": { "@id": "https://kaasela.com/#organization" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
+  "about": [
+    "AI能见度",
+    "GEO (Generative Engine Optimization)",
+    "ChatGPT API",
+    "引用测量方法论",
+    "京都和服租赁"
+  ],
+  "keywords": "AI搜索, 生成式AI, ChatGPT, API, GEO, LLMO, AI能见度, 京都, 和服租赁, 引用, 测量方法"
+}
+</script>
+</head>
+<body>
+<div class="L2-wrap">
+
+  <header class="L2-head">
+    <div class="L2-headrow">
+      <a class="L2-back" href="/reports/">← Reports</a>
+      <nav class="L2-lang" aria-label="语言">
+        <a href="/reports/api-vs-web-visibility/">日本語</a>
+        <a href="/en/reports/api-vs-web-visibility/">English</a>
+        <a href="/zh-cn/reports/api-vs-web-visibility/" aria-current="true">简体中文</a>
+        <a href="/zh-tw/reports/api-vs-web-visibility/">繁體中文</a>
+      </nav>
+    </div>
+    <h1 class="L2-title">拿API测AI能见度，<br>「是彻头彻尾的错误」</h1>
+    <p class="L2-meta">
+      <span>K<span style="color:var(--river)">ää</span>selä</span>
+      <span>Feature</span>
+      <span class="num">2026-08</span>
+      <span>阅读约8分钟</span>
+    </p>
+  </header>
+
+  <nav class="L2-rail" aria-label="目录">
+    <ol>
+      <li><a href="#two-paths">同一句问话，两条完全不同的路径</a></li>
+      <li><a href="#two-methods">不是抽样误差，是两种不同的"找法"</a></li>
+      <li><a href="#not-alone">这么看的，不止一处</a></li>
+      <li><a href="#business">这对做生意的人意味着什么</a></li>
+      <li><a href="#limitations">老实说这次调查的局限在哪</a></li>
+      <li><a href="#references">参考文献</a></li>
+    </ol>
+  </nav>
+
+  <article class="L2-body">
+
+<p>用API去批量调用、采集AI的回答，是这两年不少GEO监测工具和方法论会选的路子——效率高、好复现、方便脚本化，从商业测量的角度看是一个很有吸引力的手段。但面对的是本质上黑箱的AI，这把用来测量黑箱的"尺子"本身准不准，或许也该先问一遍。</p>
+
+<p>8月初发布的第0号报告里记录过一个数字：在"京都 着物レンタル おすすめ"（京都 和服租赁 推荐）这句日语提问下，ChatGPT网页版给出的引用来源里，有九成来自一家联盟营销网站。或许可以说，至少在那个节点，这个数字说明：决定AI推荐哪家店的，很多时候不是店本身做得好不好，而是有没有一个联盟站愿意帮它写进榜单。</p>
+
+<p>但如果不是通过ChatGPT的产品界面，而是通过底层的API去问一模一样的问题，还能得出这个结果吗？</p>
+
+<p>答案是否定的。而且会导致商业战略上的区别。</p>
+
+<h2 id="two-paths">同一句问话，两条完全不同的路径</h2>
+
+<p>设计很直接：拿第0号报告里原样的查询语句，一字不改，一边继续用网页版（Phase 0已有数据，2026年7月21日执行，n=20），一边改用API（gpt-5.5，开启web_search工具，不加任何系统提示词，2026年7月26日执行，n=20，跑了两轮）。</p>
+
+<p>网页版的结果已经公开过：单一联盟站占据引用的九成，"媒体/联盟"这个分类整体占比53.7%。</p>
+
+<p>API版跑出来的结果完全是另一张榜单：</p>
+
+<table>
+<thead>
+<tr><th>排名</th><th>域名</th><th>出现次数/20（v2）</th><th>性质</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>kyotokimonorental.com</td><td class="num">16</td><td>某连锁和服店自营官网</td></tr>
+<tr><td>2</td><td>ewha-yifu.com</td><td class="num">13</td><td>未确认</td></tr>
+<tr><td>3</td><td>www.okamoto-kimono.com</td><td class="num">13</td><td>某和服店自营官网</td></tr>
+<tr><td>4</td><td>ja.kyoto.travel</td><td class="num">12</td><td>京都市官方观光网站</td></tr>
+<tr><td>5</td><td>www.kyoto.yumeyakata.com</td><td class="num">12</td><td>某和服店自营官网</td></tr>
+<tr><td>6</td><td>kyoetsu-gion.com</td><td class="num">10</td><td>某和服店自营官网</td></tr>
+<tr><td>7</td><td>tekutekukyoto.com</td><td class="num">6</td><td>未确认</td></tr>
+</tbody>
+</table>
+
+<p>网页版里占引用九成的那个联盟站，在API跑的两轮、合计20次里，出现次数是零。不是排名靠后，是压根没被API的搜索结果捞到过——把两轮跑出来的全部原始JSON都搜过一遍，确认过这一点。</p>
+
+<p>顶上来的，换成了各家店铺自己的官网。</p>
+
+<h2 id="two-methods">这不是抽样误差，是两种不同的"找法"</h2>
+
+<p>如果只看排名变化，可能会怀疑这只是噪声——毕竟自己也记录过，API内部v1和v2两轮之间（同一天、同一模型、同一问题），头部几个域名的出现率也会有15到25个百分点的浮动，说明API侧本身也有自己的噪声底，不是跑一次就能定论的。</p>
+
+<p>但这次的差异不是浮动，是类别整体被替换——从"联盟比价站"换成"品牌自营站"，两轮API结果里这个结构都稳定重现。</p>
+
+<p>真正说明问题的，是v2里记录下来的API内部调用细节。ChatGPT的web_search工具在回答一次提问时，平均会连续发起5到6次动作（search→open_page→find_in_page……最多见过8次），而且第一次search不是把用户原话原样丢进去搜，而是自动展开成好几条更具体的检索词，比如在"京都 着物レンタル おすすめ"这句原话基础上，自动加上"公式""料金""口コミ""2026"这些词，甚至用site:语法直接把搜索范围限定在某家店的官网域名内。</p>
+
+<p>换句话说，API背后的搜索行为更像一个"按图索骥"的调查助理——先圈出几个候选店名，再逐一打开对方的官网核实价格和方案。这种"逐店核实官网"的搜索路径，结构性地更容易捞到品牌自营页面，而不是一篇泛泛地把十几家店塞进同一张榜单的联盟比价文章。</p>
+
+<p>网页版（ChatGPT产品本身）内部具体怎么展开搜索，看不到——这部分对外不公开。所以这里能确认的只是"至少在API这一侧，观察到的行为能够解释引用来源的整体切换"，而不能倒推说"网页版一定没有做类似的展开"。这一层不对称，是这次研究没有解决、也解决不了的方法论限制。</p>
+
+<h2 id="not-alone">这么看的，不止一处</h2>
+
+<p>已经有独立测试指向类似的方向，而且时间线连得上——几乎是前后脚在2026年上半年各自独立冒出来的。</p>
+
+<p><strong>2026年2月3日</strong>，SEO工具厂商 Surfer 更新了一份1000条提问规模的对照实验，同时用API和"抓取网页版实际展示结果"两种方式采集ChatGPT的回答，发现两者推荐的品牌重合率只有24%，引用来源的重合率更低，只有4%。他们自己的结论说得很直接："把API响应当作AI能见度的替代指标来监测，是彻头彻尾的错误。"</p>
+
+<p>三天后，<strong>2026年2月6日</strong>，另一家做AI搜索优化服务的团队 Luxeo Team 独立发布了类似的实验，同样测出API与网页版、App版在回答长度、结构、引用来源上都有系统性差异，给出的建议是：如果要核实网站在ChatGPT里的实际引用情况，走API核对"不可取"。</p>
+
+<p>一个多月后，<strong>2026年3月20日</strong>，汉堡大学莱布尼茨媒体研究所的一组研究者在德国广播与传播学会年会上，报告了一个方向一致的独立发现：他们用五周时间、24000条德语新闻类提问，比较了ChatGPT网页版和API的引用来源，发现API版明显偏向非新闻类信源（比如维基百科），网页版则明显偏向主流新闻媒体——与路透社年度报告里的主流媒体名单重合度，网页版是45.5%，API只有27.3%，差距有统计显著性。</p>
+
+<p>再往后四个月，<strong>2026年7月21日</strong>（网页版）和<strong>7月26日</strong>（API）跑了这次的着物日副研究，8月11日整理成这篇文章。前后加起来半年多的时间里，四组彼此独立、对象语言和领域完全不同（英文SEO评测、英文多平台对比实验、德语新闻问答、日语和服租赁推荐）的观察，结论方向却是一致的：同一个问题，通过网页版和通过API问，AI背后拿到的很可能是两批不同的信息源。这不是这一次单点观察出来的巧合。</p>
+
+<p style="font-size:14px;color:var(--faint);">（Surfer 与 Luxeo Team 两篇是行业内团队自行发布的测试报告，汉堡大学这项研究截至目前还停留在学会报告阶段，正式论文尚未确认公开发表——三篇均非同行评审的定论，引用时按各自对应的性质处理。）</p>
+
+<h2 id="business">这对做生意的人意味着什么</h2>
+
+<p>如果你正在琢磨"要不要花钱找联盟比价站合作、把自己塞进他们的推荐榜单"——这个问题的答案，现在要看你的客户是通过什么路径找上AI的。</p>
+
+<p>面向消费者的ChatGPT网页版和越来越多接入了ChatGPT API的第三方应用（旅游App、聊天机器人、各种"AI助手"），很可能会把同一个人的同一个问题，导向两套完全不同的信息源。经营联盟比价站关系，能改善你在网页版里的能见度；但如果客户是通过某个调用API的第三方工具找到你，起作用的可能反而是你自己官网上写没写清楚价格、方案、能不能被搜索抓到——那条"逐店核实官网"的路径，看的恰恰是这些。</p>
+
+<p>或许可以说，"在AI搜索里做曝光"并不意味着单一目标，而是至少要分两条线来看。</p>
+
+<h2 id="limitations">老实说这次调查的局限在哪</h2>
+
+<p>这是一次副研究，不并入主线12个月的月度观测序列，样本规模也远够不上能下结论的程度，这里如实列出限制：</p>
+
+<p>n=20只在API这一侧完整执行了两轮，网页版数据来自2026年7月21日的Phase 0观测，两边不是同一天跑的，中间隔了5天，这段时间差本身无法排除。比较本身也不对称——API这一侧能看到完整的搜索动作和原始返回，网页版是黑箱，只能比较"两边各自的结果"，比不了"两边各自的过程"。查询和类别都只测了一个（着物日：京都 着物レンタル おすすめ），这是一个联盟站高度垄断的极端类别，同样的替换现象在引用来源本来就分散的类别（比如茶道体验）里或许会有不一样的结果。API侧自己的噪声底也只测过v1、v2两轮，还没有测到能定判定阈值的程度。</p>
+
+<p>在这些都补上之前，"API版看不到GEO捕获现象"只能算一个有实测证据支持、但仍然只看到单边（API侧）内部行为的强假设，不是定论。</p>
+
+<h2 id="references">参考文献</h2>
+
+<p style="font-size:14px;">Sadowski, J.; Korczyński, W.（2026）. "Scraped AI Answers vs. API Results from LLMs. Is There a Difference? [AI Search Study]." Surfer，2026年2月3日更新。<a href="https://surferseo.com/blog/llm-scraped-ai-answers-vs-api-results">surferseo.com/blog/llm-scraped-ai-answers-vs-api-results</a></p>
+
+<p style="font-size:14px;">Kovshun, D.（2026）. "ChatGPT Output Differences in Web Version, API, and Mobile App: Independent Experiment #9 Results." Luxeo Team，2026年2月6日。<a href="https://luxeo.team/chatgpt-web-vs-api-experiment/">luxeo.team/chatgpt-web-vs-api-experiment</a></p>
+
+<p style="font-size:14px;">Schatto-Eckrodt, T. 等（2026）. "ChatGPT as a News Recommender System: Measuring Source Types and Diversity across Different Interfaces." 德国广播与传播学会（DGPuK）2026年年会报告，多特蒙德工业大学，2026年3月20日。莱布尼茨媒体研究所（汉斯・布雷多研究所）／汉堡大学。</p>
+
+<p style="font-size:12px;color:var(--faint);">以上前两篇为行业内团队发布的独立测试，非同行评审的学术研究；汉堡大学一项截至目前仍停留在学会报告阶段，正式论文尚未确认公开发表。三篇均非同行评审的定论，引用时按各自对应的性质处理。</p>
+
+<p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">本文为个人的研究・信息分享项目，与特定团体、大学等无关。方法论细节参见 Kääselä 的月度报告系列。</p>
+
+  </article>
+
+  <nav class="L2-serial">
+    <span><span class="lbl">相关报告</span><a href="/zh-cn/reports/2026-08/">Monthly Report #000</a></span>
+    <span style="text-align:right;"><span class="lbl">一览</span><a href="/reports/">Reports</a></span>
+  </nav>
+
+  <footer class="L1-foot" style="margin-top:0;">
+    <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span></span>
+    <span>京都市 ｜ kamogawa.ai.lab@gmail.com</span>
+  </footer>
+
+</div>
+
+<a href="#" class="L2-top" id="l2top" aria-label="回到顶部"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
