@@ -251,8 +251,10 @@ a.L1-name:hover{color:var(--ink);}
 .L1-year{font-size:11.5px;color:var(--faint);letter-spacing:.1em;
   padding:var(--s3) 0 var(--s1);border-bottom:1px solid var(--rule-3);}
 .L1-archive > li:first-child .L1-year{padding-top:0;}
+/* 行ごとの罫は引かない（2026-08-04の決定：同じ形の行が連続するリストは
+   区切りを余白だけで行う。Latest Articles等と同じ扱いにする） */
 .L1-row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:var(--s3);
-  padding:9px 0;border-bottom:1px solid var(--rule-1);align-items:baseline;}
+  padding:9px 0;align-items:baseline;}
 .L1-row .m{font-size:12px;color:var(--faint);}
 .L1-row .t{font-size:14px;}
 .L1-row[data-s=pending] .t{color:var(--faint);}
@@ -332,7 +334,7 @@ a.L1-name:hover{color:var(--ink);}
 
 /* フッター — 角丸プレートを使わない。字と点だけ */
 .L1-foot{padding:var(--s6) 0 var(--s9);margin-top:var(--s9);
-  border-top:2px solid var(--ink);display:flex;justify-content:space-between;
+  border-top:1px solid var(--rule-3);display:flex;justify-content:space-between;
   gap:var(--s4);flex-wrap:wrap;font-size:11.5px;color:var(--faint);}
 .L1-foot .fname{font-size:15px;color:var(--ink);letter-spacing:.06em;}
 .L1-foot .fname .u{color:var(--river);}
@@ -348,12 +350,13 @@ a.L1-name:hover{color:var(--ink);}
 .L2-title{font-size:23px;line-height:1.75;font-weight:500;
   margin:var(--s4) 0 var(--s3);}
 .L2-meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;
-  color:var(--faint);margin:0;padding-top:9px;border-top:1px solid var(--ink);
+  color:var(--faint);margin:0;padding-top:9px;border-top:1px solid var(--rule-3);
   display:flex;gap:var(--s4);flex-wrap:wrap;}
-/* 目次 — 「← Reports／タイトル／目次／本文」の一つ。Report 型のみ */
-.L2-toc{list-style:none;padding:var(--s3) 0;margin:var(--s4) 0 0;
-  border-top:1px solid var(--rule-2);border-bottom:1px solid var(--rule-2);
-  font-size:13px;}
+/* 目次 — 「← Reports／タイトル／目次／本文」の一つ。Report 型のみ
+   上の罫は引かない。直前の.L2-metaがすでに区切りの罫を持っており、
+   すぐ下にもう一本引くと題字欄まわりに罫が3本連続してしまうため（--s4の余白だけで区切る） */
+.L2-toc{list-style:none;padding:0 0 var(--s3);margin:var(--s4) 0 0;
+  border-bottom:1px solid var(--rule-2);font-size:13px;}
 .L2-toc li{padding:3px 0;}
 .L2-toc a{color:var(--sub);border:0;}
 .L2-toc a:hover{color:var(--river);}
@@ -397,7 +400,7 @@ a.L1-name:hover{color:var(--ink);}
   "Noto Sans JP",sans-serif;font-weight:400;font-size:17px;line-height:32px;}
 .L2-body h2{font-family:'Libre Franklin',sans-serif;font-size:15px;
   font-weight:500;letter-spacing:.04em;margin:var(--s12) 0 var(--s3);
-  padding-bottom:7px;border-bottom:1px solid var(--ink);}
+  padding-bottom:7px;border-bottom:1px solid var(--rule-3);}
 .L2-body p{margin:0 0 var(--s3);color:var(--sub);}
 /* Abstract — Report 型冒頭の要旨。本文と字重で区別する。装飾は使わない */
 .L2-abs{font-weight:500;color:var(--ink);}
@@ -412,7 +415,7 @@ sup.L2-fn a{color:inherit;border:0;}
   border-bottom:1px solid var(--rule-1);}
 .L2-body thead th{font-size:10.5px;font-weight:400;color:var(--faint);
   letter-spacing:.06em;text-transform:uppercase;
-  border-bottom:1px solid var(--ink);}
+  border-bottom:1px solid var(--rule-3);}
 .L2-notes{font-family:'Libre Franklin',sans-serif;font-size:11.5px;
   color:var(--faint);line-height:1.85;margin:var(--s3) 0 0;padding:0;
   list-style:none;}
@@ -420,7 +423,7 @@ sup.L2-fn a{color:inherit;border:0;}
 /* 末尾は号のつながりで閉じる。関連記事カードを置かない */
 .L2-serial{display:flex;justify-content:space-between;gap:var(--s4);
   flex-wrap:wrap;margin:var(--s12) 0 var(--s9);padding-top:var(--s3);
-  border-top:1px solid var(--ink);font-size:13px;}
+  border-top:1px solid var(--rule-3);font-size:13px;}
 .L2-serial .lbl{display:block;font-size:11px;color:var(--faint);}
 
 /* ============================================================
