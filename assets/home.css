@@ -293,6 +293,11 @@ a.topic-card:focus-visible{outline:none;}
 .contact-l a{color:var(--accent);}
 .contact-r{grid-column:8/13;font-size:13px;color:var(--mid);}
 .contact-r b{color:var(--ink);display:block;margin-bottom:6px;font-weight:500;}
+/* 「研究の趣旨に沿う内容」の範囲を具体で示す注記。確定稿にあったもの。
+   境界を書かないと、無償での相談の範囲が読み手にも書き手にも曖昧になる */
+.contact-r .mk{color:var(--accent);}
+.contact-r small{display:block;margin-top:10px;padding-top:8px;
+  border-top:1px solid var(--line);font-size:11.5px;color:var(--faint);line-height:1.75;}
 .news-inner{grid-column:1/13;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;
   border-top:1px solid var(--line);padding-top:44px;margin-top:52px;}
 .news-left h2{font-family:var(--sans);font-weight:700;font-size:clamp(24px,2.9vw,34px);margin:0 0 10px;}
