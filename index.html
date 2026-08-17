@@ -13,8 +13,8 @@
 <link rel="canonical" href="https://kaasela.com/">
 <link rel="alternate" hreflang="ja"      href="https://kaasela.com/">
 <link rel="alternate" hreflang="en"      href="https://kaasela.com/en/">
-<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/">
 <link rel="alternate" hreflang="zh-Hant" href="https://kaasela.com/zh-tw/">
+<link rel="alternate" hreflang="zh-Hans" href="https://kaasela.com/zh-cn/">
 <link rel="alternate" hreflang="x-default" href="https://kaasela.com/">
 
 <meta property="og:type" content="website">
@@ -97,10 +97,11 @@
     <nav class="primary">
       <a href="#observation">Observation</a>
       <a href="/reports/">Research</a>
+      <a href="/topics/">Explore</a>
       <a href="#about">About</a>
       <a href="#news" class="ghost">Newsletter</a>
       <span class="langs">
-        <a href="/" aria-current="true" hreflang="ja">JA</a><a href="/en/" hreflang="en">EN</a><a href="/zh-cn/" hreflang="zh-Hans">简中</a><a href="/zh-tw/" hreflang="zh-Hant">繁中</a>
+        <a href="/" aria-current="true" hreflang="ja">JA</a><a href="/en/" hreflang="en">EN</a><a href="/zh-tw/" hreflang="zh-Hant">繁中</a><a href="/zh-cn/" hreflang="zh-Hans">简中</a>
       </span>
     </nav>
   </div>
@@ -386,7 +387,7 @@
           <span class="arc-date num">2026.07.14</span>
           <span>
             <span class="arc-title">Googleでは★4.9。それでもAIは、その店を見つけられなかった。</span>
-            <span class="arc-desc">京都の体験店10店舗を、日本語・英語・簡体字中国語・繁体字中国語の4言語で検証。Googleマップで高評価・口コミも十分にある人気店が、AIには「確認できませんでした」と言われ、別の店として紹介された。違いは規模でも口コミ数でもなかった。</span>
+            <span class="arc-desc">京都の体験店10店舗を、日本語・英語・繁体字中国語・簡体字中国語の4言語で検証。Googleマップで高評価・口コミも十分にある人気店が、AIには「確認できませんでした」と言われ、別の店として紹介された。違いは規模でも口コミ数でもなかった。</span>
           </span>
           <span class="arc-arrow">→</span>
         </a>
@@ -396,9 +397,8 @@
 </section>
 
 <!-- 05 — TOPIC INDEX / 研究の入口（カード版）
-     件数は公開済み4本の JSON-LD keywords からの実集計。
-     カード個別の枠線は引かない（gap:1px の共有ヘアライン）。
-     2026-08-16 に分類一覧のグリッド案を見送った理由「線が多く見えないか」への対処。 -->
+     件数は _lab/scripts/build_topics.py の ARTICLES から算出。記事を足したら再実行する。
+     カード個別の枠線は引かない（gap:1px の共有ヘアライン）。 -->
 <section class="topics" id="topics">
   <div class="shell">
     <div class="g12">
@@ -407,49 +407,57 @@
         <h2>研究の入口</h2>
       </div>
       <div class="topic-index">
-        <div class="topic-card">
+        <a class="topic-card" href="/topics/ai-search/">
           <span class="tc-count"><span class="num">4</span> 本</span>
           <span class="tc-name">AI検索</span>
           <span class="tc-desc">生成AIが情報を探し、引用し、要約するまでの過程そのもの。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/geo-llmo/">
           <span class="tc-count"><span class="num">3</span> 本</span>
           <span class="tc-name">GEO ／ LLMO</span>
           <span class="tc-desc">生成エンジン最適化と呼ばれる領域を、実測で検証する。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/entity/">
           <span class="tc-count"><span class="num">2</span> 本</span>
           <span class="tc-name">エンティティ</span>
           <span class="tc-desc">AIが事業者を一つの店として正しく認識できるか、別の店と取り違えるか。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/multilingual/">
           <span class="tc-count"><span class="num">2</span> 本</span>
           <span class="tc-name">多言語</span>
           <span class="tc-desc">同じ問いを4言語で。言語が変わると、参照先も変わる。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/experience-categories/">
           <span class="tc-count"><span class="num">2</span> 本</span>
           <span class="tc-name">茶道 ／ 着物 ／ 座禅</span>
           <span class="tc-desc">定点観測の対象カテゴリ。商業性の異なる3つ。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/methodology/">
           <span class="tc-count"><span class="num">1</span> 本</span>
           <span class="tc-name">測定手法</span>
           <span class="tc-desc">何をもって「AIに見えている」と言えるのか。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/noise-floor/">
           <span class="tc-count"><span class="num">1</span> 本</span>
           <span class="tc-name">ノイズフロア</span>
           <span class="tc-desc">同じ条件でも回答は揺れる。その揺れ幅を先に測る。</span>
-        </div>
-        <div class="topic-card">
+          <span class="tc-arrow">→</span>
+        </a>
+        <a class="topic-card" href="/topics/small-business/">
           <span class="tc-count"><span class="num">1</span> 本</span>
           <span class="tc-name">個人店・小規模事業者</span>
           <span class="tc-desc">宣伝予算をかけられない事業者に、何ができるか。</span>
-        </div>
+          <span class="tc-arrow">→</span>
+        </a>
       </div>
       <p style="grid-column:1/13;margin:18px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--d-faint);line-height:1.65;">
-        件数＝公開済み記事 <span class="num">4</span> 本の keywords より集計（<span class="num">2026.08.17</span> 時点）。全記事に共通する語は索引から除いています。
+        件数は公開済み記事 <span class="num">4</span> 本から集計（<span class="num">2026.08.17</span> 時点）。<a href="/topics/" style="color:var(--accent-on-dark)">すべての入口を見る →</a>
       </p>
     </div>
   </div>
@@ -515,6 +523,7 @@
         <ul>
           <li><a href="/reports/">Reports<span class="gl">レポート</span></a></li>
           <li><a href="/reports/">Features<span class="gl">特集</span></a></li>
+          <li><a href="/topics/">Topics<span class="gl">話題から探す</span></a></li>
           <li><span class="off">Glossary<span class="gl">用語集・準備中</span></span></li>
           <li><a href="#about">About<span class="gl">このプロジェクトについて</span></a></li>
           <li><a href="#news">Contact<span class="gl">お問い合わせ</span></a></li>
@@ -525,8 +534,8 @@
         <ul>
           <li><a href="/" aria-current="true" hreflang="ja">日本語</a></li>
           <li><a href="/en/" hreflang="en">English</a></li>
-          <li><a href="/zh-cn/" hreflang="zh-Hans">简体中文</a></li>
           <li><a href="/zh-tw/" hreflang="zh-Hant">繁體中文</a></li>
+          <li><a href="/zh-cn/" hreflang="zh-Hans">简体中文</a></li>
         </ul>
       </div>
       <div>

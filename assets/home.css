@@ -248,13 +248,18 @@ h1.hero-title{
   gap:1px;background:var(--d-line);
   border:1px solid var(--d-line);
 }
-/* トピックページはまだ存在しないため、カードはリンクにしない。
-   存在しない遷移先をあるように見せない（原則7）。ページができたら
-   <a> に戻し、下のホバー反転を有効化する。 */
 .topic-card{
-  background:var(--d-bg);color:var(--d-text);
+  background:var(--d-bg);color:var(--d-text);text-decoration:none;
   padding:26px 24px 22px;display:flex;flex-direction:column;min-height:230px;
+  transition:background .18s ease,color .18s ease;
 }
+/* ホバーは白黒反転のみ。影・角丸・色は使わない */
+a.topic-card:hover,a.topic-card:focus-visible{background:var(--d-text);color:var(--d-bg);}
+a.topic-card:hover .tc-count,a.topic-card:hover .tc-desc,a.topic-card:hover .tc-arrow,
+a.topic-card:focus-visible .tc-count,a.topic-card:focus-visible .tc-desc,
+a.topic-card:focus-visible .tc-arrow{color:var(--d-bg);}
+a.topic-card:focus-visible{outline:none;}
+.topic-card .tc-arrow{font-family:var(--mono);font-size:13px;color:var(--d-faint);margin-top:16px;}
 .topic-card .tc-count{
   font-family:var(--mono);font-size:11.5px;color:var(--d-faint);
   letter-spacing:.03em;margin-bottom:auto;
@@ -263,7 +268,7 @@ h1.hero-title{
   font-family:var(--jp);font-size:clamp(18px,1.7vw,23px);font-weight:500;
   line-height:1.3;letter-spacing:-.005em;margin:22px 0 10px;
 }
-.topic-card .tc-desc{font-size:12.5px;line-height:1.65;color:var(--d-mid);margin:0 0 auto;}
+.topic-card .tc-desc{font-size:12.5px;line-height:1.65;color:var(--d-mid);margin:0;}
 
 @media(max-width:1100px){.topic-index{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:560px){
@@ -310,3 +315,32 @@ footer a:hover{color:var(--accent-on-dark);}
 @media(max-width:720px){.foot-grid{grid-template-columns:1fr;}}
 
 @media(prefers-reduced-motion:reduce){*{transition:none !important;}}
+
+
+/* ============================================================
+   トピックページ（/topics/ 以下）
+   首頁と同じ部品を使う。新規クラスはこの節だけ。
+   ============================================================ */
+.topics-lede{color:var(--d-mid);font-size:14px;max-width:44em;margin:12px 0 0;}
+
+.topic-hero{padding:72px 0 56px;}
+.th-main{grid-column:1/9;}
+.th-main h1{font-family:var(--sans);font-weight:700;
+  font-size:clamp(32px,4.6vw,60px);line-height:1.1;letter-spacing:-.02em;margin:0 0 18px;}
+.th-lede{font-size:16.5px;color:var(--mid);max-width:38em;margin:0;}
+.th-count{grid-column:11/13;align-self:end;text-align:right;margin:0;
+  font-family:var(--mono);font-size:13px;color:var(--faint);}
+.th-count .num{font-size:32px;color:var(--ink);display:block;line-height:1.1;}
+@media(max-width:900px){
+  .topic-hero{padding:48px 0 36px;}
+  .th-main,.th-count{grid-column:1/-1;}
+  .th-count{text-align:left;margin-top:24px;}
+  .th-count .num{display:inline;font-size:22px;}
+}
+
+.topic-list{padding:0 0 96px;}
+.tl-lb{grid-column:1/13;margin-bottom:8px;}
+.tl-none{grid-column:1/13;color:var(--faint);font-size:14px;
+  border-top:1px solid var(--line);padding-top:24px;margin:0;}
+.topic-list .archive-list{margin-top:0;}
+@media(max-width:720px){.topic-list{padding-bottom:56px;}}

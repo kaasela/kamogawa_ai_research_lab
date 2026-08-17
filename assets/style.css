@@ -401,6 +401,14 @@ a.L1-name:hover{color:var(--ink);}
 .L2-meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;
   color:var(--faint);margin:0;padding-top:9px;border-top:1px solid var(--rule-3);
   display:flex;gap:var(--s4);flex-wrap:wrap;}
+/* 記事のタグ行 — /topics/<slug>/ への導線。.L2-meta の直後に置く。
+   L2 の既存クラスには一切触れていない（追加のみ）。
+   タグは _lab/scripts/build_topics.py の ARTICLES が正本。 */
+.L2-tags{margin:var(--s3) 0 0;padding:0;display:flex;gap:var(--s3);flex-wrap:wrap;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;}
+.L2-tags a{color:var(--sub);border-bottom:1px solid var(--rule-2);}
+.L2-tags a:hover{color:var(--river);border-bottom-color:var(--river);}
+
 /* 目次 — 「← Reports／タイトル／目次／本文」の一つ。Report 型のみ
    上の罫は引かない。直前の.L2-metaがすでに区切りの罫を持っており、
    すぐ下にもう一本引くと題字欄まわりに罫が3本連続してしまうため（--s4の余白だけで区切る） */
