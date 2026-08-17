@@ -5,3 +5,8 @@ reports/kyoto-experience-2026/draft-zh-cn.md
 
 # 非公開作業ディレクトリ（実名・戦略メモを含む。Netlifyで配信しない）
 _lab/
+
+# ブリッジ経由の git が残す .git/*.lock の退避先。
+# 削除権限がないため mv で逃がす運用。追跡しない。
+.lockbin/
+_to_delete/

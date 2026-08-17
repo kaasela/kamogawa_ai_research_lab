@@ -115,7 +115,8 @@
       <!-- ★新規コピー（確定稿ではない）。外部レビュー案を Yan が採用。
            削除したのは確定稿の2段落＝定義文と、4言語・定点観測の説明。
            後者は §02 の観測条件が担当するため重複解消でもある。 -->
-      <p class="hero-lede">AIが、あなたのことをどう語るのか。<br>Kääseläは、その言葉を毎月記録しています。</p>
+      <p class="hero-lede">いま、人は何かを知りたいとき、GoogleではなくAIに尋ねるようになりました。さらに、同じ問いでも、言語が変われば、AIの答えも変わります。</p>
+      <p class="hero-lede hero-lede2">Kääseläでは、京都の体験型店舗を対象に、多言語によるAI検索の実測を行い、その違いを毎月記録しています。</p>
       <!-- creed「AI検索は、言語の境界線をどう越えるのか。」は撤去。
            確定稿の L1-spine（12ヶ月連続観測の帯）を圧縮して置いた。
            点が 0/12 であることは図が示すので、数では言い直さない。 -->
@@ -155,8 +156,8 @@
         <span class="num">2026.08.02</span> 発行
       </div>
       <div class="obs-main">
-        <p class="obs-q">AIが何を権威とみなすかは、<br>問う言語とカテゴリで丸ごと入れ替わる。</p>
-        <p class="obs-summary">京都の茶道・着物・座禅について「おすすめは？」と4言語で尋ね、AIが引用した情報源を記録しました。同じカテゴリでも、問う言語が変われば首位の情報源が入れ替わります。</p>
+        <p class="obs-q">AIにとっての「権威」は、<br>問う言語とカテゴリによって丸ごと変わる。</p>
+        <p class="obs-summary">京都の茶道・着物・座禅体験についておすすめの店舗を4言語で尋ね、AIが引用した情報源を記録しました。同じカテゴリでも、問う言語が変われば首位の情報源が入れ替わります。</p>
         <a class="pill on-dark" href="/reports/2026-08/">Monthly Report #000 を読む →</a>
       </div>
 
@@ -255,7 +256,9 @@
 
       <dl class="obs-cond">
         <dt>観測条件</dt>
-        <dd>3カテゴリ × 4言語 ＝ 12セル ／ 各セル <span class="num">n=20</span> ／ 合計 <span class="num">240</span> 実行</dd>
+        <dd>3カテゴリ × 4言語 ＝ 12セル ／ 各セル <span class="num">n=20</span> ／ 合計 <span class="num">240</span> 回</dd>
+        <dt>クエリ</dt>
+        <dd>「京都＋カテゴリ語＋推薦語」のキーワード型<br><span class="q">京都 茶道体験 おすすめ</span> など</dd>
         <dt>実行条件</dt>
         <dd>ChatGPT Web版 ／ 一時チャット ／ 実行地 京都</dd>
         <dt>判定基準</dt>
@@ -263,7 +266,7 @@
         <dt>出典</dt>
         <dd>Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span></dd>
       </dl>
-      <p class="obs-caveat">2026年7月観測。単一時点・単一エンジンの横断観測であり、因果は未証明です。</p>
+      <p class="obs-caveat">2026年7月、単一時点・単一エンジンの横断観測。</p>
     </div>
   </div>
 </section>
@@ -275,10 +278,7 @@
       <div class="findings-head">
         <p class="eyebrow">Findings</p>
         <h2>なぜ、入れ替わるのか。</h2>
-        <p>推薦型の質問（例：京都のおすすめの着物レンタル店は？）に対して、AIが引用する情報源には、下記の3つの傾向が見られます。</p>
-        <!-- 「Findingsを読む」だと結論が別ページにあるように読める。
-             結論はこの節に全文ある。リンク先は結論ではなく根拠。 -->
-        <p style="margin-top:32px;"><a class="pill" href="/reports/2026-08/data/summary_by_cell.csv">根拠データを見る →</a></p>
+        <p>推薦型の質問（例：京都のおすすめの着物レンタル店は？）に対して、AIが引用する情報源には、3つの傾向が見られます。</p>
       </div>
 
       <div class="finding-list">
@@ -395,7 +395,7 @@
   </div>
 </section>
 
-<!-- 05 — TOPIC INDEX / 研究の入口（カード版）
+<!-- 05 — TOPIC INDEX / 調べていること（カード版）
      件数は _lab/scripts/build_topics.py の ARTICLES から算出。記事を足したら再実行する。
      カード個別の枠線は引かない（gap:1px の共有ヘアライン）。 -->
 <section class="topics" id="topics">
@@ -403,7 +403,7 @@
     <div class="g12">
       <div class="topics-head">
         <p class="eyebrow">Topic Index</p>
-        <h2>研究の入口</h2>
+        <h2>調べていること</h2>
       </div>
       <div class="topic-index">
         <a class="topic-card" href="/topics/ai-search/">
@@ -493,8 +493,8 @@
 
       <div class="news-inner">
         <div class="news-left">
-          <h2>次の観測を受け取る。</h2>
-          <p>最新のMonthly Reportを公開したら、メールでお知らせします。</p>
+          <h2>月次レポートを受け取る。</h2>
+          <p>最新号を公開したら、メールでお知らせします。</p>
         </div>
         <form name="newsletter" method="POST" data-netlify="true"
               data-netlify-honeypot="bot-field" class="news-form">

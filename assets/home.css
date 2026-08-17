@@ -102,8 +102,9 @@ h1.hero-title{
   font-size:clamp(38px,5.6vw,72px);line-height:1.08;letter-spacing:-.022em;margin:0 0 48px;
 }
 /* 説明文は2行だけ。唯一の本文なので、やや大きく・濃く */
-.hero-lede{grid-column:1/6;font-family:var(--jp);font-size:clamp(17px,1.5vw,20px);
+.hero-lede{grid-column:1/6;margin-bottom:0;font-family:var(--jp);font-size:clamp(17px,1.5vw,20px);
   line-height:1.9;color:var(--ink);margin:0;}
+.hero-lede2{margin-top:1.3em;}  /* 2段落目＝「何をしているか」への転換 */
 /* creed は撤去。文章ではなく事実だけを置く＝発行の帯。
    点12個・実点1個で「零欠号」を図にする。言葉を足さずに枠が埋まる。 */
 .hero-note{grid-column:9/13;align-self:end;
@@ -183,6 +184,8 @@ h1.hero-title{
   color:var(--d-faint);margin-top:16px;}
 .obs-cond dt:first-child{margin-top:0;}
 .obs-cond dd{margin:3px 0 0;color:var(--d-text);line-height:1.6;}
+/* クエリ原文。実際に打った文字列であることを等幅で示す */
+.obs-cond .q{font-family:var(--mono);font-size:12px;color:var(--accent-on-dark);}
 .obs-caveat{grid-column:10/13;margin-top:24px;padding-top:16px;border-top:1px solid var(--d-line);
   font-size:11.5px;color:var(--d-faint);line-height:1.65;}
 @media(max-width:900px){
