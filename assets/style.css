@@ -368,11 +368,17 @@ a.L1-name:hover{color:var(--ink);}
 /* フッター — 2026-08-17、--ink背景の反転帯に変更（MIT方向の採用。角丸プレートは使わない。
    「塗りつぶし禁止」は個別カードの装飾を指し、この全幅の構造的な帯は対象外——DESIGN_PRINCIPLES.md決定記録）。
    .L1-wrap の外に置き、内側だけ.L1-wrapと同じ組幅に揃える（負のmarginでの飛び出しは使わない） */
-.L1-foot{background:var(--ink);margin-top:var(--s9);padding:var(--s9) 0 var(--s6);}
+/* 全ページ共通のフッター。首頁（/assets/home.css）と同じ見た目にそろえてある。
+   2026-08-17：地の色だけ--inkに変えて文字色を指定していなかったため、
+   31ページで黒地に黒文字（コントラスト1:1）になっていた。色を明示して修正。 */
+.L1-foot{background:var(--ink);color:var(--foot-sub);
+  margin-top:var(--s9);padding:var(--s9) 0 var(--s6);}
 .L1-foot-inner{max-width:var(--w-l1);margin:0 auto;padding:0 var(--s4);}
 @media(min-width:761px){.L1-foot-inner{padding:0 var(--s9);}}
 
-.L1-foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s6) var(--s9);}
+.L1-foot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6) var(--s9);}
+@media(max-width:720px){.L1-foot-grid{grid-template-columns:1fr;}}
+.L1-foot-grid .gl{font-size:11px;color:var(--foot-faint);margin-left:8px;}
 .L1-foot-grid h3{font-size:11px;letter-spacing:.1em;text-transform:uppercase;
   color:var(--foot-faint);margin:0 0 var(--s3);font-weight:400;}
 .L1-foot-grid ul{list-style:none;padding:0;margin:0;}
