@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Libre+Franklin:wght@400;500;600&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
 
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/home.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 
 <!--
@@ -88,249 +88,454 @@
 
 <body>
 
-<div class="L1-wrap">
-
-  <header class="L1-masthead">
-    <div class="L1-title">
-      <a class="L1-name" href="/">K<span class="u">ää</span>sel<span class="u">ä</span></a>
-      <p class="L1-tagline">Kamogawa AI Search Lab — Kyoto</p>
+<header class="site">
+  <div class="shell site-row">
+    <div>
+      <a class="logo" href="/">K<span class="u">ää</span>selä</a>
+      <div class="logo-sub">Kamogawa AI Search Lab — Kyoto</div>
     </div>
-  </header>
+    <nav class="primary">
+      <a href="#observation">Observation</a>
+      <a href="/reports/">Research</a>
+      <a href="#about">About</a>
+      <a href="#news" class="ghost">Newsletter</a>
+      <span class="langs">
+        <a href="/" aria-current="true" hreflang="ja">JA</a><a href="/en/" hreflang="en">EN</a><a href="/zh-tw/" hreflang="zh-Hant">繁中</a><a href="/zh-cn/" hreflang="zh-Hans">简中</a>
+      </span>
+    </nav>
+  </div>
+</header>
 
-  <nav class="L1-nav" aria-label="目次">
-    <a href="#findings">Findings</a>
-    <a href="/reports/">Reading</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <span class="L1-lang">
-      <a href="/" aria-current="true" hreflang="ja">JA</a>
-      <a href="/en/" hreflang="en">EN</a>
-      <a href="/zh-tw/" hreflang="zh-Hant">繁中</a>
-      <a href="/zh-cn/" hreflang="zh-Hans">简中</a>
-    </span>
-  </nav>
-
-  <section class="L1-cover">
-    <div class="L1-cover-intro">
-      <h1 class="L1-h1 jp">あなたのお店は、顧客の言葉で語られていますか。</h1>
-      <p class="L1-lede">
-        生成AIは、事業者のことをどのように認識し、どのように紹介しているのか。<br>
-        いま、人は何かを知りたいとき、GoogleではなくAIに尋ねるようになりました。
-      </p>
-      <p class="L1-lede">
-        同じ問いでも、言語が変われば、AIが参照する情報も、紹介する内容も変わります。<br>
-        Kääseläでは、日本語・英語・繁体字中国語・簡体字中国語で、毎月同じ条件のもと
-        定点観測を行い、その違いを記録・分析しています。
-      </p>
-
-      <p class="L1-creed jp">AI検索は、言語の境界線をどう越えるのか。</p>
+<!-- 01 — LAB IDENTITY -->
+<section class="hero">
+  <div class="shell">
+    <p class="hero-kicker">Kääselä ／ <b>Kamogawa AI Search Lab</b> — Kyoto</p>
+    <div class="g12">
+      <h1 class="hero-title">あなたのお店は、<br>顧客の言葉で語られていますか。</h1>
+      <!-- ★新規コピー（確定稿ではない）。外部レビュー案を Yan が採用。
+           削除したのは確定稿の2段落＝定義文と、4言語・定点観測の説明。
+           後者は §02 の観測条件が担当するため重複解消でもある。 -->
+      <p class="hero-lede">AIが、あなたのことをどう語るのか。<br>Kääseläは、その言葉を毎月記録しています。</p>
+      <!-- creed「AI検索は、言語の境界線をどう越えるのか。」は撤去。
+           確定稿の L1-spine（12ヶ月連続観測の帯）を圧縮して置いた。
+           点が 0/12 であることは図が示すので、数では言い直さない。 -->
+      <div class="hero-note">
+        <span class="lb">12ヶ月連続観測</span>
+        <ol class="hero-track">
+          <li><span class="dot" role="img" aria-label="2026年8月 第0号 発行済"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2026年9月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2026年10月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2026年11月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2026年12月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年1月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年2月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年3月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年4月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年5月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年6月 未刊"></span></li>
+          <li><span class="dot dot--open" role="img" aria-label="2027年7月 未刊"></span></li>
+        </ol>
+        <div class="hero-ends"><span class="num">2026.08</span><span class="num">2027.07</span></div>
+        <p class="cadence">毎月第一日曜発行</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Current Focus — 毎月書き換える。
-         状態語は 観測中／集計中／発行済／未実行 の4つだけ。
-         書き換え手順は _lab/ENGINEERING_GUIDE.md §8
-         L1-spineと行を共有するため、L1-cover直下に置く（intro divの外） -->
-    <dl class="L1-focus">
-      <dt>Latest Monthly Report</dt>
-      <dd class="jp"><a href="/reports/2026-08/">Monthly Report #000 — 京都体験カテゴリーにおける生成AIの回答傾向</a>
-        <span class="state"><span class="num">2026.08.02</span> 発行</span>
-      </dd>
-    </dl>
+<!-- 02 — CURRENT OBSERVATION
+     v4の「Current Observation」と「Observation Design」を統合。
+     4セル抜粋は12セル図の部分集合だったため削除。 -->
+<section class="observation" id="observation">
+  <div class="shell">
+    <p class="eyebrow">Current Observation</p>
+    <div class="g12">
+      <div class="obs-meta">
+        <span class="n num">#000</span>
+        Monthly Report<br>
+        <span class="num">2026.08.02</span> 発行
+      </div>
+      <div class="obs-main">
+        <p class="obs-q">AIが何を権威とみなすかは、<br>問う言語とカテゴリで丸ごと入れ替わる。</p>
+        <p class="obs-summary">京都の茶道・着物・座禅について「おすすめは？」と4言語で尋ね、AIが引用した情報源を記録しました。同じカテゴリでも、問う言語が変われば首位の情報源が入れ替わります。</p>
+        <a class="pill on-dark" href="/reports/2026-08/">Monthly Report #000 を読む →</a>
+      </div>
 
-    <!-- 号数の帯。ROADMAP の成否指標「零欠号」を図にしたもの。
-         発行のたびに dot--open を dot に変えるだけ。
-         号番号は #000〜#003 のみ確定のため、帯は月で並べている。 -->
-    <div class="L1-spine">
-      <p class="L1-spine-h">12ヶ月連続観測<br><span class="num">2026.08</span> スタート</p>
-      <ol class="L1-track">
-        <li><span class="dot" title="2026年8月 — 第0号 発行済" tabindex="0" role="img" aria-label="2026年8月 — 第0号 発行済"></span></li>
-        <li><span class="dot dot--open" title="2026年9月 — 未刊" tabindex="0" role="img" aria-label="2026年9月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2026年10月 — 未刊" tabindex="0" role="img" aria-label="2026年10月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2026年11月 — 未刊" tabindex="0" role="img" aria-label="2026年11月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2026年12月 — 未刊" tabindex="0" role="img" aria-label="2026年12月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年1月 — 未刊" tabindex="0" role="img" aria-label="2027年1月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年2月 — 未刊" tabindex="0" role="img" aria-label="2027年2月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年3月 — 未刊" tabindex="0" role="img" aria-label="2027年3月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年4月 — 未刊" tabindex="0" role="img" aria-label="2027年4月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年5月 — 未刊" tabindex="0" role="img" aria-label="2027年5月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年6月 — 未刊" tabindex="0" role="img" aria-label="2027年6月 — 未刊"></span></li>
-        <li><span class="dot dot--open" title="2027年7月 — 未刊" tabindex="0" role="img" aria-label="2027年7月 — 未刊"></span></li>
-      </ol>
-      <div class="L1-ends"><span class="num">2026.08</span><span class="num">2027.07</span></div>
-      <!-- 点が 0/12 であることは図が示している。数で言い直さない -->
-      <p class="L1-spine-n">毎月第一日曜発行。</p>
-    </div>
-  </section>
+      <figure class="obs-fig" style="margin-inline:0;">
+        <svg viewBox="0 0 700 330" role="img" aria-label="3カテゴリ×4言語・12セルにおける引用元の首位種別と構成比">
+          <g font-family="IBM Plex Mono" font-size="11" fill="#8f8f8f">
+            <text x="196" y="16" text-anchor="middle">日本語</text>
+            <text x="346" y="16" text-anchor="middle">英語</text>
+            <text x="496" y="16" text-anchor="middle">簡体字</text>
+            <text x="646" y="16" text-anchor="middle">繁体字</text>
+          </g>
+          <g stroke="#2e2e2e" stroke-width="1">
+            <line x1="0" y1="30" x2="700" y2="30"/>
+            <line x1="0" y1="130" x2="700" y2="130"/>
+            <line x1="0" y1="230" x2="700" y2="230"/>
+            <line x1="0" y1="330" x2="700" y2="330"/>
+          </g>
+          <g font-family="Zen Kaku Gothic New" font-size="15" fill="#ffffff">
+            <text x="0" y="86">茶道</text>
+            <text x="0" y="186">着物</text>
+            <text x="0" y="286">座禅</text>
+          </g>
+          <g font-family="IBM Plex Mono" font-size="10" fill="#8f8f8f">
+            <text x="0" y="102">TEA</text>
+            <text x="0" y="202">KIMONO</text>
+            <text x="0" y="302">ZAZEN</text>
+          </g>
 
-  <section class="L1-sec" id="findings">
-    <p class="L1-no num">01</p>
-    <h2 class="L1-h2">Findings</h2>
+          <!-- 茶道 -->
+          <circle cx="196" cy="72" r="11.6" fill="none" stroke="#fff" stroke-width="1.4"/>
+          <text x="196" y="106" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">52.2</text>
+          <text x="196" y="120" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">公共</text>
 
-    <p class="L1-deck jp">推薦型の質問（例：京都のおすすめの着物レンタル店は？）に対して、AIが引用する情報源には、下記の3つの傾向が見られます。</p>
+          <circle cx="346" cy="72" r="10.3" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="2.5 2.5"/>
+          <circle cx="346" cy="72" r="2.2" fill="#fff"/>
+          <text x="346" y="106" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">46.0</text>
+          <text x="346" y="120" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">メディア</text>
 
-    <ol class="L1-insights">
-      <li><span class="n">Insight <span class="num">1</span></span><p class="jp">当該カテゴリ×当該言語の範囲内で比較メディアが存在する時に、それを引用する。また、カテゴリの商業性が高いほど、比較メディアが成熟し、AIに引用されやすくなる。</p></li>
-      <li><span class="n">Insight <span class="num">2</span></span><p class="jp">参照できる比較メディアが存在しない場合、AIは観光公式サイトや国際旅行メディアなど、権威性のあるソースを参照する。</p></li>
-      <li><span class="n">Insight <span class="num">3</span></span><p class="jp">比較メディアや権威性のあるソースが少ないカテゴリでは、事業者自身について具体的な事実を発信している自社サイトが、AIに直接参照されやすい。</p></li>
-    </ol>
+          <circle cx="496" cy="72" r="9.1" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="2.5 2.5"/>
+          <circle cx="496" cy="72" r="2.2" fill="#fff"/>
+          <text x="496" y="106" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">40.6</text>
+          <text x="496" y="120" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
 
-    <!-- 実測値。出典 reports/2026-08/data/summary_by_cell.csv
-         拮抗＝次点との差が10pt以内（ノイズフロア）
-           QT-EN 差6.0 ／ QT-ZHS 差3.1 ／ QZ-ZHT 差3.0 -->
-    <figure class="L1-fig">
-      <table class="L1-tbl">
-        <caption>引用元の首位種別 ／ 2026年7月観測</caption>
-        <thead>
-          <tr><th scope="col"><span class="sr">カテゴリ</span></th>
-            <th scope="col">日本語</th><th scope="col">英語</th>
-            <th scope="col">簡体字</th><th scope="col">繁体字</th></tr>
-        </thead>
-        <tbody>
-          <tr><th scope="row" class="jp">茶道</th>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">52.2%</span></td>
-            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>メディア</span><span class="L1-pct">46.0%</span><span class="L1-gap">2位との差 6pt</span></td>
-            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自社</span><span class="L1-pct">40.6%</span><span class="L1-gap">2位との差 3pt</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">56.8%</span></td></tr>
-          <tr><th scope="row" class="jp">着物</th>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>メディア</span><span class="L1-pct">53.7%</span></td>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>メディア</span><span class="L1-pct">49.1%</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">54.8%</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">66.7%</span></td></tr>
-          <tr><th scope="row" class="jp">座禅</th>
-            <td data-s="other"><span class="L1-lead"><span class="dot dot--other"></span>公共</span><span class="L1-pct">50.0%</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">80.2%</span></td>
-            <td data-s="self"><span class="L1-lead"><span class="dot"></span>自社</span><span class="L1-pct">49.5%</span></td>
-            <td data-s="contested"><span class="L1-lead"><span class="dot dot--open"></span>自社</span><span class="L1-pct">43.4%</span><span class="L1-gap">2位との差 3pt</span></td></tr>
-        </tbody>
-      </table>
-      <figcaption class="L1-cap">
-        <dl>
-          <dt>観測条件</dt>
-          <dd>3カテゴリ × 4言語 ＝ 12セル ／ 各セル <span class="num">n=20</span> ／ 合計 <span class="num">240</span> 実行</dd>
-          <dt>判定基準</dt>
-          <dd>集計指標のノイズフロアは <span class="num">±約10pt</span>。2位との差がそれ以内のセル（○）は、首位を確定として扱いません</dd>
-          <dt>実行条件</dt>
-          <dd>ChatGPT Web版 ／ 一時チャット ／ 実行地 京都</dd>
-          <dt>出典</dt>
-          <dd>Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span></dd>
-        </dl>
-        <p class="L1-caveat">単一時点・単一エンジンの横断観測であり、因果は未証明です。</p>
-      </figcaption>
-    </figure>
+          <circle cx="646" cy="72" r="12.5" fill="#fff"/>
+          <text x="646" y="106" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">56.8</text>
+          <text x="646" y="120" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
 
-    <p><a class="L1-pill" href="/reports/">Read more</a></p>
+          <!-- 着物 -->
+          <circle cx="196" cy="172" r="11.9" fill="none" stroke="#fff" stroke-width="1.4"/>
+          <text x="196" y="206" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">53.7</text>
+          <text x="196" y="220" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">メディア</text>
 
-    <div class="L1-note">
-      <dl>
-        <dt>対象</dt><dd>ChatGPT Web版。消費者が実際に使う製品体験を測定するため、API は使用しない。</dd>
+          <circle cx="346" cy="172" r="10.9" fill="none" stroke="#fff" stroke-width="1.4"/>
+          <text x="346" y="206" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">49.1</text>
+          <text x="346" y="220" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">メディア</text>
+
+          <circle cx="496" cy="172" r="12.1" fill="#fff"/>
+          <text x="496" y="206" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">54.8</text>
+          <text x="496" y="220" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
+
+          <circle cx="646" cy="172" r="14.7" fill="#fff"/>
+          <text x="646" y="206" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">66.7</text>
+          <text x="646" y="220" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
+
+          <!-- 座禅 -->
+          <circle cx="196" cy="272" r="11.2" fill="none" stroke="#fff" stroke-width="1.4"/>
+          <text x="196" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">50.0</text>
+          <text x="196" y="320" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">公共</text>
+
+          <circle cx="346" cy="272" r="17.8" fill="#fff"/>
+          <text x="346" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">80.2</text>
+          <text x="346" y="320" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
+
+          <circle cx="496" cy="272" r="11.0" fill="#fff"/>
+          <text x="496" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">49.5</text>
+          <text x="496" y="320" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
+
+          <circle cx="646" cy="272" r="9.6" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="2.5 2.5"/>
+          <circle cx="646" cy="272" r="2.2" fill="#fff"/>
+          <text x="646" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#fff">43.4</text>
+          <text x="646" y="320" text-anchor="middle" font-family="Zen Kaku Gothic New" font-size="10" fill="#8f8f8f">自社</text>
+        </svg>
+
+        <figcaption class="obs-legend">
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#fff"/></svg>自社サイトが首位</span>
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="#fff" stroke-width="1.4"/></svg>公共・メディアが首位</span>
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="2.5 2.5"/><circle cx="8" cy="8" r="1.8" fill="#fff"/></svg>拮抗（首位を確定しない）</span>
+          <span>円の大きさと数値＝構成比（%）</span>
+        </figcaption>
+      </figure>
+
+      <dl class="obs-cond">
+        <dt>観測条件</dt>
+        <dd>3カテゴリ × 4言語 ＝ 12セル ／ 各セル <span class="num">n=20</span> ／ 合計 <span class="num">240</span> 実行</dd>
+        <dt>実行条件</dt>
+        <dd>ChatGPT Web版 ／ 一時チャット ／ 実行地 京都</dd>
+        <dt>判定基準</dt>
+        <dd>集計指標のノイズフロアは <span class="num">±約10pt</span>。2位との差がそれ以内のセルは、首位を確定として扱いません</dd>
+        <dt>出典</dt>
+        <dd>Monthly Report #000 ／ <span class="num">data/summary_by_cell.csv</span></dd>
       </dl>
+      <p class="obs-caveat">2026年7月観測。単一時点・単一エンジンの横断観測であり、因果は未証明です。</p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="L1-sec" id="reading">
-    <p class="L1-no num">02</p>
-    <h2 class="L1-h2">Reading</h2>
+<!-- 03 — FINDINGS -->
+<section class="findings" id="findings">
+  <div class="shell">
+    <div class="g12">
+      <div class="findings-head">
+        <p class="eyebrow">Findings</p>
+        <h2>なぜ、入れ替わるのか。</h2>
+        <p>推薦型の質問（例：京都のおすすめの着物レンタル店は？）に対して、AIが引用する情報源には、下記の3つの傾向が見られます。</p>
+        <!-- 「Findingsを読む」だと結論が別ページにあるように読める。
+             結論はこの節に全文ある。リンク先は結論ではなく根拠。 -->
+        <p style="margin-top:32px;"><a class="pill" href="/reports/2026-08/data/summary_by_cell.csv">根拠データを見る →</a></p>
+      </div>
 
-    <ul class="L1-latest">
-      <li><span class="n">Research Report<span class="gloss jp">月報</span></span>
-        <a class="t jp" href="/reports/2026-08/">Monthly Report #000　京都体験カテゴリーにおける生成AIの回答傾向（2026年7月）</a></li>
-      <li><span class="n">Feature<span class="gloss jp">特集</span></span>
-        <a class="t jp" href="/reports/kyoto-experience-2026/">Googleでは★4.9。それでもAIは、その店を見つけられなかった。</a></li>
-    </ul>
-
-    <ul class="L1-taxo">
-      <li><span class="n">Reports<span class="gloss jp">レポート</span></span>
-        <span class="d jp">定期的な観測をもとに、生成AIが京都をどのように捉えているかを記録します。データ、対象、方法を明らかにし、同じ条件で検証できる形を目指します。</span></li>
-      <li><span class="n">Features<span class="gloss jp">特集</span></span>
-        <span class="d jp">レポートや個別の調査から見えてきたテーマを、事例とともに掘り下げます。AIによる情報の見え方が、実際の事業や情報発信にとって何を意味するのかを考えます。</span></li>
-      <li><span class="n">Glossary<span class="gloss jp">用語集</span></span>
-        <span class="d jp">レポートや記事で扱う重要な用語や概念を整理します。生成AIによる情報探索や可視性を理解するための基礎知識として、必要に応じて追加していきます。</span>
-        <span class="c"><span class="dot dot--open"></span>準備中</span></li>
-    </ul>
-
-    <p><a class="L1-pill" href="/reports/">Read more</a></p>
-  </section>
-
-  <section class="L1-sec" id="about">
-    <p class="L1-no num">03</p>
-    <h2 class="L1-h2">About</h2>
-
-    <p class="L1-deck jp">新しい名前より、新しいデータ。</p>
-
-    <p class="L1-p">Kääselä（カセラ）は、生成AIが事業者をどのように認識し、どのように紹介しているのかを、
-    実際の検証結果にもとづいて継続的に記録・分析する個人研究プロジェクトです。
-    特定の団体・大学等とは関係ありません。</p>
-    <p class="L1-p">生成AI検索最適化（GEO）、大規模言語モデル最適化（LLMO）、AI最適化（AIO）。</p>
-    <p class="L1-p">確かに、この分野では新しい呼び名が次々と生まれています。
-    しかし、Kääseläが関心を持っているのは、その呼び名ではありません。</p>
-    <p class="L1-p">AIは何を参照し、なぜその事業者を紹介したのか。
-    事業者が、AIの時代に顧客から正しく認知されるには何が必要なのか。</p>
-    <p class="L1-p">その問いを、実測によって確かめ続けます。</p>
-  </section>
-
-  <section class="L1-sec is-last" id="contact">
-    <p class="L1-no num">04</p>
-    <h2 class="L1-h2">Contact</h2>
-
-    <p class="L1-p">調査の方法について詳しく知りたい方、ご自身の業種でも調べてみたい方、
-    内容へのご意見等、どうぞお気軽にご連絡ください。<br>
-    <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></p>
-
-    <div class="L1-sub">
-      <p>最新のMonthly Reportを公開したら、メールでお知らせします。</p>
-      <form name="newsletter" method="POST" data-netlify="true"
-            data-netlify-honeypot="bot-field" class="L1-form">
-        <input type="hidden" name="form-name" value="newsletter">
-        <p class="sr"><label>入力しないでください：<input name="bot-field" tabindex="-1"></label></p>
-        <label class="sr" for="mail">メールアドレス</label>
-        <input id="mail" type="email" name="email" placeholder="you@example.com"
-               autocomplete="email" required>
-        <button type="submit">ニュースレターに登録する</button>
-      </form>
-      <p style="font-size:12px;color:var(--faint);margin-top:var(--s2);"><a href="/privacy/">プライバシーポリシー</a></p>
+      <div class="finding-list">
+        <div class="finding">
+          <span class="fn">INSIGHT 1</span>
+          <p>当該カテゴリ×当該言語の範囲内で比較メディアが存在する時に、それを引用する。また、カテゴリの商業性が高いほど、比較メディアが成熟し、AIに引用されやすくなる。</p>
+        </div>
+        <div class="finding">
+          <span class="fn">INSIGHT 2</span>
+          <p>参照できる比較メディアが存在しない場合、AIは観光公式サイトや国際旅行メディアなど、権威性のあるソースを参照する。</p>
+        </div>
+        <div class="finding">
+          <span class="fn">INSIGHT 3</span>
+          <p>比較メディアや権威性のあるソースが少ないカテゴリでは、事業者自身について具体的な事実を発信している自社サイトが、AIに直接参照されやすい。</p>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="L1-meta L1-aside">
-      <dl>
-        <dt>受託について</dt>
-        <dd>現在、会社に勤めているため、個人での受託業務は行っておりません。</dd>
-        <dd>調査方法や検証結果などの詳細については、研究の趣旨に沿う内容※であれば、無償でお話しできます。
-          <small>※調査手法および観測結果のご説明、AI検索分野についての意見交換、同様の調べ方に関するご相談など。</small></dd>
-      </dl>
+<!-- 観測断片 Research Fragment
+     予備調査（京都の体験店10軒・n=1）の実例。主線240実行のデータとは別系統。
+     ★4.9 は記事タイトルとして公開済みのため使用可。
+     口コミ件数は 2026-08-11 に準識別子として意図的に軟化済みのため出さない。 -->
+<section class="fragment" id="fragment">
+  <div class="shell">
+    <div class="g12">
+      <div class="frag-head">
+        <p class="eyebrow" style="margin-bottom:0;">Observation Fragment</p>
+        <span class="frag-meta"><span class="num">2026.07</span>　予備調査　京都・着物レンタル　<span class="num">n=1</span></span>
+      </div>
+
+      <p class="frag-lead">同じ一軒の店について、<br>ふたつの情報源が、まったく違うことを伝えていた。</p>
+
+      <div class="frag-compare">
+        <div class="frag-cell">
+          <span class="src">Googleマップでは</span>
+          <span class="val">★4.9</span>
+          <span class="note">高評価で、口コミも十分にある人気店。</span>
+        </div>
+        <div class="frag-cell is-ai">
+          <span class="src">生成AIに尋ねると</span>
+          <span class="val">「確認できませんでした」</span>
+          <span class="note">店の存在そのものを認めず、名前の似た別の店を提案した。</span>
+        </div>
+      </div>
+
+      <!-- 答えは記事に送らず、ここで書く。
+           1行目は公開済みFeatureのdescriptionそのまま。2行目は仮説であることを明示。 -->
+      <div class="frag-why">
+        <span class="lb">わかったこと</span>
+        <p class="lead">違いは、規模でも口コミ数でもなかった。</p>
+        <p class="body">この店について書かれたページは存在したが、その主語は店ではなく、掲載していた予約サイトだった。<strong>自分のことを自分の言葉で書いたページがない店を、AIは一つの店として扱わない</strong>——というのが、いまのところの仮説です。因果は未証明で、検証を続けています。</p>
+        <a class="pill" href="/reports/kyoto-experience-2026/">観測の記録を読む →</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-</div>
+<!-- 04 — RESEARCH ARCHIVE
+     先頭記事の説明文は §02 と重複していたため削除（本文は上で読める）。
+     日付は git 初回コミット日。 -->
+<section id="archive">
+  <div class="shell">
+    <div class="g12">
+      <div class="archive-head">
+        <p class="eyebrow">Research</p>
+        <h2>Archive</h2>
+      </div>
+      <div class="arc-types">
+        <div><b>Reports<span>レポート</span></b><p>定期的な観測をもとに、生成AIが京都をどのように捉えているかを記録します。データ、対象、方法を明らかにし、同じ条件で検証できる形を目指します。</p></div>
+        <div><b>Features<span>特集</span></b><p>レポートや個別の調査から見えてきたテーマを、事例とともに掘り下げます。AIによる情報の見え方が、実際の事業や情報発信にとって何を意味するのかを考えます。</p></div>
+        <div><b>Glossary<span>用語集</span></b><p>レポートや記事で扱う重要な用語や概念を整理します。生成AIによる情報探索や可視性を理解するための基礎知識として、必要に応じて追加していきます。</p><span class="state">準備中</span></div>
+      </div>
 
-<footer class="L1-foot">
-  <div class="L1-foot-inner">
-    <div class="L1-foot-grid">
-      <nav aria-label="フッター目次">
-        <h3>Site</h3>
+      <div class="archive-list">
+        <a class="arc-item" href="/reports/2026-08/">
+          <span class="arc-tag">Report #000</span>
+          <span class="arc-date num">2026.08.02</span>
+          <span>
+            <span class="arc-title">京都体験カテゴリーにおける生成AIの回答傾向（2026年7月）<span class="now">冒頭に掲載</span></span>
+          </span>
+          <span class="arc-arrow">→</span>
+        </a>
+        <a class="arc-item" href="/reports/small-business-ai-visibility/">
+          <span class="arc-tag">Feature</span>
+          <span class="arc-date num">2026.08.14</span>
+          <span>
+            <span class="arc-title">個人店・小さな会社が、AIにどう見つけてもらうか</span>
+            <span class="arc-desc">宣伝予算をかけられない個人店・小さな会社は、生成AIにどう見つけてもらえるのか。京都の体験型店舗240実行の観測データと、以前の調査から見えてきたことを整理する。</span>
+          </span>
+          <span class="arc-arrow">→</span>
+        </a>
+        <a class="arc-item" href="/reports/api-vs-web-visibility/">
+          <span class="arc-tag">Feature</span>
+          <span class="arc-date num">2026.08.11</span>
+          <span>
+            <span class="arc-title">APIでAIの可視性を測る──それは「まったくの誤り」</span>
+            <span class="arc-desc">京都・着物レンタルの副研究：ChatGPTの引用元は、ウェブ版とAPIとでまったく別物だった。ウェブ版で引用の9割を占めたアフィリエイトサイトが、API側では20回中0回。Surfer・Luxeo Team・ハンブルク大学の独立検証もこれを裏づける。</span>
+          </span>
+          <span class="arc-arrow">→</span>
+        </a>
+        <a class="arc-item" href="/reports/kyoto-experience-2026/">
+          <span class="arc-tag">Feature</span>
+          <span class="arc-date num">2026.07.14</span>
+          <span>
+            <span class="arc-title">Googleでは★4.9。それでもAIは、その店を見つけられなかった。</span>
+            <span class="arc-desc">京都の体験店10店舗を、日本語・英語・繁体字中国語・簡体字中国語の4言語で検証。Googleマップで高評価・口コミも十分にある人気店が、AIには「確認できませんでした」と言われ、別の店として紹介された。違いは規模でも口コミ数でもなかった。</span>
+          </span>
+          <span class="arc-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — TOPIC INDEX / 研究の入口（カード版）
+     件数は公開済み4本の JSON-LD keywords からの実集計。
+     カード個別の枠線は引かない（gap:1px の共有ヘアライン）。
+     2026-08-16 に分類一覧のグリッド案を見送った理由「線が多く見えないか」への対処。 -->
+<section class="topics" id="topics">
+  <div class="shell">
+    <div class="g12">
+      <div class="topics-head">
+        <p class="eyebrow">Topic Index</p>
+        <h2>研究の入口</h2>
+      </div>
+      <div class="topic-index">
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">4</span> 本</span>
+          <span class="tc-name">AI検索</span>
+          <span class="tc-desc">生成AIが情報を探し、引用し、要約するまでの過程そのもの。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">3</span> 本</span>
+          <span class="tc-name">GEO ／ LLMO</span>
+          <span class="tc-desc">生成エンジン最適化と呼ばれる領域を、実測で検証する。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">2</span> 本</span>
+          <span class="tc-name">エンティティ</span>
+          <span class="tc-desc">AIが事業者を一つの店として正しく認識できるか、別の店と取り違えるか。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">2</span> 本</span>
+          <span class="tc-name">多言語</span>
+          <span class="tc-desc">同じ問いを4言語で。言語が変わると、参照先も変わる。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">2</span> 本</span>
+          <span class="tc-name">茶道 ／ 着物 ／ 座禅</span>
+          <span class="tc-desc">定点観測の対象カテゴリ。商業性の異なる3つ。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">1</span> 本</span>
+          <span class="tc-name">測定手法</span>
+          <span class="tc-desc">何をもって「AIに見えている」と言えるのか。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">1</span> 本</span>
+          <span class="tc-name">ノイズフロア</span>
+          <span class="tc-desc">同じ条件でも回答は揺れる。その揺れ幅を先に測る。</span>
+        </div>
+        <div class="topic-card">
+          <span class="tc-count"><span class="num">1</span> 本</span>
+          <span class="tc-name">個人店・小規模事業者</span>
+          <span class="tc-desc">宣伝予算をかけられない事業者に、何ができるか。</span>
+        </div>
+      </div>
+      <p style="grid-column:1/13;margin:18px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--d-faint);line-height:1.65;">
+        件数＝公開済み記事 <span class="num">4</span> 本の keywords より集計（<span class="num">2026.08.17</span> 時点）。全記事に共通する語は索引から除いています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 — ABOUT -->
+<section id="about">
+  <div class="shell">
+    <div class="g12">
+      <div class="about-left"><p class="eyebrow">About</p><h2>Kääselä</h2></div>
+      <div class="about-right">
+        <p class="lead">新しい名前より、新しいデータ。</p>
+        <p>Kääselä（カセラ）は、生成AIが事業者をどのように認識し、どのように紹介しているのかを、実際の検証結果にもとづいて継続的に記録・分析する個人研究プロジェクトです。特定の団体・大学等とは関係ありません。</p>
+        <p>生成エンジン最適化（GEO）、大規模言語モデル最適化（LLMO）、AI最適化（AIO）。確かに、この分野では新しい呼び名が次々と生まれています。しかし、Kääseläが関心を持っているのは、その呼び名ではありません。</p>
+        <p>AIは何を参照し、なぜその事業者を紹介したのか。事業者が、AIの時代に顧客から正しく認知されるには何が必要なのか。その問いを、実測によって確かめ続けます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 — CONTACT + NEWSLETTER -->
+<section class="news" id="news">
+  <div class="shell">
+    <div class="g12">
+      <div class="contact-l">
+        <p class="eyebrow">Contact</p>
+        <p style="font-size:16px;color:var(--mid);max-width:50ch;margin:0;">調査の方法について詳しく知りたい方、ご自身の業種でも調べてみたい方、内容へのご意見等、どうぞお気軽にご連絡ください。<br>
+        <a href="mailto:kamogawa.ai.lab@gmail.com" style="color:var(--ink);">kamogawa.ai.lab@gmail.com</a></p>
+      </div>
+      <div class="contact-r">
+        <b>受託について</b>
+        現在、会社に勤めているため、個人での受託業務は行っておりません。調査方法や検証結果などの詳細については、研究の趣旨に沿う内容であれば、無償でお話しできます。
+      </div>
+
+      <div class="news-inner">
+        <div class="news-left">
+          <h2>次の観測を受け取る。</h2>
+          <p>最新のMonthly Reportを公開したら、メールでお知らせします。</p>
+        </div>
+        <form name="newsletter" method="POST" data-netlify="true"
+              data-netlify-honeypot="bot-field" class="news-form">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p class="sr"><label>入力しないでください：<input name="bot-field" tabindex="-1"></label></p>
+          <label class="sr" for="mail">メールアドレス</label>
+          <input id="mail" type="email" name="email" placeholder="you@example.com"
+                 autocomplete="email" required>
+          <button type="submit">ニュースレターに登録する</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="shell g12">
+    <div class="foot-grid">
+      <div>
+        <h4>Site</h4>
+        <!-- ヘッダーのナビをそのまま複写していたのをやめ、
+             実際のサイト構造（content-taxonomy の3分類＋About／Contact）を並べる。
+             「Sitemap」とは名乗らない——sitemap.xml が別に存在し、
+             かつこれは全ページの網羅ではないため。 -->
         <ul>
-          <li><a href="#findings">Findings</a></li>
-          <li><a href="/reports/">Reading</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/reports/">Reports<span class="gl">レポート</span></a></li>
+          <li><a href="/reports/">Features<span class="gl">特集</span></a></li>
+          <li><span class="off">Glossary<span class="gl">用語集・準備中</span></span></li>
+          <li><a href="#about">About<span class="gl">このプロジェクトについて</span></a></li>
+          <li><a href="#news">Contact<span class="gl">お問い合わせ</span></a></li>
         </ul>
-      </nav>
-      <nav aria-label="言語">
-        <h3>Languages</h3>
+      </div>
+      <div>
+        <h4>Languages</h4>
         <ul>
           <li><a href="/" aria-current="true" hreflang="ja">日本語</a></li>
           <li><a href="/en/" hreflang="en">English</a></li>
           <li><a href="/zh-tw/" hreflang="zh-Hant">繁體中文</a></li>
           <li><a href="/zh-cn/" hreflang="zh-Hans">简体中文</a></li>
         </ul>
-      </nav>
+      </div>
       <div>
-        <h3>Get in touch</h3>
-        <a class="L1-foot-mail" href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
+        <h4>Get in touch</h4>
+        <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
       </div>
     </div>
-    <div class="L1-foot-bottom">
-      <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span> — Kamogawa AI Search Lab, Kyoto</span>
-      <span class="jp">Authority comes from observation, not decoration.</span>
+    <!-- 「Authority comes from observation, not decoration.」は
+         _lab/DESIGN_PRINCIPLES.md の内部原則であり、対外スローガンではないため撤去。
+         代わりに事実だけを置く（発行者・ライセンス・規約）。
+         ライセンスは記事の JSON-LD にある CC BY 4.0 と一致させている。 -->
+    <div class="foot-bottom">
+      <span>K<span style="color:var(--accent-on-dark)">ää</span>selä — Kamogawa AI Search Lab, Kyoto</span>
+      <span>© <span class="num">2026</span> Kääselä　／　観測データは <a href="https://creativecommons.org/licenses/by/4.0/deed.ja" rel="license">CC BY 4.0</a>　／　<a href="/privacy/">プライバシーポリシー</a></span>
     </div>
   </div>
 </footer>

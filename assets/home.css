@@ -1,0 +1,312 @@
+/* ============================================================
+   Kääselä — homepage (JA)
+   このファイルは日本語トップページ専用。
+   /assets/style.css は L2（記事・レポート）と en/zh-tw/zh-cn の
+   トップページが共有しているため、こちらでは読み込まない・変更しない。
+   ------------------------------------------------------------
+   アクセント（鴨川水色 #3C7688）の出現箇所は意図的に絞っている：
+   ロゴの ää ／ 各節の短罫 ／ hero 右欄の上罫 ／ リンクと hover ／
+   フォーカス輪郭 ／ pill の hover ／ 送信ボタン ／ フッターの ää。
+   1画面に見えるアクセントは最大2箇所。データ図には使わない
+   （色が第4の分類に見えてしまうため）。
+   ============================================================ */
+:root{
+  --ink:#111111;
+  --mid:#4a4a4a;
+  --faint:#6b6b6b;   /* AA 4.5:1 を満たす最も薄い灰。#8a8a8a は 3.45:1 で不合格だった */
+  --line:#dcdcdc;
+  --paper:#ffffff;
+  --paper-2:#f4f4f3;
+
+  --d-bg:#111111;
+  --d-text:#ffffff;
+  --d-mid:#c4c4c4;
+  --d-faint:#8f8f8f;
+  --d-line:#2e2e2e;
+
+  /* 鴨川水色。DESIGN_PRINCIPLES v3.5 で唯一のブランド色として
+     残っているもの。廃止済みの River Blue #4A90A4 ではない。
+     白地でのコントラスト比 5.08:1（AA適合）
+     黒地には明るい派生色を使う。#111 に対し 9.35:1 */
+  --accent:#3C7688;
+  --accent-on-dark:#8FBECB;
+
+  --mono:'IBM Plex Mono',monospace;
+  --sans:'Libre Franklin','Zen Kaku Gothic New',sans-serif;
+  --jp:'Zen Kaku Gothic New','Libre Franklin',sans-serif;
+  --maxw:1440px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--jp);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;
+}
+/* 反転面では明るい派生色に切り替える */
+.observation a:focus-visible,.topics a:focus-visible,footer a:focus-visible{
+  outline-color:var(--accent-on-dark);
+}
+
+
+.shell{max-width:var(--maxw);margin:0 auto;padding:0 40px;}
+@media(max-width:720px){.shell{padding:0 20px;}}
+.g12{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;}
+@media(max-width:900px){.g12{grid-template-columns:repeat(4,1fr);gap:16px;}}
+
+/* ---------- header ---------- */
+header.site{padding:28px 0 20px;border-bottom:1px solid var(--line);}
+.site-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;}
+.logo{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.01em;text-decoration:none;}
+.logo .u{color:var(--accent);}
+.logo-sub{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:2px;}
+nav.primary{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+nav.primary a{font-family:var(--sans);font-size:14px;text-decoration:none;transition:color .18s ease;}
+nav.primary a:hover{color:var(--accent);}
+nav.primary a.ghost{color:var(--faint);}
+nav.primary .langs{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;gap:8px;}
+nav.primary .langs a[aria-current]{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
+
+/* ---------- section scaffolding ---------- */
+section{padding:100px 0;}
+@media(max-width:720px){section{padding:56px 0;}}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:22px;
+}
+.eyebrow::before{content:"";width:20px;height:1px;background:var(--accent);display:inline-block;}
+
+.pill{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--ink);border-radius:999px;padding:10px 22px;
+  font-family:var(--mono);font-size:12px;text-decoration:none;color:var(--ink);
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.pill:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.pill.on-dark{border-color:var(--d-line);color:var(--d-text);}
+.pill.on-dark:hover{background:var(--accent-on-dark);border-color:var(--accent-on-dark);color:var(--d-bg);}
+
+/* ---------- 01 hero（減量版） ---------- */
+.hero{padding-top:76px;padding-bottom:96px;}
+.hero-kicker{font-family:var(--mono);font-size:13px;color:var(--faint);margin:0 0 34px;}
+.hero-kicker b{color:var(--ink);font-weight:500;}
+h1.hero-title{
+  grid-column:1/11;font-family:var(--sans);font-weight:700;
+  font-size:clamp(38px,5.6vw,72px);line-height:1.08;letter-spacing:-.022em;margin:0 0 48px;
+}
+/* 説明文は2行だけ。唯一の本文なので、やや大きく・濃く */
+.hero-lede{grid-column:1/6;font-family:var(--jp);font-size:clamp(17px,1.5vw,20px);
+  line-height:1.9;color:var(--ink);margin:0;}
+/* creed は撤去。文章ではなく事実だけを置く＝発行の帯。
+   点12個・実点1個で「零欠号」を図にする。言葉を足さずに枠が埋まる。 */
+.hero-note{grid-column:9/13;align-self:end;
+  border-top:1px solid var(--accent);padding-top:14px;}
+.hero-note .lb{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--faint);display:block;margin-bottom:18px;}
+.hero-track{display:flex;gap:9px;align-items:center;margin:0 0 10px;padding:0;list-style:none;}
+.hero-track .dot{display:block;width:9px;height:9px;border-radius:50%;
+  background:var(--ink);box-sizing:border-box;}
+.hero-track .dot--open{background:none;border:1px solid var(--line);}
+.hero-ends{display:flex;justify-content:space-between;font-family:var(--mono);
+  font-size:11px;color:var(--faint);margin:0 0 14px;}
+.hero-note .cadence{font-family:var(--mono);font-size:11.5px;color:var(--ink);
+  margin:0;padding-top:13px;border-top:1px solid var(--line);}
+@media(max-width:900px){
+  h1.hero-title,.hero-lede,.hero-note{grid-column:1/-1;}
+  .hero-note{margin-top:36px;}
+}
+
+/* ---------- 観測断片 Research Fragment ----------
+   「同じ一軒の店について、ふたつの情報源が違うことを伝えていた」ことが
+   一目で分かるよう、左右2カラムの対比にした。
+   カード同様に共有ヘアライン（gap:1px）。n=1 であることを必ず明記する。 */
+.fragment{background:var(--paper);padding:88px 0;}
+.frag-head{grid-column:1/13;display:flex;justify-content:space-between;
+  align-items:baseline;flex-wrap:wrap;gap:12px;margin-bottom:26px;}
+.frag-meta{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:.03em;}
+.frag-lead{grid-column:1/9;font-family:var(--jp);font-size:clamp(21px,2.6vw,32px);
+  font-weight:500;line-height:1.45;margin:0 0 32px;}
+.frag-compare{grid-column:1/13;display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--line);border:1px solid var(--line);}
+.frag-cell{background:var(--paper);padding:34px 32px 30px;}
+.frag-cell .src{font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+  color:var(--faint);display:block;margin-bottom:18px;}
+  /* uppercase は掛けない。「Googleマップ」が「GOOGLEマップ」になるため */
+.frag-cell .val{font-family:var(--jp);font-size:clamp(22px,2.8vw,34px);
+  font-weight:500;line-height:1.35;display:block;margin-bottom:10px;}
+.frag-cell .note{font-size:13px;color:var(--faint);display:block;}
+.frag-cell.is-ai .val{color:var(--accent);}
+/* 「わかったこと」＝答えを首頁で書き切る。記事へ誘導するための空欄にしない */
+.frag-why{grid-column:1/9;margin-top:34px;}
+.frag-why .lb{font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--accent);display:block;margin-bottom:12px;}
+.frag-why .lead{font-family:var(--jp);font-size:clamp(18px,2vw,24px);font-weight:500;
+  line-height:1.5;margin:0 0 14px;}
+.frag-why .body{font-size:14px;color:var(--mid);line-height:1.85;margin:0 0 24px;max-width:42em;}
+.frag-why .body strong{color:var(--ink);font-weight:500;}
+@media(max-width:900px){.frag-why{grid-column:1/-1;}}
+@media(max-width:720px){
+  .fragment{padding:56px 0;}
+  .frag-lead{grid-column:1/-1;}
+  .frag-compare{grid-template-columns:1fr;}
+}
+
+/* ---------- 02 current observation（統合・反転面・最大の節） ---------- */
+.observation{background:var(--d-bg);color:var(--d-text);}
+.observation .eyebrow{color:var(--d-text);}
+.observation .eyebrow::before{background:var(--accent-on-dark);}
+.obs-meta{grid-column:1/3;font-family:var(--mono);font-size:12px;color:var(--d-faint);}
+.obs-meta .n{display:block;font-size:32px;color:var(--d-text);margin-bottom:8px;}
+.obs-main{grid-column:3/11;}
+.obs-q{font-family:var(--sans);font-weight:600;font-size:clamp(26px,3.6vw,44px);line-height:1.24;margin:0 0 22px;}
+.obs-summary{font-size:15.5px;color:var(--d-mid);max-width:38em;margin:0 0 30px;}
+@media(max-width:900px){
+  .obs-meta{grid-column:1/-1;display:flex;gap:16px;align-items:baseline;}
+  .obs-meta .n{margin-bottom:0;}
+  .obs-main{grid-column:1/-1;}
+}
+
+.obs-fig{grid-column:1/10;margin-top:72px;padding-top:32px;border-top:1px solid var(--d-line);}
+.obs-fig svg{width:100%;height:auto;display:block;}
+.obs-legend{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:11.5px;color:var(--d-faint);align-items:center;}
+.obs-legend span{display:flex;align-items:center;gap:7px;white-space:nowrap;}
+.obs-cond{grid-column:10/13;margin-top:72px;padding-top:32px;border-top:1px solid var(--d-line);font-size:13px;}
+.obs-cond dt{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--d-faint);margin-top:16px;}
+.obs-cond dt:first-child{margin-top:0;}
+.obs-cond dd{margin:3px 0 0;color:var(--d-text);line-height:1.6;}
+.obs-caveat{grid-column:10/13;margin-top:24px;padding-top:16px;border-top:1px solid var(--d-line);
+  font-size:11.5px;color:var(--d-faint);line-height:1.65;}
+@media(max-width:900px){
+  .obs-fig,.obs-cond,.obs-caveat{grid-column:1/-1;}
+  .obs-cond{margin-top:36px;padding-top:24px;}
+}
+
+/* ---------- 03 findings ---------- */
+.findings{background:var(--paper-2);}
+.findings-head{grid-column:1/6;}
+.findings-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(28px,3.5vw,46px);line-height:1.12;margin:0 0 18px;}
+.findings-head p{color:var(--mid);max-width:26em;font-size:15px;}
+.finding-list{grid-column:7/13;display:grid;gap:0;}
+.finding{border-top:1px solid var(--ink);padding:20px 0 26px;}
+.finding:last-child{border-bottom:1px solid var(--ink);}
+.finding .fn{font-family:var(--mono);font-size:12px;letter-spacing:.05em;display:block;margin-bottom:10px;}
+.finding p{font-size:14.5px;color:var(--mid);margin:0;}
+@media(max-width:900px){.findings-head,.finding-list{grid-column:1/-1;}.finding-list{margin-top:36px;}}
+
+/* ---------- 04 archive ---------- */
+.archive-head{grid-column:1/6;}
+.archive-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(28px,3.5vw,46px);margin:0;}
+.arc-types{grid-column:7/13;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-self:end;}
+.arc-types b{font-family:var(--sans);font-size:13px;font-weight:600;display:block;margin-bottom:6px;}
+.arc-types b span{font-family:var(--jp);font-weight:400;font-size:11px;color:var(--faint);margin-left:7px;}
+.arc-types p{font-size:12px;color:var(--faint);line-height:1.6;margin:0;}
+.arc-types .state{font-family:var(--mono);font-size:11px;color:var(--faint);display:inline-block;margin-top:8px;
+  border:1px solid var(--line);border-radius:999px;padding:1px 10px;}
+@media(max-width:900px){.arc-types{grid-column:1/-1;grid-template-columns:1fr;gap:18px;margin-top:28px;}}
+
+.archive-list{grid-column:1/13;margin-top:56px;}
+.arc-item{
+  display:grid;grid-template-columns:1.5fr 1fr 6fr auto;gap:24px;align-items:baseline;
+  padding:26px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit;
+  transition:opacity .2s ease;
+}
+.arc-item:hover{opacity:.85;}
+.archive-list .arc-item:last-child{border-bottom:1px solid var(--line);}
+.arc-tag{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+.arc-date{font-family:var(--mono);font-size:12px;color:var(--faint);}
+.arc-title{font-family:var(--jp);font-size:17px;line-height:1.45;display:block;transition:color .18s ease;}
+.arc-item:hover .arc-title{color:var(--accent);}
+.arc-desc{font-size:13px;color:var(--faint);margin-top:7px;max-width:44em;display:block;}
+.arc-arrow{font-family:var(--mono);font-size:14px;color:var(--faint);}
+.arc-item .now{font-family:var(--mono);font-size:10px;color:var(--faint);
+  border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-left:8px;white-space:nowrap;}
+@media(max-width:900px){.archive-head,.archive-list{grid-column:1/-1;}}
+@media(max-width:720px){.arc-item{grid-template-columns:1fr;gap:6px;}}
+
+/* ---------- 05 topic index（反転面） ---------- */
+.topics{background:var(--d-bg);color:var(--d-text);}
+.topics .eyebrow{color:var(--d-text);}
+.topics .eyebrow::before{background:var(--accent-on-dark);}
+.topics-head{grid-column:1/13;margin-bottom:40px;}
+.topics-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(26px,3.1vw,38px);margin:0;}
+/* カード版。個別の枠線は引かず、gap:1px と親の地色で「共有ヘアライン」を作る。
+   隣り合うカードの枠が二重にならないので、線の総量はリスト版とほぼ同じ。
+   角丸なし・塗りつぶしなし（ホバー時の反転のみ）。 */
+.topic-index{
+  grid-column:1/13;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--d-line);
+  border:1px solid var(--d-line);
+}
+/* トピックページはまだ存在しないため、カードはリンクにしない。
+   存在しない遷移先をあるように見せない（原則7）。ページができたら
+   <a> に戻し、下のホバー反転を有効化する。 */
+.topic-card{
+  background:var(--d-bg);color:var(--d-text);
+  padding:26px 24px 22px;display:flex;flex-direction:column;min-height:230px;
+}
+.topic-card .tc-count{
+  font-family:var(--mono);font-size:11.5px;color:var(--d-faint);
+  letter-spacing:.03em;margin-bottom:auto;
+}
+.topic-card .tc-name{
+  font-family:var(--jp);font-size:clamp(18px,1.7vw,23px);font-weight:500;
+  line-height:1.3;letter-spacing:-.005em;margin:22px 0 10px;
+}
+.topic-card .tc-desc{font-size:12.5px;line-height:1.65;color:var(--d-mid);margin:0 0 auto;}
+
+@media(max-width:1100px){.topic-index{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){
+  .topic-index{grid-template-columns:1fr;}
+  .topic-card{min-height:0;padding:22px 20px;}
+  .topic-card .tc-name{margin-top:14px;}
+}
+
+/* ---------- 06 about ---------- */
+.about-left{grid-column:1/4;}
+.about-left h2{font-family:var(--sans);font-weight:700;font-size:32px;margin:0;}
+.about-right{grid-column:5/11;}
+.about-right p{font-size:16px;color:var(--mid);max-width:36em;margin:0 0 18px;}
+.about-right p.lead{font-family:var(--jp);font-size:20px;color:var(--ink);margin-bottom:26px;}
+@media(max-width:900px){.about-left,.about-right{grid-column:1/-1;}.about-right{margin-top:24px;}}
+
+/* ---------- 07 contact + newsletter ---------- */
+.news{background:var(--paper-2);}
+.contact-l{grid-column:1/7;}
+.contact-l a{color:var(--accent);}
+.contact-r{grid-column:8/13;font-size:13px;color:var(--mid);}
+.contact-r b{color:var(--ink);display:block;margin-bottom:6px;font-weight:500;}
+.news-inner{grid-column:1/13;display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:44px;margin-top:52px;}
+.news-left h2{font-family:var(--sans);font-weight:700;font-size:clamp(24px,2.9vw,34px);margin:0 0 10px;}
+.news-left p{color:var(--faint);font-size:14px;margin:0;}
+.news-form{display:flex;border-bottom:1px solid var(--ink);min-width:340px;}
+.news-form input{flex:1;border:none;background:transparent;padding:10px 4px;font-family:var(--jp);font-size:15px;outline:none;}
+.news-form button{border:none;background:transparent;font-family:var(--mono);font-size:12px;letter-spacing:.04em;cursor:pointer;padding:10px 4px;color:var(--accent);}
+@media(max-width:900px){.contact-l,.contact-r{grid-column:1/-1;}.contact-r{margin-top:22px;}}
+
+/* ---------- footer ---------- */
+footer{background:var(--d-bg);color:var(--d-text);padding:64px 0 28px;}
+.foot-grid{grid-column:1/13;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+footer h4{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--d-faint);margin:0 0 14px;}
+footer ul{list-style:none;margin:0;padding:0;}
+footer li{margin-bottom:8px;}
+footer a{text-decoration:none;font-size:14px;transition:color .18s ease;}
+footer .gl{font-family:var(--jp);font-size:11px;color:var(--d-faint);margin-left:9px;}
+footer .off{font-size:14px;color:var(--d-faint);} /* 遷移先がない項目はリンクにしない */
+footer a:hover{color:var(--accent-on-dark);}
+.foot-bottom{grid-column:1/13;margin-top:56px;padding-top:24px;border-top:1px solid var(--d-line);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--d-faint);}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr;}}
+
+@media(prefers-reduced-motion:reduce){*{transition:none !important;}}
