@@ -95,9 +95,8 @@ section{padding:100px 0;}
 .pill.on-dark:hover{background:var(--accent-on-dark);border-color:var(--accent-on-dark);color:var(--d-bg);}
 
 /* ---------- 01 hero（減量版） ---------- */
-.hero{padding-top:76px;padding-bottom:96px;}
-.hero-kicker{font-family:var(--mono);font-size:13px;color:var(--faint);margin:0 0 34px;}
-.hero-kicker b{color:var(--ink);font-weight:500;}
+.hero{padding-top:104px;padding-bottom:96px;}
+/* .hero-kicker は撤去。ヘッダーのロゴ＋副題と同じ内容だった。 */
 h1.hero-title{
   grid-column:1/11;font-family:var(--sans);font-weight:700;
   font-size:clamp(38px,5.6vw,72px);line-height:1.08;letter-spacing:-.022em;margin:0 0 48px;
