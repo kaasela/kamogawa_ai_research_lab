@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Appendix: Noise-Floor Method and Source Taxonomy｜Kääselä</title>
-<meta name="description" content="How we measured the noise floor (variance in cited sources across 20 repeated runs of the same query), the pre-registered significance threshold, and the definition of the six citation-source categories. A permanent appendix referenced by every Kääselä Monthly Report.">
+<meta name="description" content="How the noise floor (variance in cited sources across 20 repeated runs of the same query) is measured, the pre-registered per-cell thresholds, and the six citation-source categories. Summary edition; the full appendix is published in Japanese.">
 <link rel="canonical" href="https://kaasela.com/en/reports/appendix/noise-floor/">
 <link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/appendix/noise-floor/">
 <link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/appendix/noise-floor/">
@@ -13,8 +13,10 @@
 <link rel="alternate" hreflang="x-default" href="https://kaasela.com/reports/appendix/noise-floor/">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Appendix: Noise-Floor Method and Source Taxonomy">
+<meta property="og:description" content="Permanent appendix shared across all Kääselä Monthly Reports. Summary edition — the full appendix is published in Japanese.">
 <meta property="og:url" content="https://kaasela.com/en/reports/appendix/noise-floor/">
 <meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
@@ -25,15 +27,17 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Appendix: Noise-Floor Method and Source Taxonomy",
-  "description": "How we measured the noise floor (variance in cited sources across 20 repeated runs of the same query), the pre-registered significance threshold, and the definition of the six citation-source categories.",
+  "description": "How the noise floor is measured, the pre-registered per-cell thresholds, and the six citation-source categories. Summary edition; the full appendix is published in Japanese.",
   "datePublished": "2026-08-02",
-  "dateModified": "2026-08-02",
+  "dateModified": "2026-09-05",
   "inLanguage": "en",
   "url": "https://kaasela.com/en/reports/appendix/noise-floor/",
   "mainEntityOfPage": "https://kaasela.com/en/reports/appendix/noise-floor/",
   "isPartOf": { "@type": "CreativeWorkSeries", "name": "Kääselä Monthly Report", "url": "https://kaasela.com/reports/" },
   "author": { "@id": "https://kaasela.com/#organization" },
-  "publisher": { "@id": "https://kaasela.com/#organization" }
+  "publisher": { "@id": "https://kaasela.com/#organization" },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "keywords": "AI search, generative AI, ChatGPT, noise floor, methodology, Jaccard, Kyoto"
 }
 </script>
 </head>
@@ -56,77 +60,64 @@
       <span>Appendix</span>
       <span class="num">2026-08</span>
       <span>Permanent, shared across all issues</span>
-      <span>Approx. 4 min read</span>
+      <span>Summary edition · approx. 2 min read</span>
     </p>
   </header>
 
-  <nav class="L2-rail" aria-label="Table of contents">
-    <ol>
-      <li><a href="#why">1. Why we measure it</a></li>
-      <li><a href="#method">2. Measurement method</a></li>
-      <li><a href="#cells">3. Values across the 12 cells</a></li>
-      <li><a href="#threshold">4. Significance threshold</a></li>
-      <li><a href="#taxonomy">5. The six categories</a></li>
-      <li><a href="#limits">6. Limitations</a></li>
-    </ol>
-  </nav>
-
   <article class="L2-body">
 
-    <p class="L2-abs">A permanent appendix referenced by every issue of the Kääselä Monthly Report. Individual issues link here rather than restating the method.</p>
+    <p class="L2-notes"><small>This page is a summary edition; since September 2026, non-Japanese editions are published as summaries. The full appendix is published in Japanese: <a href="/reports/appendix/noise-floor/">full text (日本語)</a>. All figures on this page are identical to the Japanese original.</small></p>
 
-    <h2 id="why">1. Why we measure the noise floor</h2>
-    <p>Generative AI doesn't necessarily give the same answer to the same question twice. When an observation in a given month appears to show "the AI's citations changed," we can't tell whether that's a real shift or simple generative noise — not without first knowing how large that noise is.</p>
-    <p>This study measures the size of that noise ahead of time and uses it as a baseline for reading month-to-month differences. What separates this from commercial tools that declare "the AI says X" from a single observation (n=1) is that we measure this baseline ourselves and publish it.</p>
+    <p class="L2-abs">Permanent appendix referenced by every Kääselä Monthly Report. Individual issues link here instead of restating the methodology.</p>
+
+    <h2 id="why">1. Why measure the noise floor</h2>
+    <p>Generative AI does not necessarily return the same answer to the same question. Whether an apparent month-over-month change in citations is a real change or mere generation variance can only be judged against the size of that variance — so it is measured first, published, and used as the baseline for reading monthly differences. Unlike commercial tools that assert "the AI says X" from a single run (n=1), this baseline is measured and disclosed.</p>
 
     <h2 id="method">2. Measurement method</h2>
-    <p>Each query was run 20 times in a row (n=20) under identical conditions (ChatGPT, GPT-5.5, web version, temporary chat, keyword-style query, executed from Kyoto), recording the set of cited source domains on each run.</p>
-    <p>The overlap between the cited-source sets of any two runs was expressed as a Jaccard coefficient (size of the intersection ÷ size of the union). A value near 1.0 means the same sources are cited every time; a value near 0 means the sources change every time.</p>
+    <p>Each query was run 20 times (n=20) consecutively under identical conditions (ChatGPT, GPT-5.5, web version, temporary chat, keyword-form queries, run in Kyoto City), logging the set of cited source domains per run. Overlap between two runs is expressed as the Jaccard coefficient (intersection ÷ union): close to 1.0 means the same sources every run, close to 0 means near-total turnover.</p>
 
     <h2 id="cells">3. Noise floor across the 12 cells (Jaccard coefficient)</h2>
     <table>
-      <thead><tr><th></th><th>Japanese</th><th>English</th><th>Simplified Chinese</th><th>Traditional Chinese</th></tr></thead>
+      <thead><tr><th></th><th>Japanese</th><th>English</th><th>Simplified Ch.</th><th>Traditional Ch.</th></tr></thead>
       <tbody>
         <tr><td>Tea ceremony</td><td class="num">0.25</td><td class="num">0.20</td><td class="num">0.31</td><td class="num">0.25</td></tr>
-        <tr><td>Kimono rental</td><td class="num">0.41</td><td class="num">0.16</td><td class="num">0.15</td><td class="num">0.11</td></tr>
+        <tr><td>Kimono</td><td class="num">0.41</td><td class="num">0.16</td><td class="num">0.15</td><td class="num">0.11</td></tr>
         <tr><td>Zen meditation</td><td class="num">0.35</td><td class="num">0.40</td><td class="num">0.22</td><td class="num">0.23</td></tr>
       </tbody>
     </table>
-    <p>The highest variance is kimono rental in Traditional Chinese (0.11), because citations are spread across many independent business sites. The most stable cell is Zen meditation in English (0.40), where citations concentrate on a small number of temple sites.</p>
-    <p>The Japanese and English tea-ceremony values (0.247 / 0.204) land close to the figure reported by an independent external study (Green et al., 0.265). This is one piece of corroborating evidence that this study's noise floor, measured independently, is consistent with other observations.</p>
-    <p>The noise floor varies by category and language. A single threshold cannot be applied uniformly across all cells.</p>
+    <p>The noise floor differs by category and language; no single threshold fits all cells.</p>
 
-    <h2 id="threshold">4. Pre-registered significance threshold</h2>
-    <p>Using a bootstrap method, we confirmed that the citation-source category mix (our primary metric) falls within a 95% interval of roughly ±10 points at n=20. When comparing two points in time, a change of about 14 points or more is treated as a "signal."</p>
-    <p>This threshold was fixed and registered before observation began for Issue #1 (September 2026) and will not change afterward. Adjusting the threshold after seeing results would defeat the purpose of pre-registration, so we don't do that.</p>
-    <p>Individual businesses' appearance rates vary more than the category mix (roughly ±18–22 points); month to month, we only evaluate the concentration of the top group.</p>
-
-    <h2 id="taxonomy">5. Definitions of the six source categories</h2>
+    <h2 id="threshold">4. Pre-registered thresholds</h2>
+    <p>Thresholds for the main metric (share of citations by source type) are set per cell. From issue #000 data (with business info cards excluded), a run-level bootstrap (B=4000) gives each cell's 95% half-width; for comparisons between two periods, a shift of at least "half-width × √2, rounded up" counts as signal. The initial blanket registration (±10pt, 14pt across periods) had been computed on a basis that counted business info cards as citations; it was voided with the card separation (2nd-edition correction) and re-derived per cell — using issue #000 data only, before any issue #001 data was aggregated. Thresholds are not adjusted after seeing results.</p>
     <table>
-      <thead><tr><th>Category</th><th>Definition</th></tr></thead>
+      <thead><tr><th>Two-period threshold (pt)</th><th>Japanese</th><th>English</th><th>Simplified Ch.</th><th>Traditional Ch.</th></tr></thead>
       <tbody>
-        <tr><td>Public</td><td>Municipal government, tourism boards, public bodies, public cultural institutions</td></tr>
-        <tr><td>Direct</td><td>Run by the business, temple, or individual guide themselves, with booking completed on their own site</td></tr>
-        <tr><td>OTA</td><td>Third-party platform aggregating other businesses' inventory, with booking completed on the platform's own site</td></tr>
-        <tr><td>Media</td><td>Editorial content (including affiliate content) that doesn't complete bookings itself and directs users elsewhere</td></tr>
-        <tr><td>Directory</td><td>Cross-cutting, fee-free listing aggregators</td></tr>
+        <tr><td>Tea ceremony</td><td class="num">15</td><td class="num">9</td><td class="num">10</td><td class="num">15</td></tr>
+        <tr><td>Kimono</td><td class="num">17</td><td class="num">16</td><td class="num">23</td><td class="num">22</td></tr>
+        <tr><td>Zen meditation</td><td class="num">14</td><td class="num">13</td><td class="num">18</td><td class="num">14</td></tr>
+      </tbody>
+    </table>
+    <p>Appearance rates of individual businesses vary more than type shares (±approx. 22pt); monthly evaluation covers only the concentration of the top group.</p>
+
+    <h2 id="taxonomy">5. The six citation-source categories</h2>
+    <table>
+      <thead><tr><th>Type</th><th>Definition</th></tr></thead>
+      <tbody>
+        <tr><td>Public</td><td>Municipalities, tourism associations, public bodies, public cultural facilities</td></tr>
+        <tr><td>Owned</td><td>A property run by the recommended business, temple, or individual guide themselves (whether or not it takes bookings)</td></tr>
+        <tr><td>OTA</td><td>Third-party platform aggregating others' inventory, where booking completes on its own site</td></tr>
+        <tr><td>Media</td><td>Editorial content that cannot take bookings itself and routes visitors elsewhere (including affiliates)</td></tr>
+        <tr><td>Directory</td><td>Cross-sectional, commission-free listings</td></tr>
         <tr><td>UGC</td><td>User-generated content</td></tr>
       </tbody>
     </table>
-    <p>Classification is based on the domain's own primary function, not how it's used within a given answer. Whether a source has affiliate links doesn't determine its category; it's recorded as a separate flag.</p>
 
     <h2 id="limits">6. Limitations of the method</h2>
-    <p><strong>Limitation one: the candidate pool is not disclosed.</strong> This study is based on manual observation through ChatGPT's standard UI. The pages the AI searches and considers (the grounding pool) and the pages ultimately cited in the answer (citations) are separate layers, and UI-based observation only captures the latter. We cannot measure each business's selection or rejection rate against the candidate pool — only its frequency of appearance across n trials. To avoid implying a selection rate we can't measure, this study consistently uses "appearance rate" rather than "selection rate."</p>
-    <p><strong>Limitation two: what we mean by reproducibility.</strong> In this study, reproducibility means agreement in the statistical distribution of results, not verbatim agreement. Because of generative randomness (addressed via n=20), engine version changes, and differences in account, region, and personalization, individual trials under the same procedure may not match. Claims of reproducibility are limited to: "under the same time window, the same engine version, and with personalization excluded, a statistically consistent distribution is obtained."</p>
+    <p>Observation through the standard UI captures only what the answer cites, not the candidate pool the AI searched — so this study reports "appearance rate," never "selection rate." Reproducibility means a statistically matching distribution under the same time window, engine version, and de-personalized conditions, not verbatim identical answers. The full discussion is in the Japanese full text, <a href="/reports/appendix/noise-floor/#limits">§6</a>.</p>
 
-    <p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">This page is part of Kääselä (Kamogawa AI Search Lab), an independent research project. Data is published free of charge under CC BY 4.0; it is not sold.</p>
+    <p style="font-size:12px;color:var(--faint);margin-top:var(--s6);">This page is part of the Kääselä (Kamogawa AI Search Lab) personal research project. Data is published free of charge under CC BY 4.0 and is not for sale.</p>
 
   </article>
-
-  <nav class="L2-serial">
-    <span><span class="lbl">Source issue</span><a href="/en/reports/2026-08/">Monthly Report #000</a></span>
-    <span style="text-align:right;"><span class="lbl">Index</span><a href="/reports/">Reports</a></span>
-  </nav>
 
 </div>
 
