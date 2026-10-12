@@ -240,7 +240,7 @@ h1.hero-title{
 .topics .eyebrow{color:var(--d-text);}
 .topics .eyebrow::before{background:var(--accent-on-dark);}
 .topics-head{grid-column:1/13;margin-bottom:40px;}
-.topics-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(26px,3.1vw,38px);margin:0;}
+.topics-head h1,.topics-head h2{font-family:var(--sans);font-weight:700;font-size:clamp(26px,3.1vw,38px);margin:0;}
 /* カード版。個別の枠線は引かず、gap:1px と親の地色で「共有ヘアライン」を作る。
    隣り合うカードの枠が二重にならないので、線の総量はリスト版とほぼ同じ。
    角丸なし・塗りつぶしなし（ホバー時の反転のみ）。 */
