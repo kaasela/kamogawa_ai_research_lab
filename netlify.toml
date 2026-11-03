@@ -20,3 +20,9 @@
   from = "/reports/kyoto-experience-2026"
   to = "/reports/kyoto-experience-2026/"
   status = 301
+
+# 自ホスト字体は内容が変わらないので長期キャッシュ（置き換えるときはファイル名を変える）
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

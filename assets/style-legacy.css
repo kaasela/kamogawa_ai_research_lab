@@ -4,7 +4,8 @@
    白・Mist 80% ／ River Blue 15% ／ 砂ベージュ 5%
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap');
+/* 外部字体の読み込みを撤去（2026-11-03）。このCSSはどのページからも参照されていない。 */
+400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap');
 
 :root {
   --ink:    #222222;   /* Charcoal（本文） */
