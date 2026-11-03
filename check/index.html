@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI検索のアクセス条件チェック｜Kääselä</title>
+<meta name="description" content="ChatGPT などの AI 検索が、あなたのサイトにたどり着くための技術的な条件を、公開されている情報だけで確認します。入力したドメインと結果は保存しません。">
+<meta name="robots" content="noindex"><!-- 公開準備中（11-12 に外す） -->
+<link rel="canonical" href="https://kaasela.com/check/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI検索のアクセス条件チェック｜Kääselä">
+<meta property="og:description" content="ChatGPT などの AI 検索が、あなたのサイトにたどり着くための技術的な条件を、公開されている情報だけで確認します。入力したドメインと結果は保存しません。">
+<meta property="og:url" content="https://kaasela.com/check/">
+<meta property="og:site_name" content="Kääselä">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kaasela.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kääselä — Kamogawa AI Search Lab">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kaasela.com/assets/og-image.png">
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/check.css">
+<link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
+<script data-goatcounter="https://kaasela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<div class="L2-wrap">
+
+  <header class="L2-head">
+    <a class="L2-back" href="/">← Kääselä</a>
+    <h1 class="jp L2-title">AIの回答に出てこない原因を、技術面から確かめる</h1>
+    <p class="L2-meta">
+      <span>AI検索のアクセス条件チェック</span>
+    </p>
+  </header>
+
+  <article class="L2-body">
+
+    <p class="chk-lede">ChatGPT などの AI 検索が、あなたのサイトにたどり着くための技術的な条件を確認します。公開されている情報だけを使い、4つの項目をチェックします。これは AI 検索への実際の掲載状況を調べるものではなく、公開情報に基づく技術的な確認です。</p>
+
+    <form id="chk-form" class="chk-form" action="#" method="post" novalidate>
+      <label for="chk-domain">ドメイン（サイトのURLの example.com の部分）</label>
+      <input id="chk-domain" name="domain" type="text" inputmode="url" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="example.com" aria-describedby="chk-hint">
+      <button id="chk-go" type="submit">確認する</button>
+    </form>
+    <p id="chk-hint" class="chk-hint">ドメイン（サイトのURLの example.com の部分）を入力してください。</p>
+
+    <ul class="chk-list">
+      <li>取得するのは、robots.txt、sitemap.xml、llms.txt、トップページのHTMLだけです。識別できる名前（<a href="/check/about/">KaaselaChecker</a>）で、1回の確認につき数回取得します。サイトの robots.txt が取得を禁止している場合は、取得しません。</li>
+      <li>入力したドメインと結果は保存しません。（<a href="/privacy/">プライバシーポリシー</a>）</li>
+      <li>個別の診断・有償のご依頼は受けていません。</li>
+    </ul>
+
+    <noscript><p class="chk-error">このチェックには JavaScript が必要です。</p></noscript>
+    <div id="chk-out" tabindex="-1" role="region" aria-live="polite" aria-label="確認結果"></div>
+
+  </article>
+
+</div>
+
+<footer class="L1-foot">
+  <div class="L1-foot-inner">
+    <div class="L1-foot-grid">
+      <nav>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="/reports/">Reports<span class="gl">レポート</span></a></li>
+          <li><a href="/topics/">Topics<span class="gl">話題から探す</span></a></li>
+          <li><a href="/#about">About<span class="gl">このプロジェクトについて</span></a></li>
+        </ul>
+      </nav>
+      <nav>
+        <h3>Languages</h3>
+        <ul>
+            <li><a href="/" hreflang="ja" aria-current="true">日本語</a></li>
+            <li><a href="/en/" hreflang="en">English</a></li>
+            <li><a href="/zh-cn/" hreflang="zh-Hans">简体中文</a></li>
+            <li><a href="/zh-tw/" hreflang="zh-Hant">繁體中文</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3>Get in touch</h3>
+        <a class="L1-foot-mail" href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
+      </div>
+    </div>
+    <div class="L1-foot-bottom">
+      <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span> — Kamogawa AI Search Lab, Kyoto</span>
+      <span>© 2026 Kääselä　／　観測データは <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>　／　<a href="/privacy/">プライバシーポリシー</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="L2-top" id="l2top" aria-label="ページ上部に戻る"><span class="arrow" aria-hidden="true">↑</span>Top</a>
+<script>
+(function(){
+  var btn=document.getElementById('l2top');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){
+    btn.classList.toggle('is-visible', window.scrollY > 600);
+  },{passive:true});
+})();
+</script>
+<script src="/assets/check.js" defer></script>
+</body>
+</html>
