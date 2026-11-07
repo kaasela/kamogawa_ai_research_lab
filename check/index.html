@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI検索のアクセス条件チェック｜Kääselä</title>
-<meta name="description" content="ChatGPT などの AI 検索が、あなたのサイトにたどり着くための技術的な条件を、公開されている情報だけで確認します。入力したドメインと結果は保存しません。">
+<meta name="description" content="ChatGPT などの AI 検索が、あなたのサイトにアクセスできる状態になっているかを、公開されている情報だけで確認します。入力したドメインと結果は保存しません。">
 
 <link rel="canonical" href="https://kaasela.com/check/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AI検索のアクセス条件チェック｜Kääselä">
-<meta property="og:description" content="ChatGPT などの AI 検索が、あなたのサイトにたどり着くための技術的な条件を、公開されている情報だけで確認します。入力したドメインと結果は保存しません。">
+<meta property="og:description" content="ChatGPT などの AI 検索が、あなたのサイトにアクセスできる状態になっているかを、公開されている情報だけで確認します。入力したドメインと結果は保存しません。">
 <meta property="og:url" content="https://kaasela.com/check/">
 <meta property="og:site_name" content="Kääselä">
 <meta property="og:locale" content="ja_JP">
@@ -30,7 +30,7 @@
 
   <header class="L2-head">
     <a class="L2-back" href="/">← Kääselä</a>
-    <h1 class="jp L2-title">AIの回答に出てこない原因を、技術面から確かめる</h1>
+    <h1 class="jp L2-title">AI検索から、あなたのサイトは見つけられる状態ですか？</h1>
     <p class="L2-meta">
       <span>AI検索のアクセス条件チェック</span>
     </p>
@@ -38,7 +38,8 @@
 
   <article class="L2-body">
 
-    <p class="chk-lede">ChatGPT などの AI 検索が、あなたのサイトにたどり着くための技術的な条件を確認します。公開されている情報だけを使い、4つの項目をチェックします。これは AI 検索への実際の掲載状況を調べるものではなく、公開情報に基づく技術的な確認です。</p>
+    <p class="chk-lede">ChatGPT などの AI 検索サービスが、あなたのサイトにアクセスできる状態になっているかを確認します。公開されている情報をもとに、4つの観点から技術的な条件をチェックします。</p>
+    <p class="chk-lede">このチェックでわかるのは、あくまでサイトへのアクセスに関する技術的な条件です。AI の回答に掲載されているか、実際に推薦されているかを調べるものではありません。</p>
 
     <form id="chk-form" class="chk-form" action="#" method="post" novalidate>
       <label for="chk-domain">ドメイン（サイトのURLの example.com の部分）</label>
@@ -48,9 +49,10 @@
     <p id="chk-hint" class="chk-hint">ドメイン（サイトのURLの example.com の部分）を入力してください。</p>
 
     <ul class="chk-list">
-      <li>取得するのは、robots.txt、sitemap.xml、llms.txt、トップページのHTMLだけです。識別できる名前（<a href="/check/about/">KaaselaChecker</a>）で、1回の確認につき数回取得します。サイトの robots.txt が取得を禁止している場合は、取得しません。</li>
-      <li>入力したドメインと結果は保存しません。（<a href="/privacy/">プライバシーポリシー</a>）</li>
-      <li>個別の診断・有償のご依頼は受けていません。</li>
+      <li>確認のために取得するのは、robots.txt、sitemap.xml、llms.txt、トップページのHTMLのみです。1回の確認につき、数回アクセスします。robots.txt で取得が禁止されている場合は、該当するファイルやページにはアクセスしません。</li>
+      <li>確認の際は「<a href="/check/about/">KaaselaChecker</a>」という名前を使用します。</li>
+      <li>入力されたドメインや確認結果は保存しません。詳しくは<a href="/privacy/">プライバシーポリシー</a>をご覧ください。</li>
+      <li>現在、個別の診断や有償でのご依頼はお受けしていません。</li>
     </ul>
 
     <noscript><p class="chk-error">このチェックには JavaScript が必要です。</p></noscript>

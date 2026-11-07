@@ -49,10 +49,10 @@
   function verdictLine(r) {
     var s = { pass: '通過', fail: '未通過', unknown: '確認できず' };
     return [
-      ['OAI-SearchBot が robots.txt で禁止されていない', r.items.robots],
-      ['トップページに到達できる', r.items.reach],
-      ['インデックス拒否（noindex）がない', r.items.noindex],
-      ['本文が最初のHTMLにある', r.items.body]
+      ['OAI-SearchBot が robots.txt でブロックされていない', r.items.robots],
+      ['トップページを正常に取得できる', r.items.reach],
+      ['noindex が設定されていない', r.items.noindex],
+      ['本文が最初に返されるHTMLに含まれている', r.items.body]
     ].map(function (x) { return '- ' + x[0] + '：' + s[x[1].status]; }).join('\n');
   }
 
@@ -60,22 +60,22 @@
     var it = r.items, ref = r.reference || {};
     var when = new Date(r.checkedAt).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
     var rows = [];
-    rows.push(row(it.robots, 'OAI-SearchBot が robots.txt で禁止されていない', {
+    rows.push(row(it.robots, 'OAI-SearchBot が robots.txt でブロックされていない', {
       pass: it.robots.state === 'absent' ? 'robots.txt は見つかりませんでした。禁止の記述はありません。' : 'robots.txt は OAI-SearchBot（ChatGPT 検索のクローラー）を禁止していません。',
       fail: 'robots.txt が OAI-SearchBot を禁止しています。OpenAI の公式文書では、OAI-SearchBot を拒否したサイトは ChatGPT 検索の回答に表示されないと説明されています。変更が反映されるまでには約24時間かかる場合があります。意図した設定かどうか、確認してください。',
       unknown: 'robots.txt を取得できませんでした（理由：' + why(it.robots.reason) + '）。通過とも未通過とも数えません。'
     }));
-    rows.push(row(it.reach, 'トップページに到達できる', {
+    rows.push(row(it.reach, 'トップページを正常に取得できる', {
       pass: 'トップページは 200 で返り、リダイレクトは ' + it.reach.redirects + ' 回でした。',
       fail: 'トップページは 200 で返りませんでした（HTTP ' + it.reach.httpStatus + '）。',
       unknown: pageUnknown(it.reach.reason)
     }));
-    rows.push(row(it.noindex, 'インデックス拒否（noindex）がない', {
+    rows.push(row(it.noindex, 'noindex が設定されていない', {
       pass: 'トップページのHTMLとHTTPレスポンスに、noindex の指定は見つかりませんでした。',
       fail: 'トップページに noindex の指定があります（' + (it.noindex.via || []).map(function (v) { return v === 'meta' ? 'meta の robots' : 'X-Robots-Tag'; }).join('・') + '）。',
       unknown: pageUnknown(it.noindex.reason)
     }));
-    rows.push(row(it.body, '本文が最初のHTMLにある', {
+    rows.push(row(it.body, '本文が最初に返されるHTMLに含まれている', {
       pass: 'JavaScript を実行しない状態で、本文の文字数は ' + it.body.chars + ' 字、見出しは' + (it.body.hasHeading ? 'あり' : 'なし') + 'でした。',
       fail: 'JavaScript を実行しない状態では、本文がほとんど見えません（' + it.body.chars + ' 字。' + it.body.threshold + '字未満を未通過としています）。ブラウザでは正常に表示されていても、最初に取得される HTML には本文が含まれていない可能性があります。AIクローラーは JavaScript を実行しないとする報告が複数ありますが、OpenAI の公式文書には記載がありません。',
       unknown: pageUnknown(it.body.reason)
@@ -108,25 +108,26 @@
     var wrap = el('div', { 'class': 'chk-result' },
       el('h2', { text: r.domain + ' の確認結果' }),
       el('p', { 'class': 'chk-when', text: when + ' に1回取得。Kääselä の取得プログラムによる結果で、OpenAI など各社のクローラーの実際のアクセスを保証するものではありません。' }),
-      el('h2', { text: '1. 到達できるか' }));
+      el('h2', { text: '1. サイトにアクセスできるか' }));
     rows.forEach(function (x) { wrap.appendChild(x); });
     wrap.appendChild(el('p', { 'class': 'chk-foot', text: '文字数は script・style・noscript を除いた可視テキストで数えます。' }));
-    wrap.appendChild(el('h2', { text: '2. 参考（以下の有無と、AI の回答への影響は、現時点で確認できていません）' }));
+    wrap.appendChild(el('h2', { text: '2. 参考情報（AI の回答との関係は、まだわかっていません）' }));
     wrap.appendChild(refP);
-    wrap.appendChild(el('h2', { text: '3. 検査では見えないが、あわせて確認したいこと' }));
-    wrap.appendChild(el('p', { text: 'このチェックが見るのは「遮られていないか」までです。次の4つは機械では判定できませんが、Kääselä の観測では AI の回答に関わっていました。' }));
+    wrap.appendChild(el('h2', { text: '3. このチェックだけではわからないこと' }));
+    wrap.appendChild(el('p', { text: 'このチェックで確認できるのは、サイトへの技術的なアクセス条件までです。一方、AI がどの情報を参照し、どの事業者を紹介するかは、それだけではわかりません。' }));
+    wrap.appendChild(el('p', { text: 'Kääselä のこれまでの観測では、次のような点も AI の回答に関わる可能性があることがわかってきました。' }));
     var ul = el('ul', { 'class': 'chk-ctx' });
-    ul.appendChild(ctx('料金・対応内容・所在地・予約方法など、店の基本情報が公式サイトに書かれているか。', '1回の回答に自社サイトの引用が1件以上ある割合は、第2号が52%、第3号が90%でした（モデルと取得方法が同時に変わっています）。', [['/reports/small-business-ai-visibility/', 'Feature「個人店・小さな会社が、AIにどう見つけてもらうか」'], ['/reports/2026-11/#findings', '第3号 §3.3']]));
-    ul.appendChild(ctx('予約サイトや紹介ページの一項目として、埋もれていないか。', '予備調査（京都の体験店10店）では、公式情報が予約プラットフォームの紹介ページに埋もれた店を、AI が別の店と混同した例がありました。', [['/reports/kyoto-experience-2026/', 'Feature「Googleでは★4.9。それでもAIは、その店を見つけられなかった。」']]));
-    ul.appendChild(ctx('地図に出る登録情報と、サイトの内容が食い違っていないか。', '第3号では、本文の推薦と地図カードの店が食い違った回が240回中56回（23.3%）ありました。2店の確認では、AI の地図カードに表示された Web 情報が、Bing Places（Microsoft の事業者登録サービス）に登録された事業者情報と一致していました。', [['/reports/2026-11/#mapcards', '第3号 §5'], ['/reports/2026-08/#revisions', '第0号 改訂記録']]));
-    ul.appendChild(ctx('比較サイトや予約サイトに載っているか。', '業種によって、AI が引用する情報源の中心は異なります。着物レンタルは4言語とも比較メディア主導、座禅は自社・公共機関の発信が中心でした（第0号）。', [['/reports/2026-11/#findings', '第3号 §3'], ['/reports/small-business-ai-visibility/', 'Feature「個人店・小さな会社が、AIにどう見つけてもらうか」']]));
+    ul.appendChild(ctx('公式サイトに必要な情報がきちんと載っているか（料金・対応内容・所在地・予約方法など）', 'AI の回答に自社サイトからの引用が1件以上含まれていた割合は、第2号が52%、第3号が90%でした（モデルと取得方法が同時に変わっています）。', [['/reports/small-business-ai-visibility/', 'Feature「個人店・小さな会社が、AIにどう見つけてもらうか」'], ['/reports/2026-11/#findings', '第3号 §3.3']]));
+    ul.appendChild(ctx('公式サイトと予約サイトなどの情報がどう扱われているか', '予備調査（京都の体験店10店）では、公式サイトの情報が予約サイトなどの情報に埋もれていた店を、AI が別の店と混同した例がありました。', [['/reports/kyoto-experience-2026/', 'Feature「Googleでは★4.9。それでもAIは、その店を見つけられなかった。」']]));
+    ul.appendChild(ctx('地図に表示される情報と、公式サイトの内容が一致しているか', '第3号では、本文の推薦と地図カードの店が食い違った回が240回中56回（23.3%）ありました。2店の確認では、AI の地図カードに表示されたウェブサイト情報が、Bing Places（Microsoft の事業者登録サービス）に登録された事業者情報と一致していました。', [['/reports/2026-11/#mapcards', '第3号 §5'], ['/reports/2026-08/#revisions', '第0号 改訂記録']]));
+    ul.appendChild(ctx('比較サイトや予約サイトに、どのように掲載されているか', 'AI が主に参照する情報源は、業種によって異なります。着物レンタルは4言語とも比較メディア主導、座禅は自社・公共機関の発信が中心でした（第0号）。', [['/reports/2026-11/#findings', '第3号 §3'], ['/reports/small-business-ai-visibility/', 'Feature「個人店・小さな会社が、AIにどう見つけてもらうか」']]));
     wrap.appendChild(ul);
     wrap.appendChild(el('h2', { text: '4. 通過しても、引用されるとは限りません' }));
-    wrap.appendChild(el('p', { text: 'このチェックが測るのは「技術的に遮られていないか」までです。通過しても、AI の回答に出ることは約束されません。どの情報が選ばれるかは、技術的な条件だけで決まるとは限りません。' }));
-    wrap.appendChild(el('h2', { text: '5. 質問・意見' }));
-    wrap.appendChild(el('p', { text: 'このチェックの方法や結果について、質問や意見があればメールでどうぞ。' }));
-    wrap.appendChild(el('p', null, el('a', { 'class': 'chk-cta', href: mailto, text: '質問・意見をメールで送る' })));
-    wrap.appendChild(el('p', { 'class': 'chk-note', text: '個別の診断・有償のご依頼は受けていません。' }));
+    wrap.appendChild(el('p', { text: 'このチェックで確認できるのは、「技術的に遮られていないか」までです。通過しても、AI の回答に出ることは約束されません。どの情報が選ばれるかは、技術的な条件だけで決まるとは限りません。' }));
+    wrap.appendChild(el('h2', { text: '5. ご質問・ご意見' }));
+    wrap.appendChild(el('p', { text: 'このチェックの方法や結果について、ご質問やご意見がありましたら、メールでお寄せください。' }));
+    wrap.appendChild(el('p', null, el('a', { 'class': 'chk-cta', href: mailto, text: 'ご質問・ご意見をメールで送る' })));
+    wrap.appendChild(el('p', { 'class': 'chk-note', text: '現在、個別の診断や有償でのご依頼はお受けしていません。' }));
     return wrap;
   }
 
