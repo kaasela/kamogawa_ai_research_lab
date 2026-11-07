@@ -38,12 +38,14 @@
     return why(code) + 'でした。サイトが一時的に応答しなかった可能性があります。AIクローラーへの応答を表すものではないので、未通過にはしていません。';
   }
 
-  function row(item, title, texts) {
+  function row(item, title, why, texts, means) {
     var st = item.status;
     var label = st === 'pass' ? '● 通過' : st === 'fail' ? '未通過' : '○ 確認できず';
+    function f(dt, dd) { return el('div', null, el('dt', { text: dt }), el('dd', { text: dd })); }
     return el('div', { 'class': 'chk-row' },
       el('div', { 'class': 'chk-st is-' + st, text: label }),
-      el('div', null, el('h3', { text: title }), el('p', { text: texts[st] })));
+      el('div', null, el('h3', { text: title }),
+        el('dl', { 'class': 'chk-facts' }, f('見る理由', why), f('結果', texts[st]), f('意味', means[st]))));
   }
 
   function verdictLine(r) {
@@ -60,26 +62,55 @@
     var it = r.items, ref = r.reference || {};
     var when = new Date(r.checkedAt).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
     var rows = [];
-    rows.push(row(it.robots, 'OAI-SearchBot が robots.txt でブロックされていない', {
-      pass: it.robots.state === 'absent' ? 'robots.txt は見つかりませんでした。禁止の記述はありません。' : 'robots.txt は OAI-SearchBot（ChatGPT 検索のクローラー）を禁止していません。',
-      fail: 'robots.txt が OAI-SearchBot を禁止しています。OpenAI の公式文書では、OAI-SearchBot を拒否したサイトは ChatGPT 検索の回答に表示されないと説明されています。変更が反映されるまでには約24時間かかる場合があります。意図した設定かどうか、確認してください。',
-      unknown: 'robots.txt を取得できませんでした（理由：' + why(it.robots.reason) + '）。通過とも未通過とも数えません。'
-    }));
-    rows.push(row(it.reach, 'トップページを正常に取得できる', {
-      pass: 'トップページは 200 で返り、リダイレクトは ' + it.reach.redirects + ' 回でした。',
-      fail: 'トップページは 200 で返りませんでした（HTTP ' + it.reach.httpStatus + '）。',
-      unknown: pageUnknown(it.reach.reason)
-    }));
-    rows.push(row(it.noindex, 'noindex が設定されていない', {
-      pass: 'トップページのHTMLとHTTPレスポンスに、noindex の指定は見つかりませんでした。',
-      fail: 'トップページに noindex の指定があります（' + (it.noindex.via || []).map(function (v) { return v === 'meta' ? 'meta の robots' : 'X-Robots-Tag'; }).join('・') + '）。',
-      unknown: pageUnknown(it.noindex.reason)
-    }));
-    rows.push(row(it.body, '本文が最初に返されるHTMLに含まれている', {
-      pass: 'JavaScript を実行しない状態で、本文の文字数は ' + it.body.chars + ' 字、見出しは' + (it.body.hasHeading ? 'あり' : 'なし') + 'でした。',
-      fail: 'JavaScript を実行しない状態では、本文がほとんど見えません（' + it.body.chars + ' 字。' + it.body.threshold + '字未満を未通過としています）。ブラウザでは正常に表示されていても、最初に取得される HTML には本文が含まれていない可能性があります。AIクローラーは JavaScript を実行しないとする報告が複数ありますが、OpenAI の公式文書には記載がありません。',
-      unknown: pageUnknown(it.body.reason)
-    }));
+    var NOCOUNT = '通過とも未通過とも数えません。';
+    rows.push(row(it.robots, 'OAI-SearchBot が robots.txt でブロックされていない',
+      'OpenAI は公式文書で、ChatGPT 検索のクローラー「OAI-SearchBot」は robots.txt の指定に従い、禁止したサイトは ChatGPT 検索の回答に表示されないと説明しています。',
+      {
+        pass: it.robots.state === 'absent' ? 'robots.txt は見つかりませんでした。禁止の記述はありません。' : 'robots.txt は OAI-SearchBot を禁止していません。',
+        fail: 'robots.txt が OAI-SearchBot を禁止しています。',
+        unknown: 'robots.txt を取得できませんでした（理由：' + why(it.robots.reason) + '）。'
+      },
+      {
+        pass: 'robots.txt の面では、ChatGPT 検索のクローラーは遮られていません。ChatGPT の回答に出ることを約束するものではありません。',
+        fail: '意図した設定でなければ、robots.txt の該当部分を見直してください。変更が反映されるまでには約24時間かかる場合があります。',
+        unknown: NOCOUNT
+      }));
+    rows.push(row(it.reach, 'トップページを正常に取得できる',
+      'サイトの入口であるトップページに到達できなければ、中身を読むこともできないためです。',
+      {
+        pass: 'トップページは 200（正常）で返り、リダイレクトは ' + it.reach.redirects + ' 回でした。',
+        fail: 'トップページは 200 で返りませんでした（HTTP ' + it.reach.httpStatus + '）。',
+        unknown: pageUnknown(it.reach.reason)
+      },
+      {
+        pass: 'トップページには、問題なく到達できました。',
+        fail: 'トップページが正常に返っていません。サイトの設定や公開状態を確認してください。',
+        unknown: NOCOUNT
+      }));
+    rows.push(row(it.noindex, 'noindex が設定されていない',
+      'noindex は、ページを検索結果に載せないよう求める指定です。残ったままだと、検索エンジンから外れる原因になります。ChatGPT での扱いは、OpenAI の公式文書に記載がありません。',
+      {
+        pass: 'トップページのHTMLとHTTPレスポンスに、noindex の指定は見つかりませんでした。',
+        fail: 'トップページに noindex の指定があります（' + (it.noindex.via || []).map(function (v) { return v === 'meta' ? 'meta の robots' : 'X-Robots-Tag'; }).join('・') + '）。',
+        unknown: pageUnknown(it.noindex.reason)
+      },
+      {
+        pass: 'ページを検索結果から外す指定は見つかりませんでした。',
+        fail: '意図した指定でなければ、meta タグや HTTP ヘッダーの設定を見直してください。',
+        unknown: NOCOUNT
+      }));
+    rows.push(row(it.body, '本文が最初に返されるHTMLに含まれている',
+      'AIクローラーは JavaScript を実行しないとする報告が複数あります。その場合、最初に返される HTML に本文がないと、読まれない可能性があるためです。OpenAI の公式文書には記載がありません。',
+      {
+        pass: 'JavaScript を実行しない状態で、本文の文字数は ' + it.body.chars + ' 字、見出しは' + (it.body.hasHeading ? 'あり' : 'なし') + 'でした。',
+        fail: 'JavaScript を実行しない状態では、本文がほとんど見えません（' + it.body.chars + ' 字。' + it.body.threshold + '字未満を未通過としています）。',
+        unknown: pageUnknown(it.body.reason)
+      },
+      {
+        pass: '本文は、最初に返される HTML に含まれています。',
+        fail: 'ブラウザでは正常に表示されていても、最初に取得される HTML には本文が含まれていない可能性があります。',
+        unknown: NOCOUNT
+      }));
 
     var skipped = !!(ref.skipped || (ref.page && ref.page.skipped));
     function pageRef(f) { return skipped || !ref.jsonld ? '確認していません' : f(); }
@@ -90,8 +121,8 @@
       ['title・description：', pageRef(function () { return ref.titleDesc.title && ref.titleDesc.description ? 'あり' : (ref.titleDesc.title ? '' : 'タイトルなし ') + (ref.titleDesc.description ? '' : '説明文なし'); })],
       ['llms.txt：', !ref.llms ? '確認していません' : ref.llms.status === 'found' ? 'あり' : ref.llms.status === 'none' ? 'なし' : ref.llms.status === 'skipped' ? '確認していません' : '確認できず']
     ];
-    var refP = el('p', { 'class': 'chk-refs' });
-    refParts.forEach(function (p, i) { if (i) refP.appendChild(document.createTextNode(' ／ ')); refP.appendChild(el('span', { text: p[0] + p[1] })); });
+    var refP = el('dl', { 'class': 'chk-refs' });
+    refParts.forEach(function (p) { refP.appendChild(el('div', null, el('dt', { text: p[0].replace(/：$/, '') }), el('dd', { text: p[1] }))); });
 
     var subject = 'AI検索のアクセス条件チェック：' + r.domain;
     var body = 'チェックしたドメイン：' + r.domain + '\n確認日時：' + when + '\n結果：\n' + verdictLine(r) + '\n\n（ご質問・ご意見を、この下にお書きください）\n';
@@ -105,12 +136,19 @@
       return li;
     }
 
+    var cnt = { pass: 0, fail: 0, unknown: 0 };
+    [it.robots, it.reach, it.noindex, it.body].forEach(function (x) { cnt[x.status] = (cnt[x.status] || 0) + 1; });
+    var sumP = el('p', { 'class': 'chk-sum', text: '4項目のうち、通過 ' + cnt.pass + '・未通過 ' + cnt.fail + '・確認できず ' + cnt.unknown });
+
     var wrap = el('div', { 'class': 'chk-result' },
       el('h2', { text: r.domain + ' の確認結果' }),
       el('p', { 'class': 'chk-when', text: when + ' に1回取得。Kääselä の取得プログラムによる結果で、OpenAI など各社のクローラーの実際のアクセスを保証するものではありません。' }),
-      el('h2', { text: '1. サイトにアクセスできるか' }));
+      sumP,
+      el('h2', { text: '1. サイトにアクセスできるか' }),
+      el('p', { 'class': 'chk-legend', text: '各項目を、「見る理由」「結果」「意味」の順に示します。「通過」は遮る指定や状態が見つからなかったこと、「未通過」は見つかったこと、「確認できず」は取得できなくて判定していないことを表します。' }));
     rows.forEach(function (x) { wrap.appendChild(x); });
     wrap.appendChild(el('p', { 'class': 'chk-foot', text: '文字数は script・style・noscript を除いた可視テキストで数えます。' }));
+    wrap.appendChild(el('p', { 'class': 'chk-foot' }, 'OAI-SearchBot の扱いは、OpenAI の公式文書（', link('https://developers.openai.com/api/docs/bots', 'Overview of OpenAI Crawlers'), '）に基づきます。'));
     wrap.appendChild(el('h2', { text: '2. 参考情報（AI の回答との関係は、まだわかっていません）' }));
     wrap.appendChild(refP);
     wrap.appendChild(el('h2', { text: '3. このチェックだけではわからないこと' }));
@@ -127,7 +165,6 @@
     wrap.appendChild(el('h2', { text: '5. ご質問・ご意見' }));
     wrap.appendChild(el('p', { text: 'このチェックの方法や結果について、ご質問やご意見がありましたら、メールでお寄せください。' }));
     wrap.appendChild(el('p', null, el('a', { 'class': 'chk-cta', href: mailto, text: 'ご質問・ご意見をメールで送る' })));
-    wrap.appendChild(el('p', { 'class': 'chk-note', text: '現在、個別の診断や有償でのご依頼はお受けしていません。' }));
     return wrap;
   }
 
