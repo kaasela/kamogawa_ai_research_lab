@@ -1,0 +1,391 @@
+/* ============================================================
+   Kääselä — reading（レポート・プライバシー・en/zh トップの本文）
+   2026-11-08 新設。home.css の「後」に読み込む：
+     <link rel="stylesheet" href="/assets/home.css">
+     <link rel="stylesheet" href="/assets/reading.css">
+   ヘッダー（header.site）・フッター・色変数・.shell は home.css が持つ。
+   ここは本文側の部品だけ：4 形の語彙／L1 表紙・章・図／L2 読み物／印刷。
+   旧 assets/style.css から題字欄・ナビ・フッターを除いたもの。
+   色は home.css の --accent（文字）・--fill（面）に追随する。
+   ============================================================ */
+:root{
+  --sub:#4a4a4a;
+  --rule-1:#E6E4E0;
+  --rule-2:#CFCCC7;
+  --rule-3:#8C8880;
+  --river:var(--accent);
+  --river-dark:#00566B;
+  --river-bright:var(--fill);
+  --bl:30px;
+  --s1:5px;  --s2:10px; --s3:15px; --s4:20px; --s5:25px;
+  --s6:30px; --s9:45px; --s12:60px; --s18:90px;
+  --w-l1:1080px;
+  --w-l2:680px;
+}
+.L1-wrap,.L2-wrap{
+  font-family:'Libre Franklin',-apple-system,BlinkMacSystemFont,"Hiragino Sans",
+    "Hiragino Kaku Gothic ProN","Noto Sans JP","Noto Sans TC","Noto Sans SC",
+    "Yu Gothic","Microsoft YaHei",sans-serif;
+  line-height:var(--bl);font-feature-settings:"palt";
+}
+/* 本文内リンク。home.css の a{color:inherit} を本文側でだけ上書きする */
+.L1-wrap a,.L2-wrap a{color:var(--river);text-decoration:none;
+  border-bottom:1px solid var(--rule-2);
+  transition:color .15s ease,border-color .15s ease;}
+.L1-wrap a:hover,.L2-wrap a:hover{color:var(--river-dark);border-bottom-color:var(--river);}
+.jp{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:500;}
+.L1-wrap{padding-top:var(--s6);}
+.L2-wrap{padding-top:0;}
+
+/* ============================================================
+   4. 形の語彙
+   ● 実体が語っている／発行済     ○ 拮抗・未確定・未刊
+   — 仲介・公共が主導            123 実測値
+   5つ目の形を定義しない
+   ============================================================ */
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+  flex-shrink:0;background:var(--river-bright);}
+.dot--open{background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--rule-3);}
+.dot--other{width:7px;height:1px;border-radius:0;background:var(--rule-3);
+  position:relative;top:-3px;box-shadow:none;}
+
+/* ============================================================
+   5. L1 — 首頁（Institution）
+   「これは何をしている場所か」を伝える層
+   ============================================================ */
+.L1-wrap{max-width:var(--w-l1);margin:0 auto;padding:0 var(--s4);}
+@media(min-width:761px){.L1-wrap{padding:0 var(--s9);}}
+
+/* 表紙 — 大区块の境界は罫ではなく3点の区切りで示す（wordmarkの点を転用） */
+.L1-cover{padding:var(--s9) 0 var(--s6);
+  display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:var(--s9);}
+@media(max-width:900px){.L1-cover{grid-template-columns:1fr;gap:var(--s6);}}
+/* 号数帯（L1-spine）はLatest Monthly Report（L1-focus）と行を共有し、
+   上端をそろえる——「今月の号」と「最新号」が同じ帯であることを、
+   位置関係でも示す。デスクトップ幅でのみ適用。狭幅ではDOM順で自然に積む */
+@media(min-width:901px){
+  .L1-cover-intro{grid-column:1;grid-row:1;}
+  .L1-focus{grid-column:1;grid-row:2;}
+  .L1-spine{grid-column:2;grid-row:2;}
+}
+.L1-cover::after{content:"";grid-column:1/-1;justify-self:center;
+  width:4px;height:4px;border-radius:50%;background:var(--river-bright);
+  margin-top:var(--s6);
+  box-shadow:-14px 0 0 var(--river-bright),14px 0 0 var(--river-bright);}
+/* 主見出し — typography を第一屏の主役にする（2026-08-16、Editorial Transition 強化。
+   2026-08-17、字重を700に）。字号を拡大し行間を締め、字重を上げることで、
+   装飾なしで視覚的な重さを作る。DESIGN_TOKENS.md §3 と同期 */
+.L1-h1{font-size:clamp(32px,5.4vw,56px);line-height:1.22;margin:0 0 var(--s4);
+  letter-spacing:0;max-width:15em;font-weight:700;}
+.L1-lede{font-size:16px;color:var(--sub);margin:0;max-width:32em;line-height:1.8;}
+.L1-lede + .L1-lede{margin-top:var(--s3);}
+/* 継続観測そのものが差別化要因。第一屏で言い切る一句 */
+.L1-creed{font-size:17px;line-height:1.75;color:var(--ink);margin:var(--s4) 0 0;
+  padding-left:var(--s3);border-left:2px solid var(--river);max-width:28em;}
+
+/* Current Focus — 毎月書き換える。状態語は4つだけ
+   上の余白はmarginではなく.L1-coverのgap（--s9=45px）に任せる。
+   以前のmargin-top(--s6=30)+padding-top(--s3=15)=45と同じ量なので見た目は変わらない */
+.L1-focus{padding-top:var(--s3);border-top:1px solid var(--rule-1);}
+.L1-focus dt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);margin:0 0 var(--s1);}
+.L1-focus dd{margin:0;font-size:17px;line-height:1.6;}
+.L1-focus .state{display:block;font-size:12px;color:var(--faint);
+  margin-top:var(--s1);}
+
+/* 号数の帯 — 0/12 でも成立すること。L1-focusと行を共有するため上端で揃える */
+.L1-spine{align-self:start;}
+.L1-spine-h{font-size:11.5px;color:var(--faint);margin:0 0 var(--s2);}
+.L1-track{list-style:none;display:flex;padding:0;margin:0;position:relative;}
+.L1-track::before{content:"";position:absolute;top:3px;height:1px;
+  left:3.5px;right:calc((100% / 12) - 3.5px);background:var(--rule-3);}
+.L1-track li{flex:1;position:relative;}
+.L1-track .dot{position:relative;z-index:1;}
+/* hover/focus で状態ラベルを表示する（2026-08-16 追加）。title属性の値をそのまま出す。
+   装飾ではなく、常に埋まっている情報（月・状態）を必要な時だけ見せるだけ。
+   attr(title) は疑似要素の直接の親要素（.dot自身）の属性しか読めないため、
+   ::after は .dot に付ける（li にではない） */
+.L1-track .dot:hover::after,
+.L1-track .dot:focus-visible::after{
+  content:attr(title);
+  position:absolute;top:14px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:10px;letter-spacing:-.01em;color:var(--faint);
+  background:var(--paper);border:1px solid var(--rule-2);
+  padding:2px 5px;z-index:2;pointer-events:none;}
+.L1-track li:first-child .dot:hover::after,
+.L1-track li:first-child .dot:focus-visible::after{left:0;transform:none;}
+.L1-track li:last-child .dot:hover::after,
+.L1-track li:last-child .dot:focus-visible::after{left:auto;right:0;transform:none;}
+.L1-track .dot:focus-visible{outline:2px solid var(--river);outline-offset:3px;}
+.L1-ends{display:flex;justify-content:space-between;font-size:11px;
+  color:var(--faint);margin-top:7px;}
+.L1-spine-n{font-size:11.5px;color:var(--faint);margin:var(--s2) 0 0;
+  line-height:1.6;}
+
+/* 章 — 番号は左ガターにぶら下げる。等幅数字を図形の錨として使う。
+   章と章の境界は罫ではなく3点の区切りで示す */
+.L1-sec{display:grid;grid-template-columns:56px minmax(0,1fr) 240px;
+  column-gap:28px;row-gap:22px;padding:var(--s12) 0;
+  scroll-margin-top:var(--s4);}
+@media(max-width:1000px){.L1-sec{grid-template-columns:56px minmax(0,1fr);}}
+@media(max-width:700px){.L1-sec{grid-template-columns:40px minmax(0,1fr);
+  column-gap:14px;padding:var(--s9) 0;}}
+.L1-sec > *{grid-column:2;max-width:34em;margin:0;}
+.L1-sec:not(.is-last)::after{content:"";grid-column:1/-1;justify-self:center;
+  width:4px;height:4px;border-radius:50%;background:var(--river-bright);
+  margin-top:var(--s6);
+  box-shadow:-14px 0 0 var(--river-bright),14px 0 0 var(--river-bright);}
+.L1-no{grid-column:1;grid-row:1;font-size:28px;line-height:1;color:var(--rule-3);
+  max-width:none;padding-top:2px;}
+.L1-h2{grid-column:2;grid-row:1;font-size:20px;line-height:1.5;margin:0;
+  letter-spacing:.02em;padding-top:6px;}
+.L1-deck{font-size:clamp(19px,2vw,22px);line-height:1.6;color:var(--ink);
+  max-width:26em;}
+.L1-p{font-size:16px;color:var(--sub);}
+.L1-p + .L1-p{margin-top:var(--s3);}
+
+/* pill状の操作ボタン — 角丸禁止の例外（2026-08-17、DESIGN_PRINCIPLES.md決定記録）。
+   タグ・ボタンなどインタラクティブな最小操作単位に限る。塗りは使わない（罫のみ） */
+.L1-pill{display:inline-flex;align-items:center;font-size:13px;color:var(--ink);
+  border:1px solid var(--rule-3);border-radius:999px;padding:9px 20px;
+  text-decoration:none;background:transparent;margin-top:var(--s2);}
+.L1-pill:hover{border-color:var(--river);color:var(--river-dark);}
+.L1-note{grid-column:3;grid-row:2;max-width:none;font-size:12px;line-height:1.7;
+  color:var(--faint);border-top:1px solid var(--rule-2);padding-top:8px;}
+@media(max-width:1000px){.L1-note{grid-column:2;max-width:34em;}}
+.L1-note dl{margin:0;display:grid;grid-template-columns:auto 1fr;
+  gap:1px var(--s3);align-items:baseline;}
+.L1-note dt{color:var(--sub);}
+.L1-note dd{margin:0;}
+
+/* 観測図 — 塗り面を使わない。点・等幅数字・罫のみ */
+.L1-fig{grid-column:2 / -1;max-width:none;}
+@media(max-width:1000px){.L1-fig{grid-column:2;}}
+.L1-tbl{width:100%;border-collapse:collapse;}
+.L1-tbl caption{caption-side:top;text-align:left;font-size:12px;
+  color:var(--faint);padding-bottom:8px;}
+.L1-tbl th,.L1-tbl td{text-align:left;padding:9px 12px 9px 0;
+  border-bottom:1px solid var(--rule-1);vertical-align:top;}
+.L1-tbl thead th{font-size:11.5px;font-weight:500;color:var(--faint);
+  border-bottom:1px solid var(--rule-3);padding-bottom:6px;white-space:nowrap;}
+.L1-tbl th[scope=row]{font-size:14px;font-weight:500;white-space:nowrap;
+  padding-right:var(--s4);}
+.L1-tbl tbody tr:last-child th,.L1-tbl tbody tr:last-child td{border-bottom:0;}
+.L1-lead{display:flex;align-items:center;gap:7px;font-size:13.5px;
+  color:var(--sub);white-space:nowrap;line-height:1.4;}
+.L1-tbl td[data-s=self] .L1-lead{color:var(--ink);}
+.L1-pct{display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;
+  margin-top:3px;padding-left:14px;letter-spacing:-.02em;}
+/* 注釈は3つに分けて置く。一続きの長文は読まれない */
+.L1-cap{font-size:12px;color:var(--faint);line-height:1.7;margin-top:var(--s3);
+  padding-top:9px;border-top:1px solid var(--rule-1);max-width:46em;}
+.L1-cap dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:var(--s1) var(--s3);align-items:baseline;}
+.L1-cap dt{color:var(--sub);white-space:nowrap;}
+.L1-cap dd{margin:0;}
+.L1-caveat{margin:var(--s2) 0 0;}
+/* 2位との差。首位を確定として扱えないセルにだけ出る */
+.L1-gap{display:block;font-size:11px;color:var(--faint);
+  padding-left:14px;line-height:1.5;margin-top:1px;}
+
+/* 書庫 — reports/index.html 用。首頁には置かない。
+   首頁の仕事は「ここは何をしている場所か」であって文書の取り出しではない。
+   未刊の行を消さないこと（埋まっていく過程が見えてこそ書庫になる） */
+.L1-archive{list-style:none;padding:0;margin:0;}
+.L1-year{font-size:11.5px;color:var(--faint);letter-spacing:.1em;
+  padding:var(--s3) 0 var(--s1);border-bottom:1px solid var(--rule-3);}
+.L1-archive > li:first-child .L1-year{padding-top:0;}
+/* 行ごとの罫は引かない（2026-08-04の決定：同じ形の行が連続するリストは
+   区切りを余白だけで行う。Latest Articles等と同じ扱いにする） */
+.L1-row{display:grid;grid-template-columns:38px minmax(0,1fr);gap:var(--s3);
+  padding:9px 0;align-items:baseline;}
+.L1-row .m{font-size:12px;color:var(--faint);}
+.L1-row .t{font-size:14px;}
+.L1-row[data-s=pending] .t{color:var(--faint);}
+.L1-row .no{font-size:11.5px;color:var(--faint);margin-left:var(--s2);}
+
+/* 最新（Latest Articles） */
+.L1-latest{list-style:none;padding:0;margin:0 0 var(--s5);}
+.L1-latest li{display:flex;flex-wrap:wrap;align-items:flex-start;gap:0 var(--s3);
+  padding:var(--s3) 0;}
+.L1-latest .n{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);flex:0 0 auto;width:9em;}
+.L1-latest .t{font-size:15px;line-height:1.6;color:var(--ink);border-bottom:1px solid var(--rule-2);}
+.L1-latest .t:hover{border-color:var(--river);}
+@media(max-width:640px){
+  .L1-latest .n{width:auto;display:block;margin-bottom:2px;}
+}
+
+/* 一覧 */
+.L1-taxo{list-style:none;padding:0;margin:0;}
+.L1-taxo li{display:grid;grid-template-columns:minmax(0,1fr) 96px;
+  gap:6px var(--s4);padding:var(--s4) 0;
+  align-items:start;}
+.L1-taxo .n{font-size:14.5px;color:var(--ink);}
+
+.n .gloss{display:block;font-size:11px;letter-spacing:0;text-transform:none;
+  color:var(--faint);font-weight:400;margin-top:2px;}
+.L1-taxo .q{font-size:12.5px;color:var(--faint);margin-left:var(--s2);}
+.L1-taxo .d{font-size:13.5px;color:var(--sub);line-height:1.65;
+  grid-column:1;margin-top:2px;}
+.L1-taxo .c{grid-column:2;grid-row:1;display:flex;align-items:center;gap:7px;
+  justify-content:flex-end;font-size:12px;color:var(--faint);}
+@media(max-width:640px){
+  .L1-taxo li{grid-template-columns:1fr;}
+  .L1-taxo .c{grid-column:1;grid-row:auto;justify-content:flex-start;}
+}
+
+/* 購読 — 塗りボタンを使わない */
+.L1-insights{list-style:none;padding:0;margin:var(--s3) 0 0;}
+.L1-insights li{display:flex;gap:var(--s3);align-items:baseline;
+  padding:var(--s2) 0;}
+.L1-insights .n{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);flex:0 0 auto;width:5.5em;}
+.L1-insights p{margin:0;font-size:15.5px;color:var(--ink);line-height:1.7;}
+
+/* grid-row:2 固定だと、同じ行にある左カラムの短い段落に高さを合わせるため、
+   右カラムの長文がその1行に押し込まれ、行そのものが縦に伸びて左カラム側に
+   大きな空白ができる（Grid は同じ行番号の中で一番背の高いセルに行の高さを揃えるため）。
+   左カラムの項目数（本文＋Newsletter＝2つ）に合わせてspanし、伸びる分を分散する */
+.L1-aside{grid-column:3;grid-row:2 / span 2;max-width:none;}
+/* 狭幅ではgrid-rowの固定を解いて自然な流し込みに戻す。DOM順（=読了順）どおり最後に来る */
+@media(max-width:1000px){.L1-aside{grid-column:2;grid-row:auto;max-width:34em;}}
+
+/* 240px幅の右カラムに置くため、dt/ddは横並びグリッドではなく縦積み
+   （.L1-focus と同じ組み方。狭い列で横二段にすると詰まって見えるため） */
+.L1-meta{font-size:12px;line-height:1.7;}
+.L1-meta dl{margin:0;}
+.L1-meta dt{color:var(--sub);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;margin:var(--s4) 0 var(--s1);}
+.L1-meta dt:first-of-type{margin-top:0;}
+/* 同じdtの下に複数ddを置いて段落を分けられる（dl構文上正当）。
+   段落間はs2、話題（dt）が変わるところはdtのmargin-topでs4に広がる（隣接マージンの相殺） */
+.L1-meta dd{margin:0 0 var(--s2);}
+.L1-meta dd:last-of-type{margin-bottom:0;}
+/* 括弧内の例示は本文に埋め込まず、注釈として本文の下に小さく出す */
+.L1-meta small{display:block;font-size:11px;color:var(--faint);margin-top:4px;}
+
+.L1-sub{border-top:1px solid var(--rule-2);padding-top:var(--s3);}
+.L1-sub p{margin:0 0 4px;font-size:14px;}
+.L1-sub .s{font-size:12px;color:var(--faint);margin-bottom:var(--s3);}
+.L1-form{display:flex;max-width:26em;border:1px solid var(--rule-3);}
+.L1-form input{flex:1;min-width:0;padding:10px var(--s3);font:inherit;font-size:16px;
+  border:0;background:transparent;color:var(--ink);}
+.L1-form input:focus{outline:none;}
+.L1-form button{border:0;border-left:1px solid var(--rule-3);background:transparent;
+  cursor:pointer;font:inherit;font-size:13px;color:var(--river);padding:10px var(--s3);}
+.L1-form button:hover{color:var(--river-dark);background:var(--rule-1);}
+
+/* ============================================================
+   6. L2 — 読み物（Reading）
+   版面を後退させ、文字を主役にする。単段・中央・和文明朝
+   ※ reports/ の移行は第0号発行後
+   ============================================================ */
+.L2-wrap{max-width:var(--w-l2);margin:0 auto;padding:0 var(--s4);}
+.L2-head{padding:var(--s12) 0 0;}
+.L2-back{font-size:12.5px;color:var(--sub);border:0;}
+.L2-title{font-size:23px;line-height:1.75;font-weight:500;
+  margin:var(--s4) 0 var(--s3);}
+.L2-meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11.5px;
+  color:var(--faint);margin:0;padding-top:9px;border-top:1px solid var(--rule-3);
+  display:flex;gap:var(--s4);flex-wrap:wrap;}
+/* 記事のタグ行 — /topics/<slug>/ への導線。.L2-meta の直後に置く。
+   L2 の既存クラスには一切触れていない（追加のみ）。
+   タグは _lab/scripts/build_topics.py の ARTICLES が正本。 */
+.L2-tags{margin:var(--s3) 0 0;padding:0;display:flex;gap:var(--s3);flex-wrap:wrap;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;}
+.L2-tags a{color:var(--sub);border-bottom:1px solid var(--rule-2);}
+.L2-tags a:hover{color:var(--river);border-bottom-color:var(--river);}
+
+/* 目次 — 「← Reports／タイトル／目次／本文」の一つ。Report 型のみ
+   上の罫は引かない。直前の.L2-metaがすでに区切りの罫を持っており、
+   すぐ下にもう一本引くと題字欄まわりに罫が3本連続してしまうため（--s4の余白だけで区切る） */
+.L2-toc{list-style:none;padding:0 0 var(--s3);margin:var(--s4) 0 0;
+  border-bottom:1px solid var(--rule-2);font-size:13px;}
+.L2-toc li{padding:3px 0;}
+.L2-toc a{color:var(--sub);border:0;}
+.L2-toc a:hover{color:var(--river);}
+.L2-toc .num{color:var(--faint);margin-right:var(--s2);}
+
+/* 追従目次 — 広い画面の左余白に置く。組幅680pxはここでは変えない。
+   狭い画面では出さない（.L2-toc が同じ役割を持つため二重にしない） */
+.L2-rail{display:none;}
+@media(min-width:1280px){
+  .L2-rail{display:block;position:fixed;top:120px;
+    left:calc(50% - 340px - 200px);width:180px;
+    max-height:70vh;overflow-y:auto;}
+  .L2-rail ol{list-style:none;padding:0;margin:0;text-align:right;}
+  .L2-rail li{padding:3px 0;}
+  .L2-rail a{display:block;font-size:12px;line-height:1.5;color:var(--faint);
+    border:0;}
+  .L2-rail a:hover{color:var(--river);}
+  /* 追従目次が出る画面幅では、冒頭の静的目次は二重になるため隠す */
+  .L2-toc{display:none;}
+}
+
+/* 題字欄の上段 — 戻るリンクと言語切替を横並びにする */
+.L2-headrow{display:flex;justify-content:space-between;align-items:baseline;
+  flex-wrap:wrap;gap:var(--s3);}
+.L2-lang{display:flex;gap:var(--s3);font-size:11.5px;}
+.L2-lang a{color:var(--faint);border:0;}
+.L2-lang a:hover{color:var(--river);}
+.L2-lang [aria-current]{color:var(--ink);}
+
+/* ページ上部へ戻る — 長い記事のみ。スクロール後に現れる */
+.L2-top{position:fixed;right:var(--s4);bottom:var(--s4);z-index:10;
+  font-family:'Libre Franklin',sans-serif;font-size:12px;color:var(--faint);
+  border:0;line-height:1;opacity:0;pointer-events:none;
+  transition:opacity .15s;}
+.L2-top.is-visible{opacity:1;pointer-events:auto;}
+.L2-top:hover{color:var(--river);}
+.L2-top .arrow{display:block;font-size:18px;text-align:center;margin-bottom:2px;}
+@media print{.L2-top{display:none;}}
+
+.L2-body{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN",
+  "Noto Sans JP",sans-serif;font-weight:400;font-size:17px;line-height:32px;}
+.L2-body h2{font-family:'Libre Franklin',sans-serif;font-size:15px;
+  font-weight:500;letter-spacing:.04em;margin:var(--s12) 0 var(--s3);
+  padding-bottom:7px;border-bottom:1px solid var(--rule-3);}
+.L2-body p{margin:0 0 var(--s3);color:var(--sub);}
+/* Abstract — Report 型冒頭の要旨。本文と字重で区別する。装飾は使わない */
+.L2-abs{font-weight:500;color:var(--ink);}
+/* 正文内の † 参照。注は文末 .L2-notes に置く */
+.L2-notes .ref{font-family:'Libre Franklin',sans-serif;color:var(--faint);
+  text-decoration:none;border:0;}
+sup.L2-fn{font-size:.75em;color:var(--faint);margin-left:1px;}
+sup.L2-fn a{color:inherit;border:0;}
+.L2-body table{width:100%;border-collapse:collapse;
+  font-family:'Libre Franklin',sans-serif;font-size:13px;margin:var(--s4) 0;}
+.L2-body th,.L2-body td{text-align:left;padding:8px 10px 8px 0;
+  border-bottom:1px solid var(--rule-1);}
+.L2-body thead th{font-size:10.5px;font-weight:400;color:var(--faint);
+  letter-spacing:.06em;text-transform:uppercase;
+  border-bottom:1px solid var(--rule-3);}
+.L2-notes{font-family:'Libre Franklin',sans-serif;font-size:11.5px;
+  color:var(--faint);line-height:1.85;margin:var(--s3) 0 0;padding:0;
+  list-style:none;}
+.L2-notes li{padding-left:16px;text-indent:-16px;}
+/* 末尾は号のつながりで閉じる。関連記事カードを置かない */
+.L2-serial{display:flex;justify-content:space-between;gap:var(--s4);
+  flex-wrap:wrap;margin:var(--s12) 0 var(--s9);padding-top:var(--s3);
+  border-top:1px solid var(--rule-3);font-size:13px;}
+.L2-serial .lbl{display:block;font-size:11px;color:var(--faint);}
+
+/* ============================================================
+   7. 印刷
+   Report 型はページと配布 PDF が同一の対象物であること
+   ============================================================ */
+@media print{
+  body{font-size:10.5pt;line-height:1.7;background:#fff;}
+  header.site,.L1-sub,.L1-form,.L2-back,.L2-serial,
+  .L1-spine,.L1-focus{display:none;}
+  a{color:#000;border-bottom:1px solid #999;}
+  .L2-wrap,.L1-wrap{max-width:none;padding:0;}
+  footer{background:none;color:#000;border-top:1px solid #999;padding:24px 0 0;}
+  footer h4,footer a,footer .gl,.foot-bottom{color:#000;}
+  figure,table{break-inside:avoid;page-break-inside:avoid;}
+  h1,h2,.L1-h2,.L2-body h2{break-after:avoid;page-break-after:avoid;}
+  .L1-cap,.L2-notes{font-size:8.5pt;}
+}

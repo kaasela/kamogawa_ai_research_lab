@@ -23,7 +23,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://kaasela.com/assets/og-image.png">
 <link rel="stylesheet" href="/assets/fonts.css">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/home.css">
+<link rel="stylesheet" href="/assets/reading.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script type="application/ld+json">
 {
@@ -53,17 +54,29 @@
 <script data-goatcounter="https://kaasela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
+
+<header class="site">
+  <div class="shell site-row">
+    <div>
+      <a class="logo" href="/zh-cn/">K<span class="u">ää</span>selä</a>
+      <div class="logo-sub">Kamogawa AI Search Lab — Kyoto</div>
+    </div>
+    <nav class="primary">
+      <a href="/zh-cn/reports/" aria-current="page">月报</a>
+      <a href="/zh-cn/topics/">按主题浏览</a>
+      <a href="/check/">免费检测（日语）</a>
+      <a href="/zh-cn/#about">关于 Kääselä</a>
+      <a href="/zh-cn/#contact" class="ghost">邮件通讯与联系</a>
+      <span class="langs"><a href="/reports/api-vs-web-visibility/" hreflang="ja">JA</a><a href="/en/reports/api-vs-web-visibility/" hreflang="en">EN</a><a href="/zh-cn/reports/api-vs-web-visibility/" hreflang="zh-Hans" aria-current="true">简中</a><a href="/zh-tw/reports/api-vs-web-visibility/" hreflang="zh-Hant">繁中</a></span>
+    </nav>
+  </div>
+</header>
+
 <div class="L2-wrap">
 
   <header class="L2-head">
     <div class="L2-headrow">
       <a class="L2-back" href="/zh-cn/reports/">← Reports</a>
-      <nav class="L2-lang" aria-label="语言">
-        <a href="/reports/api-vs-web-visibility/">日本語</a>
-        <a href="/en/reports/api-vs-web-visibility/">English</a>
-        <a href="/zh-cn/reports/api-vs-web-visibility/" aria-current="true">简体中文</a>
-        <a href="/zh-tw/reports/api-vs-web-visibility/">繁體中文</a>
-      </nav>
     </div>
     <h1 class="L2-title">拿API测AI能见度，<br>「是彻头彻尾的错误」</h1>
     <p class="L2-meta">
@@ -191,11 +204,11 @@
 
 </div>
 
-<footer class="L1-foot">
-  <div class="L1-foot-inner">
-    <div class="L1-foot-grid">
+<footer>
+  <div class="shell g12">
+    <div class="foot-grid">
       <nav>
-        <h3>Site</h3>
+        <h4>Site</h4>
         <ul>
           <li><a href="/zh-cn/reports/">Reports<span class="gl">报告</span></a></li>
           <li><a href="/zh-cn/topics/">Topics<span class="gl">按主题浏览</span></a></li>
@@ -203,7 +216,7 @@
         </ul>
       </nav>
       <nav>
-        <h3>Languages</h3>
+        <h4>Languages</h4>
         <ul>
             <li><a href="/" hreflang="ja">日本語</a></li>
             <li><a href="/en/" hreflang="en">English</a></li>
@@ -212,12 +225,12 @@
         </ul>
       </nav>
       <div>
-        <h3>Get in touch</h3>
-        <a class="L1-foot-mail" href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
+        <h4>Get in touch</h4>
+        <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
       </div>
     </div>
-    <div class="L1-foot-bottom">
-      <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span> — Kamogawa AI Search Lab, Kyoto</span>
+    <div class="foot-bottom">
+      <span>K<span style="color:var(--accent-on-dark)">ää</span>selä — Kamogawa AI Search Lab, Kyoto</span>
       <span>© 2026 Kääselä　／　观测数据采用 <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>　／　<a href="/zh-cn/privacy/">隐私政策</a></span>
     </div>
   </div>
