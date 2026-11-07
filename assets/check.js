@@ -24,7 +24,7 @@
   };
 
   function why(code) {
-    var m = { dns: 'ドメインが見つかりません', timeout: 'タイムアウト', tls: 'HTTPS の証明書を確認できません', connection: '接続できません', blocked: '公開サーバーに接続していないドメインです', 'redirect-limit': 'リダイレクトが5回を超えました', budget: '確認の回数上限に達しました', 'http-401': '401', 'http-403': '403', 'http-429': '429', 'http-5xx': 'サーバーエラー' };
+    var m = { dns: 'ドメインが見つかりません', timeout: 'タイムアウト', tls: 'HTTPS の証明書を確認できません', connection: '接続できません', blocked: '公開サーバーに接続していないドメインです', 'redirect-limit': 'リダイレクトが5回を超えました', budget: '確認の回数上限に達しました', 'http-401': '401', 'http-403': '403', 'http-429': '429', 'http-5xx': 'サーバーエラー', 'robots-invalid': 'robots.txt の形ではない応答が返りました' };
     return m[code] || code;
   }
   function pageUnknown(code) {

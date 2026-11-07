@@ -48,9 +48,21 @@ export function robotsDecision(parsed, token, path) {
   return best ? { allowed: best.allow, rule: best.pattern, group } : { allowed: true, rule: null, group };
 }
 
+// 2xx but the body is not a robots.txt (e.g. an HTML challenge/login page served to our fetcher).
+// Empty or comment-only bodies are valid (no rules). A non-empty body with no robots directive at all is not.
+export function looksLikeRobots(text) {
+  const lines = String(text).replace(/^\uFEFF/, '').split(/\r\n|\n|\r/)
+    .map((l) => l.split('#')[0].trim()).filter(Boolean);
+  if (lines.length === 0) return true;
+  return lines.some((l) => /^(user-agent|allow|disallow|sitemap|crawl-delay|host)\s*:/i.test(l));
+}
+
 // HTTP status -> how the crawler must treat robots.txt (RFC 9309 §2.3.1)
 export function classifyRobotsResponse(status, bodyText) {
-  if (status >= 200 && status < 300) return { kind: 'present', parsed: parseRobots(bodyText) };
+  if (status >= 200 && status < 300) {
+    if (!looksLikeRobots(bodyText)) return { kind: 'invalid' };
+    return { kind: 'present', parsed: parseRobots(bodyText) };
+  }
   if (status === 401 || status === 403 || status === 429) return { kind: 'denied', status };
   if (status >= 400 && status < 500) return { kind: 'absent' };
   return { kind: 'unavailable', status };

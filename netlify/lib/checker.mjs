@@ -58,6 +58,10 @@ export async function runCheck(input, deps = {}) {
     out.items.robots = { status: d.allowed ? 'pass' : 'fail', state: 'present', rule: d.rule, group: d.group };
   } else if (cls.kind === 'absent') {
     out.items.robots = { status: 'pass', state: 'absent' };
+  } else if (cls.kind === 'invalid') {
+    out.items.robots = unknown('robots-invalid');
+    skipRest('robots-unavailable');
+    return out;
   } else if (cls.kind === 'denied') {
     out.items.robots = unknown(`http-${cls.status}`);
   } else {
