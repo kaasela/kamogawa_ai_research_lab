@@ -20,78 +20,86 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://kaasela.com/assets/og-image.png">
 <link rel="stylesheet" href="/assets/fonts.css">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/home.css">
 <link rel="stylesheet" href="/assets/check.css">
 <link rel="icon" type="image/svg+xml" href="/assets/kaasela-favicon.svg">
 <script data-goatcounter="https://kaasela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
-<div class="L2-wrap">
 
-  <header class="L2-head">
-    <a class="L2-back" href="/check/">← AI検索のアクセス条件チェック</a>
-    <h1 class="jp L2-title">KaaselaChecker について</h1>
-  </header>
+<header class="site">
+  <div class="shell site-row">
+    <div>
+      <a class="logo" href="/">K<span class="u">ää</span>selä</a>
+      <div class="logo-sub">Kamogawa AI Search Lab — Kyoto</div>
+    </div>
+    <nav class="primary">
+      <a href="/reports/">月次レポート</a>
+      <a href="/topics/">話題から探す</a>
+      <a href="/check/">無料チェック</a>
+      <a href="/#about">Kääselä とは</a>
+      <a href="/#news" class="ghost">ニュースレター・お問い合わせ</a>
+      <span class="langs"><a href="/" hreflang="ja" aria-current="true">JA</a><a href="/en/" hreflang="en">EN</a><a href="/zh-cn/" hreflang="zh-Hans">简中</a><a href="/zh-tw/" hreflang="zh-Hant">繁中</a></span>
+    </nav>
+  </div>
+</header>
 
-  <article class="L2-body">
-
-    <p class="L2-abs">KaaselaChecker は、Kääselä（Kamogawa AI Search Lab）の「AI検索のアクセス条件チェック」が使う取得プログラムです。入力されたウェブサイトにアクセスし、AI 検索に関係する基本的な設定を確認します。</p>
-
-    <ul class="chk-list">
-      <li><strong>アクセス時の名前：</strong>KaaselaChecker（User-Agent にこの説明ページのURLを含みます）</li>
-      <li><strong>確認する情報：</strong>入力されたドメインの robots.txt、sitemap.xml、llms.txt、トップページのHTML。1回のチェックにつき数回アクセスします。</li>
-      <li><strong>アクセスのルール：</strong>対象サイトの robots.txt で KaaselaChecker またはすべてのクローラーの取得が禁止されている場合、トップページ、sitemap.xml、llms.txt は取得しません。過剰なアクセスを防ぐため、回数制限を設けています。</li>
-      <li><strong>アクセスを禁止する方法：</strong>robots.txt に <code>User-agent: KaaselaChecker</code> と <code>Disallow: /</code> を記述してください。</li>
-      <li><strong>IPアドレス：</strong>アクセス元のIPアドレスは固定ではありません。</li>
-      <li><strong>お問い合わせ：</strong><a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></li>
-    </ul>
-
-  </article>
-
-</div>
-
-<footer class="L1-foot">
-  <div class="L1-foot-inner">
-    <div class="L1-foot-grid">
-      <nav>
-        <h3>Site</h3>
-        <ul>
-          <li><a href="/reports/">Reports<span class="gl">レポート</span></a></li>
-          <li><a href="/topics/">Topics<span class="gl">話題から探す</span></a></li>
-          <li><a href="/check/">Check<span class="gl">AI検索のアクセス条件チェック</span></a></li>
-          <li><a href="/#about">About<span class="gl">このプロジェクトについて</span></a></li>
-        </ul>
-      </nav>
-      <nav>
-        <h3>Languages</h3>
-        <ul>
-            <li><a href="/" hreflang="ja" aria-current="true">日本語</a></li>
-            <li><a href="/en/" hreflang="en">English</a></li>
-            <li><a href="/zh-cn/" hreflang="zh-Hans">简体中文</a></li>
-            <li><a href="/zh-tw/" hreflang="zh-Hant">繁體中文</a></li>
-        </ul>
-      </nav>
-      <div>
-        <h3>Get in touch</h3>
-        <a class="L1-foot-mail" href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
+<main>
+  <section class="chk-hero">
+    <div class="shell">
+      <div class="chk-col">
+        <p class="eyebrow"><a href="/check/" style="text-decoration:none">← AI検索のアクセス条件チェック</a></p>
+        <h1>KaaselaChecker について</h1>
+        <p class="chk-lede">KaaselaChecker は、Kääselä（Kamogawa AI Search Lab）の「AI検索のアクセス条件チェック」が使う取得プログラムです。入力されたウェブサイトにアクセスし、AI 検索に関係する基本的な設定を確認します。</p>
       </div>
     </div>
-    <div class="L1-foot-bottom">
-      <span class="fname">K<span class="u">ää</span>sel<span class="u">ä</span> — Kamogawa AI Search Lab, Kyoto</span>
-      <span>© 2026 Kääselä　／　観測データは <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>　／　<a href="/privacy/">プライバシーポリシー</a></span>
+  </section>
+  <section>
+    <div class="shell">
+      <dl class="chk-terms chk-col" style="margin-top:8px">
+        <div><dt>アクセス時の名前</dt><dd>KaaselaChecker（User-Agent にこの説明ページのURLを含みます）</dd></div>
+        <div><dt>確認する情報</dt><dd>入力されたドメインの robots.txt、sitemap.xml、llms.txt、トップページのHTML。1回のチェックにつき数回アクセスします。</dd></div>
+        <div><dt>アクセスのルール</dt><dd>対象サイトの robots.txt で KaaselaChecker またはすべてのクローラーの取得が禁止されている場合、トップページ、sitemap.xml、llms.txt は取得しません。過剰なアクセスを防ぐため、回数制限を設けています。</dd></div>
+        <div><dt>アクセスを禁止する方法</dt><dd>robots.txt に <code>User-agent: KaaselaChecker</code> と <code>Disallow: /</code> を記述してください。</dd></div>
+        <div><dt>IPアドレス</dt><dd>アクセス元のIPアドレスは固定ではありません。</dd></div>
+        <div><dt>お問い合わせ</dt><dd><a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="shell g12">
+    <div class="foot-grid">
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="/reports/">Reports</a></li>
+          <li><a href="/topics/">Topics</a></li>
+          <li><a href="/check/">Check</a></li>
+          <li><a href="/#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Languages</h4>
+        <ul>
+          <li><a href="/" hreflang="ja" aria-current="true">日本語</a></li>
+          <li><a href="/en/" hreflang="en">English</a></li>
+          <li><a href="/zh-cn/" hreflang="zh-Hans">简体中文</a></li>
+          <li><a href="/zh-tw/" hreflang="zh-Hant">繁體中文</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="mailto:kamogawa.ai.lab@gmail.com">kamogawa.ai.lab@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>K<span style="color:var(--accent-on-dark)">ää</span>selä — Kamogawa AI Search Lab, Kyoto</span>
+      <span>© <span class="num">2026</span> Kääselä　／　観測データは <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>　／　<a href="/privacy/">プライバシーポリシー</a></span>
     </div>
   </div>
 </footer>
 
-<a href="#" class="L2-top" id="l2top" aria-label="ページ上部に戻る"><span class="arrow" aria-hidden="true">↑</span>Top</a>
-<script>
-(function(){
-  var btn=document.getElementById('l2top');
-  if(!btn)return;
-  window.addEventListener('scroll',function(){
-    btn.classList.toggle('is-visible', window.scrollY > 600);
-  },{passive:true});
-})();
-</script>
 </body>
 </html>

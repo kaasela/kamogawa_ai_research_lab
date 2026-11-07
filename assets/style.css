@@ -33,9 +33,13 @@
   --rule-1:#E6E4E0;
   --rule-2:#CFCCC7;
   --rule-3:#8C8880;
-  --river:#0F7C95;
-  --river-dark:#0A5161;
-  --river-bright:#099DB3; /* 図形専用（点・大型等幅数字）。テキストには使わない。3:1基準 */
+  /* 2026-11-08 更新（home.css と同じ二役。旧 #0F7C95／#0A5161／#099DB3）
+     river        文字用（リンク・hover）  白地 5.4:1
+     river-bright 面・図形用（点・落款・フッター太線）#139AAB。白地 3.4:1（3:1基準）
+                  上に載せる文字は黒。黒地の文字にも使える（#111 に対し約5.9:1） */
+  --river:#00748D;
+  --river-dark:#00566B;
+  --river-bright:#139AAB;
 
   /* フッター専用（--ink背景の反転。2026-08-17） */
   --foot-ink:#FFFFFF;
@@ -123,7 +127,9 @@ a:hover{color:var(--river-dark);border-bottom-color:var(--river);}
 .L1-title{display:flex;flex-direction:column;align-items:center;gap:var(--s2);}
 .L1-name{font-size:clamp(44px,7vw,68px);line-height:1;letter-spacing:.03em;margin:0;
   font-weight:500;color:var(--ink);border:0;}
-.L1-name .u{color:var(--river);}
+.L1-name .u{background:var(--river-bright);color:var(--ink);padding:0 .06em;margin:0 .02em;border-radius:3px;}
+/* 落款は先頭の ää だけ。en/zh の題字は末尾の ä にも .u が付いているので、そちらは地色のまま */
+.L1-name .u:not(:first-of-type){background:none;color:inherit;padding:0;margin:0;border-radius:0;}
 a.L1-name:hover{color:var(--ink);}
 .L1-tagline{font-size:12px;letter-spacing:.12em;text-transform:uppercase;
   color:var(--faint);margin:0;}
@@ -372,7 +378,7 @@ a.L1-name:hover{color:var(--ink);}
    2026-08-17：地の色だけ--inkに変えて文字色を指定していなかったため、
    31ページで黒地に黒文字（コントラスト1:1）になっていた。色を明示して修正。 */
 .L1-foot{background:var(--ink);color:var(--foot-sub);
-  margin-top:var(--s9);padding:var(--s9) 0 var(--s6);}
+  margin-top:var(--s9);padding:var(--s9) 0 var(--s6);border-top:6px solid var(--river-bright);}
 .L1-foot-inner{max-width:var(--w-l1);margin:0 auto;padding:0 var(--s4);}
 @media(min-width:761px){.L1-foot-inner{padding:0 var(--s9);}}
 
