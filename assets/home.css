@@ -4,7 +4,7 @@
    /assets/style.css は L2（記事・レポート）と en/zh-tw/zh-cn の
    トップページが共有しているため、こちらでは読み込まない・変更しない。
    ------------------------------------------------------------
-   アクセント（鴨川水色 #3C7688）の出現箇所は意図的に絞っている：
+   アクセント（鴨川水色）の出現箇所は意図的に絞っている：
    ロゴの ää ／ 各節の短罫 ／ hero 右欄の上罫 ／ リンクと hover ／
    フォーカス輪郭 ／ pill の hover ／ 送信ボタン ／ フッターの ää。
    1画面に見えるアクセントは最大2箇所。データ図には使わない
@@ -26,10 +26,11 @@
 
   /* 鴨川水色。DESIGN_PRINCIPLES v3.5 で唯一のブランド色として
      残っているもの。廃止済みの River Blue #4A90A4 ではない。
-     白地でのコントラスト比 5.08:1（AA適合）
-     黒地には明るい派生色を使う。#111 に対し 9.35:1 */
-  --accent:#3C7688;
-  --accent-on-dark:#8FBECB;
+     2026-11-08 に二役へ分離：文字用 --accent #00748D（旧 #3C7688）、
+     面・罫用 --fill #139AAB。旧値は _lab/_bak-2026-11-08/home.css.pre-color */
+  --accent:#00748D;          /* 文字用：リンク・hover・小字。白地 5.4:1。白字を載せるhoverも可 */
+  --accent-on-dark:#139AAB;  /* 黒地用。#111 に対し約 5.9:1 */
+  --fill:#139AAB;            /* 面・罫用：落款・短罫・フッター太線。上に載せる文字は黒（約 5.5:1）。白字は不可 */
 
   --mono:'IBM Plex Mono',monospace;
   --sans:'Libre Franklin','Zen Kaku Gothic New',sans-serif;
@@ -66,7 +67,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 header.site{padding:28px 0 20px;border-bottom:1px solid var(--line);}
 .site-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;}
 .logo{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.01em;text-decoration:none;}
-.logo .u{color:var(--accent);}
+.logo .u{background:var(--fill);color:var(--ink);padding:0 3px;margin:0 1px;border-radius:2px;}
 .logo-sub{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:2px;}
 nav.primary{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
 nav.primary a{font-family:var(--sans);font-size:14px;text-decoration:none;transition:color .18s ease;}
@@ -82,7 +83,7 @@ section{padding:100px 0;}
   font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
   color:var(--ink);display:flex;align-items:center;gap:10px;margin-bottom:22px;
 }
-.eyebrow::before{content:"";width:20px;height:1px;background:var(--accent);display:inline-block;}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--fill);display:inline-block;}
 
 .pill{
   display:inline-flex;align-items:center;gap:10px;
@@ -308,7 +309,7 @@ a.topic-card:focus-visible{outline:none;}
 @media(max-width:900px){.contact-l,.contact-r{grid-column:1/-1;}.contact-r{margin-top:22px;}}
 
 /* ---------- footer ---------- */
-footer{background:var(--d-bg);color:var(--d-text);padding:64px 0 28px;}
+footer{background:var(--d-bg);color:var(--d-text);padding:64px 0 28px;border-top:6px solid var(--fill);}
 .foot-grid{grid-column:1/13;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
 footer h4{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--d-faint);margin:0 0 14px;}
 footer ul{list-style:none;margin:0;padding:0;}
