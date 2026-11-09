@@ -26,11 +26,12 @@
 
   /* 鴨川水色。DESIGN_PRINCIPLES v3.5 で唯一のブランド色として
      残っているもの。廃止済みの River Blue #4A90A4 ではない。
-     2026-11-08 に二役へ分離：文字用 --accent #00748D（旧 #3C7688）、
-     面・罫用 --fill #139AAB。旧値は _lab/_bak-2026-11-08/home.css.pre-color */
-  --accent:#00748D;          /* 文字用：リンク・hover・小字。白地 5.4:1。白字を載せるhoverも可 */
-  --accent-on-dark:#139AAB;  /* 黒地用。#111 に対し約 5.9:1 */
-  --fill:#139AAB;            /* 面・罫用：落款・短罫・フッター太線。上に載せる文字は黒（約 5.5:1）。白字は不可 */
+     2026-11-08 に二役へ分離。2026-11-09 に色相を「碧」（青と緑の混色）へ変更：
+     文字用 --accent #1E6E6B、面・罫用 --fill #4FA3A0。
+     旧値 #00748D／#139AAB は _lab/_bak-2026-11-09/、さらに前の #3C7688 は _lab/_bak-2026-11-08/ */
+  --accent:#1E6E6B;          /* 文字用：リンク・hover・小字。白地 約5.9:1。白字を載せるhoverも可 */
+  --accent-on-dark:#4FA3A0;  /* 黒地用。#111 に対し約 6.4:1 */
+  --fill:#4FA3A0;            /* 面・罫用：落款・短罫・フッター太線。上に載せる文字は黒（約 7:1）。白字は不可 */
 
   --mono:'IBM Plex Mono',monospace;
   --sans:'Libre Franklin','Zen Kaku Gothic New',sans-serif;
