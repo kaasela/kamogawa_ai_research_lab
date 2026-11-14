@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>拿API测AI能见度，「是彻头彻尾的错误」｜Kääselä</title>
-<meta name="description" content="京都和服租赁副研究：ChatGPT的引用来源，网页版和API完全是两回事。网页版占引用九成的联盟站，API跑了20次一次都没出现。Surfer、Luxeo Team、汉堡大学的独立测试都指向同一个方向。">
+<meta name="description" content="京都和服租赁副研究：ChatGPT的引用来源，网页版和API完全是两回事。网页版20次里被引用18次的联盟站，API跑了20次一次都没出现。Surfer、Luxeo Team、汉堡大学的独立测试都指向同一个方向。">
 <link rel="canonical" href="https://kaasela.com/zh-cn/reports/api-vs-web-visibility/">
 <link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/api-vs-web-visibility/">
 <link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/api-vs-web-visibility/">
@@ -32,7 +32,7 @@
   "@type": "Article",
   "headline": "拿API测AI能见度，「是彻头彻尾的错误」",
   "alternativeHeadline": "两个独立团队这么说，这次的和服租赁副研究也印证了这一点",
-  "description": "京都和服租赁副研究：ChatGPT的引用来源，网页版和API完全是两回事。网页版占引用九成的联盟站，API跑了20次一次都没出现。Surfer、Luxeo Team、汉堡大学的独立测试都指向同一个方向。",
+  "description": "京都和服租赁副研究：ChatGPT的引用来源，网页版和API完全是两回事。网页版20次里被引用18次的联盟站，API跑了20次一次都没出现。Surfer、Luxeo Team、汉堡大学的独立测试都指向同一个方向。",
   "datePublished": "2026-08-11",
   "dateModified": "2026-08-11",
   "inLanguage": "zh-Hans",
@@ -108,7 +108,7 @@
 
 <p>用API去批量调用、采集AI的回答，是这两年不少GEO监测工具和方法论会选的路子——效率高、好复现、方便脚本化，从商业测量的角度看是一个很有吸引力的手段。但面对的是本质上黑箱的AI，这把用来测量黑箱的"尺子"本身准不准，或许也该先问一遍。</p>
 
-<p>8月初发布的第0号报告里记录过一个数字：在"京都 着物レンタル おすすめ"（京都 和服租赁 推荐）这句日语提问下，ChatGPT网页版给出的引用来源里，有九成来自一家联盟营销网站。或许可以说，至少在那个节点，这个数字说明：决定AI推荐哪家店的，很多时候不是店本身做得好不好，而是有没有一个联盟站愿意帮它写进榜单。</p>
+<p>8月初发布的第0号报告里记录过一个数字：在"京都 着物レンタル おすすめ"（京都 和服租赁 推荐）这句日语提问下，ChatGPT网页版在20次运行中有18次（90%）引用了同一家联盟营销网站。或许可以说，至少在那个节点，这个数字说明：决定AI推荐哪家店的，很多时候不是店本身做得好不好，而是有没有一个联盟站愿意帮它写进榜单。</p>
 
 <p>但如果不是通过ChatGPT的产品界面，而是通过底层的API去问一模一样的问题，还能得出这个结果吗？</p>
 
@@ -118,7 +118,7 @@
 
 <p>设计很直接：拿第0号报告里原样的查询语句，一字不改，一边继续用网页版（Phase 0已有数据，2026年7月21日执行，n=20），一边改用API（gpt-5.5，开启web_search工具，不加任何系统提示词，2026年7月26日执行，n=20，跑了两轮）。</p>
 
-<p>网页版的结果已经公开过：单一联盟站占据引用的九成，"媒体/联盟"这个分类整体占比53.7%。</p>
+<p>网页版的结果已经公开过：单一联盟站在20次运行中被引用了18次（90%），"媒体/联盟"这个分类整体占引用的53.7%。</p>
 
 <p>API版跑出来的结果完全是另一张榜单：</p>
 
@@ -137,7 +137,7 @@
 </tbody>
 </table>
 
-<p>网页版里占引用九成的那个联盟站，在API跑的两轮、合计20次里，出现次数是零。不是排名靠后，是压根没被API的搜索结果捞到过——把两轮跑出来的全部原始JSON都搜过一遍，确认过这一点。</p>
+<p>网页版20次里被引用18次的那个联盟站，在API跑的两轮、合计20次里，出现次数是零。不是排名靠后，是压根没被API的搜索结果捞到过——把两轮跑出来的全部原始JSON都搜过一遍，确认过这一点。</p>
 
 <p>顶上来的，换成了各家店铺自己的官网。</p>
 

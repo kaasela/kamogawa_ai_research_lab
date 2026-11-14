@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>拿 API 測 AI 能見度，「是徹頭徹尾的錯誤」｜Kääselä</title>
-<meta name="description" content="京都和服租借副研究：ChatGPT 的引用來源，網頁版和 API 完全是兩回事。網頁版占引用九成的聯盟行銷網站，API 跑了 20 次一次都沒出現。Surfer、Luxeo Team、漢堡大學的獨立測試都指向同一個方向。">
+<meta name="description" content="京都和服租借副研究：ChatGPT 的引用來源，網頁版和 API 完全是兩回事。網頁版20次裡被引用18次的聯盟行銷網站，API 跑了 20 次一次都沒出現。Surfer、Luxeo Team、漢堡大學的獨立測試都指向同一個方向。">
 <link rel="canonical" href="https://kaasela.com/zh-tw/reports/api-vs-web-visibility/">
 <link rel="alternate" hreflang="ja"      href="https://kaasela.com/reports/api-vs-web-visibility/">
 <link rel="alternate" hreflang="en"      href="https://kaasela.com/en/reports/api-vs-web-visibility/">
@@ -32,7 +32,7 @@
   "@type": "Article",
   "headline": "拿 API 測 AI 能見度，「是徹頭徹尾的錯誤」",
   "alternativeHeadline": "兩個獨立團隊這麼說，這次的和服租借副研究也印證了這一點",
-  "description": "京都和服租借副研究：ChatGPT 的引用來源，網頁版和 API 完全是兩回事。網頁版占引用九成的聯盟行銷網站，API 跑了 20 次一次都沒出現。Surfer、Luxeo Team、漢堡大學的獨立測試都指向同一個方向。",
+  "description": "京都和服租借副研究：ChatGPT 的引用來源，網頁版和 API 完全是兩回事。網頁版20次裡被引用18次的聯盟行銷網站，API 跑了 20 次一次都沒出現。Surfer、Luxeo Team、漢堡大學的獨立測試都指向同一個方向。",
   "datePublished": "2026-08-11",
   "dateModified": "2026-08-11",
   "inLanguage": "zh-Hant",
@@ -108,7 +108,7 @@
 
 <p>用 API 批次呼叫、蒐集 AI 的回答，是這兩年不少 GEO（Generative Engine Optimization）監測工具和方法論會選的做法——效率高、好複現、方便寫成腳本，從商業測量的角度來看是很有吸引力的手段。但面對的是本質上是黑箱的 AI，這把用來測量黑箱的「尺」本身準不準，或許也該先問一遍。</p>
 
-<p>8月初發布的第0號報告裡記錄過一個數字：在「京都 着物レンタル おすすめ」（京都 和服租借 推薦）這句日語提問下，ChatGPT 網頁版給出的引用來源裡，有九成來自一家聯盟行銷網站。或許可以說，至少在那個時間點，這個數字說明了：決定 AI 推薦哪家店的，很多時候不是店本身做得好不好，而是有沒有一個聯盟行銷網站願意把它放進推薦名單。</p>
+<p>8月初發布的第0號報告裡記錄過一個數字：在「京都 着物レンタル おすすめ」（京都 和服租借 推薦）這句日語提問下，ChatGPT 網頁版在20次執行中有18次（90%）引用了同一家聯盟行銷網站。或許可以說，至少在那個時間點，這個數字說明了：決定 AI 推薦哪家店的，很多時候不是店本身做得好不好，而是有沒有一個聯盟行銷網站願意把它放進推薦名單。</p>
 
 <p>但如果不是透過 ChatGPT 的產品介面，而是透過底層的 API 去問一模一樣的問題，還能得出這個結果嗎？</p>
 
@@ -118,7 +118,7 @@
 
 <p>設計很直接：拿第0號報告裡原樣的查詢語句，一字不改，一邊繼續用網頁版（Phase 0 已有資料，2026年7月21日執行，n=20），一邊改用 API（gpt-5.5，開啟 web_search 工具，不加任何系統提示詞，2026年7月26日執行，n=20，跑了兩輪）。</p>
 
-<p>網頁版的結果已經公開過：單一聯盟行銷網站占據引用的九成，「媒體／聯盟」這個分類整體占比53.7%。</p>
+<p>網頁版的結果已經公開過：單一聯盟行銷網站在20次執行中被引用了18次（90%），「媒體／聯盟」這個分類整體占引用的53.7%。</p>
 
 <p>API 版跑出來的結果完全是另一張榜單：</p>
 
@@ -137,7 +137,7 @@
 </tbody>
 </table>
 
-<p>網頁版裡占引用九成的那個聯盟行銷網站，在 API 跑的兩輪、合計20次裡，出現次數是零。不是排名靠後，是根本沒被 API 的搜尋結果撈到過——把兩輪跑出來的全部原始 JSON 都搜過一遍，確認過這一點。</p>
+<p>網頁版20次裡被引用18次的那個聯盟行銷網站，在 API 跑的兩輪、合計20次裡，出現次數是零。不是排名靠後，是根本沒被 API 的搜尋結果撈到過——把兩輪跑出來的全部原始 JSON 都搜過一遍，確認過這一點。</p>
 
 <p>排到前面的，換成了各家店鋪自己的官方網站。</p>
 
