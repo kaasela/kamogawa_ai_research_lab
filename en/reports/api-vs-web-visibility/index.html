@@ -116,7 +116,7 @@
 
 <h2 id="two-paths">Same question, two completely different paths</h2>
 
-<p>The design is straightforward. I reused the query text from Report #000 word for word — one arm continuing with the web version (Phase 0 data already collected, run on July 21, 2026, n=20), the other switching to the API (gpt-5.5, web_search tool enabled, no system prompt, run on July 26, 2026, n=20, two rounds).</p>
+<p>The design is straightforward. I reused the query text from Report #000 word for word — one arm continuing with the web version (Phase 0 data already collected, run on July 21, 2026, n=20), the other switching to the API (gpt-5.5, web_search tool enabled, no system prompt, run on July 26, 2026, n=20 per round, two rounds (v1 and v2); the table below uses the 20 runs of v2).</p>
 
 <p>I've already published the web-version result: a single affiliate site was cited in 18 of 20 runs (90%), and the "media/affiliate" category as a whole accounted for 53.7% of citations.</p>
 
@@ -137,7 +137,7 @@
 </tbody>
 </table>
 
-<p>The affiliate site cited in 18 of 20 web-version runs appeared exactly zero times across both API rounds — 20 runs combined. Not "ranked low." Never picked up by the API's search results at all — I searched the full raw JSON from both rounds to confirm this.</p>
+<p>The affiliate site cited in 18 of 20 web-version runs appeared exactly zero times in either of the two API rounds (v1 and v2, 20 runs each). Not "ranked low." Never picked up by the API's search results at all — I confirmed this by searching the raw JSON for v2 and the recorded citation domains for v1 (the v1 raw JSON was not kept).</p>
 
 <p>What rose to the top instead: each shop's own official site.</p>
 
@@ -179,7 +179,7 @@
 
 <p>This is a sub-study. It isn't folded into the main 12-month monthly observation series, and the sample is nowhere near large enough to support a conclusion. Here are the limits, stated plainly:</p>
 
-<p>n=20 was run completely for two rounds only on the API side. The web-version data comes from the Phase 0 observation on July 21, 2026 — the two sides weren't run on the same day; there's a 5-day gap that can't be ruled out as a factor. The comparison itself is asymmetric: on the API side, the full search actions and raw returns are visible, while the web version is a black box — "each side's results" can be compared, but not "each side's process." Only one query and one category were tested (kimono, Japanese: "京都 着物レンタル おすすめ"), an extreme category where a single affiliate site is heavily dominant; whether the same swap happens in a category where citation sources are already more spread out (tea-ceremony experiences, for instance) may turn out differently. The API's own noise floor has only been measured across v1 and v2 — not enough rounds to set a defensible threshold.</p>
+<p>On the API side, n=20 was run for two rounds (v1 and v2), but v1 did not record search actions, so search actions are confirmed for the 20 runs of v2 only. The web-version data comes from the Phase 0 observation on July 21, 2026 — the two sides weren't run on the same day; there's a 5-day gap that can't be ruled out as a factor. The comparison itself is asymmetric: on the API side, the full search actions and raw returns are visible, while the web version is a black box — "each side's results" can be compared, but not "each side's process." Only one query and one category were tested (kimono, Japanese: "京都 着物レンタル おすすめ"), an extreme category where a single affiliate site is heavily dominant; whether the same swap happens in a category where citation sources are already more spread out (tea-ceremony experiences, for instance) may turn out differently. The API's own noise floor has only been measured across v1 and v2 — not enough rounds to set a defensible threshold.</p>
 
 <p>Until those gaps are filled, "the API can't observe GEO capture" remains a strong hypothesis backed by real observations, but one that still only looks at one side's (the API's) internal behavior — not a settled conclusion.</p>
 
