@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Kääselä">
   <title>Kääselä</title>
   <!-- 2026-11-08: 三点マークから K の落款へ。ヘッダーのロゴ ää（fill色の塗り＋黒字）と同じ文法。
-       面 #8A2432（臙脂）・K は白（約8.8:1）。2026-11-15 に碧から変更。K は書体に依存しないようパスで描く -->
-  <rect width="32" height="32" rx="3" fill="#8A2432"/>
+       面 #8E3325・K は白（約7.9:1）。2026-11-15 に碧から変更し、同日 #8A2432 から調整。K は書体に依存しないようパスで描く -->
+  <rect width="32" height="32" rx="3" fill="#8E3325"/>
   <g stroke="#FFFFFF" stroke-width="4" fill="none" stroke-linecap="butt" stroke-linejoin="miter">
     <path d="M11 6V26"/>
     <path d="M22.4 6.6L11.6 16.4"/>
