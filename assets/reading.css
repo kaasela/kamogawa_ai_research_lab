@@ -14,7 +14,7 @@
   --rule-2:#CFCCC7;
   --rule-3:#8C8880;
   --river:var(--accent);
-  --river-dark:#155553;
+  --river-dark:#6C1C27;
   --river-bright:var(--fill);
   --bl:30px;
   --s1:5px;  --s2:10px; --s3:15px; --s4:20px; --s5:25px;
@@ -29,10 +29,10 @@
   line-height:var(--bl);font-feature-settings:"palt";
 }
 /* 本文内リンク。home.css の a{color:inherit} を本文側でだけ上書きする */
-.L1-wrap a,.L2-wrap a{color:var(--river);text-decoration:none;
-  border-bottom:1px solid var(--rule-2);
+.L1-wrap a,.L2-wrap a{color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--rule-3);
   transition:color .15s ease,border-color .15s ease;}
-.L1-wrap a:hover,.L2-wrap a:hover{color:var(--river-dark);border-bottom-color:var(--river);}
+.L1-wrap a:hover,.L2-wrap a:hover{color:var(--river);border-bottom-color:var(--river);}
 .jp{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:500;}
 .L1-wrap{padding-top:var(--s6);}
 .L2-wrap{padding-top:0;}

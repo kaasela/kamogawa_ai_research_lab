@@ -24,14 +24,14 @@
   --d-faint:#8f8f8f;
   --d-line:#2e2e2e;
 
-  /* 鴨川水色。DESIGN_PRINCIPLES v3.5 で唯一のブランド色として
-     残っているもの。廃止済みの River Blue #4A90A4 ではない。
-     2026-11-08 に二役へ分離。2026-11-09 に色相を「碧」（青と緑の混色）へ変更：
-     文字用 --accent #1E6E6B、面・罫用 --fill #4FA3A0。
-     旧値 #00748D／#139AAB は _lab/_bak-2026-11-09/、さらに前の #3C7688 は _lab/_bak-2026-11-08/ */
-  --accent:#1E6E6B;          /* 文字用：リンク・hover・小字。白地 約5.9:1。白字を載せるhoverも可 */
-  --accent-on-dark:#4FA3A0;  /* 黒地用。#111 に対し約 6.4:1 */
-  --fill:#4FA3A0;            /* 面・罫用：落款・短罫・フッター太線。上に載せる文字は黒（約 7:1）。白字は不可 */
+  /* 臙脂（v3.9・2026-11-15）。唯一のブランド色。
+     碧（#1E6E6B／#4FA3A0）から変更。理由：「碧」では権威感が足りない、という Yan の判断。
+     用法も変えた：赤は面（落款・罫・フッター太線・強調柱）と、hover・「自社」強調・小ラベルに限る。
+     本文リンクは墨色＋下線、hover で赤。広い面積に赤を使わない（データ語境で警告色に読まれるため）。
+     旧値 #1E6E6B／#4FA3A0／#155553 は 2026-11-09 版（v3.8）。さらに前は _lab/_bak-2026-11-08/ */
+  --accent:#8A2432;          /* 文字・hover用：白地 約8.8:1。上に白字可（.pill:hover） */
+  --accent-on-dark:#D45A6A;  /* 黒地用（暗い臙脂は黒地で沈むため明度を上げた）。#111 に対し約4.9:1 */
+  --fill:#8A2432;            /* 面・罫用：落款・短罫・フッター太線。上に載せる文字は白（約8.8:1）。黒字は不可 */
 
   --mono:'IBM Plex Mono',monospace;
   --sans:'Libre Franklin','Zen Kaku Gothic New',sans-serif;
@@ -68,7 +68,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{
 header.site{padding:28px 0 20px;border-bottom:1px solid var(--line);}
 .site-row{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:20px;}
 .logo{font-family:var(--sans);font-weight:700;font-size:20px;letter-spacing:-.01em;text-decoration:none;}
-.logo .u{background:var(--fill);color:var(--ink);padding:0 3px;margin:0 1px;border-radius:2px;}
+.logo .u{background:var(--fill);color:#fff;padding:0 3px;margin:0 1px;border-radius:2px;}
 .logo-sub{font-family:var(--mono);font-size:11px;color:var(--faint);margin-top:2px;}
 nav.primary{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
 nav.primary a{font-family:var(--sans);font-size:14px;text-decoration:none;transition:color .18s ease;}
@@ -292,7 +292,8 @@ a.topic-card:focus-visible{outline:none;}
 /* ---------- 07 contact + newsletter ---------- */
 .news{background:var(--paper-2);}
 .contact-l{grid-column:1/7;}
-.contact-l a{color:var(--accent);}
+.contact-l a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:var(--faint);}
+.contact-l a:hover{color:var(--accent);text-decoration-color:var(--accent);}
 .contact-r{grid-column:8/13;font-size:13px;color:var(--mid);}
 .contact-r b{color:var(--ink);display:block;margin-bottom:6px;font-weight:500;}
 /* 「研究の趣旨に沿う内容」の範囲を具体で示す注記。確定稿にあったもの。
