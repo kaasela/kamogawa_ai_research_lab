@@ -32,7 +32,7 @@
 .L1-wrap a,.L2-wrap a{color:var(--ink);text-decoration:none;
   border-bottom:1px solid var(--rule-3);
   transition:color .15s ease,border-color .15s ease;}
-.L1-wrap a:hover,.L2-wrap a:hover{color:var(--river);border-bottom-color:var(--river);}
+.L1-wrap a:hover,.L2-wrap a:hover{border-bottom-color:var(--river);}
 .jp{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;font-weight:500;}
 .L1-wrap{padding-top:var(--s6);}
 .L2-wrap{padding-top:0;}
@@ -150,7 +150,7 @@
 .L1-pill{display:inline-flex;align-items:center;font-size:13px;color:var(--ink);
   border:1px solid var(--rule-3);border-radius:999px;padding:9px 20px;
   text-decoration:none;background:transparent;margin-top:var(--s2);}
-.L1-pill:hover{border-color:var(--river);color:var(--river-dark);}
+.L1-pill:hover{border-color:var(--river);}
 .L1-note{grid-column:3;grid-row:2;max-width:none;font-size:12px;line-height:1.7;
   color:var(--faint);border-top:1px solid var(--rule-2);padding-top:8px;}
 @media(max-width:1000px){.L1-note{grid-column:2;max-width:34em;}}
@@ -275,8 +275,8 @@
   border:0;background:transparent;color:var(--ink);}
 .L1-form input:focus{outline:none;}
 .L1-form button{border:0;border-left:1px solid var(--rule-3);background:transparent;
-  cursor:pointer;font:inherit;font-size:13px;color:var(--river);padding:10px var(--s3);}
-.L1-form button:hover{color:var(--river-dark);background:var(--rule-1);}
+  cursor:pointer;font:inherit;font-size:13px;color:var(--ink);padding:10px var(--s3);}
+.L1-form button:hover{background:var(--rule-1);}
 
 /* ============================================================
    6. L2 — 読み物（Reading）
@@ -297,7 +297,7 @@
 .L2-tags{margin:var(--s3) 0 0;padding:0;display:flex;gap:var(--s3);flex-wrap:wrap;
   font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;}
 .L2-tags a{color:var(--sub);border-bottom:1px solid var(--rule-2);}
-.L2-tags a:hover{color:var(--river);border-bottom-color:var(--river);}
+.L2-tags a:hover{border-bottom-color:var(--river);}
 
 /* 目次 — 「← Reports／タイトル／目次／本文」の一つ。Report 型のみ
    上の罫は引かない。直前の.L2-metaがすでに区切りの罫を持っており、
@@ -306,7 +306,7 @@
   border-bottom:1px solid var(--rule-2);font-size:13px;}
 .L2-toc li{padding:3px 0;}
 .L2-toc a{color:var(--sub);border:0;}
-.L2-toc a:hover{color:var(--river);}
+.L2-toc a:hover{color:var(--ink);}
 .L2-toc .num{color:var(--faint);margin-right:var(--s2);}
 
 /* 追従目次 — 広い画面の左余白に置く。組幅680pxはここでは変えない。
@@ -320,7 +320,7 @@
   .L2-rail li{padding:3px 0;}
   .L2-rail a{display:block;font-size:12px;line-height:1.5;color:var(--faint);
     border:0;}
-  .L2-rail a:hover{color:var(--river);}
+  .L2-rail a:hover{color:var(--ink);}
   /* 追従目次が出る画面幅では、冒頭の静的目次は二重になるため隠す */
   .L2-toc{display:none;}
 }
@@ -330,7 +330,7 @@
   flex-wrap:wrap;gap:var(--s3);}
 .L2-lang{display:flex;gap:var(--s3);font-size:11.5px;}
 .L2-lang a{color:var(--faint);border:0;}
-.L2-lang a:hover{color:var(--river);}
+.L2-lang a:hover{color:var(--ink);}
 .L2-lang [aria-current]{color:var(--ink);}
 
 /* ページ上部へ戻る — 長い記事のみ。スクロール後に現れる */
@@ -339,7 +339,7 @@
   border:0;line-height:1;opacity:0;pointer-events:none;
   transition:opacity .15s;}
 .L2-top.is-visible{opacity:1;pointer-events:auto;}
-.L2-top:hover{color:var(--river);}
+.L2-top:hover{color:var(--ink);}
 .L2-top .arrow{display:block;font-size:18px;text-align:center;margin-bottom:2px;}
 @media print{.L2-top{display:none;}}
 
@@ -389,3 +389,7 @@ sup.L2-fn a{color:inherit;border:0;}
   h1,h2,.L1-h2,.L2-body h2{break-after:avoid;page-break-after:avoid;}
   .L1-cap,.L2-notes{font-size:8.5pt;}
 }
+
+/* ヘッダー内の ää を赤字にしている旧インライン指定（privacy 各ページ）を無効化。赤は文字に使わない（v3.9 方針）。
+   HTML 側を直したら、この行は不要 */
+span[style*="var(--river)"]{color:inherit!important;}
